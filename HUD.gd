@@ -1,6 +1,6 @@
 extends Control
 
-onready var heart_container: HBoxContainer = $HBoxContainer2/LifeContainer
+onready var heart_container: HBoxContainer = $LifeContainer
 var p_heart_icon = preload("res://HeartIcon.tscn")
 
 # Called when the node enters the scene tree for the first time.

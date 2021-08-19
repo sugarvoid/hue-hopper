@@ -11,23 +11,25 @@ var frames: Dictionary = {
 
 var rotation_dir = 0
 var flips_achived: int = 0
-#const UP = Vector2(0, -1)
-#const MAXSPEED: int = 64 # moved to parent
 const ACCELERATION = 600
 const AIR_RES = 0.02
 const JUMPFORCE: float = 400.00
 const FRICTION = 0.15
-var hearts: int = 3
 
+var hearts: int = 3
 var coins: int = 0
-export (float) var rotation_speed = 3
+var rotation_speed: float = 4.0
+
+onready var pulse_detector = $Pulse/CollisionShape2D
 
 func _ready() -> void:
 	Signals.emit_signal("on_player_life_change", self.hearts)
 	self.GRAVITY = 500
 	self.speed = 70.00
-	self.health = 1
-	self.attack = 1
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_released("ui_accept"):
+		send_pulse()
 
 func _physics_process(delta: float) -> void:
 	
@@ -41,8 +43,6 @@ func _physics_process(delta: float) -> void:
 	if !is_on_floor():
 		rotation_dir = 0
 		
-		
-		
 		if Input.is_action_pressed("ui_right"):
 			rotation_dir += 1
 		if Input.is_action_pressed("ui_left"):
@@ -55,19 +55,12 @@ func _physics_process(delta: float) -> void:
 		else:
 			sprite.frame = 1
 	
-	
-	#if velocity.y < -JUMPFORCE/2:
-		#velocity.y = -JUMPFORCE/2
-		#if x_input == 0:
-		#	velocity.x = lerp(velocity.x, 0, AIR_RES)
-	
 	velocity.x = lerp(velocity.x, 0, FRICTION)
-
 	rotation += rotation_dir * rotation_speed * delta
 
 
-func add_diamond() -> void:
-	self.diamonds += 1
+func add_point() -> void:
+	self.score += 1
 
 func take_damage() -> void:
 	self.hearts -= 1
@@ -77,9 +70,10 @@ func _on_AttackArea_body_entered(body: Node) -> void:
 	print("attack")
 	if body.is_in_group("Enemy"):
 		body.take_damage(self.attack)
-		body.get_knocked_back()
 	
 
+func send_pulse() -> void:
+	pulse_detector.disabled = false
 
 func _on_PlayerArea_body_entered(body: Node) -> void:
 	if body.is_in_group("Enemy"):
@@ -92,3 +86,9 @@ func _on_Player_health_changed() -> void:
 	#animatedSprite.play("hit")
 	# pass # Replace with function body.
 
+
+
+func _on_Pulse_body_entered(body: Node) -> void:
+	if body.is_in_group("enemy"):
+		body.queue_free()
+	#pass # Replace with function body.

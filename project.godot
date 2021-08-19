@@ -15,12 +15,18 @@ _global_script_classes=[ {
 "path": "res://actor/Actor.gd"
 }, {
 "base": "Actor",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://actor/enemy/Enemy.gd"
+}, {
+"base": "Actor",
 "class": "Player",
 "language": "GDScript",
 "path": "res://actor/player/Player.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
+"Enemy": "",
 "Player": ""
 }
 
