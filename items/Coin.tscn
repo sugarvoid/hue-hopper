@@ -5,4 +5,4 @@
 [node name="Coin" instance=ExtResource( 1 )]
 
 [node name="AnimatedSprite" parent="." index="0"]
-frame = 0
+frame = 1

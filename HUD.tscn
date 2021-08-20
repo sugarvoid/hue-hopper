@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/NicoClean-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://HUD.gd" type="Script" id=2]
-
-[sub_resource type="DynamicFont" id=1]
-size = 22
-font_data = ExtResource( 1 )
+[ext_resource path="res://assets/tiles.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
 size = 25
 font_data = ExtResource( 1 )
 
@@ -18,29 +22,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="LifeContainer" type="HBoxContainer" parent="."]
-margin_bottom = 16.0
-custom_constants/separation = -2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -60.0
-margin_top = 3.0
-margin_bottom = 16.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="HBoxContainer"]
-margin_right = 56.0
-margin_bottom = 23.0
-custom_fonts/font = SubResource( 1 )
-text = "0000"
 
 [node name="HBoxContainer2" type="PanelContainer" parent="."]
 anchor_left = 0.5
@@ -60,3 +41,47 @@ margin_right = 118.0
 margin_bottom = 33.0
 custom_fonts/font = SubResource( 2 )
 text = "HEAD"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 13.0961, 26.2236 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 201, 129, 12, 12 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 25.0016, 27.0173 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 327, 129, 12, 12 )
+
+[node name="CoinLabel" type="Label" parent="."]
+margin_left = 30.5575
+margin_top = 20.2709
+margin_right = 63.5575
+margin_bottom = 36.2709
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeContainer" type="HBoxContainer" parent="."]
+margin_right = 57.0
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="."]
+margin_left = 136.825
+margin_top = 4.58739
+margin_right = 208.825
+margin_bottom = 30.5874
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "000"
+__meta__ = {
+"_edit_use_anchors_": false
+}

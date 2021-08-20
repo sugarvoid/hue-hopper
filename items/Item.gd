@@ -23,6 +23,7 @@ func _ready() -> void:
 
 func _on_Item_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
+		Signals.emit_signal("player_coin_amount_changed", 1)
 		animated_player.play("picked_up")
 	#pass # Replace with function body.
 

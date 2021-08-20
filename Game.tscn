@@ -16,10 +16,10 @@
 [node name="Level" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 131.015, 207.309 )
+position = Vector2( 104.481, 120.008 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 52.3251, 169.462 )
+position = Vector2( 50.4352, 223.639 )
 
 [node name="ItemSpawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( 96.3258, -21.4057 )

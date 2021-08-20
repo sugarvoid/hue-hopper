@@ -67,5 +67,4 @@ frame = 25
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 frames = SubResource( 8 )
 animation = "blue"
-frame = 1
 playing = true
