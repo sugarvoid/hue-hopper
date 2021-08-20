@@ -14,23 +14,23 @@ region = Rect2( 96, 48, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 3 )
-region = Rect2( 144, 48, 24, 24 )
+region = Rect2( 192, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 3 )
-region = Rect2( 168, 48, 24, 24 )
+region = Rect2( 144, 24, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
-region = Rect2( 144, 24, 24, 24 )
+region = Rect2( 168, 24, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
-region = Rect2( 168, 24, 24, 24 )
+region = Rect2( 144, 48, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 24, 24 )
+region = Rect2( 168, 48, 24, 24 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
@@ -39,19 +39,19 @@ animations = [ {
 "name": "blue",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 3 ) ],
 "loop": true,
-"name": "wings",
+"name": "faller",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "spike",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
-"name": "faller",
+"name": "wings",
 "speed": 5.0
 } ]
 
@@ -67,4 +67,5 @@ frame = 25
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 frames = SubResource( 8 )
 animation = "blue"
+frame = 1
 playing = true

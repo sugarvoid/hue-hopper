@@ -3,6 +3,7 @@ extends Actor
 class_name Enemy
 
 
+
 onready var animated_sprite = $AnimatedSprite
 
 

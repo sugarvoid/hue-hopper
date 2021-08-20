@@ -3,6 +3,7 @@ extends Actor
 
 class_name Player
 
+signal player_has_landed()
 
 var frames: Dictionary = { 
 	"defualt" : 0,
@@ -21,6 +22,8 @@ var coins: int = 0
 var rotation_speed: float = 4.0
 
 onready var pulse_detector = $Pulse/CollisionShape2D
+onready var head = $Head
+onready var feet = $Feet
 
 func _ready() -> void:
 	Signals.emit_signal("on_player_life_change", self.hearts)
@@ -35,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	
 	var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left") # 1 = right  -1 = left
 
-	self.handle_facing_direction(x_input)
+	#self.handle_facing_direction(x_input)
 
 	velocity.x += x_input * ACCELERATION * delta
 	velocity.x = clamp(velocity.x, -speed, speed)
@@ -49,6 +52,8 @@ func _physics_process(delta: float) -> void:
 			rotation_dir -= 1
 	
 	if is_on_floor():
+		Signals.emit_signal("player_has_landed", get_landed_position())
+		#print(get_landed_position())
 		velocity.y = -JUMPFORCE
 		if x_input != 0:
 			sprite.frame = 0
@@ -61,6 +66,13 @@ func _physics_process(delta: float) -> void:
 
 func add_point() -> void:
 	self.score += 1
+
+func get_landed_position() -> String:
+	if head.global_position.y > feet.global_position.y:
+		return "Head"
+	else:
+		return "Feet"
+	
 
 func take_damage() -> void:
 	self.hearts -= 1

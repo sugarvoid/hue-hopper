@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://actor/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor/player/Player.gd" type="Script" id=2]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 height = 5.81746
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/charater_color_sheet.png-790d94642c30a5bb9ef3afe7410fd8d7.stex"
+
+[sub_resource type="CircleShape2D" id=2]
 radius = 152.616
 
 [node name="Player" groups=[
@@ -15,15 +18,24 @@ radius = 152.616
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
-frame = 0
+texture = SubResource( 3 )
+hframes = 2
+vframes = 1
+frame = 1
 
 [node name="Pulse" type="Area2D" parent="." index="2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pulse" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 disabled = true
+
+[node name="Head" type="Position2D" parent="." index="3"]
+position = Vector2( 0, -10.64 )
+
+[node name="Feet" type="Position2D" parent="." index="4"]
+position = Vector2( 0, 12.604 )
 
 [connection signal="body_entered" from="Pulse" to="." method="_on_Pulse_body_entered"]
