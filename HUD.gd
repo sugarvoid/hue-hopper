@@ -1,10 +1,7 @@
 extends Control
 
-
-const MISS: int = 25
-const HIT: int = 50
-
-
+const MISS: int = 5
+const HIT: int = 1
 
 var p_heart_icon = preload("res://HeartIcon.tscn")
 var last_color: String = "Yellow"
@@ -12,7 +9,7 @@ var player_coins: int
 var player_score: int
 
 onready var heart_container: HBoxContainer = $LifeContainer
-onready var label: Label = $HBoxContainer2/Order
+onready var label: Label = $Order
 
 var colors: Array = [
 	"Red",
@@ -22,7 +19,7 @@ var colors: Array = [
 ]
 
 func _ready() -> void:
-	player_coins = 0
+	player_coins = 1
 	change_label_text("Yellow")
 	clear_hearts()
 	Signals.connect("on_player_life_change", self, "_on_player_life_change")
@@ -48,7 +45,7 @@ func update_player_coins(amount: int):
 func check_player(player_color: String):
 	var next_color: String = colors[randi() % colors.size()]
 	if player_color == self.last_color:
-		player_score += HIT
+		player_score += (HIT * player_coins)
 	else:
 		player_score -= MISS
 	change_label_text(next_color)

@@ -11,15 +11,19 @@
 
 [node name="BackGround" parent="." instance=ExtResource( 6 )]
 
-[node name="HUD" parent="." instance=ExtResource( 5 )]
-
 [node name="Level" parent="." instance=ExtResource( 1 )]
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 104.481, 120.008 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 50.4352, 223.639 )
+position = Vector2( 168.52, 188.429 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 51.3462, 191.741 )
+diriction = 1
 
 [node name="ItemSpawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( 96.3258, -21.4057 )
