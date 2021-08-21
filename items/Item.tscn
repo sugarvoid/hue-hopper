@@ -24,15 +24,15 @@ radius = 6.15177
 
 [sub_resource type="Animation" id=5]
 resource_name = "picked_up"
-length = 0.499
+length = 0.444
 tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.494967 ),
+"times": PoolRealArray( -1.16415e-10, 0.438562 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
@@ -54,6 +54,8 @@ shape = SubResource( 4 )
 anims/picked_up = SubResource( 5 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0.53093, 0.0294962 )
+scale = Vector2( 0.887915, 0.890865 )
 
 [connection signal="body_entered" from="." to="." method="_on_Item_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

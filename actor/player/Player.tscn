@@ -4,6 +4,7 @@
 [ext_resource path="res://actor/player/Player.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 11.3122
 height = 5.81746
 
 [sub_resource type="StreamTexture" id=2]
@@ -18,7 +19,7 @@ radius = 152.616
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 0, -0.887 )
+position = Vector2( 0.0936432, -0.980645 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
@@ -28,6 +29,7 @@ vframes = 1
 frame = 0
 
 [node name="Pulse" type="Area2D" parent="." index="2"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pulse" index="0"]
 shape = SubResource( 3 )
