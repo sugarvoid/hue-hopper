@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://fonts/NicoPups-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://hud/HUD.gd" type="Script" id=2]
 [ext_resource path="res://assets/tiles.png" type="Texture" id=3]
 
@@ -63,9 +63,9 @@ region_rect = Rect2( 327, 129, 12, 12 )
 
 [node name="CoinLabel" type="Label" parent="."]
 margin_left = 30.1607
-margin_top = 19.8741
+margin_top = 21.0647
 margin_right = 66.1607
-margin_bottom = 47.8741
+margin_bottom = 49.0647
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "000"
