@@ -1,7 +1,7 @@
 extends Area2D
 
+var speed: float = 50
 
-export var speed: float = 50
 onready var animated_player = $AnimationPlayer
 
 
@@ -18,8 +18,5 @@ func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "picked_up":
 		queue_free()
 
-
-
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
-	#pass # Replace with function body.

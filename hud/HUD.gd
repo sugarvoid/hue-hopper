@@ -35,7 +35,7 @@ func clear_hearts():
 
 func set_hearts(hearts: int):
 	clear_hearts()
-	for i in range(hearts):
+	for _i in range(hearts):
 		heart_container.add_child(p_heart_icon.instance())
 
 func update_player_coins(amount: int):

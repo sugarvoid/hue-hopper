@@ -69,7 +69,7 @@ func add_point() -> void:
 	self.score += 1
 
 func find_largest_dict_val(dict: Dictionary):
-	var max_val = -999999
+	var max_val = -9999
 	var max_var
 	for i in dict:
 		var val =  dict[i]

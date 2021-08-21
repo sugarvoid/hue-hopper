@@ -2,18 +2,15 @@ extends KinematicBody2D
 
 class_name Actor 
 
-signal health_changed()
+#signal health_changed()
 
 
 var GRAVITY: float = 500.0
 const UP = Vector2(0, -1)
 var velocity: Vector2 = Vector2.ZERO
 var is_facing_right: bool = true
-var is_attacking: bool = false
 var speed: float
-var attack: int
-var health: int
-
+#var health: int
 
 onready var sprite: Sprite = $Sprite
 
@@ -23,7 +20,6 @@ func _physics_process(delta: float) -> void:
 		
 	velocity.y += GRAVITY * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
-	
 
 func flip_sprite() -> void:
 	self.scale.x *= -1 
