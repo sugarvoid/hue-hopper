@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/NicoPups-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://HUD.gd" type="Script" id=2]
+[ext_resource path="res://hud/HUD.gd" type="Script" id=2]
 [ext_resource path="res://assets/tiles.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
@@ -9,7 +9,6 @@ size = 32
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 27
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -25,10 +24,10 @@ __meta__ = {
 }
 
 [node name="Order" type="Label" parent="."]
-margin_left = 48.6504
-margin_top = 78.7953
-margin_right = 161.65
-margin_bottom = 110.795
+margin_left = 44.6819
+margin_top = 48.6347
+margin_right = 157.681
+margin_bottom = 80.6347
 custom_fonts/font = SubResource( 1 )
 text = "[filler]"
 align = 1
@@ -49,23 +48,24 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 13.0961, 26.2236 )
+position = Vector2( 14.6835, 27.4142 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 201, 129, 12, 12 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 25.0016, 27.0173 )
+position = Vector2( 24.6047, 27.811 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 327, 129, 12, 12 )
 
 [node name="CoinLabel" type="Label" parent="."]
-margin_left = 30.5575
-margin_top = 10.7465
-margin_right = 66.5575
-margin_bottom = 38.7465
+margin_left = 30.1607
+margin_top = 19.8741
+margin_right = 66.1607
+margin_bottom = 47.8741
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "000"
@@ -81,13 +81,14 @@ __meta__ = {
 }
 
 [node name="ScoreLabel" type="Label" parent="."]
-margin_left = 86.7937
-margin_top = -5.22205
-margin_right = 189.794
-margin_bottom = 38.778
+margin_left = 112.318
+margin_top = 1.1748
+margin_right = 199.318
+margin_bottom = 45.1748
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "000"
+text = "0000"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

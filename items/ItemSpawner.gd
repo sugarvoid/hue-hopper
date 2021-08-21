@@ -2,7 +2,7 @@ extends Node2D
 
 
 
-var next_spawn_time: float = 3.0
+var next_spawn_time: float = 5.0
 
 var p_items: Array = [
 	preload("res://items/Coin.tscn")

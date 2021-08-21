@@ -32,7 +32,7 @@ var knockup: int = 50
 	#pass # Replace with function body.
 
 func _ready() -> void:
-	speed = 10
+	speed = 15
 	
 	if diriction == diriction_dic["right"]:
 		flip_sprite() 
@@ -87,4 +87,11 @@ func is_dead() -> bool:
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
+	#pass # Replace with function body.
+
+
+func _on_Area2D_body_entered(body: Node) -> void:
+	if body.is_in_group("player"):
+		print("got player")
+		body.take_damage()
 	#pass # Replace with function body.

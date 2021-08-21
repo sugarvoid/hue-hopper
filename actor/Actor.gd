@@ -25,10 +25,6 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 
-func take_damage_old(amount: int):
-	self.health -= amount
-	emit_signal("health_changed")
-
 func flip_sprite() -> void:
 	self.scale.x *= -1 
 

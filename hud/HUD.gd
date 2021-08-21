@@ -1,9 +1,9 @@
 extends Control
 
-const MISS: int = 5
+const MISS: int = 3
 const HIT: int = 1
 
-var p_heart_icon = preload("res://HeartIcon.tscn")
+var p_heart_icon = preload("res://hud/HeartIcon.tscn")
 var last_color: String = "Yellow"
 var player_coins: int
 var player_score: int
@@ -47,8 +47,10 @@ func check_player(player_color: String):
 	if player_color == self.last_color:
 		player_score += (HIT * player_coins)
 	else:
-		player_score -= MISS
+		player_score -= (MISS * player_coins)
 	change_label_text(next_color)
+	if player_score < 0:
+		player_score = 0
 	$ScoreLabel.set_text(str(player_score))
 	self.last_color = next_color
 

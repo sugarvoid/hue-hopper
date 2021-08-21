@@ -105,6 +105,10 @@ func debug_points():
 
 func take_damage() -> void:
 	self.hearts -= 1
+	
+	if self.hearts <= 0:
+		get_tree().change_scene("res://scenes/GameOver.tscn")
+		
 	Signals.emit_signal("on_player_life_change", self.hearts)
 
 func _on_AttackArea_body_entered(body: Node) -> void:
