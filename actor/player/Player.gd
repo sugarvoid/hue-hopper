@@ -23,6 +23,7 @@ onready var blue: Position2D = $Blue
 onready var red: Position2D = $Red
 onready var green: Position2D = $Green
 onready var yellow: Position2D = $Yellow
+onready var timer: Timer = $Timer
 
 var colors: Array = [blue,red,green,yellow]
 
@@ -35,8 +36,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("pulse"):
 		pass
 		#send_pulse()
-	if event.is_action_released("start"):
-		has_game_started = true
 
 func _physics_process(delta: float) -> void:
 	if has_game_started:
@@ -123,14 +122,11 @@ func add_coin(amount: int):
 func send_pulse() -> void:
 	pulse_detector.disabled = false
 
-func _on_PlayerArea_body_entered(body: Node) -> void:
-	if body.is_in_group("Enemy"):
-		print("hit by pig")
-
-
-func _on_Player_health_changed() -> void:
-	print("hit")
 
 func _on_Pulse_body_entered(body: Node) -> void:
 	if body.is_in_group("enemy"):
 		body.queue_free()
+
+
+func _on_Timer_timeout() -> void:
+	has_game_started = true

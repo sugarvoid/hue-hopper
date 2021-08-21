@@ -3,13 +3,13 @@
 [ext_resource path="res://actor/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor/player/Player.gd" type="Script" id=2]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 height = 5.81746
 
-[sub_resource type="StreamTexture" id=3]
+[sub_resource type="StreamTexture" id=2]
 load_path = "res://.import/charater_color_sheet.png-790d94642c30a5bb9ef3afe7410fd8d7.stex"
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 152.616
 
 [node name="Player" groups=[
@@ -19,10 +19,10 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 0, -0.887 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
-texture = SubResource( 3 )
+texture = SubResource( 2 )
 hframes = 2
 vframes = 1
 frame = 0
@@ -30,7 +30,7 @@ frame = 0
 [node name="Pulse" type="Area2D" parent="." index="2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pulse" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="Blue" type="Position2D" parent="." index="3"]
@@ -45,4 +45,10 @@ position = Vector2( -10.1166, -2.68023 )
 [node name="Green" type="Position2D" parent="." index="6"]
 position = Vector2( 10.2072, -2.3993 )
 
+[node name="Timer" type="Timer" parent="." index="7"]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="Pulse" to="." method="_on_Pulse_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
