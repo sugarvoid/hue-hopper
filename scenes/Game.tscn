@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://level/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://utils/EnemySpawner.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://utils/ItemSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://hud/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/BackGround.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/8Bit Platformer Loop.wav" type="AudioStream" id=7]
 
 [node name="Game" type="Node"]
 
@@ -24,3 +25,8 @@ position = Vector2( 96.3258, -21.4057 )
 
 [node name="EnemySpawner" parent="." instance=ExtResource( 2 )]
 position = Vector2( 216, 217 )
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -9.615
+autoplay = true

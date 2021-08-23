@@ -45,8 +45,10 @@ func update_player_coins(amount: int):
 func check_player(player_color: String):
 	var next_color: String = colors[randi() % colors.size()]
 	if player_color == self.last_color:
+		$SoundRight.play()
 		player_score += (HIT * player_coins)
 	else:
+		$SoundWrong.play()
 		player_score -= (MISS * player_coins)
 	change_label_text(next_color)
 	if player_score < 0:
