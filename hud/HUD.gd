@@ -13,7 +13,7 @@ onready var label: Label = $Order
 
 var colors: Array = [
 	"Red",
-	"Blue",
+	"Purple",
 	"Yellow",
 	"Green"
 ]

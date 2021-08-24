@@ -2,15 +2,13 @@
 
 [ext_resource path="res://actor/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/charater_color_sheet_v2.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.3122
 height = 5.81746
 
-[sub_resource type="StreamTexture" id=2]
-load_path = "res://.import/charater_color_sheet.png-790d94642c30a5bb9ef3afe7410fd8d7.stex"
-
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 152.616
 
 [node name="Player" groups=[
@@ -23,7 +21,7 @@ position = Vector2( 0.0936432, -0.980645 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
-texture = SubResource( 2 )
+texture = ExtResource( 3 )
 hframes = 2
 vframes = 1
 frame = 0
@@ -32,10 +30,10 @@ frame = 0
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pulse" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 disabled = true
 
-[node name="Blue" type="Position2D" parent="." index="3"]
+[node name="Purple" type="Position2D" parent="." index="3"]
 position = Vector2( 0, -12.0447 )
 
 [node name="Yellow" type="Position2D" parent="." index="4"]

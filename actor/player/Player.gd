@@ -19,13 +19,13 @@ var rotation_speed: float = 4.0
 var has_game_started: bool = false
 
 onready var pulse_detector = $Pulse/CollisionShape2D
-onready var blue: Position2D = $Blue
+onready var purple: Position2D = $Purple
 onready var red: Position2D = $Red
 onready var green: Position2D = $Green
 onready var yellow: Position2D = $Yellow
 onready var timer: Timer = $Timer
 
-var colors: Array = [blue,red,green,yellow]
+var colors: Array = [purple,red,green,yellow]
 
 func _ready() -> void:
 	Signals.emit_signal("on_player_life_change", self.hearts)
@@ -81,7 +81,7 @@ func find_largest_dict_val(dict: Dictionary):
 func find_lowest_point() -> String:
 	
 	var dic: Dictionary = {
-		"Blue": blue.global_position.y,
+		"Purple": purple.global_position.y,
 		"Red": red.global_position.y,
 		"Green": green.global_position.y,
 		"Yellow": yellow.global_position.y,
@@ -97,7 +97,7 @@ func sort_points(a: Position2D, b: Position2D):
 	return a.position.y == b.position.y
 
 func debug_points():
-	print("b: " + str(blue.global_position.y))
+	print("p: " + str(purple.global_position.y))
 	print("y: " + str(yellow.global_position.y))
 	print("r: " + str(red.global_position.y))
 	print("g: " + str(green.global_position.y))
