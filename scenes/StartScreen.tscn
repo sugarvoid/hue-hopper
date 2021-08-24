@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://sounds/button.wav" type="AudioStream" id=1]
 [ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/StartScreen.gd" type="Script" id=3]
 
@@ -13,11 +14,19 @@ font_data = ExtResource( 2 )
 [node name="StartScreen" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 40.1984
-margin_top = 65.7798
-margin_right = 208.198
-margin_bottom = 106.78
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 201.0
+margin_bottom = 251.0
+color = Color( 0.0745098, 0.556863, 0.847059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_left = 45.2045
+margin_top = 61.1591
+margin_right = 149.204
+margin_bottom = 88.1591
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Hue Hopper"
@@ -25,14 +34,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="."]
-margin_left = 43.7763
-margin_top = 126.472
-margin_right = 216.776
-margin_bottom = 146.472
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Press Space to Start"
+[node name="Quit" type="ColorRect" parent="."]
+margin_left = 42.8857
+margin_top = 143.793
+margin_right = 150.886
+margin_bottom = 165.793
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label3" type="Label" parent="Quit"]
+margin_left = 38.5348
+margin_top = 3.30893
+margin_right = 68.5348
+margin_bottom = 20.3089
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Quit"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="ColorRect" parent="."]
+margin_left = 42.977
+margin_top = 116.818
+margin_right = 150.977
+margin_bottom = 138.818
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="NewGame"]
+margin_left = 27.4888
+margin_top = 3.3067
+margin_right = 77.4888
+margin_bottom = 20.3067
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "New Game"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[connection signal="gui_input" from="Quit" to="." method="_on_Quit_gui_input"]
+[connection signal="gui_input" from="NewGame" to="." method="_on_NewGame_gui_input"]

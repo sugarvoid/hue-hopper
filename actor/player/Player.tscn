@@ -2,11 +2,10 @@
 
 [ext_resource path="res://actor/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor/player/Player.gd" type="Script" id=2]
-[ext_resource path="res://assets/charater_color_sheet_v2.png" type="Texture" id=3]
+[ext_resource path="res://assets/hue-ball.png" type="Texture" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 11.3122
-height = 5.81746
+[sub_resource type="CircleShape2D" id=1]
+radius = 13.9278
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 152.616
@@ -17,12 +16,11 @@ radius = 152.616
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 0.0936432, -0.980645 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 3 )
-hframes = 2
+hframes = 1
 vframes = 1
 frame = 0
 
@@ -34,16 +32,16 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="Purple" type="Position2D" parent="." index="3"]
-position = Vector2( 0, -12.0447 )
+position = Vector2( 0, -13.061 )
 
 [node name="Yellow" type="Position2D" parent="." index="4"]
-position = Vector2( 0.093647, 7.35991 )
+position = Vector2( 0.094, 11.15 )
 
 [node name="Red" type="Position2D" parent="." index="5"]
-position = Vector2( -10.1166, -2.68023 )
+position = Vector2( -12.1031, 0.0346444 )
 
 [node name="Green" type="Position2D" parent="." index="6"]
-position = Vector2( 10.2072, -2.3993 )
+position = Vector2( 12.1227, -0.0814245 )
 
 [node name="Timer" type="Timer" parent="." index="7"]
 wait_time = 1.5

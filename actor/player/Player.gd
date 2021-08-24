@@ -12,9 +12,9 @@ const AIR_RES = 0.02
 const JUMPFORCE: float = 400.00
 const FRICTION = 0.15
 
-var hearts: int = 3
-var coins: int = 0
-var score: int = 0 
+#var hearts: int = 3
+#var coins: int = 0
+#var score: int = 0 
 var rotation_speed: float = 4.0
 var has_game_started: bool = false
 
@@ -28,7 +28,8 @@ onready var timer: Timer = $Timer
 var colors: Array = [purple,red,green,yellow]
 
 func _ready() -> void:
-	Signals.emit_signal("on_player_life_change", self.hearts)
+	#self.hearts = PlayerData.hearts
+	Signals.emit_signal("on_player_life_change", PlayerData.hearts)
 	self.GRAVITY = 500
 	self.speed = 70.00
 
@@ -52,7 +53,7 @@ func _physics_process(delta: float) -> void:
 				rotation_dir -= 1
 		
 		if is_on_floor():
-			toggle_sprite(sprite.get_frame())
+			#toggle_sprite(sprite.get_frame())
 			Signals.emit_signal("player_has_landed", find_lowest_point())
 			velocity.y = -JUMPFORCE
 		
@@ -91,7 +92,7 @@ func find_lowest_point() -> String:
 	
 
 func change_score(amount: int):
-	self.score += (amount * self.coins)
+	self.score += amount
 
 func sort_points(a: Position2D, b: Position2D):
 	return a.position.y == b.position.y
@@ -103,12 +104,12 @@ func debug_points():
 	print("g: " + str(green.global_position.y))
 
 func take_damage() -> void:
-	self.hearts -= 1
+	PlayerData.hearts -= 1
 	
-	if self.hearts <= 0:
+	if PlayerData.hearts <= 0:
 		get_tree().change_scene("res://scenes/GameOver.tscn")
 		
-	Signals.emit_signal("on_player_life_change", self.hearts)
+	Signals.emit_signal("on_player_life_change", PlayerData.hearts)
 
 func _on_AttackArea_body_entered(body: Node) -> void:
 	print("attack")
