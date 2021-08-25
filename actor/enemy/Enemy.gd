@@ -11,10 +11,21 @@ const UP = Vector2(0, -1)
 var velocity: Vector2 = Vector2.ZERO
 var diriction = -1
 var is_facing_right: bool = true
-var speed: float = 15
+var speed: float = 20
+var color: String
+var colors: Array = [
+	"red",
+	"purple",
+	"yellow",
+	"green"
+]
 
+func get_random_color() -> String:
+	return colors[randi() % colors.size()]
 
 func _ready() -> void:
+	randomize()
+	self.animated_sprite.play(self.color)
 	if diriction == 1:
 		flip_sprite() 
 
@@ -38,8 +49,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
-	#pass # Replace with function body.
+
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		body.take_damage()
+		if self.color == body.find_lowest_point().to_lower():
+			queue_free()
+		else:
+			body.take_damage()

@@ -1,7 +1,7 @@
 extends Control
 
-const MISS: int = 3
-const HIT: int = 1
+const MISS: int = 10
+const HIT: int = 5
 
 var p_heart_icon = preload("res://hud/HeartIcon.tscn")
 var last_color: String = "Yellow"

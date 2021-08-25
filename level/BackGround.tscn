@@ -233,7 +233,16 @@
 
 [node name="Node" type="Node"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 216.0
+margin_bottom = 270.0
+color = Color( 0.529412, 0.807843, 0.921569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BackGround" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource( 1 )
 cell_size = Vector2( 24, 24 )
 format = 1

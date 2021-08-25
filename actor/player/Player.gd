@@ -18,12 +18,16 @@ const FRICTION = 0.15
 var rotation_speed: float = 4.0
 var has_game_started: bool = false
 
-onready var pulse_detector = $Pulse/CollisionShape2D
-onready var purple: Position2D = $Purple
-onready var red: Position2D = $Red
-onready var green: Position2D = $Green
-onready var yellow: Position2D = $Yellow
+var bounces = 0
+
+
+onready var purple: Position2D = $Ball/Purple
+onready var red: Position2D = $Ball/Red
+onready var green: Position2D = $Ball/Green
+onready var yellow: Position2D = $Ball/Yellow
 onready var timer: Timer = $Timer
+onready var ball: Node2D = $Ball
+onready var grey_guy: AnimatedSprite = $GreyGuy
 
 var colors: Array = [purple,red,green,yellow]
 
@@ -45,20 +49,31 @@ func _physics_process(delta: float) -> void:
 		velocity.x += x_input * ACCELERATION * delta
 		velocity.x = clamp(velocity.x, -speed, speed)
 		
+		if x_input > 0:
+			grey_guy.set_flip_h(true)
+		elif x_input < 0:
+			grey_guy.set_flip_h(false)
+			
 		if !is_on_floor():
 			rotation_dir = 0
 			if Input.is_action_pressed("ui_right"):
+				grey_guy.play("move")
 				rotation_dir += 1
-			if Input.is_action_pressed("ui_left"):
+			elif Input.is_action_pressed("ui_left"):
+				grey_guy.play("move")
 				rotation_dir -= 1
+			else:
+				grey_guy.stop()
 		
-		if is_on_floor():
-			#toggle_sprite(sprite.get_frame())
+		if is_on_floor() and self.global_position.y >= 218: # Actully laned
+			self.bounces += 1
 			Signals.emit_signal("player_has_landed", find_lowest_point())
+			velocity.y = -JUMPFORCE
+		elif is_on_floor(): # Landed on enemy
 			velocity.y = -JUMPFORCE
 		
 		velocity.x = lerp(velocity.x, 0, FRICTION)
-		rotation += rotation_dir * rotation_speed * delta
+		ball.rotation += rotation_dir * rotation_speed * delta
 
 func toggle_sprite(frame: int):
 	if frame == 1:
@@ -120,8 +135,6 @@ func _on_AttackArea_body_entered(body: Node) -> void:
 func add_coin(amount: int):
 	self.coins += amount
 
-func send_pulse() -> void:
-	pulse_detector.disabled = false
 
 
 func _on_Pulse_body_entered(body: Node) -> void:

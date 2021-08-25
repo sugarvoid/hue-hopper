@@ -1,8 +1,8 @@
 extends Node2D
 
 var next_spawn_time: float = 6.0
-var max_spawn_time: float = 12.0
-var min_spawn_time: float = 3.0
+var max_spawn_time: float = 10.0
+var min_spawn_time: float = 2.0
 const RIGHT_SIDE: Vector2 = Vector2(216, 217)
 const LEFT_SIDE: Vector2 = Vector2(-25, 217)
 
@@ -18,7 +18,10 @@ func _ready() -> void:
 
 func _on_Timer_timeout() -> void:
 	var random_enemy = p_enemies[randi() % p_enemies.size()]
+	
 	var enemy: Enemy = random_enemy.instance()
+	enemy.color = enemy.get_random_color()
+	
 	
 	var sides = [0,1]
 	var rand_side:int = randi() % sides.size()

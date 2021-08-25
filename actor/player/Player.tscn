@@ -1,52 +1,62 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://actor/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor/player/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/hue-ball.png" type="Texture" id=3]
+[ext_resource path="res://assets/player-Sheet.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.9278
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 152.616
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 18 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+} ]
 
 [node name="Player" groups=[
 "player",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="0"]
-shape = SubResource( 1 )
+[node name="Ball" type="Node2D" parent="." index="0"]
 
-[node name="Sprite" parent="." index="1"]
+[node name="Sprite" type="Sprite" parent="Ball" index="0"]
 texture = ExtResource( 3 )
-hframes = 1
-vframes = 1
-frame = 0
 
-[node name="Pulse" type="Area2D" parent="." index="2"]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pulse" index="0"]
-shape = SubResource( 2 )
-disabled = true
-
-[node name="Purple" type="Position2D" parent="." index="3"]
+[node name="Purple" type="Position2D" parent="Ball" index="1"]
 position = Vector2( 0, -13.061 )
 
-[node name="Yellow" type="Position2D" parent="." index="4"]
+[node name="Yellow" type="Position2D" parent="Ball" index="2"]
 position = Vector2( 0.094, 11.15 )
 
-[node name="Red" type="Position2D" parent="." index="5"]
+[node name="Red" type="Position2D" parent="Ball" index="3"]
 position = Vector2( -12.1031, 0.0346444 )
 
-[node name="Green" type="Position2D" parent="." index="6"]
+[node name="Green" type="Position2D" parent="Ball" index="4"]
 position = Vector2( 12.1227, -0.0814245 )
 
-[node name="Timer" type="Timer" parent="." index="7"]
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="." index="2"]
 wait_time = 1.5
 one_shot = true
 autostart = true
 
-[connection signal="body_entered" from="Pulse" to="." method="_on_Pulse_body_entered"]
+[node name="GreyGuy" type="AnimatedSprite" parent="." index="3"]
+position = Vector2( 0, -0.887 )
+frames = SubResource( 5 )
+animation = "move"
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
