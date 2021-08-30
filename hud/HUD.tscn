@@ -50,6 +50,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 14.6835, 27.4142 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
@@ -57,6 +58,7 @@ region_enabled = true
 region_rect = Rect2( 201, 129, 12, 12 )
 
 [node name="Sprite2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 24.6047, 27.811 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
@@ -64,6 +66,7 @@ region_enabled = true
 region_rect = Rect2( 327, 129, 12, 12 )
 
 [node name="CoinLabel" type="Label" parent="."]
+visible = false
 margin_left = 30.1607
 margin_top = 21.0647
 margin_right = 66.1607

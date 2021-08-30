@@ -8,10 +8,10 @@
 size = 29
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 2 )
 
 [node name="GameOver" type="Node2D"]
@@ -42,12 +42,13 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 80.9244
-margin_top = 108.44
-margin_right = 120.924
-margin_bottom = 122.44
-custom_fonts/font = SubResource( 3 )
+margin_left = 74.1896
+margin_top = 106.756
+margin_right = 114.189
+margin_bottom = 120.756
+custom_fonts/font = SubResource( 2 )
 text = "filler"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -66,7 +67,7 @@ margin_left = 11.3261
 margin_top = 2.8055
 margin_right = 111.326
 margin_bottom = 16.8055
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Restart"
 align = 1

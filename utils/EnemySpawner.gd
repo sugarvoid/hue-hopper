@@ -1,8 +1,8 @@
 extends Node2D
 
 var next_spawn_time: float = 6.0
-var max_spawn_time: float = 10.0
-var min_spawn_time: float = 2.0
+var max_spawn_time: float = 11.0
+var min_spawn_time: float = 3.0
 const RIGHT_SIDE: Vector2 = Vector2(216, 217)
 const LEFT_SIDE: Vector2 = Vector2(-25, 217)
 
@@ -34,9 +34,10 @@ func _on_Timer_timeout() -> void:
 		enemy.diriction = -1
 		
 	get_tree().current_scene.add_child(enemy)
+	
+	max_spawn_time -= 0.2
 	next_spawn_time = rand_range(max_spawn_time, min_spawn_time)
-	# Reset Timer
-	next_spawn_time -= 0.1
+
 	if next_spawn_time < min_spawn_time:
 		next_spawn_time = min_spawn_time
 	timer.start(next_spawn_time)

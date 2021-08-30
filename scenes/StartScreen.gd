@@ -3,7 +3,7 @@ extends Node2D
 var on_new_game: bool = false
 
 func _ready():
-	PlayerData.hearts = 4
+	PlayerData.hearts = 3
 	PlayerData.coins = 0
 	PlayerData.score = 0
 

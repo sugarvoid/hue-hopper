@@ -1,30 +1,55 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/tiles.png" type="Texture" id=1]
 [ext_resource path="res://items/Item.gd" type="Script" id=2]
 [ext_resource path="res://sounds/coin-pickup.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/spike.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 7, 0, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 14, 0, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 21, 0, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 28, 0, 7, 9 )
+
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
 region = Rect2( 198, 126, 18, 18 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 1 )
 region = Rect2( 216, 126, 18, 18 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "spike",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "coin",
 "speed": 6.0
 } ]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=9]
 radius = 6.15177
 
-[sub_resource type="Animation" id=5]
-resource_name = "picked_up"
+[sub_resource type="Animation" id=10]
 length = 0.444
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -43,19 +68,20 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 3 )
-animation = "coin"
+frames = SubResource( 8 )
+animation = "spike"
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/picked_up = SubResource( 5 )
+anims/picked_up = SubResource( 10 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 0.53093, 0.0294962 )
-scale = Vector2( 0.887915, 0.890865 )
+position = Vector2( -0.0147434, 0.153511 )
+scale = Vector2( 0.659726, 0.655235 )
 
 [node name="PickupSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

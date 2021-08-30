@@ -23,13 +23,14 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="."]
-margin_left = 45.2045
-margin_top = 61.1591
-margin_right = 149.204
-margin_bottom = 88.1591
+margin_left = 43.4126
+margin_top = 61.0
+margin_right = 153.413
+margin_bottom = 88.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Hue Hopper"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -3,23 +3,18 @@ extends Actor
 
 class_name Player
 
-#signal player_has_landed()
 
-var rotation_dir = 0
-var flips_achived: int = 0
 const ACCELERATION = 600
 const AIR_RES = 0.02
 const JUMPFORCE: float = 400.00
 const FRICTION = 0.15
 
-#var hearts: int = 3
-#var coins: int = 0
-#var score: int = 0 
+var rotation_dir = 0
+var flips_achived: int = 0
 var rotation_speed: float = 4.0
 var has_game_started: bool = false
-
 var bounces = 0
-
+var colors: Array = [purple,red,green,yellow]
 
 onready var purple: Position2D = $Ball/Purple
 onready var red: Position2D = $Ball/Red
@@ -29,18 +24,12 @@ onready var timer: Timer = $Timer
 onready var ball: Node2D = $Ball
 onready var grey_guy: AnimatedSprite = $GreyGuy
 
-var colors: Array = [purple,red,green,yellow]
+
 
 func _ready() -> void:
-	#self.hearts = PlayerData.hearts
 	Signals.emit_signal("on_player_life_change", PlayerData.hearts)
 	self.GRAVITY = 500
 	self.speed = 70.00
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_released("pulse"):
-		pass
-		#send_pulse()
 
 func _physics_process(delta: float) -> void:
 	if has_game_started:
@@ -70,7 +59,7 @@ func _physics_process(delta: float) -> void:
 			Signals.emit_signal("player_has_landed", find_lowest_point())
 			velocity.y = -JUMPFORCE
 		elif is_on_floor(): # Landed on enemy
-			velocity.y = -JUMPFORCE
+			velocity.y = (-JUMPFORCE + 100)
 		
 		velocity.x = lerp(velocity.x, 0, FRICTION)
 		ball.rotation += rotation_dir * rotation_speed * delta
@@ -95,14 +84,12 @@ func find_largest_dict_val(dict: Dictionary):
 	return max_var
 
 func find_lowest_point() -> String:
-	
 	var dic: Dictionary = {
 		"Purple": purple.global_position.y,
 		"Red": red.global_position.y,
 		"Green": green.global_position.y,
 		"Yellow": yellow.global_position.y,
 	}
-
 	return find_largest_dict_val(dic)
 	
 
@@ -130,17 +117,13 @@ func _on_AttackArea_body_entered(body: Node) -> void:
 	print("attack")
 	if body.is_in_group("Enemy"):
 		body.take_damage(self.attack)
-	
 
 func add_coin(amount: int):
 	self.coins += amount
 
-
-
 func _on_Pulse_body_entered(body: Node) -> void:
 	if body.is_in_group("enemy"):
 		body.queue_free()
-
 
 func _on_Timer_timeout() -> void:
 	has_game_started = true

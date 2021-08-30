@@ -11,17 +11,13 @@ func _physics_process(delta) -> void:
 func _on_Item_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		call_deferred("disable_item_collision") 
-		$PickupSound.play()
-		animated_player.play("picked_up")
+		body.take_damage()
+		queue_free()
 
 # To prevent body enetered from triggering twice if coin is lower to ground
 func disable_item_collision() -> void:
 	$CollisionShape2D.set_disabled(true)
 
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
-	if anim_name == "picked_up":
-		Signals.emit_signal("player_coin_amount_changed", 1)
-		queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()

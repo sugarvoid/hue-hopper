@@ -2,8 +2,6 @@ extends KinematicBody2D
 
 class_name Enemy
 
-#const diriction_dic: Dictionary = {"left": -1, "right": 1}
-
 onready var animated_sprite = $AnimatedSprite
 
 const GRAVITY: float = 700.0
