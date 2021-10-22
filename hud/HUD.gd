@@ -41,6 +41,7 @@ func update_player_coins(amount: int):
 
 func check_player(player_color: String):
 	var next_color: String = colors[randi() % colors.size()]
+	
 	if player_color == self.last_color:
 		$SoundRight.play()
 		PlayerData.score += HIT 

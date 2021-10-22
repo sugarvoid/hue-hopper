@@ -20,7 +20,7 @@ func reset_rect_color(rect: ColorRect, color: String) -> void:
 func _on_NewGame_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		$AudioStreamPlayer.play()
-		get_tree().change_scene("res://scenes/Game.tscn")
+		var _x = get_tree().change_scene("res://scenes/Game.tscn")
 
 func _on_Quit_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:

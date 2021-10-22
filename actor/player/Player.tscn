@@ -8,17 +8,17 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.9278
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 16, 18 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 4 )
 region = Rect2( 16, 0, 16, 18 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "move",
 "speed": 5.0
@@ -56,7 +56,7 @@ autostart = true
 
 [node name="GreyGuy" type="AnimatedSprite" parent="." index="3"]
 position = Vector2( 0, -0.887 )
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "move"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

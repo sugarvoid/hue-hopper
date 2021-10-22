@@ -7,8 +7,5 @@ radius = 6.15177
 
 [node name="Coin" instance=ExtResource( 1 )]
 
-[node name="AnimatedSprite" parent="." index="0"]
-frame = 1
-
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )

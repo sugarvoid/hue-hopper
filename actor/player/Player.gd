@@ -16,6 +16,8 @@ var has_game_started: bool = false
 var bounces = 0
 var colors: Array = [purple,red,green,yellow]
 
+var floating_score: PackedScene = preload("res://utils/FloatingText.tscn")
+
 onready var purple: Position2D = $Ball/Purple
 onready var red: Position2D = $Ball/Red
 onready var green: Position2D = $Ball/Green
@@ -73,6 +75,11 @@ func toggle_sprite(frame: int):
 func add_point() -> void:
 	self.score += 1
 
+func display_score() -> void:
+	var score = floating_score.instance()
+	score.amount = 100
+	add_child(score)
+
 func find_largest_dict_val(dict: Dictionary):
 	var max_val = -9999
 	var max_var
@@ -90,6 +97,7 @@ func find_lowest_point() -> String:
 		"Green": green.global_position.y,
 		"Yellow": yellow.global_position.y,
 	}
+	display_score()
 	return find_largest_dict_val(dic)
 	
 
