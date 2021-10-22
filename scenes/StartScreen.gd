@@ -7,9 +7,7 @@ const rubyRed: String = "c13354"
 const white: String = "ffffff"
 
 func _ready():
-	PlayerData.hearts = 3
-	PlayerData.coins = 0
-	PlayerData.score = 0
+	PlayerData.init_data()
 
 func change_rect_color(rect: ColorRect, color: String) -> void:
 	rect.color = color
