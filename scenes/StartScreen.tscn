@@ -15,8 +15,10 @@ font_data = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 201.0
-margin_bottom = 251.0
+margin_left = 0.396851
+margin_top = 0.198425
+margin_right = 201.397
+margin_bottom = 251.198
 color = Color( 0.0745098, 0.556863, 0.847059, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,10 +47,13 @@ __meta__ = {
 }
 
 [node name="Label3" type="Label" parent="Quit"]
-margin_left = 38.5348
-margin_top = 3.30893
-margin_right = 68.5348
-margin_bottom = 20.3089
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -15.0
+margin_top = -17.0
+margin_right = 15.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Quit"
@@ -67,10 +72,13 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="NewGame"]
-margin_left = 27.4888
-margin_top = 3.3067
-margin_right = 77.4888
-margin_bottom = 20.3067
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -25.0
+margin_top = -17.0
+margin_right = 25.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "New Game"
@@ -83,4 +91,8 @@ __meta__ = {
 stream = ExtResource( 1 )
 
 [connection signal="gui_input" from="Quit" to="." method="_on_Quit_gui_input"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_Quit_mouse_entered"]
+[connection signal="mouse_exited" from="Quit" to="." method="_on_Quit_mouse_exited"]
 [connection signal="gui_input" from="NewGame" to="." method="_on_NewGame_gui_input"]
+[connection signal="mouse_entered" from="NewGame" to="." method="_on_NewGame_mouse_entered"]
+[connection signal="mouse_exited" from="NewGame" to="." method="_on_NewGame_mouse_exited"]
