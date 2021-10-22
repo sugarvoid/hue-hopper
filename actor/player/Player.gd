@@ -58,7 +58,8 @@ func _physics_process(delta: float) -> void:
 		
 		if is_on_floor() and self.global_position.y >= 218: # Actully laned
 			self.bounces += 1
-			Signals.emit_signal("player_has_landed", find_lowest_point())
+			#Signals.emit_signal("player_has_landed", find_lowest_point())
+			print(find_lowest_point())
 			velocity.y = -JUMPFORCE
 		elif is_on_floor(): # Landed on enemy
 			velocity.y = (-JUMPFORCE + 100)
@@ -89,6 +90,25 @@ func find_largest_dict_val(dict: Dictionary):
 			max_val = val
 			max_var = i
 	return max_var
+
+
+func check_landed_color(player_color: String):
+	var next_color: String = colors[randi() % colors.size()]
+	
+	if player_color == self.last_color:
+		$SoundRight.play()
+		PlayerData.score += Global.HIT 
+	else:
+		$SoundWrong.play()
+		PlayerData.score -= Global.MISS
+	#change_label_text(next_color)
+	if PlayerData.score < 0:
+		PlayerData.score = 0
+	$ScoreLabel.set_text(str(PlayerData.score))
+	self.last_color = next_color
+
+
+
 
 func find_lowest_point() -> String:
 	var dic: Dictionary = {
