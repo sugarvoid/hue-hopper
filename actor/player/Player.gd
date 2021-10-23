@@ -48,10 +48,10 @@ func _physics_process(delta: float) -> void:
 			
 		if !is_on_floor():
 			rotation_dir = 0
-			if Input.is_action_pressed("ui_right"):
+			if Input.is_action_pressed("rotate_right"):
 				grey_guy.play("move")
 				rotation_dir += 1
-			elif Input.is_action_pressed("ui_left"):
+			elif Input.is_action_pressed("rotate_left"):
 				grey_guy.play("move")
 				rotation_dir -= 1
 			else:
