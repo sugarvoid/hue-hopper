@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/StartScreen.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 29
+size = 44
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -14,7 +14,7 @@ font_data = ExtResource( 2 )
 [node name="StartScreen" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 margin_left = 0.396851
 margin_top = 0.198425
 margin_right = 201.397
@@ -25,10 +25,10 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="."]
-margin_left = 43.4126
-margin_top = 61.0
-margin_right = 153.413
-margin_bottom = 88.0
+margin_left = 7.54538
+margin_top = 49.6735
+margin_right = 201.545
+margin_bottom = 83.6735
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Hue Hopper"

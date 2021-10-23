@@ -7,14 +7,13 @@
 [ext_resource path="res://hud/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/BackGround.tscn" type="PackedScene" id=6]
 [ext_resource path="res://sounds/8Bit Platformer Loop.wav" type="AudioStream" id=7]
-[ext_resource path="res://scenes/pause_screen.gd" type="Script" id=8]
-[ext_resource path="res://assets/black-square.png" type="Texture" id=9]
-[ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=10]
-
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 10 )
+[ext_resource path="res://scenes/PauseScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/game.gd" type="Script" id=9]
+[ext_resource path="res://sounds/wrong.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/correct.wav" type="AudioStream" id=11]
 
 [node name="Game" type="Node"]
+script = ExtResource( 9 )
 
 [node name="BackGround" parent="." instance=ExtResource( 6 )]
 
@@ -32,36 +31,7 @@ position = Vector2( 96.3258, -21.4057 )
 [node name="EnemySpawner" parent="." instance=ExtResource( 2 )]
 position = Vector2( 216, 217 )
 
-[node name="PauseScreen" type="Control" parent="."]
-pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Background" type="TextureRect" parent="PauseScreen"]
-modulate = Color( 1, 1, 1, 0.533333 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 9 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="PauseScreen"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -7.0
-margin_right = 20.0
-margin_bottom = 7.0
-custom_fonts/font = SubResource( 1 )
-text = "Paused "
+[node name="PauseScreen" parent="." instance=ExtResource( 8 )]
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
@@ -71,3 +41,9 @@ autoplay = true
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
+
+[node name="SoundRight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="SoundWrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )

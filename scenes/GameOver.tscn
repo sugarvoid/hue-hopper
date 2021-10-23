@@ -76,3 +76,5 @@ __meta__ = {
 }
 
 [connection signal="gui_input" from="Restart" to="." method="_on_Restart_gui_input"]
+[connection signal="mouse_entered" from="Restart" to="." method="_on_Restart_mouse_entered"]
+[connection signal="mouse_exited" from="Restart" to="." method="_on_Restart_mouse_exited"]

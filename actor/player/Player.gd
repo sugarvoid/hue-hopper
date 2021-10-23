@@ -16,6 +16,8 @@ var has_game_started: bool = false
 var bounces = 0
 var colors: Array = [purple,red,green,yellow]
 
+var floating_score: PackedScene = preload("res://utils/FloatingText.tscn")
+
 onready var purple: Position2D = $Ball/Purple
 onready var red: Position2D = $Ball/Red
 onready var green: Position2D = $Ball/Green
@@ -27,7 +29,8 @@ onready var grey_guy: AnimatedSprite = $GreyGuy
 
 
 func _ready() -> void:
-	Signals.emit_signal("on_player_life_change", PlayerData.hearts)
+	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
+	#Signals.emit_signal("player_life_changed", PlayerData.hearts) 
 	self.GRAVITY = 500
 	self.speed = 70.00
 
@@ -56,9 +59,11 @@ func _physics_process(delta: float) -> void:
 		
 		if is_on_floor() and self.global_position.y >= 218: # Actully laned
 			self.bounces += 1
-			Signals.emit_signal("player_has_landed", find_lowest_point())
+			Signals.emit_signal("player_has_landed_on_ground", get_bottom_color())
+			
 			velocity.y = -JUMPFORCE
 		elif is_on_floor(): # Landed on enemy
+			Signals.emit_signal("player_has_landed_on_enemy")
 			velocity.y = (-JUMPFORCE + 100)
 		
 		velocity.x = lerp(velocity.x, 0, FRICTION)
@@ -70,10 +75,12 @@ func toggle_sprite(frame: int):
 	if frame == 0:
 		sprite.set_frame(1)
 
-func add_point() -> void:
-	self.score += 1
+func display_point_text() -> void:
+	var score = floating_score.instance()
+	score.amount = 100
+	add_child(score)
 
-func find_largest_dict_val(dict: Dictionary):
+func find_largest_dict_val(dict: Dictionary): 
 	var max_val = -9999
 	var max_var
 	for i in dict:
@@ -83,13 +90,14 @@ func find_largest_dict_val(dict: Dictionary):
 			max_var = i
 	return max_var
 
-func find_lowest_point() -> String:
+func get_bottom_color() -> String:
 	var dic: Dictionary = {
 		"Purple": purple.global_position.y,
 		"Red": red.global_position.y,
 		"Green": green.global_position.y,
 		"Yellow": yellow.global_position.y,
 	}
+	display_point_text()
 	return find_largest_dict_val(dic)
 	
 
@@ -111,7 +119,8 @@ func take_damage() -> void:
 	if PlayerData.hearts <= 0:
 		get_tree().change_scene("res://scenes/GameOver.tscn")
 		
-	Signals.emit_signal("on_player_life_change", PlayerData.hearts)
+	###Signals.emit_signal("player_health_changed", PlayerData.hearts)
+	Signals.emit_signal("player_stat_changed")
 
 func _on_AttackArea_body_entered(body: Node) -> void:
 	print("attack")
