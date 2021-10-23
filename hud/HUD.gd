@@ -16,9 +16,10 @@ var colors: Array = [
 ]
 
 func _ready() -> void:
-	change_label_text(Global.last_color)
+	###change_label_text(Global.last_color)
 	clear_hearts()
 	Signals.connect("player_stat_changed", self, "update_hud")
+	Signals.connect("color_changed", self, "_update_color_label")
 	#Signals.connect("on_player_life_change", self, "_on_player_life_change")
 	#Signals.connect("player_has_landed", self, "check_player")
 	Signals.connect("player_coin_amount_changed", self, "update_player_coins")
@@ -34,6 +35,9 @@ func set_hearts(hearts: int):
 	clear_hearts()
 	for _i in range(hearts):
 		heart_container.add_child(HeartIcon.instance())
+
+func _update_color_label(new_color: String) -> void:
+	$Order.set_text(new_color)
 
 func update_player_coins(amount: int):
 	pass

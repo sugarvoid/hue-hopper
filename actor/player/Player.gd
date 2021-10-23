@@ -59,8 +59,8 @@ func _physics_process(delta: float) -> void:
 		
 		if is_on_floor() and self.global_position.y >= 218: # Actully laned
 			self.bounces += 1
-			Signals.emit_signal("player_has_landed_on_ground")
-			print(get_bottom_color())
+			Signals.emit_signal("player_has_landed_on_ground", get_bottom_color())
+			
 			velocity.y = -JUMPFORCE
 		elif is_on_floor(): # Landed on enemy
 			Signals.emit_signal("player_has_landed_on_enemy")
