@@ -16,4 +16,4 @@ Orginally my submission to the Kenney Jam 2021.
 - Wrong Sound - old reactor by Leszek_Szary [liscense](https://creativecommons.org/publicdomain/zero/1.0/)
 - Button
 - Failure
-- Background music - 8Bit Platformer Loop by Tim Beek [license}(https://creativecommons.org/licenses/by/4.0/)
+- Background music - 8Bit Platformer Loop by Tim Beek [license](https://creativecommons.org/licenses/by/4.0/)
