@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://actor/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor/player/player.gd" type="Script" id=2]
@@ -8,17 +8,35 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.9278
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="Shader" id=2]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : hint_color = vec4(1.0);
+uniform float flash_modifer : hint_range(0.0, 1.0) = 0.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_modifer);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifer = 0.0
+
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 16, 18 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 4 )
 region = Rect2( 16, 0, 16, 18 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "move",
 "speed": 5.0
@@ -55,8 +73,9 @@ one_shot = true
 autostart = true
 
 [node name="GreyGuy" type="AnimatedSprite" parent="." index="3"]
+material = SubResource( 3 )
 position = Vector2( 0, -0.887 )
-frames = SubResource( 4 )
+frames = SubResource( 6 )
 animation = "move"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

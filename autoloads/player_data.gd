@@ -16,3 +16,5 @@ func get_player_score() -> int:
 
 func change_player_score(amount: int) -> void:
 	self._score += amount
+	if self._score < 0:
+		self._score = 0

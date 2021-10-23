@@ -90,27 +90,6 @@ func find_largest_dict_val(dict: Dictionary):
 			max_var = i
 	return max_var
 
-func poop():
-	print("landed")
-
-func check_landed_color(player_color: String):
-	var next_color: String = colors[randi() % colors.size()]
-	
-	if player_color == self.last_color:
-		#$SoundRight.play()
-		PlayerData.score += Global.HIT 
-	else:
-		#$SoundWrong.play()
-		PlayerData.score -= Global.MISS
-	#change_label_text(next_color)
-	if PlayerData.score < 0:
-		PlayerData.score = 0
-	$ScoreLabel.set_text(str(PlayerData.score))
-	self.last_color = next_color
-
-
-
-
 func get_bottom_color() -> String:
 	var dic: Dictionary = {
 		"Purple": purple.global_position.y,
