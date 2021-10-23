@@ -3,8 +3,7 @@ extends Control
 const MISS: int = 10
 const HIT: int = 5
 
-var p_heart_icon = preload("res://hud/HeartIcon.tscn")
-var last_color: String = "Yellow"
+var HeartIcon = preload("res://hud/HeartIcon.tscn")
 
 onready var heart_container: HBoxContainer = $LifeContainer
 onready var label: Label = $Order
@@ -19,7 +18,8 @@ var colors: Array = [
 func _ready() -> void:
 	change_label_text(Global.last_color)
 	clear_hearts()
-	Signals.connect("on_player_life_change", self, "_on_player_life_change")
+	Signals.connect("player_stat_changed", self, "update_hud")
+	#Signals.connect("on_player_life_change", self, "_on_player_life_change")
 	#Signals.connect("player_has_landed", self, "check_player")
 	Signals.connect("player_coin_amount_changed", self, "update_player_coins")
 
@@ -33,11 +33,19 @@ func clear_hearts():
 func set_hearts(hearts: int):
 	clear_hearts()
 	for _i in range(hearts):
-		heart_container.add_child(p_heart_icon.instance())
+		heart_container.add_child(HeartIcon.instance())
 
 func update_player_coins(amount: int):
-	PlayerData.coins += amount
+	pass
+	###PlayerData.coins += amount
+	###$CoinLabel.set_text(str(PlayerData.coins))
+
+func update_hud() -> void:
+	$ScoreLabel.set_text(str(PlayerData.score))
 	$CoinLabel.set_text(str(PlayerData.coins))
+	clear_hearts()
+	for _i in range(PlayerData.hearts):
+		heart_container.add_child(HeartIcon.instance())
 
 func check_player(player_color: String):
 	var next_color: String = colors[randi() % colors.size()]
@@ -56,4 +64,4 @@ func check_player(player_color: String):
 
 
 func _on_player_life_change(hearts: int):
-	set_hearts(hearts)
+	pass

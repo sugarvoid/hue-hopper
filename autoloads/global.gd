@@ -1,20 +1,18 @@
 extends Node
 
-#var player_coins: int
-#var player_score: int
-#var player_hearts: int
-
-#signal on_player_life_change(hearts)
-#signal player_has_landed(position)
-#signal player_score_changed(amount)
-#signal player_coin_amount_changed(amount)
-
 const MISS: int = 10
 const HIT: int = 5
 
+const prillyBlue: String = "329cc3"
+const rubyRed: String = "c13354"
+const white: String = "ffffff"
 
 var last_color: String = "Yellow"
 var current_color: String
+
+
+func change_rect_color(rect: ColorRect, color: String) -> void:
+	rect.color = color
 
 
 var colors: Array = [

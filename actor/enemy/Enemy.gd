@@ -51,7 +51,7 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		if self.color == body.find_lowest_point().to_lower():
+		if self.color == body.find_bottom_color().to_lower(): # Checks if player bottom matches enemy color
 			queue_free()
 		else:
 			body.take_damage()

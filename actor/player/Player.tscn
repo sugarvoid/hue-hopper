@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://actor/Actor.tscn" type="PackedScene" id=1]
-[ext_resource path="res://actor/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://actor/player/player.gd" type="Script" id=2]
 [ext_resource path="res://assets/hue-ball.png" type="Texture" id=3]
 [ext_resource path="res://assets/player-Sheet.png" type="Texture" id=4]
 
