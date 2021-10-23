@@ -45,27 +45,9 @@ func update_player_coins(amount: int):
 	###$CoinLabel.set_text(str(PlayerData.coins))
 
 func update_hud() -> void:
-	$ScoreLabel.set_text(str(PlayerData.score))
+	$ScoreLabel.set_text(str(PlayerData.get_player_score()))
 	$CoinLabel.set_text(str(PlayerData.coins))
 	clear_hearts()
 	for _i in range(PlayerData.hearts):
 		heart_container.add_child(HeartIcon.instance())
 
-func check_player(player_color: String):
-	var next_color: String = colors[randi() % colors.size()]
-	
-	if player_color == self.last_color:
-		$SoundRight.play()
-		PlayerData.score += HIT 
-	else:
-		$SoundWrong.play()
-		PlayerData.score -= MISS
-	change_label_text(next_color)
-	if PlayerData.score < 0:
-		PlayerData.score = 0
-	$ScoreLabel.set_text(str(PlayerData.score))
-	self.last_color = next_color
-
-
-func _on_player_life_change(hearts: int):
-	pass

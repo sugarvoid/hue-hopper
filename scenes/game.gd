@@ -1,9 +1,8 @@
 extends Node
 
+const MISS: int = -10
+const HIT: int = 5
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var current_color: String = "Yellow"
 
 var colors: Array = [
@@ -14,27 +13,29 @@ var colors: Array = [
 ]
 
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
 	Signals.connect("player_has_landed_on_ground", self, "_player_landed")
-	#pass # Replace with function body.
-
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
 
 
 func _get_new_color() -> void:
 	current_color = colors[randi() % colors.size()]
 
 func _player_landed(player_color) -> void:
-	print("poop")
+
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
+	if self.current_color == player_color:
+		$SoundRight.play()
+		PlayerData.change_player_score(HIT)
+	else:
+		$SoundWrong.play()
+		PlayerData.change_player_score(MISS)
 	print(self.current_color == player_color)
+	Signals.emit_signal("player_stat_changed")
 	# GET NEW COLOR
 	_get_new_color()
 	# SEND HUD NEW COLOR
