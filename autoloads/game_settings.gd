@@ -45,10 +45,10 @@ const KEYBOARD_BUTTON_TO_INDEX_MAPPING = {
 
 var high_score_file = "user://highscore.txt"
 
-var is_music_enabled: bool
-var is_fx_enabled: bool
-var is_fullscreen_enabled: bool
-var is_vibrating_enabled: bool 
+var is_music_enabled: bool = true
+var is_fx_enabled: bool = true
+var is_fullscreen_enabled: bool = false
+var is_rumble_enabled: bool = true
 
 var music_volume: float
 var fx_volume: float

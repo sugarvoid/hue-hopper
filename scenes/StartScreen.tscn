@@ -38,11 +38,12 @@ __meta__ = {
 }
 
 [node name="Quit" type="ColorRect" parent="."]
-margin_left = 42.8857
-margin_top = 143.793
+margin_left = 42.886
+margin_top = 177.13
 margin_right = 150.886
-margin_bottom = 165.793
+margin_bottom = 199.13
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -87,6 +88,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Settings" type="ColorRect" parent="."]
+margin_left = 42.977
+margin_top = 146.495
+margin_right = 150.977
+margin_bottom = 168.495
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -25.0
+margin_top = -17.0
+margin_right = 25.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Settings"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 
@@ -96,3 +122,4 @@ stream = ExtResource( 1 )
 [connection signal="gui_input" from="NewGame" to="." method="_on_NewGame_gui_input"]
 [connection signal="mouse_entered" from="NewGame" to="." method="_on_NewGame_mouse_entered"]
 [connection signal="mouse_exited" from="NewGame" to="." method="_on_NewGame_mouse_exited"]
+[connection signal="gui_input" from="Settings" to="." method="_on_Settings_gui_input"]

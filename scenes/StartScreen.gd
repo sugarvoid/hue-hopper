@@ -26,3 +26,8 @@ func _on_Quit_mouse_entered():
 
 func _on_Quit_mouse_exited():
 	GuiHelper.change_rect_color($Quit, GuiHelper.white)
+
+
+func _on_Settings_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+		var _x = get_tree().change_scene("res://scenes/GameSettings.tscn")
