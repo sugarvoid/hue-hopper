@@ -7,7 +7,7 @@ var hearts: int
 
 
 func init_data() -> void:
-	hearts = 3
+	hearts = 1
 	coins = 0
 	_score = 0
 
