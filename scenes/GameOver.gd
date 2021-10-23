@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	$Label2.set_text("Score: " + str(PlayerData.score))
+	$Label2.set_text("Score: " + str(PlayerData.get_player_score()))
 	$AudioStreamPlayer.play()
 
 func _on_Restart_gui_input(event: InputEvent):
