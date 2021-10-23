@@ -1,8 +1,11 @@
 extends Node2D
 
+var GuiHelper = preload("res://utils/gui_helper.gd")
+
 func _ready():
 	$Label2.set_text("Score: " + str(PlayerData.get_player_score()))
 	$AudioStreamPlayer.play()
+
 
 func _on_Restart_gui_input(event: InputEvent):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
@@ -10,10 +13,10 @@ func _on_Restart_gui_input(event: InputEvent):
 
 
 func _on_Restart_mouse_entered():
-	Global.change_rect_color($Restart, Global.rubyRed)
+	GuiHelper.change_rect_color($Restart, GuiHelper.rubyRed)
 	pass # Replace with function body.
 
 
 func _on_Restart_mouse_exited():
-	Global.change_rect_color($Restart, Global.white)
+	GuiHelper.change_rect_color($Restart, GuiHelper.white)
 	pass # Replace with function body.

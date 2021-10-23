@@ -4,6 +4,7 @@ extends Node2D
 func _ready():
 	PlayerData.init_data()
 
+var GuiHelper = preload("res://utils/gui_helper.gd")
 
 func _on_NewGame_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
@@ -15,13 +16,13 @@ func _on_Quit_gui_input(event: InputEvent) -> void:
 		get_tree().quit()
 
 func _on_NewGame_mouse_entered():
-	Global.change_rect_color($NewGame, Global.rubyRed)
+	GuiHelper.change_rect_color($NewGame, GuiHelper.rubyRed)
 
 func _on_NewGame_mouse_exited():
-	Global.change_rect_color($NewGame, Global.white)
+	GuiHelper.change_rect_color($NewGame, GuiHelper.white)
 
 func _on_Quit_mouse_entered():
-	Global.change_rect_color($Quit, Global.rubyRed)
+	GuiHelper.change_rect_color($Quit, GuiHelper.rubyRed)
 
 func _on_Quit_mouse_exited():
-	Global.change_rect_color($Quit, Global.white)
+	GuiHelper.change_rect_color($Quit, GuiHelper.white)
