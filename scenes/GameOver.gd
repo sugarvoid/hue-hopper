@@ -1,11 +1,17 @@
 extends Node2D
 
 var GuiHelper = preload("res://utils/gui_helper.gd")
+var current_high_score: int
 
 func _ready():
-	save_high_score(45)
-	$Label2.set_text("Score: " + str(PlayerData.get_player_score()))
-	$Label2.set_text("Best: " + str(load_high_score()))
+	current_high_score = load_high_score()
+	if PlayerData.get_player_score() > current_high_score:
+		current_high_score = PlayerData.get_player_score()
+		save_high_score(current_high_score)
+		
+	###save_high_score(45)
+	$PlayerScore.set_text("Score: " + str(PlayerData.get_player_score()))
+	$HighScore.set_text("Best: " + str(current_high_score))
 	$AudioStreamPlayer.play()
 
 

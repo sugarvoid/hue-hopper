@@ -41,7 +41,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="."]
+[node name="PlayerScore" type="Label" parent="."]
 anchor_top = -1.765
 margin_left = 74.1896
 margin_top = 106.756
@@ -54,9 +54,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="."]
+[node name="HighScore" type="Label" parent="."]
 anchor_top = -1.765
-margin_left = 73.3514
+margin_left = 74.0
 margin_top = 120.436
 margin_right = 113.351
 margin_bottom = 134.436
