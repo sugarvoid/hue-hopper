@@ -18,23 +18,35 @@ func _ready():
 		$LevelMusic.play()
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
 	Signals.connect("player_has_landed_on_ground", self, "_player_landed")
+	Signals.connect("player_touched_spike", self, "_play_spike_fx")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func _input(event) -> void:
+	if event.is_action_pressed("mute"):
+		$LevelMusic.stop()
+		GameSettings.is_fx_enabled = false
+		GameSettings.is_music_enabled = false
 
 func _get_new_color() -> void:
 	current_color = colors[randi() % colors.size()]
+
+func _play_spike_fx() -> void:
+	if GameSettings.is_fx_enabled:
+		$SpikeContact.play()
 
 func _player_landed(player_color) -> void:
 	$Cam2D.shake(20)
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:
-		$SoundRight.play()
+		if GameSettings.is_fx_enabled:
+			$SoundRight.play()
 		PlayerData.change_player_score(HIT)
 	else:
-		$SoundWrong.play()
+		if GameSettings.is_fx_enabled:
+			$SoundWrong.play()
 		PlayerData.change_player_score(MISS)
 	print(self.current_color == player_color)
 	Signals.emit_signal("player_stat_changed")

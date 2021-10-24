@@ -12,7 +12,8 @@ func _ready():
 	###save_high_score(45)
 	$PlayerScore.set_text("Score: " + str(PlayerData.get_player_score()))
 	$HighScore.set_text("Best: " + str(current_high_score))
-	$AudioStreamPlayer.play()
+	if GameSettings.is_fx_enabled:
+		$AudioStreamPlayer.play()
 
 
 func load_high_score():

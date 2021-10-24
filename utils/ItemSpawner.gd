@@ -4,6 +4,13 @@ var next_spawn_time: float = 5.0
 
 var max_spawn_time: float = 12.0
 var min_spawn_time: float = 3.0
+var game_mode: GameModes
+
+enum GameModes {
+  EASY,
+  MEDIUM,
+  HARD,
+}
 
 var p_items: Array = [
 	preload("res://items/Spike.tscn")
@@ -14,6 +21,17 @@ onready var timer = $Timer
 func _ready() -> void:
 	randomize()
 	timer.start(next_spawn_time)
+
+
+func determine_game_difficulty() -> void:
+	var s = PlayerData.get_player_score()
+	if s < 100:
+		pass
+	elif s >= 100 && x < 200:
+		pass
+	else:
+		 
+
 
 func _on_Timer_timeout() -> void:
 	var view_rect := get_viewport_rect()

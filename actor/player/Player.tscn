@@ -6,27 +6,27 @@
 [ext_resource path="res://assets/player-Sheet.png" type="Texture" id=4]
 [ext_resource path="res://utils/white.shader" type="Shader" id=5]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
 shader_param/is_active = false
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 16, 18 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 4 )
 region = Rect2( 16, 0, 16, 18 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "move",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=5]
 radius = 13.9278
 
 [sub_resource type="ShaderMaterial" id=6]
@@ -73,9 +73,9 @@ script = ExtResource( 2 )
 
 [node name="GreyGuy" type="AnimatedSprite" parent="." index="0"]
 visible = false
-material = SubResource( 2 )
+material = SubResource( 1 )
 position = Vector2( 0, -0.887 )
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "move"
 
 [node name="Ball" type="Node2D" parent="." index="1"]
@@ -96,7 +96,7 @@ position = Vector2( -12.1031, 0.0346444 )
 position = Vector2( 12.1227, -0.0814245 )
 
 [node name="CollisionShape2D" parent="." index="2"]
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="." index="3"]
 wait_time = 1.5
@@ -116,5 +116,8 @@ anims/blink = SubResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 anims/walking = SubResource( 8 )
+
+[node name="ScorePositon" type="Position2D" parent="." index="7"]
+position = Vector2( 0, -20.575 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
