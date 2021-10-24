@@ -25,6 +25,8 @@ onready var yellow: Position2D = $Ball/Yellow
 onready var timer: Timer = $Timer
 onready var ball: Node2D = $Ball
 onready var grey_guy: AnimatedSprite = $GreyGuy
+onready var animation_player: AnimationPlayer = $AnimationPlayer
+onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
 
 
 
@@ -50,12 +52,15 @@ func _physics_process(delta: float) -> void:
 			rotation_dir = 0
 			if Input.is_action_pressed("rotate_right"):
 				grey_guy.play("move")
+				animation_player.play("walking")
 				rotation_dir += 1
 			elif Input.is_action_pressed("rotate_left"):
 				grey_guy.play("move")
+				animation_player.play("walking")
 				rotation_dir -= 1
 			else:
 				grey_guy.stop()
+				animation_player.stop()
 		
 		if is_on_floor() and self.global_position.y >= 218: # Actully laned
 			rumble_controller(0.3, 0.2)
@@ -121,11 +126,12 @@ func debug_points():
 	print("g: " + str(green.global_position.y))
 
 func take_damage() -> void:
+	blink_animation_player.play("blink")
 	PlayerData.hearts -= 1
 	
 	if PlayerData.hearts <= 0:
 		get_tree().change_scene("res://scenes/GameOver.tscn")
-		
+
 	###Signals.emit_signal("player_health_changed", PlayerData.hearts)
 	Signals.emit_signal("player_stat_changed")
 

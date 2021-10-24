@@ -28,7 +28,7 @@ func _get_new_color() -> void:
 	current_color = colors[randi() % colors.size()]
 
 func _player_landed(player_color) -> void:
-
+	$Cam2D.shake(20)
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:
 		$SoundRight.play()

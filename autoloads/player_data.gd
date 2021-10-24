@@ -8,7 +8,7 @@ var multiplier: int
 
 
 func init_data() -> void:
-	hearts = 1
+	hearts = 4
 	coins = 0
 	multiplier = 1
 	_score = 0
