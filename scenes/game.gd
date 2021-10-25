@@ -20,9 +20,6 @@ func _ready():
 	Signals.connect("player_has_landed_on_ground", self, "_player_landed")
 	Signals.connect("player_touched_spike", self, "_play_spike_fx")
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _input(event) -> void:
 	if event.is_action_pressed("mute"):

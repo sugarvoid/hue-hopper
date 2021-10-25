@@ -42,7 +42,6 @@ const KEYBOARD_BUTTON_TO_INDEX_MAPPING = {
 }
 
 
-
 var high_score_file = "user://highscore.txt"
 
 var is_music_enabled: bool = true

@@ -2,7 +2,7 @@ extends Node2D
 
 var next_spawn_time: float = 5.0
 
-var max_spawn_time: float = 12.0
+var max_spawn_time: float = 10.0
 var min_spawn_time: float = 3.0
 
 
@@ -24,10 +24,10 @@ func _ready() -> void:
 
 
 func determine_game_difficulty() -> void:
-	var s = PlayerData.get_player_score()
-	if s < 100:
+	var score = PlayerData.get_player_score()
+	if score < 100:
 		pass
-	elif s >= 100 && s < 200:
+	elif score >= 100 && score < 200:
 		pass
 	else:
 		pass
