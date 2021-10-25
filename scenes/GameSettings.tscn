@@ -61,5 +61,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="toggled" from="ColorRect/Panel/VBoxContainer/ChkBoxRumble" to="." method="_on_ChkBoxRumble_toggled"]
 [connection signal="pressed" from="ColorRect/ButtonMainMenu" to="." method="_on_ButtonMainMenu_pressed"]

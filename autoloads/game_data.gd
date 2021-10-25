@@ -6,7 +6,21 @@ enum DIFFICULTY {
 	HARD
 }
 
+enum DEBUFFS {
+	ROTATION,
+	BOUNCE
+}
+
+enum PICKUPS {
+	SPIKE,
+	COIN,
+	GEM
+}
+
 var _current_difficulty = DIFFICULTY.EASY
+
+var has_morning_passed: bool = false
+var has_evening_passed: bool = false
 
 func _ready():
 	pass
@@ -25,3 +39,6 @@ func _determine_game_difficulty() -> void:
 func get_current_difficulty() -> int:
 	_determine_game_difficulty()
 	return _current_difficulty
+	
+func _apply_debuff() -> void:
+	pass

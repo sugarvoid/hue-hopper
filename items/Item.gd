@@ -1,16 +1,21 @@
 extends Area2D
 
 var fall_speed: float = 60
+var item_id: int = -7
 
-onready var animated_player = $AnimationPlayer
 
 
 func _physics_process(delta) -> void:
 	position.y += fall_speed * delta
 
+func item_action() -> void:
+	assert(false, "Override the '_item_action()' function.")
+
 func _on_Item_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		Signals.emit_signal("player_touched_spike")
+		self.item_action()
+		#Signals.emit_signal("player_touched_spike")
+		#Signals.emit_signal("player_picked_up_item", self.item_id)
 		call_deferred("disable_item_collision") 
 		queue_free()
 

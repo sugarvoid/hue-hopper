@@ -11,13 +11,14 @@ const FRICTION = 0.15
 
 var rotation_dir = 0
 var flips_achived: int = 0
-var rotation_speed: float = 4.5
+var rotation_speed: float
 var has_game_started: bool = false
 var bounces = 0
 var colors: Array = [purple,red,green,yellow]
 
 var floating_score: PackedScene = preload("res://utils/FloatingText.tscn")
 
+onready var modifer_timer: Timer = $DebuffTimer
 onready var purple: Position2D = $Ball/Purple
 onready var red: Position2D = $Ball/Red
 onready var green: Position2D = $Ball/Green
@@ -33,6 +34,7 @@ onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
 func _ready() -> void:
 	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
 	#Signals.emit_signal("player_life_changed", PlayerData.hearts) 
+	_reset_debuffs()
 	self.GRAVITY = 500
 	self.speed = 70.00
 
@@ -76,6 +78,12 @@ func _physics_process(delta: float) -> void:
 		
 		velocity.x = lerp(velocity.x, 0, FRICTION)
 		ball.rotation += rotation_dir * rotation_speed * delta
+
+func _reset_debuffs() -> void:
+	rotation_speed = 4.5
+	
+func lower_rotation_speed() -> void:
+	rotation_speed = 3
 
 func toggle_sprite(frame: int):
 	if frame == 1:
@@ -149,3 +157,7 @@ func _on_Pulse_body_entered(body: Node) -> void:
 
 func _on_Timer_timeout() -> void:
 	has_game_started = true
+
+
+func _on_DebuffTimer_timeout():
+	_reset_debuffs()

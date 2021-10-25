@@ -1,7 +1,6 @@
 extends Node2D
 
 var next_spawn_time: float = 5.0
-
 var max_spawn_time: float = 10.0
 var min_spawn_time: float = 5.0
 
@@ -37,7 +36,6 @@ func _determine_spawn_rate() -> void:
 			min_spawn_time = 2.0
 
 func _on_Timer_timeout() -> void:
-	
 	var x_pos := rand_range(view_rect.position.x, view_rect.end.x)
 	var random_item = p_items[randi() % p_items.size()]
 	var item = random_item.instance()

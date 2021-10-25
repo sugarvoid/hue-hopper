@@ -45,7 +45,7 @@ func _player_landed(player_color) -> void:
 		if GameSettings.is_fx_enabled:
 			$SoundWrong.play()
 		PlayerData.change_player_score(MISS)
-	print(self.current_color == player_color)
+		
 	Signals.emit_signal("player_stat_changed")
 	# GET NEW COLOR
 	_get_new_color()

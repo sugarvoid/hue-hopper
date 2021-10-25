@@ -120,4 +120,7 @@ anims/walking = SubResource( 8 )
 [node name="ScorePositon" type="Position2D" parent="." index="7"]
 position = Vector2( 0, -20.575 )
 
+[node name="DebuffTimer" type="Timer" parent="." index="8"]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="DebuffTimer" to="." method="_on_DebuffTimer_timeout"]

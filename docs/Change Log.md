@@ -2,6 +2,9 @@
 
 #### Version 3.x
 - Spikes now fall mores time goes on
+- Added difficulty 
+- Added defuff gems
+- Background color changes with difficulty 
 
 #### Version 3.0
 - Changed bounce height after landing on enemy

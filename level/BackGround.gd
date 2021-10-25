@@ -22,5 +22,14 @@ func change_color(new_color: String):
 	$Tween.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	_handle_background_color()
+
+func _handle_background_color() -> void:
+	match GameData._current_difficulty:
+		GameData.DIFFICULTY.EASY:
+			change_color(day)
+		GameData.DIFFICULTY.MEDIUM:
+			change_color(eving)
+		GameData.DIFFICULTY.HARD:
+			change_color(night)
