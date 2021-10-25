@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/StartScreen.gd" type="Script" id=3]
 [ext_resource path="res://utils/ButtonRect.tscn" type="PackedScene" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 44
 font_data = ExtResource( 2 )
 
@@ -27,7 +27,7 @@ margin_left = 7.54538
 margin_top = 49.6735
 margin_right = 201.545
 margin_bottom = 83.6735
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Hue Hopper"
 align = 1

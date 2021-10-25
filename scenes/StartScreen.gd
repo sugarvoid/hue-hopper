@@ -11,9 +11,6 @@ func _is_left_mouse_click(input: InputEventMouseButton) -> bool:
 	and input.pressed)
 
 
-func _on_DemoQuit_gui_input(event):
-	pass # Replace with function body.
-
 
 func _on_BtnSettings_gui_input(event):
 	if _is_left_mouse_click(event):

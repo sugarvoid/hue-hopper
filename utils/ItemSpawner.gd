@@ -4,7 +4,7 @@ var next_spawn_time: float = 5.0
 
 var max_spawn_time: float = 12.0
 var min_spawn_time: float = 3.0
-var game_mode: GameModes
+
 
 enum GameModes {
   EASY,
@@ -27,10 +27,10 @@ func determine_game_difficulty() -> void:
 	var s = PlayerData.get_player_score()
 	if s < 100:
 		pass
-	elif s >= 100 && x < 200:
+	elif s >= 100 && s < 200:
 		pass
 	else:
-		 
+		pass
 
 
 func _on_Timer_timeout() -> void:
