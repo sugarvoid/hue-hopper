@@ -1,12 +1,12 @@
 extends Area2D
 
-var speed: float = 50
+var fall_speed: float = 60
 
 onready var animated_player = $AnimationPlayer
 
 
 func _physics_process(delta) -> void:
-	position.y += speed * delta
+	position.y += fall_speed * delta
 
 func _on_Item_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):

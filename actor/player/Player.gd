@@ -11,7 +11,7 @@ const FRICTION = 0.15
 
 var rotation_dir = 0
 var flips_achived: int = 0
-var rotation_speed: float = 4.0
+var rotation_speed: float = 4.5
 var has_game_started: bool = false
 var bounces = 0
 var colors: Array = [purple,red,green,yellow]
