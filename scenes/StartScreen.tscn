@@ -3,12 +3,10 @@
 [ext_resource path="res://sounds/button.wav" type="AudioStream" id=1]
 [ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/StartScreen.gd" type="Script" id=3]
+[ext_resource path="res://utils/ButtonRect.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 44
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
 
 [node name="StartScreen" type="Node2D"]
@@ -37,89 +35,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Quit" type="ColorRect" parent="."]
-margin_left = 42.886
-margin_top = 177.13
-margin_right = 150.886
-margin_bottom = 199.13
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Label3" type="Label" parent="Quit"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -15.0
-margin_top = -17.0
-margin_right = 15.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Quit"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NewGame" type="ColorRect" parent="."]
-margin_left = 42.977
-margin_top = 116.818
-margin_right = 150.977
-margin_bottom = 138.818
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="NewGame"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -25.0
-margin_top = -17.0
-margin_right = 25.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "New Game"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Settings" type="ColorRect" parent="."]
-margin_left = 42.977
-margin_top = 146.495
-margin_right = 150.977
-margin_bottom = 168.495
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label3" type="Label" parent="Settings"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -25.0
-margin_top = -17.0
-margin_right = 25.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Settings"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 
-[connection signal="gui_input" from="Quit" to="." method="_on_Quit_gui_input"]
-[connection signal="mouse_entered" from="Quit" to="." method="_on_Quit_mouse_entered"]
-[connection signal="mouse_exited" from="Quit" to="." method="_on_Quit_mouse_exited"]
-[connection signal="gui_input" from="NewGame" to="." method="_on_NewGame_gui_input"]
-[connection signal="mouse_entered" from="NewGame" to="." method="_on_NewGame_mouse_entered"]
-[connection signal="mouse_exited" from="NewGame" to="." method="_on_NewGame_mouse_exited"]
-[connection signal="gui_input" from="Settings" to="." method="_on_Settings_gui_input"]
+[node name="BtnQuit" parent="." instance=ExtResource( 4 )]
+margin_left = 45.4997
+margin_top = 171.722
+margin_right = 153.5
+margin_bottom = 193.722
+button_text = "Quit"
+
+[node name="BtnPlay" parent="." instance=ExtResource( 4 )]
+margin_left = 46.3406
+margin_top = 106.132
+margin_right = 154.341
+margin_bottom = 128.132
+button_text = "Play"
+
+[node name="BtnSettings" parent="." instance=ExtResource( 4 )]
+margin_left = 45.9201
+margin_top = 138.506
+margin_right = 153.92
+margin_bottom = 160.506
+button_text = "Settings"
+
+[connection signal="gui_input" from="BtnQuit" to="." method="_on_BtnQuit_gui_input"]
+[connection signal="gui_input" from="BtnPlay" to="." method="_on_BtnPlay_gui_input"]
+[connection signal="gui_input" from="BtnSettings" to="." method="_on_BtnSettings_gui_input"]
