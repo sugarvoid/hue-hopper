@@ -24,18 +24,17 @@ func _ready() -> void:
 	timer.start(next_spawn_time)
 
 
-func _determine_game_difficulty() -> void:
-	var score = PlayerData.get_player_score()
-	if score < 100: # easy
-		max_spawn_time = 10.0
-		min_spawn_time = 5.0
-	elif score >= 100 && score < 200: # medium
-		max_spawn_time = 8.0
-		min_spawn_time = 4.0
-	else: # hard
-		max_spawn_time = 6.0
-		min_spawn_time = 2.0
-
+func _determine_spawn_rate() -> void:
+	match GameData.get_current_difficulty():
+		GameData.DIFFICULTY.EASY:
+			max_spawn_time = 10.0
+			min_spawn_time = 5.0
+		GameData.DIFFICULTY.MEDIUM:
+			max_spawn_time = 8.0
+			min_spawn_time = 4.0
+		GameData.DIFFICULTY.HARD:
+			max_spawn_time = 6.0
+			min_spawn_time = 2.0
 
 func _on_Timer_timeout() -> void:
 	
@@ -45,7 +44,7 @@ func _on_Timer_timeout() -> void:
 	item.position = Vector2(x_pos, position.y) 
 	get_tree().current_scene.add_child(item) # place item
 	
-	_determine_game_difficulty()
+	_determine_spawn_rate()
 	
 	next_spawn_time = rand_range(max_spawn_time, min_spawn_time)
 	timer.start(next_spawn_time)

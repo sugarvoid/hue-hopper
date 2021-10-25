@@ -1,5 +1,8 @@
 # Change Log
 
+#### Version 3.x
+- Spikes now fall mores time goes on
+
 #### Version 3.0
 - Changed bounce height after landing on enemy
 - Removed coins, replaced with spikes that damange player

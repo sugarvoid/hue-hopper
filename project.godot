@@ -41,6 +41,7 @@ config/icon="res://icon.png"
 Signals="*res://autoloads/signals.gd"
 PlayerData="*res://autoloads/player_data.gd"
 GameSettings="*res://autoloads/game_settings.gd"
+GameData="*res://autoloads/game_data.gd"
 
 [display]
 
