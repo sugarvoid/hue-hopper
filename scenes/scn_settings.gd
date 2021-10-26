@@ -1,9 +1,9 @@
 extends Node2D
 
 
-onready var chk_box_music: CheckBox = $ColorRect/Panel/VBoxContainer/ChkBoxMusic
-onready var chk_box_sound: CheckBox = $ColorRect/Panel/VBoxContainer/ChkBoxSound
-onready var chk_box_rumble: CheckBox = $ColorRect/Panel/VBoxContainer/ChkBoxRumble
+onready var chk_box_music: CheckBox = $ColorRect/VBoxContainer/ChkBoxMusic
+onready var chk_box_sound: CheckBox = $ColorRect/VBoxContainer/ChkBoxSound
+onready var chk_box_rumble: CheckBox = $ColorRect/VBoxContainer/ChkBoxRumble
 
 
 func _ready():

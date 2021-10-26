@@ -13,7 +13,7 @@ func _is_left_mouse_click(input: InputEventMouseButton) -> bool:
 
 func _on_BtnSettings_gui_input(event):
 	if _is_left_mouse_click(event):
-		var _x = get_tree().change_scene("res://scenes/GameSettings.tscn")
+		var _x = get_tree().change_scene("res://scenes/ScnSettings.tscn")
 
 
 func _on_BtnPlay_gui_input(event):

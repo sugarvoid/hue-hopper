@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = (-JUMPFORCE + 100)
 		
 		velocity.x = lerp(velocity.x, 0, FRICTION)
-		ball.rotation += rotation_dir * rotation_speed * delta
+		ball.rotation += rotation_dir * PlayerData.rotation_speed * delta
 
 func _reset_debuffs() -> void:
 	rotation_speed = 4.5

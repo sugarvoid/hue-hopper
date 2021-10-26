@@ -4,6 +4,9 @@ var coins: int
 var _score: int
 var hearts: int
 var multiplier: int 
+const DEFAULT_ROTATION_SPEED: float = 4.5
+var rotation_speed: float = DEFAULT_ROTATION_SPEED
+var jump_force: float
 #var bottom_color: String
 
 

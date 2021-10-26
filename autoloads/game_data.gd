@@ -22,7 +22,12 @@ var _current_difficulty = DIFFICULTY.EASY
 var has_morning_passed: bool = false
 var has_evening_passed: bool = false
 
+onready var debuff_timer: Timer = Timer.new()
+
+
 func _ready():
+	Signals.connect("apply_debuff", self, "_apply_debuff")
+	debuff_timer.connect("timeout", self, "_on_debuff_timer_timeout")
 	pass
 
 	
@@ -40,5 +45,17 @@ func get_current_difficulty() -> int:
 	_determine_game_difficulty()
 	return _current_difficulty
 	
-func _apply_debuff() -> void:
-	pass
+func _apply_debuff(debuff_id) -> void:
+	match debuff_id:
+		0:
+			PlayerData.rotation_speed = 3.0
+		1:
+			pass
+	add_child(debuff_timer)
+	debuff_timer.start(10)
+
+func _remove_debuffs():
+	PlayerData.rotation_speed = PlayerData.DEFAULT_ROTATION_SPEED
+
+func _on_debuff_timer_timeout() -> void:
+	_remove_debuffs()

@@ -15,12 +15,15 @@ var p_items: Array = [
 	preload("res://items/Spike.tscn")
 ]
 
-onready var timer = $Timer
+var Gem = preload("res://items/Gem.tscn")
+
+onready var timer_spike = $TimerSpike
+onready var timer_gem = $TimerGem
 onready var view_rect := get_viewport_rect()
 
 func _ready() -> void:
 	randomize()
-	timer.start(next_spawn_time)
+	timer_spike.start(next_spawn_time)
 
 
 func _determine_spawn_rate() -> void:
@@ -35,7 +38,9 @@ func _determine_spawn_rate() -> void:
 			max_spawn_time = 6.0
 			min_spawn_time = 2.0
 
-func _on_Timer_timeout() -> void:
+
+
+func _on_TimerSpike_timeout():
 	var x_pos := rand_range(view_rect.position.x, view_rect.end.x)
 	var random_item = p_items[randi() % p_items.size()]
 	var item = random_item.instance()
@@ -45,4 +50,17 @@ func _on_Timer_timeout() -> void:
 	_determine_spawn_rate()
 	
 	next_spawn_time = rand_range(max_spawn_time, min_spawn_time)
-	timer.start(next_spawn_time)
+	timer_spike.start(next_spawn_time)
+
+
+func _on_TimerGem_timeout():
+	# GET RANDOM GEM
+	# SPWAN GEM
+	var x_pos := rand_range(view_rect.position.x, view_rect.end.x)
+	var new_gem = Gem.instance()
+	new_gem.debuff_id = 0
+	new_gem.position = Vector2(x_pos, position.y) 
+	get_tree().current_scene.add_child(new_gem)
+	# RESET TIMER
+	timer_gem.start(20)
+	pass
