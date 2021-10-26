@@ -25,10 +25,10 @@ func _process(delta):
 	_handle_background_color()
 
 func _handle_background_color() -> void:
-	match GameData._current_difficulty:
-		GameData.DIFFICULTY.EASY:
+	match GameLogic._current_difficulty:
+		GameLogic.DIFFICULTY.EASY:
 			change_color(day)
-		GameData.DIFFICULTY.MEDIUM:
+		GameLogic.DIFFICULTY.MEDIUM:
 			change_color(eving)
-		GameData.DIFFICULTY.HARD:
+		GameLogic.DIFFICULTY.HARD:
 			change_color(night)

@@ -27,14 +27,14 @@ func _ready() -> void:
 
 
 func _determine_spawn_rate() -> void:
-	match GameData.get_current_difficulty():
-		GameData.DIFFICULTY.EASY:
+	match GameLogic.get_current_difficulty():
+		GameLogic.DIFFICULTY.EASY:
 			max_spawn_time = 10.0
 			min_spawn_time = 5.0
-		GameData.DIFFICULTY.MEDIUM:
+		GameLogic.DIFFICULTY.MEDIUM:
 			max_spawn_time = 8.0
 			min_spawn_time = 4.0
-		GameData.DIFFICULTY.HARD:
+		GameLogic.DIFFICULTY.HARD:
 			max_spawn_time = 6.0
 			min_spawn_time = 2.0
 

@@ -39,9 +39,9 @@ config/icon="res://icon.png"
 [autoload]
 
 Signals="*res://autoloads/signals.gd"
-PlayerData="*res://autoloads/player_data.gd"
+GameLogic="*res://autoloads/game_logic.gd"
 GameSettings="*res://autoloads/game_settings.gd"
-GameData="*res://autoloads/game_data.gd"
+PlayerData="*res://autoloads/player_data.gd"
 
 [display]
 
