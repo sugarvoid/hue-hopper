@@ -11,14 +11,10 @@ var jump_force: float
 
 
 func init_data() -> void:
-	hearts = 4
+	hearts = 3
 	coins = 0
 	multiplier = 1
 	_score = 0
-
-
-
-
 
 
 func get_player_score() -> int:
