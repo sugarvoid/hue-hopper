@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://debug/console.gd" type="Script" id=1]
+[ext_resource path="res://debug/command_handler.gd" type="Script" id=2]
+[ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.0901961 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[node name="Console" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1.0
+margin_bottom = -133.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Output" type="TextEdit" parent="."]
+margin_left = 7.0
+margin_top = 3.0
+margin_right = 195.0
+margin_bottom = 85.0
+focus_mode = 0
+custom_styles/read_only = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "debug console"
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Input" type="LineEdit" parent="."]
+margin_left = 6.33371
+margin_top = 87.9977
+margin_right = 194.334
+margin_bottom = 111.998
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="command_handler" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[connection signal="text_entered" from="Input" to="." method="_on_Input_text_entered"]

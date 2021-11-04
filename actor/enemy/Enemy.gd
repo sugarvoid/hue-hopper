@@ -48,11 +48,14 @@ func _physics_process(delta: float) -> void:
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
 
+func _slide_down() -> void:
+	pass
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		if self.color == body.get_bottom_color().to_lower(): # Checks if player bottom matches enemy color
 			PlayerData.multiplier += 1
+			#$AnimationPlayer.play("Die")
 			queue_free()
 		else:
 			body.take_damage()

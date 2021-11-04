@@ -1,14 +1,15 @@
 # Change Log
 
-#### Version 3.x
+#### Version 3.0.1
 - Spikes now fall mores time goes on
 - Added difficulty 
-- Added defuff gems
+- Added debuff gems
 - Background color changes with difficulty 
+- Added debug
 
 #### Version 3.0
 - Changed bounce height after landing on enemy
-- Removed coins, replaced with spikes that damange player
+- Removed coins, replaced with spikes that damage player
 - Added pause screen
 - Added point multiplier. Activated after killing enemy **(WIP)**
 - Added music and sound effects
@@ -32,3 +33,4 @@
 - Added background music
 
 #### Version 1.0
+- Game jam version 

@@ -13,6 +13,7 @@ var colors: Array = [
 ]
 
 
+
 func _ready():
 	if GameSettings.is_music_enabled: 
 		$LevelMusic.play()
@@ -21,7 +22,7 @@ func _ready():
 	Signals.connect("player_touched_spike", self, "_play_spike_fx")
 	
 
-func _input(event) -> void:
+func _unhandled_input(event) -> void:
 	if event.is_action_pressed("mute"):
 		$LevelMusic.stop()
 		GameSettings.is_fx_enabled = false

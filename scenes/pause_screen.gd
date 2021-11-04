@@ -4,7 +4,7 @@ extends Control
 func _ready() -> void:
 	set_visiblity(false) # Hides pause screen and all childen 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		set_visiblity(!get_tree().paused)
 		get_tree().paused = !get_tree().paused #toggles 

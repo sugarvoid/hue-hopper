@@ -25,6 +25,11 @@ var has_evening_passed: bool = false
 onready var debuff_timer: Timer = Timer.new()
 
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("toggle_console"):
+		get_parent().add_child(load("res://debug/Console.tscn").instance())
+		get_tree().paused = true
+
 func _ready():
 	Signals.connect("apply_debuff", self, "_apply_debuff")
 	debuff_timer.connect("timeout", self, "_on_debuff_timer_timeout")
