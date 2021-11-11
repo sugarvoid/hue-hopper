@@ -15,7 +15,7 @@ var rotation_speed: float
 var has_game_started: bool = false
 var colors: Array = [purple,red,green,yellow]
 
-var floating_score: PackedScene = preload("res://utils/FloatingText.tscn")
+var floating_score: PackedScene = preload("res://utils/floating_text/floating_text.tscn")
 
 
 onready var purple: Position2D = $Ball/Purple
@@ -88,7 +88,8 @@ func rumble_controller(amount: float, duration: float):
 
 func display_point_text() -> void:
 	var score = floating_score.instance()
-	score.amount = 100
+	score.set_text(str(10), Color.green)
+	##score.position = $ScorePositon.position
 	add_child(score)
 
 func find_largest_dict_val(dict: Dictionary): 
@@ -108,7 +109,8 @@ func get_bottom_color() -> String:
 		"Green": green.global_position.y,
 		"Yellow": yellow.global_position.y,
 	}
-	display_point_text()
+	#TODO: Finish this floating text
+	#display_point_text()
 	return find_largest_dict_val(dic)
 	
 
