@@ -1,13 +1,13 @@
 # Change Log
 
-#### Version 3.0.1
+#### Version 1.3.0-alpha
 - Spikes now fall mores time goes on
 - Added difficulty 
 - Added debuff gems
 - Background color changes with difficulty 
 - Added debug
 
-#### Version 3.0
+#### Version 1.2.0-alpha
 - Changed bounce height after landing on enemy
 - Removed coins, replaced with spikes that damage player
 - Added pause screen
@@ -20,7 +20,7 @@
 - Flash effect when player is hit
 - Added screen shake when landing 
 
-#### Version 2.0
+#### Version 1.1.0-alpha
 - Changed the background color
 - Replaced the blue part of the player to purple
 - Changed player sprite. (Gray guy is now in his helmet)
@@ -29,7 +29,7 @@
 - Removed the coin point multiplier
 - Added sound to game over screen
 
-#### Version 1.01
+#### Version 1.01-alpha
 - Added background music
 
 #### Version 1.0
