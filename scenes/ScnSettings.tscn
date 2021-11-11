@@ -30,18 +30,19 @@ __meta__ = {
 
 [node name="ChkBoxMusic" parent="ColorRect/VBoxContainer" instance=ExtResource( 2 )]
 margin_right = 95.0
+margin_bottom = 22.0
 label_text = "Music"
 
 [node name="ChkBoxFx" parent="ColorRect/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 20.0
+margin_top = 26.0
 margin_right = 95.0
-margin_bottom = 36.0
+margin_bottom = 48.0
 label_text = "Sound Fx"
 
 [node name="ChkBoxRumble" parent="ColorRect/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 40.0
+margin_top = 52.0
 margin_right = 95.0
-margin_bottom = 56.0
+margin_bottom = 74.0
 label_text = "Rumble"
 
 [node name="ButtonMainMenu" parent="ColorRect" instance=ExtResource( 3 )]

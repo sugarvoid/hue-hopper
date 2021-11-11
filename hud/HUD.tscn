@@ -1,15 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://hud/HUD.gd" type="Script" id=2]
 [ext_resource path="res://assets/tiles.png" type="Texture" id=3]
 [ext_resource path="res://sounds/wrong.wav" type="AudioStream" id=4]
 [ext_resource path="res://sounds/correct.wav" type="AudioStream" id=5]
+[ext_resource path="res://fonts/KRONIKA_.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
+size = 42
 outline_color = Color( 0.764706, 0.764706, 0.764706, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 1 )
@@ -27,12 +28,13 @@ __meta__ = {
 }
 
 [node name="Order" type="Label" parent="."]
-margin_left = 51.8091
-margin_top = 49.5256
-margin_right = 164.808
-margin_bottom = 81.5256
+margin_left = 59.664
+margin_top = 39.536
+margin_right = 182.664
+margin_bottom = 98.536
+rect_scale = Vector2( 0.75, 0.75 )
 custom_fonts/font = SubResource( 1 )
-text = "[filler]"
+text = "Yellow"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -72,8 +74,8 @@ margin_left = 30.1607
 margin_top = 21.0647
 margin_right = 66.1607
 margin_bottom = 49.0647
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "000"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -91,8 +93,8 @@ margin_left = 112.318
 margin_top = 1.1748
 margin_right = 199.318
 margin_bottom = 45.1748
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.388235, 0.372549, 0.372549, 1 )
+custom_fonts/font = SubResource( 3 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

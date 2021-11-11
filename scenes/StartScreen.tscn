@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://sounds/button.wav" type="AudioStream" id=1]
-[ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/Wash Your Hand.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/StartScreen.gd" type="Script" id=3]
 [ext_resource path="res://utils/ButtonRect.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 48
+size = 72
 font_data = ExtResource( 2 )
 
 [node name="StartScreen" type="Node2D"]
@@ -26,13 +26,28 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="Background"]
-margin_left = 7.14853
-margin_top = 49.4751
-margin_right = 201.148
-margin_bottom = 85.4751
+margin_left = -48.068
+margin_top = 13.136
+margin_right = 288.932
+margin_bottom = 79.136
+rect_scale = Vector2( 0.6, 0.6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Hue Hopper"
+text = "Hue"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title2" type="Label" parent="Background"]
+margin_left = 19.8908
+margin_top = 44.7557
+margin_right = 356.891
+margin_bottom = 110.756
+rect_scale = Vector2( 0.6, 0.6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Hopper"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

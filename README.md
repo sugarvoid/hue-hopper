@@ -1,7 +1,8 @@
 # Hue Hopper
+#### Version 1.3.0-alpha
 
 ## Description
-Orginally my submission to the Kenney Jam 2021.
+A game about rotating and bouncing. 
 
 ## Credit
 **Art:**

@@ -15,7 +15,7 @@ var p_items: Array = [
 	preload("res://items/Spike.tscn")
 ]
 
-var Gem = preload("res://items/Gem.tscn")
+var Gem = preload("res://items/gems/Gem.tscn")
 
 onready var timer_spike = $TimerSpike
 onready var timer_gem = $TimerGem

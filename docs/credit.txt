@@ -1,0 +1,9 @@
+Input Prompts Pixel 16× (1.0)
+
+	Created/distributed by Kenney (www.kenney.nl)
+
+fonts:
+
+Petita - Manfred Klein - ui
+Wash Your Hand - Khurasan - title
+Kronika - Apostrophic Labs - colors
