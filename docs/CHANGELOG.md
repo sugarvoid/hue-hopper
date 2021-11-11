@@ -1,5 +1,8 @@
 # Change Log
 
+#### Version 1.4.0-alpha
+- Added better fonts to start menu and tree commands
+
 #### Version 1.3.0-alpha
 - Spikes now fall mores time goes on
 - Added difficulty 
@@ -16,7 +19,7 @@
 - Added settings page for turning off sounds and rumble
 - Added xbox controller support
 - Added controller rumble
-- Added local leaderboard
+- Added local leader-board
 - Flash effect when player is hit
 - Added screen shake when landing 
 
