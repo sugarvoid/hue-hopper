@@ -1,5 +1,11 @@
 extends Node
 
+const EASY_MAX_SCORE: int = 100
+const MED_MIN_SCORE: int = 101
+const MED_MAX_SCORE: int = 200
+const HARD_MIN_SCORE: int = 201
+
+
 enum DIFFICULTY {
 	EASY,
 	MEDIUM,
@@ -38,9 +44,9 @@ func _ready():
 	
 func _determine_game_difficulty() -> void:
 	var score = PlayerData.get_player_score()
-	if score < 60:
+	if score < EASY_MAX_SCORE:
 		_current_difficulty = DIFFICULTY.EASY
-	elif score >= 60 && score < 150:
+	elif score >= MED_MIN_SCORE && score < MED_MAX_SCORE:
 		_current_difficulty = DIFFICULTY.MEDIUM
 	else:
 		_current_difficulty = DIFFICULTY.HARD
@@ -52,9 +58,9 @@ func get_current_difficulty() -> int:
 	
 func _apply_debuff(debuff_id) -> void:
 	match debuff_id:
-		0:
+		DEBUFFS.ROTATION:
 			PlayerData.rotation_speed = 3.0
-		1:
+		DEBUFFS.BOUNCE:
 			pass
 	add_child(debuff_timer)
 	debuff_timer.start(10)

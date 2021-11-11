@@ -6,7 +6,7 @@ class_name Player
 
 const ACCELERATION = 600
 const AIR_RES = 0.02
-const JUMPFORCE: float = 400.00
+var JUMPFORCE: float = PlayerData.bounce_force
 const FRICTION = 0.15
 
 var rotation_dir = 0

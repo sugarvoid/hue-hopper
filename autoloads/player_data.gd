@@ -5,6 +5,8 @@ var _score: int
 var hearts: int
 var multiplier: int 
 const DEFAULT_ROTATION_SPEED: float = 4.5
+const DEFAULT_BOUCE_FORCE: float = 400.00
+var bounce_force: float = DEFAULT_BOUCE_FORCE
 var rotation_speed: float = DEFAULT_ROTATION_SPEED
 var jump_force: float
 #var bottom_color: String
