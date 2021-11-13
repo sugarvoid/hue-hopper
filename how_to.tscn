@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://button_icon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://utils/ButtonRect.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/KRONIKA_.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://how_to.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+font_data = ExtResource( 3 )
+
+[node name="HowTo" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = 0.396851
+margin_top = 0.198425
+margin_right = 201.397
+margin_bottom = 251.198
+color = Color( 0.0745098, 0.556863, 0.847059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button Icon" parent="." instance=ExtResource( 1 )]
+position = Vector2( 109.703, 102.251 )
+
+[node name="Button Icon2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 130.888, 102.006 )
+frame = 1
+
+[node name="Button Icon3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 121.2, 61.0645 )
+frame = 2
+
+[node name="Button Icon4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 166.216, 135.436 )
+frame = 7
+
+[node name="Button Icon9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 121.706, 136.148 )
+frame = 8
+
+[node name="Button Icon5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 177.755, 101.139 )
+frame = 6
+
+[node name="Button Icon6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 176.036, 61.8046 )
+frame = 4
+
+[node name="Button Icon7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 153.21, 100.419 )
+frame = 5
+
+[node name="Button Icon8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 152.279, 62.2094 )
+frame = 3
+
+[node name="HowToLabel" type="Label" parent="."]
+margin_left = 6.30571
+margin_top = 44.8305
+margin_right = 135.306
+margin_bottom = 103.831
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 1 )
+text = "MOVE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HowToLabel2" type="Label" parent="."]
+margin_left = 5.92192
+margin_top = 88.5631
+margin_right = 171.922
+margin_bottom = 147.563
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 1 )
+text = "ROTATE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HowToLabel3" type="Label" parent="."]
+margin_left = 7.11536
+margin_top = 118.995
+margin_right = 145.115
+margin_bottom = 177.995
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 1 )
+text = "PAUSE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnMainMenu" parent="." instance=ExtResource( 2 )]
+margin_left = 44.6887
+margin_top = 171.207
+margin_right = 152.689
+margin_bottom = 193.207
+button_text = "Back"
+
+[connection signal="gui_input" from="BtnMainMenu" to="." method="_on_BtnMainMenu_gui_input"]

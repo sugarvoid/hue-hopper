@@ -30,7 +30,6 @@ __meta__ = {
 
 [node name="ChkBoxMusic" parent="ColorRect/VBoxContainer" instance=ExtResource( 2 )]
 margin_right = 95.0
-margin_bottom = 22.0
 label_text = "Music"
 
 [node name="ChkBoxFx" parent="ColorRect/VBoxContainer" instance=ExtResource( 2 )]
