@@ -9,17 +9,14 @@ func _physics_process(delta) -> void:
 	position.y += fall_speed * delta
 
 func item_action() -> void:
+	#TODO: THIS IS ERROR COODE
 	assert(false, "Override the '_item_action()' function.")
 
 func _on_Item_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		self.item_action()
-		#Signals.emit_signal("player_touched_spike")
-		#Signals.emit_signal("player_picked_up_item", self.item_id)
 		call_deferred("disable_item_collision") 
 		queue_free()
-
-		body.take_damage()
 		
 
 # To prevent body enetered from triggering twice if coin is lower to ground

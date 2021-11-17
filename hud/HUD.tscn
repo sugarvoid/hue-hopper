@@ -105,3 +105,13 @@ stream = ExtResource( 5 )
 
 [node name="SoundWrong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="Debuff" type="Label" parent="."]
+margin_left = 10.3758
+margin_top = 239.661
+margin_right = 50.3758
+margin_bottom = 253.661
+rect_scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -3,7 +3,11 @@ extends Control
 var HeartIcon = preload("res://hud/HeartIcon.tscn")
 
 onready var heart_container: HBoxContainer = $LifeContainer
+onready var debuff_label: Label = $Debuff
 
+
+func _process(delta):
+	debuff_label.text = GameLogic.get_current_debuff()
 
 func _ready() -> void:
 	clear_hearts()

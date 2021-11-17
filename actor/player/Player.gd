@@ -32,6 +32,7 @@ onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
 
 func _ready() -> void:
 	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
+	Signals.connect("player_touched_spike", self, "take_damage")
 	self.GRAVITY = 500
 	self.speed = 70.00
 

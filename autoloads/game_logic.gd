@@ -24,6 +24,7 @@ enum PICKUPS {
 }
 
 var _current_difficulty = DIFFICULTY.EASY
+var _current_debuff: String
 
 var has_morning_passed: bool = false
 var has_evening_passed: bool = false
@@ -37,6 +38,7 @@ func _process(delta: float) -> void:
 		get_tree().paused = true
 
 func _ready():
+	add_child(debuff_timer)
 	Signals.connect("apply_debuff", self, "_apply_debuff")
 	debuff_timer.connect("timeout", self, "_on_debuff_timer_timeout")
 	pass
@@ -56,17 +58,24 @@ func get_current_difficulty() -> int:
 	_determine_game_difficulty()
 	return _current_difficulty
 	
+
+func get_current_debuff() -> String:
+	return "Debuff: " + self._current_debuff
+
 func _apply_debuff(debuff_id) -> void:
 	match debuff_id:
 		DEBUFFS.ROTATION:
+			_current_debuff = "SLOW DOWN"
 			PlayerData.rotation_speed = 3.0
 		DEBUFFS.BOUNCE:
+			_current_debuff = "LOW BOUNCE"
 			pass
-	add_child(debuff_timer)
+	
 	debuff_timer.start(10)
 
 func _remove_debuffs():
 	PlayerData.rotation_speed = PlayerData.DEFAULT_ROTATION_SPEED
 
 func _on_debuff_timer_timeout() -> void:
+	_current_debuff = ""
 	_remove_debuffs()

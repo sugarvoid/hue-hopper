@@ -74,6 +74,17 @@ margin_right = 153.523
 margin_bottom = 160.308
 button_text = "Settings"
 
+[node name="LblVersion" type="Label" parent="."]
+margin_left = 157.155
+margin_top = 3.30359
+margin_right = 235.155
+margin_bottom = 17.3036
+rect_scale = Vector2( 0.5, 0.5 )
+text = "v1.3.0-alpha"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="gui_input" from="Background/BtnQuit" to="." method="_on_BtnQuit_gui_input"]
 [connection signal="gui_input" from="Background/BtnPlay" to="." method="_on_BtnPlay_gui_input"]
 [connection signal="gui_input" from="Background/BtnSettings" to="." method="_on_BtnSettings_gui_input"]

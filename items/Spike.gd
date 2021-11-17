@@ -5,3 +5,7 @@ func _ready():
 
 func item_action():
 	Signals.emit_signal("player_touched_spike")
+
+
+
+
