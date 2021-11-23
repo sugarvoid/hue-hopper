@@ -55,7 +55,14 @@ func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		if self.color == body.get_bottom_color().to_lower(): # Checks if player bottom matches enemy color
 			PlayerData.multiplier += 1
+			#TODO: needs fixing. position 
 			#$AnimationPlayer.play("Die")
 			queue_free()
 		else:
 			body.take_damage()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	match anim_name:
+		"Die":
+			queue_free()
