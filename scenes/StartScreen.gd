@@ -1,6 +1,6 @@
 extends Node2D
 
-
+#TODO: make version label info come from autoload
 func _ready():
 	PlayerData.init_data()
 
