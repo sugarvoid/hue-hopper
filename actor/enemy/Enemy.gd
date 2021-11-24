@@ -49,7 +49,7 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
 
 func _slide_down() -> void:
-	pass
+	self.position = Vector2(self.position.x, self.position.y + 1)
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
@@ -57,7 +57,8 @@ func _on_Area2D_body_entered(body: Node) -> void:
 			PlayerData.multiplier += 1
 			#TODO: needs fixing. position 
 			#$AnimationPlayer.play("Die")
-			queue_free()
+			_slide_down()
+			#queue_free()
 		else:
 			body.take_damage()
 

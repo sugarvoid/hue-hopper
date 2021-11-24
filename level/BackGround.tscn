@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://level/BackGround.gd" type="Script" id=1]
 [ext_resource path="res://assets/tiles.png" type="Texture" id=2]
+[ext_resource path="res://assets/basic-unchecked.png" type="Texture" id=3]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tiles.png 0"
@@ -206,3 +207,17 @@ format = 1
 tile_data = PoolIntArray( 131075, 0, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 2, 0, 196611, 3, 0, 196612, 4, 0, 196613, 4, 0, 196614, 4, 0, 196615, 4, 0, 196616, 5, 0, 262147, 6, 0, 262148, 7, 0, 262149, 7, 0, 262150, 7, 0, 262151, 9, 0, 262152, 8, 0, 327687, 10, 0, 393223, 11, 0, 458759, 11, 0, 524295, 11, 0, 589831, 11, 0, 655367, 11, 0, 720903, 11, 0, 786439, 12, 0 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = 46.102
+margin_top = -58.2854
+margin_right = 111.102
+margin_bottom = -5.28543
+texture = ExtResource( 3 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
