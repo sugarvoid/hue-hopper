@@ -19,7 +19,21 @@ func clear_hearts():
 		heart.queue_free()
 
 func _update_color_label(new_color: String) -> void:
-	$Order.set_text(new_color)
+	var _color: Color
+	#FIXME: Find better way to st color so i can add mix match color debuff. 
+	#Maybe a dictionaty and when debuff is one get randon color. else get right color
+	
+	match new_color:
+		"Yellow":
+			_color = Color.gold
+		"Green":
+			_color = Color.darkgreen
+		"Purple":
+			_color = Color.purple
+		"Red":
+			_color = Color.red
+	$Panel/Order.set("custom_colors/font_color", _color)
+	$Panel/Order.set_text(new_color)
 
 func update_player_coins(amount: int): # Combinded with update_hud. Might seperate later
 	pass

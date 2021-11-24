@@ -201,6 +201,7 @@ __meta__ = {
 }
 
 [node name="Tree" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource( 1 )
 cell_size = Vector2( 18, 18 )
 format = 1

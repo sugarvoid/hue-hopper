@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://hud/HUD.gd" type="Script" id=2]
@@ -6,11 +6,7 @@
 [ext_resource path="res://sounds/wrong.wav" type="AudioStream" id=4]
 [ext_resource path="res://sounds/correct.wav" type="AudioStream" id=5]
 [ext_resource path="res://fonts/KRONIKA_.ttf" type="DynamicFontData" id=6]
-
-[sub_resource type="DynamicFont" id=1]
-size = 42
-outline_color = Color( 0.764706, 0.764706, 0.764706, 1 )
-font_data = ExtResource( 6 )
+[ext_resource path="res://assets/grey_panel.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 1 )
@@ -19,23 +15,15 @@ font_data = ExtResource( 1 )
 size = 44
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=1]
+size = 42
+outline_color = Color( 0.380392, 0.372549, 0.372549, 1 )
+font_data = ExtResource( 6 )
+
 [node name="HUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Order" type="Label" parent="."]
-margin_left = 59.664
-margin_top = 39.536
-margin_right = 182.664
-margin_bottom = 98.536
-rect_scale = Vector2( 0.75, 0.75 )
-custom_fonts/font = SubResource( 1 )
-text = "Yellow"
-align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -112,6 +100,39 @@ margin_top = 239.661
 margin_right = 50.3758
 margin_bottom = 253.661
 rect_scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="NinePatchRect" parent="."]
+modulate = Color( 1, 1, 1, 0.619608 )
+margin_left = 41.0054
+margin_top = 32.8865
+margin_right = 155.005
+margin_bottom = 91.8865
+texture = ExtResource( 7 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Order" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.8811
+margin_top = -27.3811
+margin_right = 85.1189
+margin_bottom = 31.6189
+rect_scale = Vector2( 0.8, 0.8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Yellow"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
