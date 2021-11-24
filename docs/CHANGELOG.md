@@ -17,21 +17,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.2] - 2021-11-24
 ### Added
 - Enemies now drop through ground when killed instead of just vanishing. 
+- Obs are now the debuff items
 ### Changed
 - Moved game from 1.3.1 to 0.3.1 since it is still not a full game. Having a full version seemed wrong and could be confusing.  
+### Removed
+-Gems are no longer the debuff items
 
 ## [0.2.1] - 2021-11-17
 ### Changed
 - Replaced fonts on start menu and tree commands
 
 ## [0.2.0] - 2021-11-02
-- Spikes now fall mores time goes on
+### Added
+- Spikes that hurt on contact now fall mores time goes on
 - Added difficulty 
 - Added debuff gems
 - Background color changes with difficulty 
 - Added debug
-- Changed bounce height after landing on enemy
-- Removed coins, replaced with spikes that damage player
 - Added pause screen
 - Added point multiplier. Activated after killing enemy **(WIP)**
 - Added music and sound effects
@@ -41,6 +43,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added local leader-board
 - Flash effect when player is hit
 - Added screen shake when landing 
+### Changed
+- Bounce height after landing on enemy is lower
+### Removed
+- Coins
 
 ## [0.1.2] - 2021-08-25
 - Changed the background color

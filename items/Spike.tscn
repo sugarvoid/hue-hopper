@@ -15,7 +15,7 @@ script = ExtResource( 2 )
 position = Vector2( 0.0468216, 0 )
 rotation = -3.14159
 animation = "spike"
-frame = 1
+frame = 4
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( -0.46822, -1.54513 )

@@ -1,12 +1,15 @@
 extends Area2D
 
-var fall_speed: float = 60
+var fall_speed: float = 0
 var item_id: int = -7
 
 
 
 func _physics_process(delta) -> void:
 	position.y += fall_speed * delta
+
+func _ready() -> void:
+	pass
 
 func item_action() -> void:
 	#TODO: THIS IS ERROR COODE

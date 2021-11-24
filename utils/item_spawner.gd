@@ -15,10 +15,10 @@ var p_items: Array = [
 	preload("res://items/Spike.tscn")
 ]
 
-var Gem = preload("res://items/gems/Gem.tscn")
+var p_Orb = preload("res://Orb.tscn")
 
 onready var timer_spike = $TimerSpike
-onready var timer_gem = $TimerGem
+onready var timer_orb = $TimerOrb
 onready var view_rect := get_viewport_rect()
 
 func _ready() -> void:
@@ -57,10 +57,13 @@ func _on_TimerGem_timeout():
 	# GET RANDOM GEM
 	# SPWAN GEM
 	var x_pos := rand_range(view_rect.position.x, view_rect.end.x)
-	var new_gem = Gem.instance()
-	new_gem.debuff_id = 0
-	new_gem.position = Vector2(x_pos, position.y) 
-	get_tree().current_scene.add_child(new_gem)
+	var new_orb = p_Orb.instance()
+	new_orb.debuff_id = _get_random_orb()
+	new_orb.position = Vector2(x_pos, position.y) 
+	get_tree().current_scene.add_child(new_orb)
 	# RESET TIMER
-	timer_gem.start(20)
-	pass
+	timer_orb.start(10)
+	#FIXME: Replace timer back to 20 
+
+func _get_random_orb() -> int:
+	return GameLogic.DEBUFFS.ROTATION

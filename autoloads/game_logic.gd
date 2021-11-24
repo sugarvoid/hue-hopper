@@ -23,6 +23,10 @@ enum PICKUPS {
 	GEM
 }
 
+const ITEMS: Dictionary = {
+	"coin" : 0
+}
+
 var _current_difficulty = DIFFICULTY.EASY
 var _current_debuff: String
 
