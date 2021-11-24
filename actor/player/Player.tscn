@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://actor/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actor/player/player.gd" type="Script" id=2]
@@ -31,19 +31,46 @@ radius = 13.9278
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 5 )
-shader_param/is_active = false
+shader_param/is_active = true
 
-[sub_resource type="Animation" id=7]
-resource_name = "blink"
-length = 0.2
+[sub_resource type="Animation" id=9]
+length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:material:shader_param/is_active")
+tracks/0/path = NodePath("GreyGuy:material:shader")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.0479225, 0.0965603, 0.155147 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GreyGuy:material:shader_param/is_active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "blink"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("GreyGuy:material:shader_param/is_active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0479891, 0.0968124, 0.15629 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true, false ]
@@ -105,9 +132,10 @@ material = SubResource( 6 )
 texture = ExtResource( 4 )
 hframes = 2
 vframes = 1
-frame = 1
+frame = 0
 
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+anims/RESET = SubResource( 9 )
 anims/blink = SubResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]

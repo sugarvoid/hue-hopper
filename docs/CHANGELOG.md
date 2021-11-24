@@ -16,10 +16,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.2] - 2021-11-24
 ### Added
+- Kitargo splash screen.
 - Enemies now drop through ground when killed instead of just vanishing. 
-- Obs are now the debuff items
+- Obs are now the debuff items.
 ### Changed
-- Moved game from 1.3.1 to 0.3.1 since it is still not a full game. Having a full version seemed wrong and could be confusing.  
+- Moved game from 1.3.1 to 0.3.1 since it is still not a full game. Having a full version seemed wrong and could be confusing. 
+### Fixed
+- Flash effect on the player plays when taking a hit or spike and enemy.  
 ### Removed
 -Gems are no longer the debuff items
 

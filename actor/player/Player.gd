@@ -25,7 +25,6 @@ onready var yellow: Position2D = $Ball/Yellow
 onready var timer: Timer = $Timer
 onready var ball: Node2D = $Ball
 onready var grey_guy: AnimatedSprite = $GreyGuy
-#onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
 
 
@@ -52,11 +51,9 @@ func _physics_process(delta: float) -> void:
 			rotation_dir = 0
 			if Input.is_action_pressed("rotate_right"):
 				grey_guy.play("walking")
-				#animation_player.play("walking")
 				rotation_dir += 1
 			elif Input.is_action_pressed("rotate_left"):
 				grey_guy.play("walking")
-				#animation_player.play("walking")
 				rotation_dir -= 1
 			else:
 				grey_guy.stop()
