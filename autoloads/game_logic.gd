@@ -5,6 +5,8 @@ const MED_MIN_SCORE: int = 101
 const MED_MAX_SCORE: int = 200
 const HARD_MIN_SCORE: int = 201
 
+const CORRECT_POINTS: int = 1
+const WRONG_POINTS: int = 5
 
 enum DIFFICULTY {
 	EASY,
@@ -12,9 +14,15 @@ enum DIFFICULTY {
 	HARD
 }
 
+enum BUFFS {
+	HEALTH_UP,
+	REPLACE
+}
+
 enum DEBUFFS {
 	ROTATION,
-	BOUNCE
+	BOUNCE_DOWN,
+	ROTATION_UP,
 }
 
 enum PICKUPS {
@@ -42,6 +50,7 @@ func _process(delta: float) -> void:
 		get_tree().paused = true
 
 func _ready():
+	GameSettings.create_high_score_file()
 	add_child(debuff_timer)
 	Signals.connect("apply_debuff", self, "_apply_debuff")
 	debuff_timer.connect("timeout", self, "_on_debuff_timer_timeout")
@@ -70,7 +79,7 @@ func _apply_debuff(debuff_id) -> void:
 	match debuff_id:
 		DEBUFFS.ROTATION:
 			_current_debuff = "SLOW DOWN"
-			PlayerData.rotation_speed = 3.0
+			PlayerData.rotation_speed = 2.0
 		DEBUFFS.BOUNCE:
 			_current_debuff = "LOW BOUNCE"
 			pass

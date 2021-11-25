@@ -42,6 +42,18 @@ const KEYBOARD_BUTTON_TO_INDEX_MAPPING = {
 }
 
 
+
+func create_high_score_file():
+	var f = File.new()
+	if f.file_exists(GameSettings.high_score_file):
+		return
+	else:
+		f.open(GameSettings.high_score_file, File.WRITE)
+		f.store_var(0)
+		f.close()
+
+
+
 var high_score_file = "user://highscore.txt"
 
 var is_music_enabled: bool = true

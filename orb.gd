@@ -12,7 +12,7 @@ func select_effect():
 
 func _set_sprite(debuff_id: int):
 	match debuff_id:
-		GameLogic.DEBUFFS.BOUNCE:
+		GameLogic.DEBUFFS.BOUNCE_DOWN:
 			$AnimatedSprite.play("orb2")
 		GameLogic.DEBUFFS.ROTATION:
 			pass
