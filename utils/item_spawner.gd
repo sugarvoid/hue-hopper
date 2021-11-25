@@ -58,12 +58,12 @@ func _on_TimerGem_timeout():
 	# SPWAN GEM
 	var x_pos := rand_range(view_rect.position.x, view_rect.end.x)
 	var new_orb = p_Orb.instance()
-	new_orb.debuff_id = _get_random_orb()
+	new_orb.orb_id = _get_random_orb_id()
 	new_orb.position = Vector2(x_pos, position.y) 
 	get_tree().current_scene.add_child(new_orb)
 	# RESET TIMER
 	timer_orb.start(10)
 	#FIXME: Replace timer back to 20 
 
-func _get_random_orb() -> int:
+func _get_random_orb_id() -> int:
 	return GameLogic.DEBUFFS.ROTATION

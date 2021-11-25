@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 func _ready():
 	GameSettings.create_high_score_file()
 	add_child(debuff_timer)
-	Signals.connect("apply_debuff", self, "_apply_debuff")
+	Signals.connect("on_orb_pickup", self, "_on_orb_pickup")
 	debuff_timer.connect("timeout", self, "_on_debuff_timer_timeout")
 	pass
 
@@ -75,7 +75,7 @@ func get_current_difficulty() -> int:
 func get_current_debuff() -> String:
 	return "Debuff: " + self._current_debuff
 
-func _apply_debuff(debuff_id) -> void:
+func _on_orb_pickup(debuff_id) -> void:
 	match debuff_id:
 		DEBUFFS.ROTATION:
 			_current_debuff = "SLOW DOWN"

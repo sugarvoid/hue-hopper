@@ -9,7 +9,7 @@ signal player_touched_spike()
 signal player_picked_up_item(type)
 signal player_finished_easy()
 signal player_finished_medium()
-signal apply_debuff(debuff_id)
+signal on_orb_pickup(orb_id)
 signal debuff_applied()
 
 signal player_stat_changed()
