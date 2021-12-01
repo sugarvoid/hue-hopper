@@ -18,15 +18,15 @@ func _ready():
 func load_high_score():
 	var highscore: int
 	var f = File.new()
-	if f.file_exists(GameSettings.high_score_file):
-		f.open(GameSettings.high_score_file, File.READ)
+	if f.file_exists(GameSettings.HIGH_SCORE_FILE):
+		f.open(GameSettings.HIGH_SCORE_FILE, File.READ)
 		highscore = f.get_var()
 		f.close()
 		return highscore
 		
 func save_high_score(score: int):
 	var f = File.new()
-	f.open(GameSettings.high_score_file, File.WRITE)
+	f.open(GameSettings.HIGH_SCORE_FILE, File.WRITE)
 	f.store_var(score)
 
 func _on_Restart_gui_input(event: InputEvent):

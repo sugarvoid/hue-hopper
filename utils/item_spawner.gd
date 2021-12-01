@@ -66,4 +66,5 @@ func _on_TimerGem_timeout():
 	#FIXME: Replace timer back to 20 
 
 func _get_random_orb_id() -> int:
-	return GameLogic.DEBUFFS.ROTATION
+	var _ran: int = rand_range(0, 3)
+	return GameLogic.DEBUFFS.BOUNCE_DOWN

@@ -58,10 +58,10 @@ position = Vector2( 152.279, 62.2094 )
 frame = 3
 
 [node name="HowToLabel" type="Label" parent="."]
-margin_left = 6.30571
-margin_top = 44.8305
-margin_right = 135.306
-margin_bottom = 103.831
+margin_left = 13.0
+margin_top = 48.0
+margin_right = 142.0
+margin_bottom = 107.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 1 )
 text = "MOVE"

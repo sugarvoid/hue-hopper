@@ -18,6 +18,8 @@ func _set_sprite(orb_id: int):
 			animated_sprite.play("orb2")
 		GameLogic.DEBUFFS.ROTATION:
 			animated_sprite.play("orb1")
+		GameLogic.DEBUFFS.ROTATION_UP:
+			animated_sprite.play("orb3")
 		_:
 			assert(false, "A vaild debuff was not selected")
 		
