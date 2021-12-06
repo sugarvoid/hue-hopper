@@ -9,7 +9,7 @@ const UP = Vector2(0, -1)
 var velocity: Vector2 = Vector2.ZERO
 var diriction = -1
 var is_facing_right: bool = true
-var speed: float = 25
+var speed: float = 30
 var color: String
 var colors: Array = [
 	"red",

@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/tiles.png" type="Texture" id=1]
+[ext_resource path="res://assets/pipe.png" type="Texture" id=2]
+[ext_resource path="res://assets/button.png" type="Texture" id=3]
+[ext_resource path="res://level/button.gd" type="Script" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 18, 0, 18, 18, 0, 18 )
@@ -114,8 +117,60 @@ points = PoolVector2Array( 0, 0, 18, 0, 18, 18, 0, 18 )
 4/shapes = [  ]
 4/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8.0534, 4.49493 )
+
 [node name="Level" type="TileMap"]
 tile_set = SubResource( 5 )
 cell_size = Vector2( 18, 18 )
 format = 1
 tile_data = PoolIntArray( 917503, 3, 0, 851968, 3, 0, 851969, 3, 0, 851970, 3, 0, 851971, 3, 0, 851972, 3, 0, 851973, 3, 0, 851974, 3, 0, 851975, 3, 0, 851976, 3, 0, 851977, 3, 0, 851978, 3, 0, 851979, 3, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 100, 12 )
+texture = ExtResource( 2 )
+
+[node name="Position2D" type="Position2D" parent="Sprite"]
+position = Vector2( -90.6489, 8.01809 )
+
+[node name="Position2D4" type="Position2D" parent="Sprite"]
+position = Vector2( -30.1913, 8.01809 )
+
+[node name="Position2D9" type="Position2D" parent="Sprite"]
+position = Vector2( -10.6404, 8.22831 )
+
+[node name="Position2D10" type="Position2D" parent="Sprite"]
+position = Vector2( 9.54106, 7.59764 )
+
+[node name="Position2D2" type="Position2D" parent="Sprite"]
+position = Vector2( -69.7517, 8.01809 )
+
+[node name="Position2D3" type="Position2D" parent="Sprite"]
+position = Vector2( -49.6676, 8.01809 )
+
+[node name="Position2D5" type="Position2D" parent="Sprite"]
+position = Vector2( 29.736, 7.66454 )
+
+[node name="Position2D6" type="Position2D" parent="Sprite"]
+position = Vector2( 90.1936, 7.66454 )
+
+[node name="Position2D7" type="Position2D" parent="Sprite"]
+position = Vector2( 50.6332, 7.66454 )
+
+[node name="Position2D8" type="Position2D" parent="Sprite"]
+position = Vector2( 70.7173, 7.66454 )
+
+[node name="Button" type="Area2D" parent="."]
+position = Vector2( 99.4731, 230.3 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button"]
+position = Vector2( -0.0510864, 2.21692 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Button"]
+texture = ExtResource( 3 )
+hframes = 2
+
+[connection signal="body_entered" from="Button" to="Button" method="_on_Button_body_entered"]
+[connection signal="body_exited" from="Button" to="Button" method="_on_Button_body_exited"]
