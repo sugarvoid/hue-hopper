@@ -17,6 +17,9 @@
 [node name="Game" type="Node"]
 script = ExtResource( 9 )
 
+[node name="ItemSpawner" parent="." instance=ExtResource( 4 )]
+position = Vector2( 96.3258, -21.4057 )
+
 [node name="BackGround" parent="." instance=ExtResource( 6 )]
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
@@ -25,10 +28,7 @@ tile_data = PoolIntArray( 917501, 3, 0, 917502, 3, 0, 917503, 3, 0, 851968, 3, 0
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 104.481, 120.008 )
-
-[node name="ItemSpawner" parent="." instance=ExtResource( 4 )]
-position = Vector2( 96.3258, -21.4057 )
+position = Vector2( 134.382, 119.891 )
 
 [node name="EnemySpawner" parent="." instance=ExtResource( 2 )]
 position = Vector2( 216, 217 )

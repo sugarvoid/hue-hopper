@@ -4,7 +4,7 @@
 [ext_resource path="res://items/Spike.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2.95754, 5.45423 )
+extents = Vector2( 3.60729, 4.44782 )
 
 [node name="Spike" instance=ExtResource( 1 )]
 position = Vector2( -0.499282, -0.26278 )
@@ -15,12 +15,12 @@ script = ExtResource( 2 )
 position = Vector2( 0.0468216, 0 )
 rotation = -3.14159
 animation = "spike"
-frame = 4
+frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -0.46822, -1.54513 )
+position = Vector2( 0.612638, 0.422886 )
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" parent="." index="2"]
-position = Vector2( -0.639264, -1.08959 )
-scale = Vector2( 0.478222, 0.673142 )
+position = Vector2( 0.594408, 0.35407 )
+scale = Vector2( 0.354855, 0.455281 )

@@ -42,7 +42,7 @@ func update_player_coins(amount: int): # Combinded with update_hud. Might sepera
 
 func update_hud() -> void:
 	$ScoreLabel.set_text(str(PlayerData.get_player_score()))
-	$CoinLabel.set_text(str(PlayerData.coins))
+	##$CoinLabel.set_text(str(PlayerData.coins))
 	clear_hearts()
 	for _i in range(PlayerData.hearts):
 		heart_container.add_child(HeartIcon.instance())

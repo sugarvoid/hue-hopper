@@ -18,6 +18,9 @@ func _ready() -> void:
 
 
 func _on_Button_body_entered(body: Node) -> void:
+	if body.get_class() != "KinematicBody2D":
+		return
+	Signals.emit_signal("on_red_button_pressed")
 	sprite.frame = 1
 
 
