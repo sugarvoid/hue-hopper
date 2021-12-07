@@ -49,6 +49,7 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
 
 func _slide_down() -> void:
+	$CollisionShape2D.disabled = true
 	self.position = Vector2(self.position.x, self.position.y + 1)
 
 func _on_Area2D_body_entered(body: Node) -> void:
@@ -60,7 +61,9 @@ func _on_Area2D_body_entered(body: Node) -> void:
 			_slide_down()
 			#queue_free()
 		else:
-			body.take_damage()
+			pass
+			## Removed player taking damage ##
+			### body.take_damage()
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

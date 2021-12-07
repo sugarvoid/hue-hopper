@@ -26,13 +26,14 @@ onready var timer: Timer = $Timer
 onready var ball: Node2D = $Ball
 onready var grey_guy: AnimatedSprite = $GreyGuy
 onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
+onready var invic_timer: Timer = $InvicTimer
 
 
 
 func _ready() -> void:
 	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
 	Signals.connect("player_touched_spike", self, "take_damage")
-	self.GRAVITY = 500
+	self.GRAVITY = 600
 	self.speed = 70.00
 
 func _physics_process(delta: float) -> void:
@@ -125,8 +126,11 @@ func debug_points():
 	print("g: " + str(green.global_position.y))
 
 func take_damage() -> void:
-	blink_animation_player.play("blink")
-	PlayerData.hearts -= 1
+	if invic_timer.is_stopped():
+		invic_timer.start()
+		print('hit a spike')
+		blink_animation_player.play("blink")
+		PlayerData.hearts -= 1
 	
 	if PlayerData.hearts <= 0:
 		get_tree().change_scene("res://scenes/GameOver.tscn")

@@ -118,7 +118,7 @@ points = PoolVector2Array( 0, 0, 18, 0, 18, 18, 0, 18 )
 4/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 8.0534, 4.49493 )
+extents = Vector2( 4.00452, 4.49493 )
 
 [node name="Level" type="TileMap"]
 tile_set = SubResource( 5 )
@@ -131,41 +131,32 @@ position = Vector2( 100, 12 )
 texture = ExtResource( 2 )
 
 [node name="Pos1" type="Position2D" parent="Pipes"]
-position = Vector2( -90.6489, 8.01809 )
+position = Vector2( -90.649, 8 )
 
 [node name="Pos2" type="Position2D" parent="Pipes"]
-position = Vector2( -30.1913, 8.01809 )
+position = Vector2( -0.441, 8 )
 
 [node name="Pos3" type="Position2D" parent="Pipes"]
-position = Vector2( -10.6404, 8.22831 )
+position = Vector2( 29.86, 8 )
 
 [node name="Pos4" type="Position2D" parent="Pipes"]
-position = Vector2( 9.54106, 7.59764 )
+position = Vector2( 60.541, 8 )
 
 [node name="Pos5" type="Position2D" parent="Pipes"]
-position = Vector2( -69.7517, 8.01809 )
+position = Vector2( -59.502, 8 )
 
 [node name="Pos6" type="Position2D" parent="Pipes"]
-position = Vector2( -49.6676, 8.01809 )
+position = Vector2( -29.918, 8 )
 
 [node name="Pos7" type="Position2D" parent="Pipes"]
-position = Vector2( 29.736, 7.66454 )
-
-[node name="Pos8" type="Position2D" parent="Pipes"]
-position = Vector2( 90.1936, 7.66454 )
-
-[node name="Pos9" type="Position2D" parent="Pipes"]
-position = Vector2( 50.6332, 7.66454 )
-
-[node name="Pos10" type="Position2D" parent="Pipes"]
-position = Vector2( 70.7173, 7.66454 )
+position = Vector2( 90.236, 8 )
 
 [node name="Button" type="Area2D" parent="."]
 position = Vector2( 99.4731, 230.3 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button"]
-position = Vector2( -0.0510864, 2.21692 )
+position = Vector2( -0.0393448, 2.21692 )
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Button"]
