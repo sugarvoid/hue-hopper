@@ -75,12 +75,6 @@ func _physics_process(delta: float) -> void:
 		ball.rotation += rotation_dir * PlayerData.rotation_speed * delta
 
 
-#func toggle_sprite(frame: int):
-	#if frame == 1:
-		#sprite.set_frame(0)
-	#if frame == 0:
-		#sprite.set_frame(1)
-
 func rumble_controller(amount: float, duration: float):
 	if GameSettings.is_rumble_enabled:
 		Input.start_joy_vibration(0, amount, amount, duration)

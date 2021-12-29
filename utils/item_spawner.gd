@@ -57,11 +57,18 @@ func _determine_spawn_rate() -> void:
 
 func _fire_all() -> void:
 	var s = get_tree().current_scene
-	for pos in positions:
-		var spike = p_Spike.instance()
-		spike.position = pos
-		s.call_deferred("add_child", spike)
-		#s.add_child(spike)
+	
+	
+	var random_pipe = positions[randi() % positions.size()]
+	var spike = p_Spike.instance()
+	spike.position = random_pipe
+	s.call_deferred("add_child", spike)
+	
+#	for pos in positions:
+#		var spike = p_Spike.instance()
+#		spike.position = pos
+#		s.call_deferred("add_child", spike)
+#		#s.add_child(spike)
 
 
 func _on_TimerSpike_timeout():

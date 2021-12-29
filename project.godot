@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Orb",
 "language": "GDScript",
-"path": "res://orb.gd"
+"path": "res://items/orbs/orb.gd"
 }, {
 "base": "Actor",
 "class": "Player",
