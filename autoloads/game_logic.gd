@@ -5,7 +5,7 @@ const MED_MIN_SCORE: int = 101
 const MED_MAX_SCORE: int = 200
 const HARD_MIN_SCORE: int = 201
 
-const CORRECT_POINTS: int = 1
+const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
 
 enum DIFFICULTY {

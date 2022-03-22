@@ -1,6 +1,6 @@
 extends Node
 
-const MISS: int = -10
+
 const HIT: int = 5
 
 var current_color: String = "Yellow"
@@ -42,12 +42,11 @@ func _player_landed(player_color) -> void:
 	if self.current_color == player_color:
 		if GameSettings.is_fx_enabled:
 			$SoundRight.play()
-		PlayerData.change_player_score(HIT)
+		PlayerData.change_player_score(GameLogic.CORRECT_POINTS)
 	else:
 		Signals.emit_signal("on_red_button_pressed")
 		if GameSettings.is_fx_enabled:
 			$SoundWrong.play()
-		PlayerData.change_player_score(MISS)
 		
 	Signals.emit_signal("player_stat_changed")
 	# GET NEW COLOR

@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://kitargo_splash/kitargo_splash.gd" type="Script" id=1]
-[ext_resource path="res://kitargo_splash/kitargo_cube.png" type="Texture" id=2]
 [ext_resource path="res://kitargo_splash/splash_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://kitargo_splash/rorymceachan_void.wav" type="AudioStream" id=4]
 
@@ -84,12 +83,6 @@ text = "Games"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Sprite" type="Sprite" parent="TextureRect2"]
-visible = false
-position = Vector2( 240, 144.286 )
-scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
