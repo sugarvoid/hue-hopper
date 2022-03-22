@@ -58,15 +58,14 @@ margin_bottom = 625.66
 rect_scale = Vector2( 0.4, 0.4 )
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="TextureRect2"]
-margin_left = 162.815
-margin_top = 262.333
-margin_right = 324.815
-margin_bottom = 320.333
+margin_left = 155.063
+margin_top = 173.35
+margin_right = 329.063
+margin_bottom = 231.35
 custom_colors/font_color = Color( 0.996078, 0.905882, 0.0823529, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Kitargo"
@@ -75,10 +74,10 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="TextureRect2"]
-margin_left = 167.993
-margin_top = 311.744
-margin_right = 322.993
-margin_bottom = 369.744
+margin_left = 160.241
+margin_top = 222.761
+margin_right = 323.241
+margin_bottom = 280.761
 custom_colors/font_color = Color( 0.996078, 0.905882, 0.0823529, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Games"
@@ -87,6 +86,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="TextureRect2"]
+visible = false
 position = Vector2( 240, 144.286 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )

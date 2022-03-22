@@ -11,8 +11,6 @@ signal player_finished_easy()
 signal player_finished_medium()
 signal on_orb_pickup(orb_id)
 signal debuff_applied()
-
 signal on_red_button_pressed()
-
 signal player_stat_changed()
 signal color_changed(new_color)

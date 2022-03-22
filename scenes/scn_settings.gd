@@ -1,9 +1,9 @@
 extends Node2D
 
 
-onready var chk_box_music: TextureButton = $ColorRect/VBoxContainer/ChkBoxMusic/CheckBox
-onready var chk_box_sound: TextureButton = $ColorRect/VBoxContainer/ChkBoxFx/CheckBox
-onready var chk_box_rumble: TextureButton = $ColorRect/VBoxContainer/ChkBoxRumble/CheckBox
+onready var chk_box_music: TextureButton = get_node("ColorRect/VBoxContainer/ChkBoxMusic/CheckBox")
+onready var chk_box_sound: TextureButton = get_node("ColorRect/VBoxContainer/ChkBoxFx/CheckBox")
+onready var chk_box_rumble: TextureButton = get_node("ColorRect/VBoxContainer/ChkBoxRumble/CheckBox")
 
 
 func _ready():

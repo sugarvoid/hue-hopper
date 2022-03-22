@@ -3,17 +3,15 @@ class_name Orb
 
 onready var animated_sprite = $AnimatedSprite
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 var orb_id: int = -99
 
 func select_effect():
 	# TODO: add way to change effect
 	pass
 
-func _set_sprite(orb_id: int):
-	match orb_id:
+func _set_sprite(o_id: int):
+	match o_id:
 		GameLogic.DEBUFFS.BOUNCE_DOWN:
 			animated_sprite.play("orb2")
 		GameLogic.DEBUFFS.ROTATION:
@@ -32,6 +30,3 @@ func _ready():
 func item_action():
 	Signals.emit_signal("on_orb_pickup", orb_id)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

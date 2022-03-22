@@ -5,6 +5,9 @@ const HIT: int = 5
 
 var current_color: String = "Yellow"
 
+onready var LevelMusic = get_node("LevelMusic")
+
+
 var colors: Array = [
 	"Red",
 	"Purple",
@@ -12,11 +15,9 @@ var colors: Array = [
 	"Green"
 ]
 
-
-
 func _ready():
 	if GameSettings.is_music_enabled: 
-		$LevelMusic.play()
+		LevelMusic.play()
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
 	Signals.connect("player_has_landed_on_ground", self, "_player_landed")
 	Signals.connect("player_touched_spike", self, "_play_spike_fx")
@@ -24,7 +25,7 @@ func _ready():
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("mute"):
-		$LevelMusic.stop()
+		LevelMusic.stop()
 		GameSettings.is_fx_enabled = false
 		GameSettings.is_music_enabled = false
 
@@ -43,6 +44,7 @@ func _player_landed(player_color) -> void:
 			$SoundRight.play()
 		PlayerData.change_player_score(HIT)
 	else:
+		Signals.emit_signal("on_red_button_pressed")
 		if GameSettings.is_fx_enabled:
 			$SoundWrong.play()
 		PlayerData.change_player_score(MISS)
