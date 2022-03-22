@@ -54,6 +54,8 @@ func _slide_down() -> void:
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
+		body.take_damage()
+		
 		if self.color == body.get_bottom_color().to_lower(): # Checks if player bottom matches enemy color
 			PlayerData.multiplier += 1
 			#TODO: needs fixing. position 
@@ -62,8 +64,7 @@ func _on_Area2D_body_entered(body: Node) -> void:
 			#queue_free()
 		else:
 			pass
-			## Removed player taking damage ##
-			### body.take_damage()
+
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

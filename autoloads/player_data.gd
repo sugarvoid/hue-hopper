@@ -11,7 +11,7 @@ var coins: int
 var _score: int
 var hearts: int
 var multiplier: int 
-const DEFAULT_ROTATION_SPEED: float = 4.5
+const DEFAULT_ROTATION_SPEED: float = 5.3
 const DEFAULT_BOUCE_FORCE: float = 400.00
 
 
