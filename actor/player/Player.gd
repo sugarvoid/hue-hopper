@@ -8,6 +8,7 @@ const ACCELERATION = 600
 const AIR_RES = 0.02
 var JUMPFORCE: float = PlayerData.bounce_force
 const FRICTION = 0.15
+var speed: float
 
 var rotation_dir = 0
 var flips_achived: int = 0
@@ -37,6 +38,13 @@ func _ready() -> void:
 	self.speed = 70.00
 
 func _physics_process(delta: float) -> void:
+	
+#	if $Ball .rotation_degrees >= 360:
+#		$Ball.rotation_degrees = 0
+#	if $Ball .rotation_degrees <= -360:
+#		$Ball.rotation_degrees = 0
+
+	
 	if has_game_started:
 		var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left") # 1 = right  -1 = left
 
@@ -74,6 +82,19 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, 0, FRICTION)
 		ball.rotation += rotation_dir * PlayerData.rotation_speed * delta
 
+func get_bottom_color_deg():
+	var rot_num = round($Ball.rotation)
+	print(rot_num)
+	
+	
+	if rot_num == -2 or rot_num == 5:
+		print('Red') 
+	elif rot_num == 0:
+		print('Yellow') 
+	elif rot_num == -3 or rot_num == 3:
+		print('Purple') 
+	elif rot_num == 2 or rot_num == -5:
+		print('Green')
 
 func rumble_controller(amount: float, duration: float):
 	if GameSettings.is_rumble_enabled:
