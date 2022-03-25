@@ -20,7 +20,7 @@ var p_items: Array = [
 var p_Spike = preload("res://items/Spike.tscn")
 var p_Orb = preload("res://items/orbs/Orb.tscn")
 
-onready var pipes = get_tree().get_root().get_node("Game/Level/Pipes")
+onready var pipes = get_tree().get_root().get_node("Game/World/Pipes")
 
 
 onready var timer_spike = $TimerSpike

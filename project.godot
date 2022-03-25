@@ -50,7 +50,6 @@ Signals="*res://autoloads/signals.gd"
 GameLogic="*res://autoloads/game_logic.gd"
 GameSettings="*res://autoloads/game_settings.gd"
 PlayerData="*res://autoloads/player_data.gd"
-CommandHistory="*res://debug/command_history.gd"
 
 [display]
 

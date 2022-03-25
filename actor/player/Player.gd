@@ -3,6 +3,19 @@ extends Actor
 
 class_name Player
 
+"""
+Player Data/Stats
+"""
+var bounce_force: float = DEFAULT_BOUCE_FORCE
+var rotation_speed: float = DEFAULT_ROTATION_SPEED
+var jump_force: float
+var coins: int
+var _score: int
+var hearts: int
+var multiplier: int 
+const DEFAULT_ROTATION_SPEED: float = 5.3
+const DEFAULT_BOUCE_FORCE: float = 400.00
+
 
 const ACCELERATION = 600
 const AIR_RES = 0.02
@@ -12,7 +25,7 @@ var speed: float
 
 var rotation_dir = 0
 var flips_achived: int = 0
-var rotation_speed: float
+#var rotation_speed: float
 var has_game_started: bool = false
 var colors: Array = [purple,red,green,yellow]
 
@@ -36,6 +49,14 @@ func _ready() -> void:
 	Signals.connect("player_touched_spike", self, "take_damage")
 	self.GRAVITY = 600
 	self.speed = 70.00
+
+
+func init_player_data() -> void:
+	hearts = 3
+	coins = 0
+	multiplier = 1
+	_score = 0
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -134,11 +155,6 @@ func change_score(amount: int):
 func sort_points(a: Position2D, b: Position2D):
 	return a.position.y == b.position.y
 
-func debug_points():
-	print("p: " + str(purple.global_position.y))
-	print("y: " + str(yellow.global_position.y))
-	print("r: " + str(red.global_position.y))
-	print("g: " + str(green.global_position.y))
 
 func take_damage() -> void:
 	if invic_timer.is_stopped():
@@ -150,7 +166,6 @@ func take_damage() -> void:
 	if PlayerData.hearts <= 0:
 		get_tree().change_scene("res://scenes/GameOver.tscn")
 
-	###Signals.emit_signal("player_health_changed", PlayerData.hearts)
 	Signals.emit_signal("player_stat_changed")
 
 func _on_AttackArea_body_entered(body: Node) -> void:
@@ -168,3 +183,12 @@ func _on_Pulse_body_entered(body: Node) -> void:
 func _on_Timer_timeout() -> void:
 	has_game_started = true
 
+func get_score() -> int:
+	return self._score
+
+
+func change_player_score(amount: int) -> void:
+	self._score += (amount * multiplier)
+	multiplier = 1 # resets multiplier
+	if self._score < 0:
+		self._score = 0

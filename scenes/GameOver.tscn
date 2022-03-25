@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/GameOver.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 29
+size = 32
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -24,7 +24,7 @@ stream = ExtResource( 1 )
 margin_top = 0.561234
 margin_right = 202.0
 margin_bottom = 252.561
-color = Color( 0.4, 0.4, 0.4, 1 )
+color = Color( 0.188235, 0.188235, 0.188235, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,8 +34,8 @@ margin_left = 47.054
 margin_top = 73.6997
 margin_right = 144.054
 margin_bottom = 96.6997
+custom_colors/font_color = Color( 0.0470588, 0.823529, 0.996078, 1 )
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Game Over"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -81,8 +81,8 @@ margin_left = 11.3261
 margin_top = 2.8055
 margin_right = 111.326
 margin_bottom = 16.8055
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Restart"
 align = 1
 __meta__ = {

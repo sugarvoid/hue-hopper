@@ -115,11 +115,7 @@ points = PoolVector2Array( 0, 0, 18, 0, 18, 18, 0, 18 )
 4/shapes = [  ]
 4/z_index = 0
 
-[node name="Level" type="TileMap"]
-tile_set = SubResource( 5 )
-cell_size = Vector2( 18, 18 )
-format = 1
-tile_data = PoolIntArray( 917503, 3, 0, 851968, 3, 0, 851969, 3, 0, 851970, 3, 0, 851971, 3, 0, 851972, 3, 0, 851973, 3, 0, 851974, 3, 0, 851975, 3, 0, 851976, 3, 0, 851977, 3, 0, 851978, 3, 0, 851979, 3, 0 )
+[node name="World" type="Node2D"]
 
 [node name="Pipes" type="Sprite" parent="."]
 position = Vector2( 100, 12 )
@@ -145,3 +141,9 @@ position = Vector2( -29.918, 8 )
 
 [node name="Pos7" type="Position2D" parent="Pipes"]
 position = Vector2( 90.236, 8 )
+
+[node name="Tiles" type="TileMap" parent="."]
+tile_set = SubResource( 5 )
+cell_size = Vector2( 18, 18 )
+format = 1
+tile_data = PoolIntArray( 917503, 3, 0, 851968, 3, 0, 851969, 3, 0, 851970, 3, 0, 851971, 3, 0, 851972, 3, 0, 851973, 3, 0, 851974, 3, 0, 851975, 3, 0, 851976, 3, 0, 851977, 3, 0, 851978, 3, 0, 851979, 3, 0 )
