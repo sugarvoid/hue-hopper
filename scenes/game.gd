@@ -63,9 +63,9 @@ func _determine_game_difficulty() -> void:
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("mute"):
-		LevelMusic.stop()
-		GameSettings.is_fx_enabled = false
-		GameSettings.is_music_enabled = false
+		LevelMusic.playing = !LevelMusic.playing
+		GameSettings.is_fx_enabled = !GameSettings.is_fx_enabled
+		GameSettings.is_music_enabled = !GameSettings.is_music_enabled
 
 func _get_new_color() -> void:
 	current_color = colors[randi() % colors.size()]

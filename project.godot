@@ -10,28 +10,28 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
-"class": "Actor",
-"language": "GDScript",
-"path": "res://actor/Actor.gd"
-}, {
-"base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://actor/enemy/Enemy.gd"
+"path": "res://entity/enemy/Enemy.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://entity/Entity.gd"
 }, {
 "base": "Area2D",
 "class": "Orb",
 "language": "GDScript",
 "path": "res://items/orbs/orb.gd"
 }, {
-"base": "Actor",
+"base": "Entity",
 "class": "Player",
 "language": "GDScript",
-"path": "res://actor/player/Player.gd"
+"path": "res://entity/player/Player.gd"
 } ]
 _global_script_class_icons={
-"Actor": "",
 "Enemy": "",
+"Entity": "",
 "Orb": "",
 "Player": ""
 }

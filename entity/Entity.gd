@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-class_name Actor 
+class_name Entity 
 
 var GRAVITY: float = 500.0
 const UP = Vector2(0, -1)

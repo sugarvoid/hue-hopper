@@ -7,7 +7,7 @@ const RIGHT_SIDE: Vector2 = Vector2(216, 217)
 const LEFT_SIDE: Vector2 = Vector2(-25, 217)
 
 var p_enemies: Array = [
-	preload("res://actor/enemy/Enemy.tscn")
+	preload("res://entity/enemy/Enemy.tscn")
 ]
 
 onready var timer = $Timer

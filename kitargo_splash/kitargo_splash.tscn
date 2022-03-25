@@ -88,10 +88,10 @@ __meta__ = {
 anims/RESET = SubResource( 2 )
 anims/rise_logo = SubResource( 1 )
 
-[node name="StartAnimation" type="Timer" parent="."]
+[node name="Timer_Start_Ani" type="Timer" parent="."]
 one_shot = true
 
-[node name="Pause" type="Timer" parent="."]
+[node name="Timer_Pause" type="Timer" parent="."]
 one_shot = true
 
 [node name="Sound" type="AudioStreamPlayer" parent="."]
@@ -99,5 +99,5 @@ stream = ExtResource( 4 )
 volume_db = 3.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="StartAnimation" to="." method="_on_StartAnimation_timeout"]
-[connection signal="timeout" from="Pause" to="." method="_on_Pause_timeout"]
+[connection signal="timeout" from="Timer_Start_Ani" to="." method="_on_StartAnimation_timeout"]
+[connection signal="timeout" from="Timer_Pause" to="." method="_on_Pause_timeout"]

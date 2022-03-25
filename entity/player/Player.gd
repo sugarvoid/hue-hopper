@@ -1,5 +1,5 @@
 
-extends Actor
+extends Entity
 
 class_name Player
 

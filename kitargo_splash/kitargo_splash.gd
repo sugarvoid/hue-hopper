@@ -1,9 +1,9 @@
 extends Node
 
 
-onready var start_timer: Timer = $StartAnimation
-onready var pause_timer: Timer = $Pause
-onready var animation_player: AnimationPlayer = $AnimationPlayer
+onready var start_timer: Timer = get_node("Timer_Start_Ani")
+onready var pause_timer: Timer = get_node("Timer_Pause")
+onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 const MAIN_MENU_SCENE: String = "res://scenes/StartScreen.tscn"
 
 
