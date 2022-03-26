@@ -1,6 +1,5 @@
 
-extends Entity
-
+extends KinematicBody2D
 class_name Player
 
 """
@@ -15,6 +14,7 @@ var hearts: int
 var multiplier: int 
 const DEFAULT_ROTATION_SPEED: float = 5.3
 const DEFAULT_BOUCE_FORCE: float = 400.00
+var is_facing_right: bool = true
 
 
 const ACCELERATION = 600
@@ -30,6 +30,15 @@ var has_game_started: bool = false
 var colors: Array = [purple,red,green,yellow]
 
 var floating_score: PackedScene = preload("res://utils/floating_text/floating_text.tscn")
+
+var GRAVITY: float
+
+const UP = Vector2(0, -1)
+var velocity: Vector2 = Vector2.ZERO
+
+
+
+onready var sprite: Sprite = $Sprite
 
 
 onready var purple: Position2D = $Ball/Purple
@@ -47,7 +56,7 @@ onready var invic_timer: Timer = $InvicTimer
 func _ready() -> void:
 	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
 	Signals.connect("player_touched_spike", self, "take_damage")
-	self.GRAVITY = 600
+	self.GRAVITY = 600.00
 	self.speed = 70.00
 
 
@@ -57,15 +66,11 @@ func init_player_data() -> void:
 	multiplier = 1
 	_score = 0
 
+func flip_sprite() -> void:
+	self.scale.x *= -1 
 
 func _physics_process(delta: float) -> void:
-	
-#	if $Ball .rotation_degrees >= 360:
-#		$Ball.rotation_degrees = 0
-#	if $Ball .rotation_degrees <= -360:
-#		$Ball.rotation_degrees = 0
 
-	
 	if has_game_started:
 		var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left") # 1 = right  -1 = left
 
@@ -102,6 +107,12 @@ func _physics_process(delta: float) -> void:
 		
 		velocity.x = lerp(velocity.x, 0, FRICTION)
 		ball.rotation += rotation_dir * PlayerData.rotation_speed * delta
+		
+	if velocity.y > GRAVITY:
+		velocity.y = GRAVITY
+		
+	velocity.y += GRAVITY * delta
+	velocity = move_and_slide(velocity, Vector2.UP)
 
 func get_bottom_color_deg():
 	var rot_num = round($Ball.rotation)

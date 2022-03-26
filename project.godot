@@ -14,24 +14,18 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://entity/enemy/Enemy.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "Entity",
-"language": "GDScript",
-"path": "res://entity/Entity.gd"
-}, {
 "base": "Area2D",
 "class": "Orb",
 "language": "GDScript",
 "path": "res://items/orbs/orb.gd"
 }, {
-"base": "Entity",
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://entity/player/Player.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
-"Entity": "",
 "Orb": "",
 "Player": ""
 }

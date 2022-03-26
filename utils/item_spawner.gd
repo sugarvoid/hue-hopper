@@ -58,7 +58,7 @@ func _determine_spawn_rate() -> void:
 func _fire_all() -> void:
 	var s = get_tree().current_scene
 	
-	
+	#TODO: Add a way for multiple spikes on higher diffity
 	var random_pipe = positions[randi() % positions.size()]
 	var spike = p_Spike.instance()
 	spike.position = random_pipe
