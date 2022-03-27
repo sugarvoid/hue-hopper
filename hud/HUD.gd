@@ -40,6 +40,12 @@ func update_player_coins(amount: int): # Combinded with update_hud. Might sepera
 	###PlayerData.coins += amount
 	###$CoinLabel.set_text(str(PlayerData.coins))
 
+func change_score_color() -> void:
+	$ScoreLabel.add_color_override("font_color", Color.azure)
+
+func update_player_score(amount: int):
+	$ScoreLabel.set_text(str(amount))
+
 func update_hud() -> void:
 	$ScoreLabel.set_text(str(PlayerData.get_player_score()))
 	##$CoinLabel.set_text(str(PlayerData.coins))
