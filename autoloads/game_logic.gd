@@ -44,13 +44,7 @@ func _ready():
 	debuff_timer.connect("timeout", self, "_on_debuff_timer_timeout")
 	pass
 
-	
 
-		
-#func get_current_difficulty() -> int:
-#	_determine_game_difficulty()
-#	return _current_difficulty
-	
 
 func get_current_debuff() -> String:
 	return "Debuff: " + self._current_debuff
