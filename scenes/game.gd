@@ -38,10 +38,12 @@ func _ready():
 	
 
 func _process(delta):
+	_determine_game_difficulty()
 	_handle_background_color()
 
 func start_new_game():
 	player.init_player_data()
+	_determine_game_difficulty()
 
 
 func _handle_background_color() -> void:
@@ -80,7 +82,7 @@ func _player_landed(player_color) -> void:
 	if self.current_color == player_color:
 		if GameSettings.is_fx_enabled:
 			$SoundRight.play()
-		PlayerData.change_player_score(GameLogic.CORRECT_POINTS)
+		player.change_player_score(GameLogic.CORRECT_POINTS)
 	else:
 		Signals.emit_signal("on_red_button_pressed")
 		if GameSettings.is_fx_enabled:

@@ -14,7 +14,6 @@
 [ext_resource path="res://scenes/cam_2d.gd" type="Script" id=12]
 [ext_resource path="res://sounds/hard-glass-impact.wav" type="AudioStream" id=13]
 
-
 [node name="Game" type="Node"]
 script = ExtResource( 9 )
 
