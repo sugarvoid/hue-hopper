@@ -6,8 +6,10 @@ var min_spawn_time: float = 3.0
 const RIGHT_SIDE: Vector2 = Vector2(216, 217)
 const LEFT_SIDE: Vector2 = Vector2(-25, 217)
 
-var p_enemies: Array = [
-	preload("res://entity/enemy/Enemy.tscn")
+
+const enemy_options : Array = [
+	"_create_spikehead",
+	"_create_boxbody",
 ]
 
 onready var timer = $Timer
@@ -16,12 +18,28 @@ func _ready() -> void:
 	randomize()
 	timer.start(next_spawn_time)
 
+func _create_boxbody() -> Enemy:
+	var p_box = preload("res://entity/enemy/BoxBody.tscn")
+	var box = p_box.instance()
+	box.type = GameEnums.ENEMY_TYPE.BOX 
+	box.speed = 30
+	box.color = box.get_random_color()
+	return box
+	
+func _create_spikehead() -> Enemy:
+	var p_spikehead = preload("res://entity/enemy/SpikeHead.tscn")
+	var spikehead = p_spikehead.instance()
+	spikehead.speed = 40
+	spikehead.type = GameEnums.ENEMY_TYPE.SPIKE 
+	return spikehead
+
+func _create_bat():
+	pass
+
 func _on_Timer_timeout() -> void:
-	var random_enemy = p_enemies[randi() % p_enemies.size()]
 	
-	var enemy: Enemy = random_enemy.instance()
-	enemy.color = enemy.get_random_color()
-	
+	var e_func = enemy_options[randi() % enemy_options.size()]
+	var enemy: Enemy = call(e_func)
 	
 	var sides = [0,1]
 	var rand_side:int = randi() % sides.size()
@@ -40,4 +58,5 @@ func _on_Timer_timeout() -> void:
 
 	if next_spawn_time < min_spawn_time:
 		next_spawn_time = min_spawn_time
+		
 	timer.start(next_spawn_time)
