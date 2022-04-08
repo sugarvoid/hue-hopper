@@ -25,7 +25,7 @@ func _set_sprite(o_id: int):
 func _ready():
 	self._set_sprite(self.orb_id)
 	self.fall_speed = 50
-	self.item_id = GameLogic.PICKUPS.GEM
+	self.item_id = GameEnums.PICKUPS.GEM
 
 func item_action():
 	Signals.emit_signal("on_orb_pickup", orb_id)

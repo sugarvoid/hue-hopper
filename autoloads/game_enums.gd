@@ -1,0 +1,25 @@
+extends Node
+
+enum BUFFS {
+	HEALTH_UP,
+	REPLACE
+}
+
+enum DEBUFFS {
+	ROTATION,
+	BOUNCE_DOWN,
+	ROTATION_UP,
+}
+
+enum PICKUPS {
+	SPIKE,
+	COIN,
+	GEM,
+	ORB
+}
+
+enum ENEMY_TYPE {
+	BOX,
+	SPIKE,
+	BAT
+}

@@ -147,4 +147,7 @@ position = Vector2( 0, -20.575 )
 wait_time = 0.8
 one_shot = true
 
+[node name="DebuffTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="DebuffTimer" to="." method="_on_DebuffTimer_timeout"]

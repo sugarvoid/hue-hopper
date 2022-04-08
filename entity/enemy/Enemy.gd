@@ -4,6 +4,9 @@ class_name Enemy
 
 onready var animated_sprite = $AnimatedSprite
 
+
+
+var type: int
 const GRAVITY: float = 700.0
 const UP = Vector2(0, -1)
 var velocity: Vector2 = Vector2.ZERO
@@ -23,6 +26,7 @@ func get_random_color() -> String:
 
 func _ready() -> void:
 	randomize()
+	self.type = GameEnums.ENEMY_TYPE.BOX
 	self.animated_sprite.play(self.color)
 	if diriction == 1:
 		flip_sprite() 
@@ -56,14 +60,15 @@ func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		body.take_damage()
 		
-		if self.color == body.get_bottom_color().to_lower(): # Checks if player bottom matches enemy color
-			PlayerData.multiplier += 1
-			#TODO: needs fixing. position 
-			#$AnimationPlayer.play("Die")
-			_slide_down()
-			#queue_free()
-		else:
-			pass
+		if self.type == GameEnums.ENEMY_TYPE.BOX: 
+			if self.color == body.get_bottom_color().to_lower(): # Checks if player bottom matches enemy color
+				PlayerData.multiplier += 1
+				#TODO: needs fixing. position 
+				#$AnimationPlayer.play("Die")
+				_slide_down()
+				#queue_free()
+			else:
+				pass
 
 
 

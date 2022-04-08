@@ -12,23 +12,24 @@ const ACCELERATION: float = 600.00
 const AIR_RES: float = 0.02
 const FRICTION: float = 0.15
 const UP = Vector2(0, -1)
+const GRAVITY: float = 600.0
 
 
-var bounce_force: float = DEFAULT_BOUCE_FORCE
-var rotation_speed: float = DEFAULT_ROTATION_SPEED
+var bounce_force: float
+var rotation_speed: float
 var jump_force: float
 var coins: int
 var _score: int
 var hearts: int
 var multiplier: int 
 var is_facing_right: bool = true
-var JUMPFORCE: float = PlayerData.bounce_force
+##var JUMPFORCE: float = PlayerData.bounce_force
 var speed: float
 var rotation_dir = 0
 var flips_achived: int = 0
 var has_game_started: bool = false
 var colors: Array = [purple,red,green,yellow]
-var GRAVITY: float
+
 var velocity: Vector2 = Vector2.ZERO
 
 
@@ -50,9 +51,17 @@ var floating_score: PackedScene = preload("res://utils/floating_text/floating_te
 func _ready() -> void:
 	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
 	Signals.connect("player_touched_spike", self, "take_damage")
-	self.GRAVITY = 600.00
+	##self.GRAVITY = 600.00
 	self.speed = 70.00
+	_reset_stats()
 
+
+func apply_debuff(type: int) -> void:
+	match(type):
+		GameEnums.DEBUFFS.BOUNCE_DOWN:
+			self.bounce_force -= 85 
+	
+	$DebuffTimer.start(10)
 
 func init_player_data() -> void:
 	hearts = 3
@@ -93,15 +102,15 @@ func _physics_process(delta: float) -> void:
 			rumble_controller(0.3, 0.2)
 			Signals.emit_signal("player_has_landed_on_ground", get_bottom_color())
 			
-			velocity.y = -JUMPFORCE
+			velocity.y = -self.bounce_force
 		elif is_on_floor(): # Landed on enemy
 			rumble_controller(0.6, 0.1)
 			Signals.emit_signal("player_has_landed_on_enemy")
 			
-			velocity.y = (-JUMPFORCE + 100)
+			velocity.y = (-self.bounce_force + 100)
 		
 		velocity.x = lerp(velocity.x, 0, FRICTION)
-		ball.rotation += rotation_dir * PlayerData.rotation_speed * delta
+		ball.rotation += rotation_dir * self.rotation_speed * delta
 		
 	if velocity.y > GRAVITY:
 		velocity.y = GRAVITY
@@ -207,3 +216,12 @@ func change_player_score(amount: int) -> void:
 	multiplier = 1 # resets multiplier
 	if self._score < 0:
 		self._score = 0
+
+func _reset_stats() -> void:
+	self.bounce_force = DEFAULT_BOUCE_FORCE
+	self.rotation_speed = DEFAULT_ROTATION_SPEED
+	
+
+
+func _on_DebuffTimer_timeout():
+	pass # Replace with function body.
