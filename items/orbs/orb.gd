@@ -4,7 +4,8 @@ class_name Orb
 onready var animated_sprite = $AnimatedSprite
 
 
-var orb_id: int = -99
+var orb_id: int
+
 
 func select_effect():
 	# TODO: add way to change effect
@@ -23,6 +24,7 @@ func _set_sprite(o_id: int):
 		
 
 func _ready():
+	self.orb_id = GameEnums.DEBUFFS.ROTATION_UP
 	self._set_sprite(self.orb_id)
 	self.fall_speed = 50
 	self.item_id = GameEnums.PICKUPS.GEM

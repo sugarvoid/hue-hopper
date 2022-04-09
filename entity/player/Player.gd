@@ -23,7 +23,6 @@ var _score: int
 var hearts: int
 var multiplier: int 
 var is_facing_right: bool = true
-##var JUMPFORCE: float = PlayerData.bounce_force
 var speed: float
 var rotation_dir = 0
 var flips_achived: int = 0
@@ -51,6 +50,7 @@ var floating_score: PackedScene = preload("res://utils/floating_text/floating_te
 func _ready() -> void:
 	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
 	Signals.connect("player_touched_spike", self, "take_damage")
+	Signals.connect("on_orb_pickup", self, "apply_debuff")
 	##self.GRAVITY = 600.00
 	self.speed = 70.00
 	_reset_stats()
@@ -60,6 +60,8 @@ func apply_debuff(type: int) -> void:
 	match(type):
 		GameEnums.DEBUFFS.BOUNCE_DOWN:
 			self.bounce_force -= 85 
+		GameEnums.DEBUFFS.ROTATION_UP:
+			self.increase_rotate_speed()
 	
 	$DebuffTimer.start(10)
 
@@ -131,11 +133,9 @@ func get_bottom_color_deg():
 	elif rot_num == 2 or rot_num == -5:
 		print('Green')
 
-
 func rumble_controller(amount: float, duration: float):
 	if GameSettings.is_rumble_enabled:
 		Input.start_joy_vibration(0, amount, amount, duration)
-
 
 func display_point_text() -> void:
 	var score = floating_score.instance()
@@ -217,11 +217,15 @@ func change_player_score(amount: int) -> void:
 	if self._score < 0:
 		self._score = 0
 
+func increase_rotate_speed() -> void:
+	print('rot up')
+	self.rotation_speed = 15.5
+
 func _reset_stats() -> void:
 	self.bounce_force = DEFAULT_BOUCE_FORCE
 	self.rotation_speed = DEFAULT_ROTATION_SPEED
-	
+	print("reset")
 
 
 func _on_DebuffTimer_timeout():
-	pass # Replace with function body.
+	_reset_stats()
