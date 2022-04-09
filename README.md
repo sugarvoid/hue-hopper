@@ -1,6 +1,8 @@
 # Hue Hopper
 #### Version 0.3.0
 
+![](https://github.com/sugarvoid/hue-hopper/blob/Current/docs/hue.gif)
+
 ## Description
 A game about rotating and bouncing. 
 
