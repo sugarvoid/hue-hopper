@@ -91,7 +91,16 @@ func _player_landed(player_color) -> void:
 			$SoundRight.play()
 		player.change_player_score(GameLogic.CORRECT_POINTS)
 	else:
-		Signals.emit_signal("on_red_button_pressed")
+		match _current_difficulty:
+			DIFFICULTY.EASY:
+				Signals.emit_signal("on_red_button_pressed")
+			DIFFICULTY.MEDIUM:
+				Signals.emit_signal("on_red_button_pressed")
+				Signals.emit_signal("on_red_button_pressed")
+			DIFFICULTY.HARD:
+				Signals.emit_signal("on_red_button_pressed")
+				Signals.emit_signal("on_red_button_pressed")
+				Signals.emit_signal("on_red_button_pressed")
 		if GameSettings.is_fx_enabled:
 			$SoundWrong.play()
 		

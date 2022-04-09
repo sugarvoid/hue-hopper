@@ -65,15 +65,12 @@ margin_bottom = 107.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 1 )
 text = "MOVE"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HowToLabel2" type="Label" parent="."]
-margin_left = 5.92192
-margin_top = 88.5631
-margin_right = 171.922
-margin_bottom = 147.563
+margin_left = 7.0
+margin_top = 87.0
+margin_right = 173.0
+margin_bottom = 146.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 1 )
 text = "ROTATE"
@@ -82,10 +79,10 @@ __meta__ = {
 }
 
 [node name="HowToLabel3" type="Label" parent="."]
-margin_left = 7.11536
-margin_top = 118.995
-margin_right = 145.115
-margin_bottom = 177.995
+margin_left = 14.0
+margin_top = 123.0
+margin_right = 152.0
+margin_bottom = 182.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 1 )
 text = "PAUSE"
