@@ -6,7 +6,7 @@
 extents = Vector2( 7, 9.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7, 9.5 )
+extents = Vector2( 7, 10.5 )
 
 [node name="SpikeHead" instance=ExtResource( 1 )]
 
@@ -19,5 +19,5 @@ position = Vector2( -2.38419e-07, 4 )
 scale = Vector2( 0.7, 0.25 )
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2( 0, 0.5 )
+position = Vector2( 0, -0.5 )
 shape = SubResource( 2 )

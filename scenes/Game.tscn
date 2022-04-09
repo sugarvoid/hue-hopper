@@ -6,7 +6,7 @@
 [ext_resource path="res://utils/ItemSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://hud/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/BackGround.tscn" type="PackedScene" id=6]
-[ext_resource path="res://sounds/8Bit Platformer Loop.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/Keep your dream alive! seamless.ogg" type="AudioStream" id=7]
 [ext_resource path="res://scenes/PauseScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/game.gd" type="Script" id=9]
 [ext_resource path="res://sounds/wrong.wav" type="AudioStream" id=10]
@@ -36,7 +36,7 @@ position = Vector2( 216, 217 )
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -9.615
+volume_db = -6.878
 
 [node name="Cam2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -49,11 +49,14 @@ script = ExtResource( 12 )
 
 [node name="SoundRight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+volume_db = -3.649
 
 [node name="SoundWrong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+volume_db = -4.561
 
 [node name="SpikeContact" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+volume_db = -2.737
 
 [connection signal="timeout" from="Cam2D/Timer" to="Cam2D" method="_on_Timer_timeout"]
