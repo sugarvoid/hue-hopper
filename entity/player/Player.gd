@@ -12,7 +12,7 @@ const ACCELERATION: float = 600.00
 const AIR_RES: float = 0.02
 const FRICTION: float = 0.15
 const UP = Vector2(0, -1)
-const GRAVITY: float = 600.0
+var GRAVITY: float = 600.0
 
 
 var bounce_force: float
@@ -75,9 +75,16 @@ func init_player_data() -> void:
 func flip_sprite() -> void:
 	self.scale.x *= -1 
 
+func _bounce() -> void:
+	self.GRAVITY = 600
+	velocity.y = -self.bounce_force
 
 func _physics_process(delta: float) -> void:
 	if has_game_started:
+		
+		if self.velocity.y == 0:
+			_bounce()
+		
 		var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left") # 1 = right  -1 = left
 
 		velocity.x += x_input * ACCELERATION * delta
@@ -90,6 +97,9 @@ func _physics_process(delta: float) -> void:
 			
 		if !is_on_floor():
 			rotation_dir = 0
+			if Input.is_action_just_pressed("slam"):
+				self.GRAVITY = 3200
+			
 			if Input.is_action_pressed("rotate_right"):
 				grey_guy.play("walking")
 				rotation_dir += 1
@@ -104,7 +114,7 @@ func _physics_process(delta: float) -> void:
 			rumble_controller(0.3, 0.2)
 			Signals.emit_signal("player_has_landed_on_ground", get_bottom_color())
 			
-			velocity.y = -self.bounce_force
+			#########velocity.y = -self.bounce_force
 		elif is_on_floor(): # Landed on enemy
 			rumble_controller(0.6, 0.1)
 			Signals.emit_signal("player_has_landed_on_enemy")

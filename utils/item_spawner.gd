@@ -27,9 +27,6 @@ onready var timer_spike = $TimerSpike
 onready var timer_orb = $TimerOrb
 onready var view_rect := get_viewport_rect()
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pulse"):
-		_fire_all()
 
 func get_pipe_pos() -> void:
 	for pipe in pipes.get_children():
