@@ -19,4 +19,4 @@ A game about rotating and bouncing.
 - Wrong Sound - old reactor by Leszek_Szary [license](https://creativecommons.org/publicdomain/zero/1.0/)
 - Button
 - Failure
-- Background music - 8Bit Platformer Loop by Tim Beek [license](https://creativecommons.org/licenses/by/4.0/)
+- Keep Your Cream Alive by [Congusbongus](https://soundcloud.com/congus-bongus) [license](https://creativecommons.org/publicdomain/zero/1.0/)
