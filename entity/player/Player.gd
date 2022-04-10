@@ -98,7 +98,7 @@ func _physics_process(delta: float) -> void:
 		if !is_on_floor():
 			rotation_dir = 0
 			if Input.is_action_just_pressed("slam"):
-				self.GRAVITY = 3200
+				self.GRAVITY = 9000
 			
 			if Input.is_action_pressed("rotate_right"):
 				grey_guy.play("walking")

@@ -1,5 +1,7 @@
 extends Control
 
+class_name HUD
+
 var HeartIcon = preload("res://hud/HeartIcon.tscn")
 
 onready var heart_container: HBoxContainer = $LifeContainer
@@ -8,6 +10,7 @@ onready var debuff_label: Label = $Debuff
 
 func _process(delta):
 	debuff_label.text = GameLogic.get_current_debuff()
+	$ComboBar.value = $ComboBar/ComboTimer.time_left
 
 func _ready() -> void:
 	clear_hearts()
@@ -17,6 +20,11 @@ func _ready() -> void:
 func clear_hearts():
 	for heart in heart_container.get_children():
 		heart.queue_free()
+
+
+func start_combo_decrease():
+	$ComboBar/ComboTimer.start(10)
+	
 
 func _update_color_label(new_color: String) -> void:
 	var _color: Color

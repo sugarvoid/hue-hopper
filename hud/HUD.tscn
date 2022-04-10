@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://hud/HUD.gd" type="Script" id=2]
+[ext_resource path="res://assets/characters.png" type="Texture" id=3]
 [ext_resource path="res://fonts/KRONIKA_.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/grey_panel.png" type="Texture" id=7]
 
@@ -13,6 +14,14 @@ font_data = ExtResource( 1 )
 size = 42
 outline_color = Color( 0.380392, 0.372549, 0.372549, 1 )
 font_data = ExtResource( 6 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 139, 65, 2, 2 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 38, 13, 1, 1 )
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -85,3 +94,17 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ComboBar" type="TextureProgress" parent="."]
+margin_left = 154.0
+margin_top = 57.0
+margin_right = 194.0
+margin_bottom = 63.0
+max_value = 10.0
+value = 10.0
+texture_under = SubResource( 4 )
+texture_progress = SubResource( 5 )
+nine_patch_stretch = true
+
+[node name="ComboTimer" type="Timer" parent="ComboBar"]
+wait_time = 10.0
