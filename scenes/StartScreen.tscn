@@ -82,6 +82,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="."]
+margin_left = 35.0
+margin_top = 201.0
+margin_right = 161.0
+margin_bottom = 215.0
+text = "Press Space to Start"
+
 [connection signal="gui_input" from="Background/BtnQuit" to="." method="_on_BtnQuit_gui_input"]
 [connection signal="gui_input" from="Background/BtnPlay" to="." method="_on_BtnPlay_gui_input"]
 [connection signal="gui_input" from="Background/BtnSettings" to="." method="_on_BtnSettings_gui_input"]

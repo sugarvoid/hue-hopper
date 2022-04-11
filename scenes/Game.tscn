@@ -32,8 +32,6 @@ position = Vector2( 134.382, 119.891 )
 [node name="EnemySpawner" parent="." instance=ExtResource( 2 )]
 position = Vector2( 216, 217 )
 
-[node name="PauseScreen" parent="." instance=ExtResource( 8 )]
-
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -6.878
@@ -58,5 +56,7 @@ volume_db = -4.561
 [node name="SpikeContact" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 volume_db = -2.737
+
+[node name="PauseScreen" parent="." instance=ExtResource( 8 )]
 
 [connection signal="timeout" from="Cam2D/Timer" to="Cam2D" method="_on_Timer_timeout"]

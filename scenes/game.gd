@@ -25,6 +25,10 @@ onready var player: Player = get_node("Player")
 onready var combo_bar: TextureProgress = get_node("HUD/ComboBar")
 onready var HUD: HUD = get_node("HUD") 
 
+var current_multiplier: int = 1
+var combo_fever: bool = false
+var combo_time = 5
+
 var _curr_color: int = COLORS.GREEN
 var current_color: String = "Yellow"
 var _current_difficulty : int 
@@ -75,6 +79,9 @@ func _determine_game_difficulty() -> void:
 	else:
 		_current_difficulty = DIFFICULTY.EASY
 
+func _reset_multiplier() -> void:
+	self.current_multiplier = 1
+	self.combo_fever = false
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("mute"):

@@ -6,6 +6,9 @@ onready var audio_player: AudioStreamPlayer = get_node("AudioStreamPlayer")
 func _ready():
 	PlayerData.init_player_data()
 
+func _unhandled_key_input(event):
+	if event.is_action_released("slam"):
+		var _x = get_tree().change_scene("res://scenes/Game.tscn")
 
 func _is_left_mouse_click(input: InputEventMouseButton) -> bool:
 	return (input is InputEventMouseButton 
