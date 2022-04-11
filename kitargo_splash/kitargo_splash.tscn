@@ -80,9 +80,6 @@ margin_bottom = 280.761
 custom_colors/font_color = Color( 0.996078, 0.905882, 0.0823529, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Games"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )

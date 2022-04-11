@@ -23,3 +23,10 @@ enum ENEMY_TYPE {
 	SPIKE,
 	BAT
 }
+
+enum COLORS {
+	RED,
+	GREEN,
+	PURPLE,
+	YELLOW
+}
