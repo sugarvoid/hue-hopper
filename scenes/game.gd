@@ -11,6 +11,13 @@ enum DIFFICULTY {
 	HARD
 }
 
+enum COLORS {
+	RED,
+	GREEN,
+	PURPLE,
+	YELLOW
+}
+
 onready var LevelMusic = get_node("LevelMusic")
 onready var background = get_node("BackGround")
 onready var player: Player = get_node("Player")
@@ -18,6 +25,7 @@ onready var player: Player = get_node("Player")
 onready var combo_bar: TextureProgress = get_node("HUD/ComboBar")
 onready var HUD: HUD = get_node("HUD") 
 
+var _curr_color: int = COLORS.GREEN
 var current_color: String = "Yellow"
 var _current_difficulty : int 
 var colors: Array = [

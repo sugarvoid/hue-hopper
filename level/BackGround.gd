@@ -1,6 +1,5 @@
 extends Node
 
-
 var day = "00d4e8"
 var eving = "003368"
 var eving_o = "b55b00"
