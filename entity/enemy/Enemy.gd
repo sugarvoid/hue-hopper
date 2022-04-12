@@ -61,7 +61,7 @@ func _slide_down() -> void:
 	$CollisionShape2D.queue_free()
 	self.position = Vector2(self.position.x, self.position.y + 1)
 
-func _on_Area2D_body_entered(body: Node) -> void:
+func _on_DamageArea_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		body.take_damage()
 		
