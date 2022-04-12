@@ -8,7 +8,8 @@ func _ready():
 
 func _unhandled_key_input(event):
 	if event.is_action_released("slam"):
-		var _x = get_tree().change_scene("res://scenes/Game.tscn")
+		#play sound
+		$AnimationPlayer.play("start_game")
 
 func _is_left_mouse_click(input: InputEventMouseButton) -> bool:
 	return (input is InputEventMouseButton 
@@ -31,3 +32,8 @@ func _on_BtnPlay_gui_input(event):
 func _on_BtnQuit_gui_input(event):
 	if _is_left_mouse_click(event):
 		get_tree().quit()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == 'start_game':
+		var _x = get_tree().change_scene("res://scenes/Game.tscn")

@@ -11,9 +11,6 @@ margin_left = -8.0
 margin_right = 206.0
 margin_bottom = 270.0
 color = Color( 0.207843, 0.698039, 0.898039, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tween" type="Tween" parent="."]
 
