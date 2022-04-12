@@ -37,6 +37,8 @@ func flip_sprite() -> void:
 
 func _physics_process(delta: float) -> void:
 	
+	print(self.velocity.y)
+	
 	if self.type != GameEnums.ENEMY_TYPE.BAT:
 		if velocity.y > GRAVITY:
 			velocity.y = GRAVITY

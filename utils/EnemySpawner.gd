@@ -1,10 +1,10 @@
 extends Node2D
 
 var next_spawn_time: float = 4.0
-var max_spawn_time: float = 10.0
+var max_spawn_time: float = 8.0
 var min_spawn_time: float = 3.0
-const RIGHT_SIDE: Vector2 = Vector2(216, 217)
-const LEFT_SIDE: Vector2 = Vector2(-25, 217)
+const BOTTON_RIGHT: Vector2 = Vector2(216, 217)
+const BOTTON_LEFT: Vector2 = Vector2(-13, 217)
 
 const TOP_RIGHT: Vector2 = Vector2(216, 98)
 const TOP_LEFT: Vector2 = Vector2(-25, 98)
@@ -13,6 +13,7 @@ const TOP_LEFT: Vector2 = Vector2(-25, 98)
 const enemy_options : Array = [
 	"_create_spikehead",
 	"_create_boxbody",
+	"_create_bat",
 ]
 
 onready var timer = $Timer
@@ -37,7 +38,11 @@ func _create_spikehead() -> Enemy:
 	return spikehead
 
 func _create_bat():
-	pass
+	var p_bat = preload("res://entity/enemy/Bat.tscn")
+	var bat = p_bat.instance()
+	bat.speed = 50
+	bat.type = GameEnums.ENEMY_TYPE.BAT
+	return bat
 
 func _on_Timer_timeout() -> void:
 	
@@ -48,15 +53,24 @@ func _on_Timer_timeout() -> void:
 	var rand_side:int = randi() % sides.size()
 	
 	if rand_side == 0:
-		enemy.position = LEFT_SIDE
+		if enemy.type == GameEnums.ENEMY_TYPE.BAT:
+			print('bat here')
+			enemy.position == TOP_LEFT
+		else:
+			enemy.position = BOTTON_LEFT
 		enemy.diriction = 1
+		
 	elif rand_side == 1:
-		enemy.position = RIGHT_SIDE
+		if enemy.type == GameEnums.ENEMY_TYPE.BAT:
+			print('bat here')
+			enemy.position == TOP_RIGHT
+		else:
+			enemy.position = BOTTON_RIGHT
 		enemy.diriction = -1
 		
 	get_tree().current_scene.add_child(enemy)
 	
-	max_spawn_time -= 0.25
+	max_spawn_time -= 0.15
 	next_spawn_time = rand_range(max_spawn_time, min_spawn_time)
 
 	if next_spawn_time < min_spawn_time:

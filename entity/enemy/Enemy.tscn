@@ -48,18 +48,6 @@ region = Rect2( 48, 0, 24, 24 )
 atlas = ExtResource( 2 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 15, 20 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 4 )
-region = Rect2( 15, 0, 15, 20 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 4 )
-region = Rect2( 30, 0, 15, 20 )
-
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 3 )
 region = Rect2( 192, 0, 24, 24 )
@@ -71,6 +59,18 @@ region = Rect2( 144, 48, 24, 24 )
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 3 )
 region = Rect2( 168, 48, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 15, 20 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 4 )
+region = Rect2( 15, 0, 15, 20 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 4 )
+region = Rect2( 30, 0, 15, 20 )
 
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
@@ -99,11 +99,6 @@ animations = [ {
 "name": "yellow",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 22 ) ],
-"loop": true,
-"name": "spike",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 14 ) ],
 "loop": true,
 "name": "faller",
@@ -112,6 +107,11 @@ animations = [ {
 "frames": [ SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "wings",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 22 ) ],
+"loop": true,
+"name": "spike",
 "speed": 5.0
 } ]
 
