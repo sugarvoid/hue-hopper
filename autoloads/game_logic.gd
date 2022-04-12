@@ -1,11 +1,11 @@
 extends Node
 
 
-
 const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
-
-
+const ITEMS: Dictionary = {
+	"coin" : 0
+}
 
 enum BUFFS {
 	HEALTH_UP,
@@ -24,15 +24,11 @@ enum PICKUPS {
 	GEM
 }
 
-const ITEMS: Dictionary = {
-	"coin" : 0
-}
+
 
 
 var _current_debuff: String
 
-# var has_morning_passed: bool = false
-# var has_evening_passed: bool = false
 
 onready var debuff_timer: Timer = Timer.new()
 
@@ -45,9 +41,9 @@ func _ready():
 	pass
 
 
-
 func get_current_debuff() -> String:
 	return "Debuff: " + self._current_debuff
+
 
 func _on_orb_pickup(debuff_id) -> void:
 	match debuff_id:

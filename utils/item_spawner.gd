@@ -4,12 +4,7 @@ var next_spawn_time: float = 5.0
 var max_spawn_time: float = 10.0
 var min_spawn_time: float = 5.0
 
-# TODO: Check to see if this can be removed
-enum GameModes {
-  EASY,
-  MEDIUM,
-  HARD,
-}
+
 
 var positions: Array
 

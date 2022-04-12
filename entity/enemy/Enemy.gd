@@ -5,8 +5,6 @@ class_name Enemy
 onready var animated_sprite = $AnimatedSprite
 
 
-
-
 export(int, "Box", "Spike", "Bat" ) var type
 const GRAVITY: float = 700.0
 const UP = Vector2(0, -1)
@@ -36,21 +34,24 @@ func flip_sprite() -> void:
 	self.scale.x *= -1 
 
 func _physics_process(delta: float) -> void:
-	
-	print(self.velocity.y)
-	
+
 	if self.type != GameEnums.ENEMY_TYPE.BAT:
 		if velocity.y > GRAVITY:
 			velocity.y = GRAVITY
 			
 		velocity.y += GRAVITY * delta
+		velocity.x = speed * diriction
+		velocity = move_and_slide(velocity)
+	else:
+		self.velocity.y = global_position.y
+		position.x += (speed * diriction) * delta
+		#position.y = 98
 	
 	if not is_facing_right:
 		flip_sprite()
 		is_facing_right = true
 	
-	velocity.x = speed * diriction
-	velocity = move_and_slide(velocity)
+	
 
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
