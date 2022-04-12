@@ -11,8 +11,8 @@ const TOP_LEFT: Vector2 = Vector2(-25, 98)
 
 
 const enemy_options : Array = [
-	"_create_spikehead",
-	"_create_boxbody",
+	#"_create_spikehead",
+	#"_create_boxbody",
 	"_create_bat",
 ]
 
@@ -60,7 +60,7 @@ func _on_Timer_timeout() -> void:
 			enemy.position = BOTTON_LEFT
 		enemy.diriction = 1
 		
-	elif rand_side == 1:
+	if rand_side == 1:
 		if enemy.type == GameEnums.ENEMY_TYPE.BAT:
 			print('bat here')
 			enemy.position == TOP_RIGHT
