@@ -6,6 +6,9 @@ var min_spawn_time: float = 3.0
 const RIGHT_SIDE: Vector2 = Vector2(216, 217)
 const LEFT_SIDE: Vector2 = Vector2(-25, 217)
 
+const TOP_RIGHT: Vector2 = Vector2(216, 98)
+const TOP_LEFT: Vector2 = Vector2(-25, 98)
+
 
 const enemy_options : Array = [
 	"_create_spikehead",

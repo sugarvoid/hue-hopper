@@ -24,6 +24,14 @@ region = Rect2( 144, 0, 24, 24 )
 atlas = ExtResource( 2 )
 region = Rect2( 168, 0, 24, 24 )
 
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 24, 0, 24, 24 )
+
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 24, 24 )
@@ -39,14 +47,6 @@ region = Rect2( 48, 0, 24, 24 )
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
 region = Rect2( 72, 0, 24, 24 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 24, 24 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 2 )
-region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 4 )
@@ -84,6 +84,11 @@ animations = [ {
 "name": "green",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "red",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "purple",
@@ -92,11 +97,6 @@ animations = [ {
 "frames": [ SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "yellow",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 8 ), SubResource( 9 ) ],
-"loop": true,
-"name": "red",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 22 ) ],
@@ -162,7 +162,7 @@ position = Vector2( 0.595947, -0.0662165 )
 scale = Vector2( 0.950338, 1.00552 )
 frames = SubResource( 17 )
 animation = "spike"
-frame = 2
+frame = 1
 playing = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]

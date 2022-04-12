@@ -6,7 +6,8 @@ onready var animated_sprite = $AnimatedSprite
 
 
 
-var type: int
+
+export(int, "Box", "Spike", "Bat" ) var type
 const GRAVITY: float = 700.0
 const UP = Vector2(0, -1)
 var velocity: Vector2 = Vector2.ZERO
@@ -36,10 +37,11 @@ func flip_sprite() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if velocity.y > GRAVITY:
-		velocity.y = GRAVITY
-		
-	velocity.y += GRAVITY * delta
+	if self.type != GameEnums.ENEMY_TYPE.BAT:
+		if velocity.y > GRAVITY:
+			velocity.y = GRAVITY
+			
+		velocity.y += GRAVITY * delta
 	
 	if not is_facing_right:
 		flip_sprite()
