@@ -33,9 +33,6 @@ margin_top = 24.0
 margin_right = 57.0
 margin_bottom = 24.0
 custom_constants/separation = -2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ScoreLabel" type="Label" parent="."]
 margin_left = 144.0

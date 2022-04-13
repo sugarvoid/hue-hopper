@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/basic-checked.png-9671885a5b0607d5118a617e4027d831.stex"
+path="res://.import/basic-unchecked.png-1d58fe93e2d4421b0e8ce0631711d3b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/basic-checked.png"
-dest_files=[ "res://.import/basic-checked.png-9671885a5b0607d5118a617e4027d831.stex" ]
+source_file="res://utils/basic-unchecked.png"
+dest_files=[ "res://.import/basic-unchecked.png-1d58fe93e2d4421b0e8ce0631711d3b9.stex" ]
 
 [params]
 
