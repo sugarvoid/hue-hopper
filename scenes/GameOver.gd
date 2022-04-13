@@ -14,6 +14,9 @@ func _ready():
 	if GameSettings.is_fx_enabled:
 		$AudioStreamPlayer.play()
 
+func _unhandled_key_input(event):
+	if event.is_action_released("restart"):
+		var _x = get_tree().change_scene("res://scenes/StartScreen.tscn")
 
 func load_high_score():
 	var highscore: int

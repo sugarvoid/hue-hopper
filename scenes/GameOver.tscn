@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://sounds/533034__evretro__8-bit-game-over-sound-tune.wav" type="AudioStream" id=1]
 [ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
@@ -9,9 +9,6 @@ size = 32
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 2 )
 
 [node name="GameOver" type="Node2D"]
@@ -25,15 +22,12 @@ margin_top = 0.561234
 margin_right = 202.0
 margin_bottom = 252.561
 color = Color( 0.188235, 0.188235, 0.188235, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Label" type="Label" parent="."]
-margin_left = 47.054
-margin_top = 73.6997
-margin_right = 144.054
-margin_bottom = 96.6997
+[node name="StaticText" type="Label" parent="."]
+margin_left = 47.0
+margin_top = 61.0
+margin_right = 151.0
+margin_bottom = 85.0
 custom_colors/font_color = Color( 0.0470588, 0.823529, 0.996078, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Game Over"
@@ -43,52 +37,33 @@ __meta__ = {
 
 [node name="PlayerScore" type="Label" parent="."]
 anchor_top = -1.765
-margin_left = 74.1896
-margin_top = 106.756
-margin_right = 114.189
-margin_bottom = 120.756
+margin_left = 65.0
+margin_top = 100.0
+margin_right = 130.0
+margin_bottom = 114.0
 custom_fonts/font = SubResource( 2 )
-text = "filler"
+text = "score"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="restart" type="Label" parent="."]
+anchor_top = -1.765
+margin_left = 67.0
+margin_top = 174.0
+margin_right = 132.0
+margin_bottom = 188.0
+custom_fonts/font = SubResource( 2 )
+text = "'R' to restart"
+align = 1
 
 [node name="HighScore" type="Label" parent="."]
 anchor_top = -1.765
-margin_left = 74.0
-margin_top = 120.436
-margin_right = 113.351
-margin_bottom = 134.436
+margin_left = 68.0
+margin_top = 119.0
+margin_right = 124.0
+margin_bottom = 133.0
 custom_fonts/font = SubResource( 2 )
-text = "filler"
+text = "[highscore]"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Restart" type="ColorRect" parent="."]
-margin_left = 33.7551
-margin_top = 144.398
-margin_right = 161.755
-margin_bottom = 162.398
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label3" type="Label" parent="Restart"]
-margin_left = 11.3261
-margin_top = 2.8055
-margin_right = 111.326
-margin_bottom = 16.8055
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "Restart"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[connection signal="gui_input" from="Restart" to="." method="_on_Restart_gui_input"]
-[connection signal="mouse_entered" from="Restart" to="." method="_on_Restart_mouse_entered"]
-[connection signal="mouse_exited" from="Restart" to="." method="_on_Restart_mouse_exited"]
