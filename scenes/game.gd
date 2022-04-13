@@ -103,7 +103,8 @@ func _end_game() -> void:
 
 
 func _player_landed(player_color) -> void:
-	$Cam2D.shake(20)
+	# TODO: decide if i want to keep screen shake
+	###$Cam2D.shake(20)
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:
 		if GameSettings.is_fx_enabled:

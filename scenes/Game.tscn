@@ -63,13 +63,13 @@ volume_db = -2.737
 [node name="Hearts" type="Node2D" parent="."]
 position = Vector2( -0.329, -3.434 )
 
-[node name="BreakableHeart" parent="Hearts" instance=ExtResource( 14 )]
+[node name="Heart0" parent="Hearts" instance=ExtResource( 14 )]
 position = Vector2( 10, 45 )
 
-[node name="BreakableHeart2" parent="Hearts" instance=ExtResource( 14 )]
+[node name="Heart1" parent="Hearts" instance=ExtResource( 14 )]
 position = Vector2( 25, 45 )
 
-[node name="BreakableHeart3" parent="Hearts" instance=ExtResource( 14 )]
+[node name="Heart2" parent="Hearts" instance=ExtResource( 14 )]
 position = Vector2( 40, 45 )
 
 [connection signal="timeout" from="Cam2D/Timer" to="Cam2D" method="_on_Timer_timeout"]
