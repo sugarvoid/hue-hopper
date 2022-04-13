@@ -1,6 +1,6 @@
 extends Node
 
-onready var logo_sound: AudioStreamPlayer = get_node("Sound")
+onready var logo_sound: AudioStreamPlayer = get_node("AudioStreamPlayer")
 onready var start_timer: Timer = get_node("Timer_Start_Ani")
 onready var pause_timer: Timer = get_node("Timer_Pause")
 onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")

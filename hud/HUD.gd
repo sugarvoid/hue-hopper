@@ -7,6 +7,7 @@ var HeartIcon = preload("res://hud/HeartIcon.tscn")
 onready var heart_container: HBoxContainer = $LifeContainer
 onready var debuff_label: Label = $Debuff
 
+var is_combo_active: bool = false
 
 func _process(delta):
 	debuff_label.text = GameLogic.get_current_debuff()
@@ -15,15 +16,20 @@ func _process(delta):
 func _ready() -> void:
 	clear_hearts()
 	Signals.connect("player_stat_changed", self, "update_hud")
+	Signals.connect("player_has_landed_on_ground", self, "start_combo_decrease")
 	Signals.connect("color_changed", self, "_update_color_label")
 
 func clear_hearts():
 	for heart in heart_container.get_children():
 		heart.queue_free()
 
+func reset_combo(time: int) -> void:
+	$ComboBar/ComboTimer.start(time)
 
-func start_combo_decrease():
-	$ComboBar/ComboTimer.start(10)
+func start_combo_decrease(x):
+	is_combo_active = true
+	$ComboBar/ComboTimer.start(3)
+	
 	
 
 func _update_color_label(new_color: String) -> void:
@@ -60,3 +66,7 @@ func update_hud() -> void:
 	clear_hearts()
 	for _i in range(PlayerData.hearts):
 		heart_container.add_child(HeartIcon.instance())
+
+
+func _on_ComboTimer_timeout():
+	is_combo_active = false

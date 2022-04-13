@@ -1,23 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://kitargo_splash/kitargo_splash.gd" type="Script" id=1]
+[ext_resource path="res://kitargo_splash/619832__eponn__puzzle-game-victory-melody.wav" type="AudioStream" id=2]
 [ext_resource path="res://kitargo_splash/splash_font.tres" type="DynamicFont" id=3]
-[ext_resource path="res://kitargo_splash/rorymceachan_void.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sound:stream")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ ExtResource( 4 ) ]
-}
 
 [sub_resource type="Animation" id=1]
 resource_name = "rise_logo"
@@ -91,9 +79,8 @@ one_shot = true
 [node name="Timer_Pause" type="Timer" parent="."]
 one_shot = true
 
-[node name="Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = 3.0
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Timer_Start_Ani" to="." method="_on_StartAnimation_timeout"]

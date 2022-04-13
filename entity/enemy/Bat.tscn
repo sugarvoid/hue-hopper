@@ -1,9 +1,9 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://entity/enemy/Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/spikehead.png" type="Texture" id=2]
-[ext_resource path="res://assets/enmeies.png" type="Texture" id=3]
-[ext_resource path="res://assets/characters.png" type="Texture" id=4]
+[ext_resource path="res://images/spikehead.png" type="Texture" id=2]
+[ext_resource path="res://images/enmeies.png" type="Texture" id=3]
+[ext_resource path="res://images/characters.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 11.0097, 8 )

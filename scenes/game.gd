@@ -45,7 +45,7 @@ func _ready():
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
 	Signals.connect("player_has_landed_on_ground", self, "_player_landed")
 	Signals.connect("player_touched_spike", self, "_play_spike_fx")
-	HUD.start_combo_decrease()
+	
 
 
 func _process(delta):

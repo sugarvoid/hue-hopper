@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sounds/button.wav" type="AudioStream" id=1]
 [ext_resource path="res://fonts/Wash Your Hand.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/StartScreen.gd" type="Script" id=3]
 [ext_resource path="res://utils/ButtonRect.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/NicoClean-Regular.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://scenes/New Piskel (2).png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -42,11 +41,6 @@ margin_right = 201.397
 margin_bottom = 251.198
 color = Color( 0.0745098, 0.556863, 0.847059, 1 )
 
-[node name="testButton" type="Sprite" parent="Background"]
-position = Vector2( 134.603, 35.8016 )
-texture = ExtResource( 7 )
-vframes = 3
-
 [node name="Title" type="Label" parent="Background"]
 margin_left = -48.068
 margin_top = 13.136
@@ -70,6 +64,7 @@ text = "Hopper"
 align = 1
 
 [node name="BtnQuit" parent="Background" instance=ExtResource( 4 )]
+visible = false
 margin_left = 45.1028
 margin_top = 171.524
 margin_right = 153.103
@@ -77,6 +72,7 @@ margin_bottom = 193.524
 button_text = "Quit"
 
 [node name="BtnPlay" parent="Background" instance=ExtResource( 4 )]
+visible = false
 margin_left = 45.9437
 margin_top = 105.934
 margin_right = 153.944
@@ -84,6 +80,7 @@ margin_bottom = 127.934
 button_text = "Play"
 
 [node name="BtnSettings" parent="Background" instance=ExtResource( 4 )]
+visible = false
 margin_left = 45.5233
 margin_top = 138.308
 margin_right = 153.523
@@ -100,9 +97,9 @@ text = "v 0.3.0"
 
 [node name="Label" type="Label" parent="."]
 margin_left = 17.0
-margin_top = 207.0
+margin_top = 163.0
 margin_right = 188.0
-margin_bottom = 223.0
+margin_bottom = 179.0
 custom_fonts/font = SubResource( 2 )
 text = "Press Space to Start"
 

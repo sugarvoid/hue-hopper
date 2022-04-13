@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/619832__eponn__puzzle-game-victory-melody.wav-aa029ffd0f7d36344c18a1025a242ed0.sample"
+
+[deps]
+
+source_file="res://kitargo_splash/619832__eponn__puzzle-game-victory-melody.wav"
+dest_files=[ "res://.import/619832__eponn__puzzle-game-victory-melody.wav-aa029ffd0f7d36344c18a1025a242ed0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

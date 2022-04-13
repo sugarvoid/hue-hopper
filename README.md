@@ -6,6 +6,12 @@
 ## Description
 A game about rotating and bouncing. 
 
+## Controls 
+Move - [A] and [D]
+Rotate - Arrown Keys
+Slam - Space
+Pause - Esc
+
 ## Credit
 **Art:**
 - Pixel Platformer by [kenny](https://kenney.itch.io/)

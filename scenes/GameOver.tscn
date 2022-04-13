@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://sounds/game_over.wav" type="AudioStream" id=1]
+[ext_resource path="res://sounds/533034__evretro__8-bit-game-over-sound-tune.wav" type="AudioStream" id=1]
 [ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/GameOver.gd" type="Script" id=3]
 

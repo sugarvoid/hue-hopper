@@ -2,9 +2,9 @@
 
 [ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://hud/HUD.gd" type="Script" id=2]
-[ext_resource path="res://assets/characters.png" type="Texture" id=3]
+[ext_resource path="res://images/characters.png" type="Texture" id=3]
 [ext_resource path="res://fonts/KRONIKA_.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://assets/grey_panel.png" type="Texture" id=7]
+[ext_resource path="res://images/grey_panel.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=3]
 size = 44
@@ -107,4 +107,6 @@ texture_progress = SubResource( 5 )
 nine_patch_stretch = true
 
 [node name="ComboTimer" type="Timer" parent="ComboBar"]
-wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="ComboBar/ComboTimer" to="." method="_on_ComboTimer_timeout"]
