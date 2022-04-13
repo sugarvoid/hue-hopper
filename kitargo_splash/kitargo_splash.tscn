@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://kitargo_splash/kitargo_splash.gd" type="Script" id=1]
-[ext_resource path="res://kitargo_splash/619832__eponn__puzzle-game-victory-melody.wav" type="AudioStream" id=2]
+[ext_resource path="res://kitargo_splash/324881_frankum_intros-outros-and-effects.ogg" type="AudioStream" id=2]
 [ext_resource path="res://kitargo_splash/splash_font.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Animation" id=2]
@@ -85,3 +85,4 @@ stream = ExtResource( 2 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Timer_Start_Ani" to="." method="_on_StartAnimation_timeout"]
 [connection signal="timeout" from="Timer_Pause" to="." method="_on_Pause_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

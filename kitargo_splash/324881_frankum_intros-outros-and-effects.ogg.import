@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/324881_frankum_intros-outros-and-effects.ogg-9279082ce38bcab645778b5c99551964.oggstr"
+
+[deps]
+
+source_file="res://kitargo_splash/324881_frankum_intros-outros-and-effects.ogg"
+dest_files=[ "res://.import/324881_frankum_intros-outros-and-effects.ogg-9279082ce38bcab645778b5c99551964.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

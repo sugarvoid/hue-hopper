@@ -17,7 +17,12 @@ func _on_StartAnimation_timeout() -> void:
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "rise_logo":
-		pause_timer.start(1.9)
+		pass#pause_timer.start(1.9)
 
 func _on_Pause_timeout() -> void:
+	var _x = get_tree().change_scene(MAIN_MENU_SCENE)
+
+
+func _on_AudioStreamPlayer_finished():
+	print('done')
 	var _x = get_tree().change_scene(MAIN_MENU_SCENE)
