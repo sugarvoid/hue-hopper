@@ -1,12 +1,11 @@
 Input Prompts Pixel 16× (1.0)
-
 	Created/distributed by Kenney (www.kenney.nl)
 
-fonts:
+Fonts:
 
-Petita - Manfred Klein - ui
-Wash Your Hand - Khurasan - title
-Kronika - Apostrophic Labs - colors
+Petita - Manfred Klein 
+Wash Your Hand - Khurasan 
+Kronika - Apostrophic Labs
 
 music 
 Keep Your Cream Alive - Congusbongus (https://soundcloud.com/congus-bongus)

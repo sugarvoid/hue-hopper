@@ -18,11 +18,12 @@ Pause - Esc
 
 **Font:**
 - Kenney Fonts by [kenny](https://kenney.itch.io/)
+- Petita by Manfred Klein 
+- Wash Your Hand by Khurasan 
+- Kronika by Apostrophic Labs
 
 **Sounds:**
 - Coin Pick up - Retro_Coin_04 by Mattias "MATRIXXX" Lahoud [license](https://creativecommons.org/licenses/by/3.0/)
 - Correct Sound - COrrect Choice by Unadamlar [license](https://creativecommons.org/publicdomain/zero/1.0/)
 - Wrong Sound - old reactor by Leszek_Szary [license](https://creativecommons.org/publicdomain/zero/1.0/)
-- Button
-- Failure
 - Keep Your Cream Alive by [Congusbongus](https://soundcloud.com/congus-bongus) [license](https://creativecommons.org/publicdomain/zero/1.0/)
