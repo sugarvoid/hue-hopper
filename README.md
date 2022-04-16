@@ -7,10 +7,14 @@
 A game about rotating and bouncing. 
 
 ## Controls 
-Move - [A] and [D]
-Rotate - Arrown Keys
-Slam - Space
-Pause - Esc
+**Move** 
+- [A] and [D]
+**Rotate** 
+- Arrown Keys
+**Slam** 
+- Space
+**Pause** 
+- Esc
 
 ## Credit
 **Art:**
