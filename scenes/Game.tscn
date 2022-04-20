@@ -35,7 +35,7 @@ position = Vector2( 216, 217 )
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -6.878
+volume_db = -5.0
 
 [node name="Cam2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -48,19 +48,20 @@ script = ExtResource( 12 )
 
 [node name="SoundRight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = -3.649
+volume_db = -6.0
 
 [node name="SoundWrong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -4.561
+volume_db = -6.0
 
 [node name="SpikeContact" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
-volume_db = -2.737
+volume_db = -6.0
 
 [node name="PauseScreen" parent="." instance=ExtResource( 8 )]
 
 [node name="Hearts" type="Node2D" parent="."]
+visible = false
 position = Vector2( -0.329, -3.434 )
 
 [node name="Heart0" parent="Hearts" instance=ExtResource( 14 )]
