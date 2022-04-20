@@ -5,26 +5,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.4.0] - 2022-04-16
+### Added
+- Spike enemies and flying enemies
+- Background color changes with game difficulty
+### Changed
+- Rounded Hue Ball image
+### Fixed
+- Bug preventing pause screen being in front of enemy sprite
+### Removed
+- Button that spawned spikes
+- Spikes that fall when player lands on wrong color
+
+
 ## [0.3.0] - 2022-01-11
 ### Added
-- There is now a button that spawns spikes.
+- Button that spawns spikes
 ### Changed
-- Spikes now only spawn when red button is pressed.
-### Fixed
+- Spikes spawn when red button is pressed
 ### Removed
-- Player no longer takes damage from enemies.
+- Player taking damage from enemies
 
 ## [0.2.2] - 2021-11-24
 ### Added
-- Kitargo splash screen.
-- Enemies now drop through ground when killed instead of just vanishing. 
-- Orbs are now the debuff items.
-- The color of the command label now changes colors. 
+- Kitargo splash screen
+- Enemies now drop through ground when killed instead of just vanishing
+- Orbs are now the debuff items
+- The color of the command label now changes colors
 ### Changed
-- Tree image is now a white panel.
+- Tree image is now a white panel
 - Moved game from 1.3.1 to 0.3.1 since it is still not a full game. Having a full version seemed wrong and could be confusing. 
 ### Fixed
-- Flash effect on the player plays when taking a hit or spike and enemy.  
+- Flash effect on the player plays when taking a hit or spike and enemy
 ### Removed
 - Gems are no longer the debuff items
 
