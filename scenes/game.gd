@@ -28,6 +28,7 @@ onready var HUD: HUD = get_node("HUD")
 var current_multiplier: int = 1
 var combo_fever: bool = false
 var combo_time = 5
+var bounceNumber = 0 
 
 var _curr_color: int = COLORS.GREEN
 var current_color: String = "Yellow"
@@ -103,6 +104,8 @@ func _end_game() -> void:
 
 
 func _player_landed(player_color) -> void:
+	print('LANDED #' + str(bounceNumber) )
+	bounceNumber += 1
 	# TODO: decide if i want to keep screen shake
 	###$Cam2D.shake(20)
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR

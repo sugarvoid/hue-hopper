@@ -16,7 +16,6 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="." index="1"]
 animation = "blue"
-frame = 0
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
 position = Vector2( 0.5, -16 )
