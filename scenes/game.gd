@@ -5,23 +5,12 @@ const MED_MIN_SCORE: int = 100
 const MED_MAX_SCORE: int = 199
 const HARD_MIN_SCORE: int = 200
 
-enum DIFFICULTY {
-	EASY,
-	MEDIUM,
-	HARD
-}
 
-enum COLORS {
-	RED,
-	GREEN,
-	PURPLE,
-	YELLOW
-}
+
 
 onready var LevelMusic = get_node("LevelMusic")
 onready var background = get_node("BackGround")
 onready var player: Player = get_node("Player")
-
 onready var combo_bar: TextureProgress = get_node("HUD/ComboBar")
 onready var HUD: HUD = get_node("HUD") 
 
@@ -30,7 +19,8 @@ var combo_fever: bool = false
 var combo_time = 5
 var bounceNumber = 0 
 
-var _curr_color: int = COLORS.GREEN
+### var _curr_color: int = COLORS.GREEN
+
 var current_color: String = "Yellow"
 var _current_difficulty : int 
 var colors: Array = [
@@ -41,7 +31,7 @@ var colors: Array = [
 ]
 
 func _ready():
-	if GameSettings.is_music_enabled: 
+	if Global.is_music_enabled: 
 		LevelMusic.play()
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
 	Signals.connect("player_has_landed_on_ground", self, "_player_landed")
@@ -62,11 +52,11 @@ func start_new_game():
 
 func _handle_background_color() -> void:
 	match _current_difficulty:
-		DIFFICULTY.MEDIUM:
+		Global.DIFFICULTY.MEDIUM:
 			background.change_color(1)
 			# TODO: make better
 			$HUD.change_score_color()
-		DIFFICULTY.HARD:
+		Global.DIFFICULTY.HARD:
 			background.change_color(2)
 
 
@@ -74,11 +64,11 @@ func _determine_game_difficulty() -> void:
 	var score = player.get_score()
 	
 	if score >= MED_MIN_SCORE && score < MED_MAX_SCORE:
-		_current_difficulty = DIFFICULTY.MEDIUM
+		_current_difficulty = Global.DIFFICULTY.MEDIUM
 	elif score > MED_MAX_SCORE:
-		_current_difficulty = DIFFICULTY.HARD
+		_current_difficulty = Global.DIFFICULTY.HARD
 	else:
-		_current_difficulty = DIFFICULTY.EASY
+		_current_difficulty = Global.DIFFICULTY.EASY
 
 func _reset_multiplier() -> void:
 	self.current_multiplier = 1
@@ -87,15 +77,15 @@ func _reset_multiplier() -> void:
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("mute"):
 		LevelMusic.playing = !LevelMusic.playing
-		GameSettings.is_fx_enabled = !GameSettings.is_fx_enabled
-		GameSettings.is_music_enabled = !GameSettings.is_music_enabled
+		Global.is_fx_enabled = !Global.is_fx_enabled
+		Global.is_music_enabled = !Global.is_music_enabled
 
 
 func _get_new_color() -> void:
 	current_color = colors[randi() % colors.size()]
 
 func _play_spike_fx() -> void:
-	if GameSettings.is_fx_enabled:
+	if Global.is_fx_enabled:
 		$SpikeContact.play()
 
 
@@ -110,21 +100,21 @@ func _player_landed(player_color) -> void:
 	###$Cam2D.shake(20)
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:
-		if GameSettings.is_fx_enabled:
+		if Global.is_fx_enabled:
 			$SoundRight.play()
-		player.change_player_score(GameLogic.CORRECT_POINTS)
+		player.change_player_score(Global.CORRECT_POINTS)
 	else:
 		match _current_difficulty:
-			DIFFICULTY.EASY:
+			Global.DIFFICULTY.EASY:
 				Signals.emit_signal("on_red_button_pressed")
-			DIFFICULTY.MEDIUM:
-				Signals.emit_signal("on_red_button_pressed")
-				Signals.emit_signal("on_red_button_pressed")
-			DIFFICULTY.HARD:
+			Global.DIFFICULTY.MEDIUM:
 				Signals.emit_signal("on_red_button_pressed")
 				Signals.emit_signal("on_red_button_pressed")
+			Global.DIFFICULTY.HARD:
 				Signals.emit_signal("on_red_button_pressed")
-		if GameSettings.is_fx_enabled:
+				Signals.emit_signal("on_red_button_pressed")
+				Signals.emit_signal("on_red_button_pressed")
+		if Global.is_fx_enabled:
 			$SoundWrong.play()
 		
 	Signals.emit_signal("player_stat_changed")

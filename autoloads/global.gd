@@ -12,6 +12,12 @@ enum BUFFS {
 	REPLACE
 }
 
+enum DIFFICULTY {
+	EASY,
+	MEDIUM,
+	HARD
+}
+
 enum DEBUFFS {
 	ROTATION,
 	BOUNCE_DOWN,
@@ -74,6 +80,7 @@ var is_rumble_enabled: bool = true
 
 var music_volume: float
 var fx_volume: float
+var current_color: int 
 
 func get_current_debuff() -> String:
 	return "Debuff: " + self._current_debuff
