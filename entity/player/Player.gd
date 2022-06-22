@@ -57,9 +57,9 @@ func _ready() -> void:
 
 func apply_debuff(type: int) -> void:
 	match(type):
-		GameEnums.DEBUFFS.BOUNCE_DOWN:
+		Global.DEBUFFS.BOUNCE_DOWN:
 			self.bounce_force -= 85 
-		GameEnums.DEBUFFS.ROTATION_UP:
+		Global.DEBUFFS.ROTATION_UP:
 			self.increase_rotate_speed()
 	
 	$DebuffTimer.start(10)
@@ -143,7 +143,7 @@ func get_bottom_color_deg():
 		print('Green')
 
 func rumble_controller(amount: float, duration: float):
-	if GameSettings.is_rumble_enabled:
+	if Global.is_rumble_enabled:
 		Input.start_joy_vibration(0, amount, amount, duration)
 
 func display_point_text() -> void:

@@ -25,7 +25,7 @@ func get_random_color() -> String:
 
 func _ready() -> void:
 	randomize()
-	if self.type == GameEnums.ENEMY_TYPE.BOX:
+	if self.type == Global.ENEMY_TYPE.BOX:
 		self.animated_sprite.play(self.color)
 	if diriction == 1:
 		flip_sprite() 
@@ -35,7 +35,7 @@ func flip_sprite() -> void:
 
 func _physics_process(delta: float) -> void:
 
-	if self.type != GameEnums.ENEMY_TYPE.BAT:
+	if self.type != Global.ENEMY_TYPE.BAT:
 		if velocity.y > GRAVITY:
 			velocity.y = GRAVITY
 			
@@ -65,7 +65,7 @@ func _on_DamageArea_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		body.take_damage()
 		
-		if self.type == GameEnums.ENEMY_TYPE.BOX: 
+		if self.type == Global.ENEMY_TYPE.BOX: 
 			if self.color == body.get_bottom_color().to_lower(): # Checks if player bottom matches enemy color
 				PlayerData.multiplier += 1
 				#TODO: needs fixing. position 

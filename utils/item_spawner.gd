@@ -35,14 +35,14 @@ func _ready() -> void:
 
 
 func _determine_spawn_rate() -> void:
-	match GameLogic.get_current_difficulty():
-		GameLogic.DIFFICULTY.EASY:
+	match Global.get_current_difficulty():
+		Global.DIFFICULTY.EASY:
 			max_spawn_time = 10.0
 			min_spawn_time = 5.0
-		GameLogic.DIFFICULTY.MEDIUM:
+		Global.DIFFICULTY.MEDIUM:
 			max_spawn_time = 8.0
 			min_spawn_time = 4.0
-		GameLogic.DIFFICULTY.HARD:
+		Global.DIFFICULTY.HARD:
 			max_spawn_time = 6.0
 			min_spawn_time = 2.0
 
@@ -92,4 +92,4 @@ func _on_TimerGem_timeout():
 
 func _get_random_orb_id() -> int:
 	var _ran: int = rand_range(0, 3)
-	return GameLogic.DEBUFFS.BOUNCE_DOWN
+	return Global.DEBUFFS.BOUNCE_DOWN

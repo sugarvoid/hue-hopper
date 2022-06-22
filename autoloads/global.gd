@@ -18,13 +18,26 @@ enum DEBUFFS {
 	ROTATION_UP,
 }
 
+
 enum PICKUPS {
 	SPIKE,
 	COIN,
-	GEM
+	GEM,
+	ORB
 }
 
+enum ENEMY_TYPE {
+	BOX,
+	SPIKE,
+	BAT
+}
 
+enum COLORS {
+	RED,
+	GREEN,
+	PURPLE,
+	YELLOW
+}
 
 
 var _current_debuff: String
@@ -34,12 +47,33 @@ onready var debuff_timer: Timer = Timer.new()
 
 
 func _ready():
-	GameSettings.create_high_score_file()
+	Global.create_high_score_file()
 	add_child(debuff_timer)
 	Signals.connect("on_orb_pickup", self, "_on_orb_pickup")
 	debuff_timer.connect("timeout", self, "_on_debuff_timer_timeout")
 	pass
 
+
+func create_high_score_file():
+	var f = File.new()
+	if f.file_exists(Global.HIGH_SCORE_FILE):
+		return
+	else:
+		f.open(Global.HIGH_SCORE_FILE, File.WRITE)
+		f.store_var(0)
+		f.close()
+
+
+
+const HIGH_SCORE_FILE = "user://highscore.txt"
+
+var is_music_enabled: bool = true
+var is_fx_enabled: bool = true
+var is_fullscreen_enabled: bool = false
+var is_rumble_enabled: bool = true
+
+var music_volume: float
+var fx_volume: float
 
 func get_current_debuff() -> String:
 	return "Debuff: " + self._current_debuff
@@ -47,13 +81,13 @@ func get_current_debuff() -> String:
 
 func _on_orb_pickup(debuff_id) -> void:
 	match debuff_id:
-		GameLogic.DEBUFFS.ROTATION:
+		Global.DEBUFFS.ROTATION:
 			_current_debuff = "SLOW DOWN"
 			PlayerData.rotation_speed = 2.0
-		GameLogic.DEBUFFS.BOUNCE_DOWN:
+		Global.DEBUFFS.BOUNCE_DOWN:
 			_current_debuff = "LOW BOUNCE"
 			PlayerData.bounce_force = 200
-		GameLogic.DEBUFFS.ROTATION_UP:
+		Global.DEBUFFS.ROTATION_UP:
 			_current_debuff = "ROTATION UP"
 		_:
 			pass

@@ -60,15 +60,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="TextureRect2"]
-margin_left = 160.241
-margin_top = 222.761
-margin_right = 323.241
-margin_bottom = 280.761
-custom_colors/font_color = Color( 0.996078, 0.905882, 0.0823529, 1 )
-custom_fonts/font = ExtResource( 3 )
-text = "Games"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
 anims/rise_logo = SubResource( 1 )

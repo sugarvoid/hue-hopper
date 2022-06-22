@@ -33,14 +33,6 @@ points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
 
 [node name="World" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 8 )
-cell_size = Vector2( 20, 20 )
-format = 1
-tile_data = PoolIntArray( 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0 )
-
-[node name="Background" parent="." instance=ExtResource( 4 )]
-
 [node name="Pipes" type="Sprite" parent="."]
 position = Vector2( 100, 8.155 )
 texture = ExtResource( 2 )
@@ -65,6 +57,14 @@ position = Vector2( -29.918, 8 )
 
 [node name="Pos7" type="Position2D" parent="Pipes"]
 position = Vector2( 90.236, 8 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 8 )
+cell_size = Vector2( 20, 20 )
+format = 1
+tile_data = PoolIntArray( 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0 )
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
 
 [node name="Wall" parent="." instance=ExtResource( 3 )]
 position = Vector2( -5, 128 )

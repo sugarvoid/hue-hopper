@@ -24,7 +24,7 @@ func _on_BtnSettings_gui_input(event):
 
 func _on_BtnPlay_gui_input(event):
 	if _is_left_mouse_click(event):
-		if GameSettings.is_fx_enabled:
+		if Global.is_fx_enabled:
 			audio_player.play()
 		var _x = get_tree().change_scene("res://scenes/Game.tscn")
 

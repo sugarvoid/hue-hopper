@@ -48,10 +48,8 @@ config/windows_native_icon="res://icon.ico"
 [autoload]
 
 Signals="*res://autoloads/signals.gd"
-GameLogic="*res://autoloads/game_logic.gd"
-GameSettings="*res://autoloads/game_settings.gd"
+Global="*res://autoloads/global.gd"
 PlayerData="*res://autoloads/player_data.gd"
-GameEnums="*res://autoloads/game_enums.gd"
 
 [display]
 
