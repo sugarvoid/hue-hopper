@@ -5,6 +5,8 @@ const MED_MIN_SCORE: int = 100
 const MED_MAX_SCORE: int = 199
 const HARD_MIN_SCORE: int = 200
 
+const NUMBER_OF_COLORS: int = 200
+
 
 
 
@@ -14,10 +16,13 @@ onready var player: Player = get_node("Player")
 onready var combo_bar: TextureProgress = get_node("HUD/ComboBar")
 onready var HUD: HUD = get_node("HUD") 
 
+var rng :RandomNumberGenerator
+var color_list: Array = []
 var current_multiplier: int = 1
 var combo_fever: bool = false
 var combo_time = 5
-var bounceNumber = 0 
+
+var bounceNumber = 0
 
 ### var _curr_color: int = COLORS.GREEN
 
@@ -31,6 +36,8 @@ var colors: Array = [
 ]
 
 func _ready():
+	rng = RandomNumberGenerator.new()
+	_create_color_pattern()
 	if Global.is_music_enabled: 
 		LevelMusic.play()
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
@@ -59,6 +66,15 @@ func _handle_background_color() -> void:
 		Global.DIFFICULTY.HARD:
 			background.change_color(2)
 
+func _get_random_number() -> int:
+	rng.randomize()
+	return rng.randi_range(0, 4)
+
+func _create_color_pattern() -> void:
+	color_list.resize(NUMBER_OF_COLORS)
+	for i in NUMBER_OF_COLORS:
+		color_list[i] = _get_random_number()
+	print(color_list)
 
 func _determine_game_difficulty() -> void:
 	var score = player.get_score()
@@ -94,8 +110,9 @@ func _end_game() -> void:
 
 
 func _player_landed(player_color) -> void:
-	print('LANDED #' + str(bounceNumber) )
 	bounceNumber += 1
+	print('Bounce #' + str(bounceNumber) )
+	
 	# TODO: decide if i want to keep screen shake
 	###$Cam2D.shake(20)
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR

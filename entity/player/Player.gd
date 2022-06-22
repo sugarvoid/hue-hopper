@@ -14,6 +14,8 @@ const FRICTION: float = 0.15
 const UP = Vector2(0, -1)
 var GRAVITY: float = 600.0
 
+var _x
+
 
 var bounce_force: float
 var rotation_speed: float
@@ -48,8 +50,8 @@ var floating_score: PackedScene = preload("res://utils/floating_text/floating_te
 
 func _ready() -> void:
 	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
-	Signals.connect("player_touched_spike", self, "take_damage")
-	Signals.connect("on_orb_pickup", self, "apply_debuff")
+	_x = Signals.connect("player_touched_spike", self, "take_damage")
+	_x = Signals.connect("on_orb_pickup", self, "apply_debuff")
 	##self.GRAVITY = 600.00
 	self.speed = 70.00
 	_reset_stats()
