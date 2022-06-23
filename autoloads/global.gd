@@ -1,5 +1,7 @@
 extends Node
 
+## Constants ##
+const HIGH_SCORE_FILE = "user://highscore.txt"
 
 const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
@@ -7,6 +9,9 @@ const ITEMS: Dictionary = {
 	"coin" : 0
 }
 
+onready var debuff_timer: Timer = Timer.new()
+
+## Enums ##
 enum BUFFS {
 	HEALTH_UP,
 	REPLACE
@@ -23,7 +28,6 @@ enum DEBUFFS {
 	BOUNCE_DOWN,
 	ROTATION_UP,
 }
-
 
 enum PICKUPS {
 	SPIKE,
@@ -47,9 +51,14 @@ enum COLORS {
 
 
 var _current_debuff: String
+var is_music_enabled: bool = true
+var is_fx_enabled: bool = true
+var is_fullscreen_enabled: bool = false
+var is_rumble_enabled: bool = true
+var music_volume: float
+var fx_volume: float
+var current_color: int 
 
-
-onready var debuff_timer: Timer = Timer.new()
 
 
 func _ready():
@@ -70,17 +79,6 @@ func create_high_score_file():
 		f.close()
 
 
-
-const HIGH_SCORE_FILE = "user://highscore.txt"
-
-var is_music_enabled: bool = true
-var is_fx_enabled: bool = true
-var is_fullscreen_enabled: bool = false
-var is_rumble_enabled: bool = true
-
-var music_volume: float
-var fx_volume: float
-var current_color: int 
 
 func get_current_debuff() -> String:
 	return "Debuff: " + self._current_debuff

@@ -113,8 +113,8 @@ func _player_landed(player_color) -> void:
 	bounceNumber += 1
 	print('Bounce #' + str(bounceNumber) )
 	
-	# TODO: decide if i want to keep screen shake
-	###$Cam2D.shake(20)
+	$Cam2D.shake(13)
+	
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:
 		if Global.is_fx_enabled:

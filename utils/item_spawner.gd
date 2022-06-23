@@ -87,8 +87,7 @@ func _on_TimerGem_timeout():
 	new_orb.position = Vector2(x_pos, position.y) 
 	get_tree().current_scene.add_child(new_orb)
 	# RESET TIMER
-	timer_orb.start(10)
-	#FIXME: Replace timer back to 20 
+	timer_orb.start(20)
 
 func _get_random_orb_id() -> int:
 	var _ran: int = rand_range(0, 3)
