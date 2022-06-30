@@ -5,6 +5,7 @@ onready var audio_player: AudioStreamPlayer = get_node("AudioStreamPlayer")
 #TODO: make version label info come from autoload
 func _ready():
 	PlayerData.init_player_data()
+	$LblVersion.text = Global.GAME_VERSION
 
 func _unhandled_key_input(event):
 	if event.is_action_released("slam"):

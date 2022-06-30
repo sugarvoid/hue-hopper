@@ -29,6 +29,8 @@ var flips_achived: int = 0
 var has_game_started: bool = false
 var velocity: Vector2 = Vector2.ZERO
 
+var colors: Array
+
 
 onready var sprite: Sprite = $Sprite
 onready var purple: Position2D = $Ball/Purple

@@ -56,7 +56,7 @@ func start_new_game():
 	player.init_player_data()
 	_determine_game_difficulty()
 
-
+#TODO: Remove since background will not be color rect anymore
 func _handle_background_color() -> void:
 	match _current_difficulty:
 		Global.DIFFICULTY.MEDIUM:
