@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://images/hue-bal-newl-bor.png" type="Texture" id=1]
 [ext_resource path="res://entity/player/Player.gd" type="Script" id=2]
 [ext_resource path="res://images/new_guy-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://images/player-Sheet.png" type="Texture" id=4]
 [ext_resource path="res://utils/white.shader" type="Shader" id=5]
+[ext_resource path="res://images/new_guy.png" type="Texture" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -75,6 +76,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [ true, false, true, false ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("GreyGuy:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpriteHit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "walking"
@@ -103,6 +128,12 @@ material = SubResource( 1 )
 position = Vector2( 0, -2.251 )
 frames = SubResource( 4 )
 animation = "walking"
+
+[node name="SpriteHit" type="Sprite" parent="."]
+visible = false
+material = SubResource( 1 )
+position = Vector2( 0, -2.251 )
+texture = ExtResource( 6 )
 
 [node name="Ball" type="Node2D" parent="."]
 
