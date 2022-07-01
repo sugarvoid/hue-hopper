@@ -59,6 +59,7 @@ position = Vector2( -29.918, 8 )
 position = Vector2( 90.236, 8 )
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = -2
 tile_set = SubResource( 8 )
 cell_size = Vector2( 20, 20 )
 format = 1

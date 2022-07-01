@@ -5,7 +5,7 @@
 [ext_resource path="res://entity/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://utils/ItemSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://hud/HUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://level/BackGround.tscn" type="PackedScene" id=6]
+[ext_resource path="res://images/background.png" type="Texture" id=6]
 [ext_resource path="res://sounds/Keep your dream alive! seamless.ogg" type="AudioStream" id=7]
 [ext_resource path="res://scenes/PauseScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/game.gd" type="Script" id=9]
@@ -22,7 +22,9 @@ script = ExtResource( 9 )
 [node name="ItemSpawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( 96.3258, -21.4057 )
 
-[node name="BackGround" parent="." instance=ExtResource( 6 )]
+[node name="BackGround" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+centered = false
 
 [node name="World" parent="." instance=ExtResource( 1 )]
 
@@ -75,10 +77,14 @@ position = Vector2( 25, 45 )
 position = Vector2( 40, 45 )
 
 [node name="ColorSign" parent="." instance=ExtResource( 15 )]
-position = Vector2( 99, 54 )
+visible = false
+position = Vector2( 96, 57 )
+z_index = 2
 
 [node name="ColorSign2" parent="." instance=ExtResource( 15 )]
-position = Vector2( 99, 54 )
+visible = false
+position = Vector2( 98, 54 )
+z_index = 3
 color = 2
 
 [connection signal="timeout" from="Cam2D/Timer" to="Cam2D" method="_on_Timer_timeout"]

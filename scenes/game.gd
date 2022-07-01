@@ -60,11 +60,12 @@ func start_new_game():
 func _handle_background_color() -> void:
 	match _current_difficulty:
 		Global.DIFFICULTY.MEDIUM:
-			background.change_color(1)
+			#change light colors 
 			# TODO: make better
 			$HUD.change_score_color()
 		Global.DIFFICULTY.HARD:
-			background.change_color(2)
+			#change light colors
+			pass 
 
 func _get_random_number() -> int:
 	rng.randomize()
