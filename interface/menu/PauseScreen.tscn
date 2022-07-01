@@ -2,7 +2,7 @@
 
 [ext_resource path="res://images/black-square.png" type="Texture" id=1]
 [ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scenes/pause_screen.gd" type="Script" id=3]
+[ext_resource path="res://interface/menu/pause_screen.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )

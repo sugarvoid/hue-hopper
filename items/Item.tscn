@@ -5,7 +5,6 @@
 [ext_resource path="res://images/hue_orb_sheet.png" type="Texture" id=3]
 [ext_resource path="res://images/spike.png" type="Texture" id=4]
 
-
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 7, 9 )
@@ -34,22 +33,6 @@ region = Rect2( 198, 126, 18, 18 )
 atlas = ExtResource( 1 )
 region = Rect2( 216, 126, 18, 18 )
 
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 39, 14, 13 )
-
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 3 )
-region = Rect2( 14, 39, 14, 13 )
-
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 3 )
-region = Rect2( 28, 39, 14, 13 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 3 )
-region = Rect2( 42, 39, 14, 13 )
-
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 13, 14, 13 )
@@ -65,22 +48,6 @@ region = Rect2( 28, 13, 14, 13 )
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 3 )
 region = Rect2( 42, 13, 14, 13 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 14, 13 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 3 )
-region = Rect2( 14, 0, 14, 13 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 3 )
-region = Rect2( 28, 0, 14, 13 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 3 )
-region = Rect2( 42, 0, 14, 13 )
 
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 3 )
@@ -114,6 +81,38 @@ region = Rect2( 28, 52, 14, 13 )
 atlas = ExtResource( 3 )
 region = Rect2( 42, 52, 14, 13 )
 
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 14, 13 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 14, 0, 14, 13 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 28, 0, 14, 13 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 3 )
+region = Rect2( 42, 0, 14, 13 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 39, 14, 13 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 3 )
+region = Rect2( 14, 39, 14, 13 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 3 )
+region = Rect2( 28, 39, 14, 13 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 3 )
+region = Rect2( 42, 39, 14, 13 )
+
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
@@ -126,19 +125,9 @@ animations = [ {
 "name": "coin",
 "speed": 6.0
 }, {
-"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
-"loop": true,
-"name": "orb4",
-"speed": 6.0
-}, {
 "frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
 "name": "orb2",
-"speed": 6.0
-}, {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
-"loop": true,
-"name": "orb1",
 "speed": 6.0
 }, {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
@@ -150,12 +139,23 @@ animations = [ {
 "loop": true,
 "name": "orb5",
 "speed": 6.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "orb1",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
+"loop": true,
+"name": "orb4",
+"speed": 6.0
 } ]
 
 [sub_resource type="CircleShape2D" id=12]
 radius = 6.34464
 
 [node name="Item" type="Area2D"]
+z_index = 2
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

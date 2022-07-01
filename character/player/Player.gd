@@ -193,7 +193,7 @@ func take_damage() -> void:
 		PlayerData.hearts -= 1
 	
 	if PlayerData.hearts <= 0:
-		get_tree().change_scene("res://scenes/GameOver.tscn")
+		get_tree().change_scene("res://interface/menu/GameOver.tscn")
 
 	Signals.emit_signal("player_stat_changed")
 

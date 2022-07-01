@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://entity/enemy/Enemy.gd"
+"path": "res://character/enemy/Enemy.gd"
 }, {
 "base": "Control",
 "class": "HUD",
@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://entity/player/Player.gd"
+"path": "res://character/player/Player.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",

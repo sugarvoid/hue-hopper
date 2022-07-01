@@ -2,7 +2,7 @@
 
 [ext_resource path="res://sounds/533034__evretro__8-bit-game-over-sound-tune.wav" type="AudioStream" id=1]
 [ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scenes/GameOver.gd" type="Script" id=3]
+[ext_resource path="res://interface/menu/GameOver.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
