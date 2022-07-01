@@ -36,6 +36,7 @@ var colors: Array = [
 ]
 
 func _ready():
+	$ColoredSign/Colors/ColorLight.turn_on()
 	rng = RandomNumberGenerator.new()
 	_create_color_pattern()
 	if Global.is_music_enabled: 
@@ -54,6 +55,7 @@ func _process(delta):
 
 func start_new_game():
 	player.init_player_data()
+	
 	_determine_game_difficulty()
 
 #TODO: Remove since background will not be color rect anymore

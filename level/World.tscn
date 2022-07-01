@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://images/demo_tile.png" type="Texture" id=1]
 [ext_resource path="res://images/pipe.png" type="Texture" id=2]
 [ext_resource path="res://utils/Wall.tscn" type="PackedScene" id=3]
-[ext_resource path="res://level/BackGround.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
@@ -64,8 +63,6 @@ tile_set = SubResource( 8 )
 cell_size = Vector2( 20, 20 )
 format = 1
 tile_data = PoolIntArray( 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0 )
-
-[node name="Background" parent="." instance=ExtResource( 4 )]
 
 [node name="Wall" parent="." instance=ExtResource( 3 )]
 position = Vector2( -5, 128 )
