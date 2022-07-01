@@ -36,7 +36,6 @@ var colors: Array = [
 ]
 
 func _ready():
-	$ColoredSign/Colors/ColorLight.turn_on()
 	rng = RandomNumberGenerator.new()
 	_create_color_pattern()
 	if Global.is_music_enabled: 
@@ -141,4 +140,5 @@ func _player_landed(player_color) -> void:
 	# GET NEW COLOR
 	_get_new_color()
 	# SEND HUD NEW COLOR
+	$ColoredSign.update_lights(current_color)
 	Signals.emit_signal("color_changed", current_color)

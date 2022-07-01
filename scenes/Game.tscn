@@ -79,6 +79,6 @@ position = Vector2( 25, 45 )
 position = Vector2( 40, 45 )
 
 [node name="ColoredSign" parent="." instance=ExtResource( 16 )]
-position = Vector2( 97, 105 )
+position = Vector2( 97, 46 )
 
 [connection signal="timeout" from="Cam2D/Timer" to="Cam2D" method="_on_Timer_timeout"]

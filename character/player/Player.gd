@@ -28,6 +28,7 @@ var rotation_dir = 0
 var flips_achived: int = 0
 var has_game_started: bool = false
 var velocity: Vector2 = Vector2.ZERO
+var is_whited_out: bool = false
 
 var colors: Array
 

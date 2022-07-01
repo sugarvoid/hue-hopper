@@ -54,6 +54,7 @@ __meta__ = {
 }
 
 [node name="Panel" type="NinePatchRect" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.619608 )
 margin_left = 50.5406
 margin_top = 39.2433

@@ -3,7 +3,7 @@ extends Node
 ## Constants ##
 const HIGH_SCORE_FILE = "user://highscore.txt"
 
-const GAME_VERSION = "0.4.0"
+const GAME_VERSION = "1.4.0"
 const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
 const ITEMS: Dictionary = {

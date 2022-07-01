@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://items/Item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://images/fall_guy.png" type="Texture" id=3]
+[ext_resource path="res://images/paint_temp.png" type="Texture" id=2]
 
 [sub_resource type="GDScript" id=2]
 script/source = "extends \"res://items/Item.gd\"
@@ -32,7 +32,7 @@ visible = false
 position = Vector2( 0.0468216, 0 )
 rotation = -3.14159
 animation = "spike"
-frame = 1
+frame = 2
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0.612638, 0.422886 )
@@ -43,5 +43,4 @@ position = Vector2( 0.594408, 0.35407 )
 scale = Vector2( 0.354855, 0.455281 )
 
 [node name="Sprite" type="Sprite" parent="." index="3"]
-texture = ExtResource( 3 )
-hframes = 3
+texture = ExtResource( 2 )
