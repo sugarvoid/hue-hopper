@@ -18,7 +18,6 @@ var _x
 var bounce_force: float
 var rotation_speed: float
 var jump_force: float
-var coins: int
 var _score: int
 var hearts: int
 var multiplier: int 
@@ -68,7 +67,6 @@ func apply_debuff(type: int) -> void:
 
 func init_player_data() -> void:
 	hearts = 3
-	coins = 0
 	multiplier = 1
 	_score = 0
 
@@ -204,9 +202,6 @@ func _on_AttackArea_body_entered(body: Node) -> void:
 	if body.is_in_group("Enemy"):
 		body.take_damage(self.attack)
 
-
-func add_coin(amount: int):
-	self.coins += amount
 
 
 func _on_Pulse_body_entered(body: Node) -> void:
