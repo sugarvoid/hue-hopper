@@ -22,7 +22,7 @@ func _ready() -> void:
 	timer.start(next_spawn_time)
 
 func _create_boxbody() -> Enemy:
-	var p_box = preload("res://character/enemy/BoxBody.tscn")
+	var p_box = preload("res://actor/enemy/BoxBody.tscn")
 	var box = p_box.instance()
 	box.type = Global.ENEMY_TYPE.BOX 
 	box.speed = 30
@@ -30,14 +30,14 @@ func _create_boxbody() -> Enemy:
 	return box
 	
 func _create_spikehead() -> Enemy:
-	var p_spikehead = preload("res://character/enemy/SpikeHead.tscn")
+	var p_spikehead = preload("res://actor/enemy/SpikeHead.tscn")
 	var spikehead = p_spikehead.instance()
 	spikehead.speed = 40
 	spikehead.type = Global.ENEMY_TYPE.SPIKE 
 	return spikehead
 
 func _create_bat():
-	var p_bat = preload("res://character/enemy/Bat.tscn")
+	var p_bat = preload("res://actor/enemy/Bat.tscn")
 	var bat = p_bat.instance()
 	bat.speed = 70
 	bat.type = Global.ENEMY_TYPE.BAT

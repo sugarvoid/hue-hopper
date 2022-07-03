@@ -1,6 +1,6 @@
 extends Node2D
 
-var GuiHelper = preload("res://utils/gui_helper.gd")
+
 var current_high_score: int
 
 onready var player_score = get_node("PlayerScore")
@@ -44,8 +44,8 @@ func _on_Restart_gui_input(event: InputEvent):
 
 
 func _on_Restart_mouse_entered():
-	GuiHelper.change_rect_color($Restart, GuiHelper.rubyRed)
+	Global.change_rect_color($Restart, Global.rubyRed)
 
 
 func _on_Restart_mouse_exited():
-	GuiHelper.change_rect_color($Restart, GuiHelper.white)
+	Global.change_rect_color($Restart, Global.white)

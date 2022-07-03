@@ -28,9 +28,9 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="LifeContainer" type="HBoxContainer" parent="."]
-margin_top = 24.0
+margin_top = 16.037
 margin_right = 57.0
-margin_bottom = 24.0
+margin_bottom = 16.037
 custom_constants/separation = -2
 
 [node name="ScoreLabel" type="Label" parent="."]
