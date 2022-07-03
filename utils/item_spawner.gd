@@ -28,7 +28,7 @@ func get_pipe_pos() -> void:
 		positions.push_back(pipe.global_position)
 
 func _ready() -> void:
-	Signals.connect("on_red_button_pressed", self, "_fire_all")
+	Signals.connect("landed_on_wrong_color", self, "_spawn_paint")
 	get_pipe_pos()
 	randomize()
 	timer_spike.start(next_spawn_time)
@@ -77,6 +77,14 @@ func _on_TimerSpike_timeout():
 #	next_spawn_time = rand_range(max_spawn_time, min_spawn_time)
 #	timer_spike.start(next_spawn_time)
 
+func _spawn_paint():
+	# GET RANDOM GEM
+	# SPWAN GEM
+	var x_pos := rand_range(12, 188)
+	var paint = p_PaintBucket.instance()
+	paint.position = Vector2(x_pos, 0) 
+	print(paint.position)
+	get_tree().current_scene.add_child(paint)
 
 func _on_TimerGem_timeout():
 	# GET RANDOM GEM

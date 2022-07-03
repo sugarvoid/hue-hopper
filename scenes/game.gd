@@ -49,7 +49,8 @@ func _ready():
 func _process(delta):
 	_determine_game_difficulty()
 	_handle_background_color()
-	$HUD.update_player_score(player.get_score())
+	$HUD.update_player_score(Global.player_score)
+	$DebuffCounter.frame = player.debuff_timer.time_left
 
 
 func start_new_game():
@@ -79,7 +80,7 @@ func _create_color_pattern() -> void:
 	print(color_list)
 
 func _determine_game_difficulty() -> void:
-	var score = player.get_score()
+	var score = Global.player_score
 	
 	if score >= MED_MIN_SCORE && score < MED_MAX_SCORE:
 		_current_difficulty = Global.DIFFICULTY.MEDIUM
@@ -121,18 +122,18 @@ func _player_landed(player_color) -> void:
 	if self.current_color == player_color:
 		if Global.is_fx_enabled:
 			$SoundRight.play()
-		player.change_player_score(Global.CORRECT_POINTS)
+		Global.player_score += Global.CORRECT_POINTS
 	else:
 		match _current_difficulty:
 			Global.DIFFICULTY.EASY:
-				Signals.emit_signal("on_red_button_pressed")
+				Signals.emit_signal("landed_on_wrong_color")
 			Global.DIFFICULTY.MEDIUM:
-				Signals.emit_signal("on_red_button_pressed")
-				Signals.emit_signal("on_red_button_pressed")
+				Signals.emit_signal("landed_on_wrong_color")
+				Signals.emit_signal("landed_on_wrong_color")
 			Global.DIFFICULTY.HARD:
-				Signals.emit_signal("on_red_button_pressed")
-				Signals.emit_signal("on_red_button_pressed")
-				Signals.emit_signal("on_red_button_pressed")
+				Signals.emit_signal("landed_on_wrong_color")
+				Signals.emit_signal("landed_on_wrong_color")
+				Signals.emit_signal("landed_on_wrong_color")
 		if Global.is_fx_enabled:
 			$SoundWrong.play()
 		

@@ -63,8 +63,6 @@ func _slide_down() -> void:
 
 func _on_DamageArea_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		body.take_damage()
-		
 		if self.type == Global.ENEMY_TYPE.BOX: 
 			if self.color == body.get_bottom_color().to_lower(): # Checks if player bottom matches enemy color
 				PlayerData.multiplier += 1
@@ -73,7 +71,7 @@ func _on_DamageArea_body_entered(body: Node) -> void:
 				_slide_down()
 				#queue_free()
 			else:
-				pass
+				body.take_damage()
 
 
 

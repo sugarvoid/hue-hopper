@@ -48,6 +48,7 @@ onready var ball: Node2D = $Ball
 onready var grey_guy: AnimatedSprite = $GreyGuy
 onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
 onready var invic_timer: Timer = $InvicTimer
+onready var debuff_timer: Timer = $DebuffTimer
 
 
 var floating_score: PackedScene = preload("res://utils/floating_text/floating_text.tscn")
@@ -89,6 +90,13 @@ func flip_sprite() -> void:
 func _bounce() -> void:
 	self.GRAVITY = 600
 	velocity.y = -self.bounce_force
+	
+
+func _update_sprite(x_input: int) -> void:
+	if x_input > 0:
+		grey_guy.set_flip_h(true)
+	elif x_input < 0:
+		grey_guy.set_flip_h(false)
 
 func _physics_process(delta: float) -> void:
 	if has_game_started:
@@ -101,11 +109,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x += x_input * ACCELERATION * delta
 		velocity.x = clamp(velocity.x, -speed, speed)
 		
-		if x_input > 0:
-			grey_guy.set_flip_h(true)
-		elif x_input < 0:
-			grey_guy.set_flip_h(false)
-			
+		_update_sprite(x_input)
+		
 		if !is_on_floor():
 			rotation_dir = 0
 			if Input.is_action_just_pressed("slam"):

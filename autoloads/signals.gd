@@ -22,7 +22,7 @@ signal on_orb_pickup(orb_id)
 # warning-ignore:unused_signal
 signal debuff_applied()
 # warning-ignore:unused_signal
-signal on_red_button_pressed()
+signal landed_on_wrong_color()
 # warning-ignore:unused_signal
 signal player_stat_changed()
 # warning-ignore:unused_signal

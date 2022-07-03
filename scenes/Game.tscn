@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://level/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://utils/EnemySpawner.tscn" type="PackedScene" id=2]
@@ -14,8 +14,8 @@
 [ext_resource path="res://scenes/cam_2d.gd" type="Script" id=12]
 [ext_resource path="res://sounds/hard-glass-impact.wav" type="AudioStream" id=13]
 [ext_resource path="res://hud/BreakableHeart.tscn" type="PackedScene" id=14]
+[ext_resource path="res://interface/hud/DebuffCounter.tscn" type="PackedScene" id=15]
 [ext_resource path="res://object/ColoredSign.tscn" type="PackedScene" id=16]
-
 
 [node name="Game" type="Node"]
 script = ExtResource( 9 )
@@ -81,5 +81,10 @@ position = Vector2( 40, 45 )
 
 [node name="ColoredSign" parent="." instance=ExtResource( 16 )]
 position = Vector2( 97, 46 )
+
+[node name="DebuffCounter" parent="." instance=ExtResource( 15 )]
+position = Vector2( 132, 17 )
+scale = Vector2( 3, 3 )
+frame = 5
 
 [connection signal="timeout" from="Cam2D/Timer" to="Cam2D" method="_on_Timer_timeout"]

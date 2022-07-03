@@ -5,7 +5,7 @@ onready var start_timer: Timer = get_node("Timer_Start_Ani")
 onready var pause_timer: Timer = get_node("Timer_Pause")
 onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
-const MAIN_MENU_SCENE: String = "res://scenes/StartScreen.tscn"
+const MAIN_MENU_SCENE: String = "res://interface/menu/StartScreen.tscn"
 
 
 func _ready() -> void:
@@ -25,4 +25,4 @@ func _on_Pause_timeout() -> void:
 
 func _on_AudioStreamPlayer_finished():
 	print('done')
-	var _x = get_tree().change_scene(MAIN_MENU_SCENE)
+	Global.go_to_start_screen()

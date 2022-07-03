@@ -3,7 +3,12 @@ extends Node
 ## Constants ##
 const HIGH_SCORE_FILE = "user://highscore.txt"
 
+"""
+SceenChanges
+"""
 
+func go_to_start_screen() -> void:
+	var _x = get_tree().change_scene("res://interface/menu/StartScreen.tscn")
 
 const prillyBlue: String = "329cc3"
 const rubyRed: String = "c13354"
@@ -60,6 +65,15 @@ enum COLORS {
 	PURPLE,
 	YELLOW
 }
+
+
+"""
+Player Data
+"""
+var player_score: int = 0 
+
+func reset_player_stats() -> void:
+	player_score = 0
 
 
 var _current_debuff: String

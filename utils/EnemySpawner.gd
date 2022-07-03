@@ -14,7 +14,7 @@ const enemy_options : Array = [
 onready var timer = $Timer
 
 var next_spawn_time: float = 4.0
-var max_spawn_time: float = 8.0
+var max_spawn_time: float = 6.0
 var min_spawn_time: float = 2.0
 
 func _ready() -> void:

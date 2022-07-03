@@ -11,6 +11,7 @@ func item_action():
 	self.animated_sprite.play("paint_break")
 	Signals.emit_signal("player_touched_paint")
 
-
+func _process(delta):
+	self.rotation_degrees += 9
 
 

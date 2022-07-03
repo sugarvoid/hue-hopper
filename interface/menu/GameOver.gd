@@ -3,15 +3,15 @@ extends Node2D
 
 var current_high_score: int
 
-onready var player_score = get_node("PlayerScore")
+####onready var player_score = get_node("PlayerScore")
 
 func _ready():
 	current_high_score = load_high_score()
-	if PlayerData.get_player_score() > current_high_score:
-		current_high_score = PlayerData.get_player_score()
+	if Global.player_score > current_high_score:
+		current_high_score = Global.player_score
 		save_high_score(current_high_score)
 		
-	$PlayerScore.set_text("Score: " + str(PlayerData.get_player_score()))
+	$PlayerScore.set_text("Score: " + str(Global.player_score))
 	$HighScore.set_text("Best: " + str(current_high_score))
 	if Global.is_fx_enabled:
 		$AudioStreamPlayer.play()
@@ -19,7 +19,8 @@ func _ready():
 
 func _unhandled_key_input(event):
 	if event.is_action_released("restart"):
-		var _x = get_tree().change_scene("res://scenes/StartScreen.tscn")
+		Global.reset_player_stats()
+		Global.go_to_start_screen()
 
 
 func load_high_score():
