@@ -1,7 +1,6 @@
 extends "res://items/Item.gd"
 class_name Orb
 
-onready var animated_sprite = $AnimatedSprite
 
 
 var orb_id: int

@@ -12,6 +12,12 @@ const ACCELERATION: float = 600.00
 const AIR_RES: float = 0.02
 const FRICTION: float = 0.15
 const UP = Vector2(0, -1)
+
+const white_out_degs: Array = [
+	0,
+	90,
+	180
+]
 var GRAVITY: float = 600.0
 
 var _x
@@ -49,7 +55,7 @@ var floating_score: PackedScene = preload("res://utils/floating_text/floating_te
 
 func _ready() -> void:
 	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
-	_x = Signals.connect("player_touched_spike", self, "_white_out")
+	_x = Signals.connect("player_touched_paint", self, "_white_out")
 	_x = Signals.connect("on_orb_pickup", self, "apply_debuff")
 	##self.GRAVITY = 600.00
 	self.speed = 70.00
@@ -63,6 +69,8 @@ func apply_debuff(type: int) -> void:
 		Global.DEBUFFS.ROTATION_UP:
 			self.increase_rotate_speed()
 		Global.DEBUFFS.WHITE_OUT:
+			var rad_rot = white_out_degs[randi() % white_out_degs.size()]
+			$Ball/WhiteOut.rotation_degrees = rad_rot
 			$Ball/WhiteOut.visible = true
 	
 	$DebuffTimer.start(10)
@@ -236,6 +244,7 @@ func increase_rotate_speed() -> void:
 func _clear_debuff() -> void:
 	self.bounce_force = DEFAULT_BOUCE_FORCE
 	self.rotation_speed = DEFAULT_ROTATION_SPEED
+	$Ball/WhiteOut.rotation_degrees = 0
 	$Ball/WhiteOut.visible = false
 	print("reset")
 

@@ -3,6 +3,16 @@ extends Node
 ## Constants ##
 const HIGH_SCORE_FILE = "user://highscore.txt"
 
+
+
+const prillyBlue: String = "329cc3"
+const rubyRed: String = "c13354"
+const white: String = "ffffff"
+
+
+static func change_rect_color(rect: ColorRect, color: String) -> void:
+	rect.color = color
+
 const GAME_VERSION = "1.4.0"
 const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
@@ -32,7 +42,7 @@ enum DEBUFFS {
 }
 
 enum PICKUPS {
-	SPIKE,
+	PAINT,
 	COIN,
 	GEM,
 	ORB
