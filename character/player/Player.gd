@@ -32,7 +32,7 @@ var is_whited_out: bool = false
 var colors: Array
 
 
-onready var sprite: Sprite = $Sprite
+##### onready var sprite: Sprite = $Ball/Sprite
 onready var purple: Position2D = $Ball/Purple
 onready var red: Position2D = $Ball/Red
 onready var green: Position2D = $Ball/Green
@@ -49,11 +49,11 @@ var floating_score: PackedScene = preload("res://utils/floating_text/floating_te
 
 func _ready() -> void:
 	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
-	_x = Signals.connect("player_touched_spike", self, "take_damage")
+	_x = Signals.connect("player_touched_spike", self, "_white_out")
 	_x = Signals.connect("on_orb_pickup", self, "apply_debuff")
 	##self.GRAVITY = 600.00
 	self.speed = 70.00
-	_reset_stats()
+	_clear_debuff()
 
 
 func apply_debuff(type: int) -> void:
@@ -62,6 +62,8 @@ func apply_debuff(type: int) -> void:
 			self.bounce_force -= 85 
 		Global.DEBUFFS.ROTATION_UP:
 			self.increase_rotate_speed()
+		Global.DEBUFFS.WHITE_OUT:
+			$Ball/WhiteOut.visible = true
 	
 	$DebuffTimer.start(10)
 
@@ -70,6 +72,8 @@ func init_player_data() -> void:
 	multiplier = 1
 	_score = 0
 
+func _white_out():
+	apply_debuff(Global.DEBUFFS.WHITE_OUT)
 
 func flip_sprite() -> void:
 	self.scale.x *= -1 
@@ -184,6 +188,8 @@ func sort_points(a: Position2D, b: Position2D):
 	return a.position.y == b.position.y
 
 
+
+
 func take_damage() -> void:
 	if invic_timer.is_stopped():
 		invic_timer.start()
@@ -227,11 +233,12 @@ func increase_rotate_speed() -> void:
 	print('rot up')
 	self.rotation_speed = 15.5
 
-func _reset_stats() -> void:
+func _clear_debuff() -> void:
 	self.bounce_force = DEFAULT_BOUCE_FORCE
 	self.rotation_speed = DEFAULT_ROTATION_SPEED
+	$Ball/WhiteOut.visible = false
 	print("reset")
 
 
 func _on_DebuffTimer_timeout():
-	_reset_stats()
+	_clear_debuff()

@@ -120,6 +120,7 @@ texture = ExtResource( 6 )
 texture = ExtResource( 1 )
 
 [node name="WhiteOut" type="Sprite" parent="Ball"]
+visible = false
 texture = ExtResource( 7 )
 
 [node name="Purple" type="Position2D" parent="Ball"]

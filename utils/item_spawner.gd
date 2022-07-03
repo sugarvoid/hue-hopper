@@ -9,10 +9,10 @@ var min_spawn_time: float = 5.0
 var positions: Array
 
 var p_items: Array = [
-	preload("res://items/Spike.tscn")
+	preload("res://items/PaintBucket.tscn")
 ]
 
-var p_Spike = preload("res://items/Spike.tscn")
+var p_PaintBucket = preload("res://items/PaintBucket.tscn")
 var p_Orb = preload("res://items/orbs/Orb.tscn")
 
 onready var pipes = get_tree().get_root().get_node("Game/World/Pipes")
@@ -52,9 +52,9 @@ func _fire_all() -> void:
 	
 	#TODO: Add a way for multiple spikes on higher diffity
 	var random_pipe = positions[randi() % positions.size()]
-	var spike = p_Spike.instance()
-	spike.position = random_pipe
-	s.call_deferred("add_child", spike)
+	var paint_bucket = p_PaintBucket.instance()
+	paint_bucket.position = random_pipe
+	s.call_deferred("add_child", paint_bucket)
 	
 #	for pos in positions:
 #		var spike = p_Spike.instance()
