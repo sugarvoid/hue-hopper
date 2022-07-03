@@ -9,10 +9,10 @@ var min_spawn_time: float = 5.0
 var positions: Array
 
 var p_items: Array = [
-	preload("res://items/Spike.tscn")
+	preload("res://items/PaintBucket.tscn")
 ]
 
-var p_Spike = preload("res://items/Spike.tscn")
+var p_PaintBucket = preload("res://items/PaintBucket.tscn")
 var p_Orb = preload("res://items/orbs/Orb.tscn")
 
 onready var pipes = get_tree().get_root().get_node("Game/World/Pipes")
@@ -35,14 +35,14 @@ func _ready() -> void:
 
 
 func _determine_spawn_rate() -> void:
-	match GameLogic.get_current_difficulty():
-		GameLogic.DIFFICULTY.EASY:
+	match Global.get_current_difficulty():
+		Global.DIFFICULTY.EASY:
 			max_spawn_time = 10.0
 			min_spawn_time = 5.0
-		GameLogic.DIFFICULTY.MEDIUM:
+		Global.DIFFICULTY.MEDIUM:
 			max_spawn_time = 8.0
 			min_spawn_time = 4.0
-		GameLogic.DIFFICULTY.HARD:
+		Global.DIFFICULTY.HARD:
 			max_spawn_time = 6.0
 			min_spawn_time = 2.0
 
@@ -52,9 +52,9 @@ func _fire_all() -> void:
 	
 	#TODO: Add a way for multiple spikes on higher diffity
 	var random_pipe = positions[randi() % positions.size()]
-	var spike = p_Spike.instance()
-	spike.position = random_pipe
-	s.call_deferred("add_child", spike)
+	var paint_bucket = p_PaintBucket.instance()
+	paint_bucket.position = random_pipe
+	s.call_deferred("add_child", paint_bucket)
 	
 #	for pos in positions:
 #		var spike = p_Spike.instance()
@@ -87,9 +87,8 @@ func _on_TimerGem_timeout():
 	new_orb.position = Vector2(x_pos, position.y) 
 	get_tree().current_scene.add_child(new_orb)
 	# RESET TIMER
-	timer_orb.start(10)
-	#FIXME: Replace timer back to 20 
+	timer_orb.start(20)
 
 func _get_random_orb_id() -> int:
 	var _ran: int = rand_range(0, 3)
-	return GameLogic.DEBUFFS.BOUNCE_DOWN
+	return Global.DEBUFFS.BOUNCE_DOWN

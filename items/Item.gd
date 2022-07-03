@@ -3,6 +3,8 @@ extends Area2D
 var fall_speed: float = 0
 var item_id: int = -7
 
+onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
+
 
 
 func _physics_process(delta) -> void:

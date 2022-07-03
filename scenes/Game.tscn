@@ -1,19 +1,21 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://level/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://utils/EnemySpawner.tscn" type="PackedScene" id=2]
-[ext_resource path="res://entity/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actor/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://utils/ItemSpawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://hud/HUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://level/BackGround.tscn" type="PackedScene" id=6]
+[ext_resource path="res://images/background.png" type="Texture" id=6]
 [ext_resource path="res://sounds/Keep your dream alive! seamless.ogg" type="AudioStream" id=7]
-[ext_resource path="res://scenes/PauseScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://interface/menu/PauseScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/game.gd" type="Script" id=9]
 [ext_resource path="res://sounds/wrong.wav" type="AudioStream" id=10]
 [ext_resource path="res://sounds/531512__eponn__positive-blip-effect.wav" type="AudioStream" id=11]
 [ext_resource path="res://scenes/cam_2d.gd" type="Script" id=12]
 [ext_resource path="res://sounds/hard-glass-impact.wav" type="AudioStream" id=13]
 [ext_resource path="res://hud/BreakableHeart.tscn" type="PackedScene" id=14]
+[ext_resource path="res://object/ColoredSign.tscn" type="PackedScene" id=16]
+
 
 [node name="Game" type="Node"]
 script = ExtResource( 9 )
@@ -21,14 +23,18 @@ script = ExtResource( 9 )
 [node name="ItemSpawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( 96.3258, -21.4057 )
 
-[node name="BackGround" parent="." instance=ExtResource( 6 )]
+[node name="BackGround" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+centered = false
 
 [node name="World" parent="." instance=ExtResource( 1 )]
+z_index = -4
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 134.382, 119.891 )
+z_index = 2
 
 [node name="EnemySpawner" parent="." instance=ExtResource( 2 )]
 position = Vector2( 216, 217 )
@@ -72,5 +78,8 @@ position = Vector2( 25, 45 )
 
 [node name="Heart2" parent="Hearts" instance=ExtResource( 14 )]
 position = Vector2( 40, 45 )
+
+[node name="ColoredSign" parent="." instance=ExtResource( 16 )]
+position = Vector2( 97, 46 )
 
 [connection signal="timeout" from="Cam2D/Timer" to="Cam2D" method="_on_Timer_timeout"]

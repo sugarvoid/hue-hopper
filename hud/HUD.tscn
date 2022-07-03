@@ -7,7 +7,6 @@
 [ext_resource path="res://images/grey_panel.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=3]
-size = 44
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
@@ -29,23 +28,20 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="LifeContainer" type="HBoxContainer" parent="."]
-margin_top = 24.0
+margin_top = 16.037
 margin_right = 57.0
-margin_bottom = 24.0
+margin_bottom = 16.037
 custom_constants/separation = -2
 
 [node name="ScoreLabel" type="Label" parent="."]
-margin_left = 144.0
-margin_top = 24.0
-margin_right = 200.0
-margin_bottom = 68.0
-custom_colors/font_color = Color( 0.34902, 0.341176, 0.341176, 1 )
+margin_left = 168.0
+margin_top = -1.0
+margin_right = 194.0
+margin_bottom = 12.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "000"
 align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Debuff" type="Label" parent="."]
 margin_left = 10.3758
@@ -58,6 +54,7 @@ __meta__ = {
 }
 
 [node name="Panel" type="NinePatchRect" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.619608 )
 margin_left = 50.5406
 margin_top = 39.2433
@@ -93,10 +90,10 @@ __meta__ = {
 }
 
 [node name="ComboBar" type="TextureProgress" parent="."]
-margin_left = 154.0
-margin_top = 57.0
-margin_right = 194.0
-margin_bottom = 63.0
+margin_left = 101.0
+margin_top = 3.0
+margin_right = 141.0
+margin_bottom = 9.0
 max_value = 10.0
 value = 10.0
 texture_under = SubResource( 4 )

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://kitargo_splash/kitargo_splash.gd" type="Script" id=1]
-[ext_resource path="res://kitargo_splash/324881_frankum_intros-outros-and-effects.ogg" type="AudioStream" id=2]
+[ext_resource path="res://kitargo_splash/kitargo_logo.wav" type="AudioStream" id=2]
 [ext_resource path="res://kitargo_splash/splash_font.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Animation" id=2]
@@ -29,9 +29,6 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureRect2" type="ColorRect" parent="."]
 anchor_left = 0.5
@@ -56,18 +53,6 @@ margin_bottom = 231.35
 custom_colors/font_color = Color( 0.996078, 0.905882, 0.0823529, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Kitargo"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="TextureRect2"]
-margin_left = 160.241
-margin_top = 222.761
-margin_right = 323.241
-margin_bottom = 280.761
-custom_colors/font_color = Color( 0.996078, 0.905882, 0.0823529, 1 )
-custom_fonts/font = ExtResource( 3 )
-text = "Games"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
@@ -81,7 +66,6 @@ one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -10.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Timer_Start_Ani" to="." method="_on_StartAnimation_timeout"]

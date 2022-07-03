@@ -10,7 +10,7 @@ signal player_score_changed(amount)
 # warning-ignore:unused_signal
 signal player_coin_amount_changed(amount)
 # warning-ignore:unused_signal
-signal player_touched_spike()
+signal player_touched_paint()
 # warning-ignore:unused_signal
 signal player_picked_up_item(type)
 # warning-ignore:unused_signal

@@ -22,25 +22,25 @@ func _ready() -> void:
 	timer.start(next_spawn_time)
 
 func _create_boxbody() -> Enemy:
-	var p_box = preload("res://entity/enemy/BoxBody.tscn")
+	var p_box = preload("res://actor/enemy/BoxBody.tscn")
 	var box = p_box.instance()
-	box.type = GameEnums.ENEMY_TYPE.BOX 
+	box.type = Global.ENEMY_TYPE.BOX 
 	box.speed = 30
 	box.color = box.get_random_color()
 	return box
 	
 func _create_spikehead() -> Enemy:
-	var p_spikehead = preload("res://entity/enemy/SpikeHead.tscn")
+	var p_spikehead = preload("res://actor/enemy/SpikeHead.tscn")
 	var spikehead = p_spikehead.instance()
 	spikehead.speed = 40
-	spikehead.type = GameEnums.ENEMY_TYPE.SPIKE 
+	spikehead.type = Global.ENEMY_TYPE.SPIKE 
 	return spikehead
 
 func _create_bat():
-	var p_bat = preload("res://entity/enemy/Bat.tscn")
+	var p_bat = preload("res://actor/enemy/Bat.tscn")
 	var bat = p_bat.instance()
 	bat.speed = 70
-	bat.type = GameEnums.ENEMY_TYPE.BAT
+	bat.type = Global.ENEMY_TYPE.BAT
 	return bat
 
 func _on_Timer_timeout() -> void:
@@ -53,14 +53,14 @@ func _on_Timer_timeout() -> void:
 	
 	if rand_side == 0:
 		enemy.diriction = 1
-		if enemy.type == GameEnums.ENEMY_TYPE.BAT:
+		if enemy.type == Global.ENEMY_TYPE.BAT:
 			enemy.position = TOP_LEFT
 		else:
 			enemy.position = BOTTON_LEFT
 		
 	if rand_side == 1:
 		enemy.diriction = -1
-		if enemy.type == GameEnums.ENEMY_TYPE.BAT:
+		if enemy.type == Global.ENEMY_TYPE.BAT:
 			enemy.position = TOP_RIGHT
 		else:
 			enemy.position = BOTTON_RIGHT

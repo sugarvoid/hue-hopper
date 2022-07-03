@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [0.4.0] - 2022-04-16
+## [1.4.0] - 2022-04-16
 ### Added
 - Spike enemies and flying enemies
 - Background color changes with game difficulty
@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Spikes that fall when player lands on wrong color
 
 
-## [0.3.0] - 2022-01-11
+## [1.3.0] - 2022-01-11
 ### Added
 - Button that spawns spikes
 ### Changed
@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Player taking damage from enemies
 
-## [0.2.2] - 2021-11-24
+## [1.2.2] - 2021-11-24
 ### Added
 - Kitargo splash screen
 - Enemies now drop through ground when killed instead of just vanishing
@@ -40,11 +40,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Gems are no longer the debuff items
 
-## [0.2.1] - 2021-11-17
+## [1.2.1] - 2021-11-17
 ### Changed
 - Replaced fonts on start menu and tree commands
 
-## [0.2.0] - 2021-11-02
+## [1.2.0] - 2021-11-02
 ### Added
 - Spikes that hurt on contact now fall mores time goes on
 - Added difficulty 
@@ -52,7 +52,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Background color changes with difficulty 
 - Added debug
 - Added pause screen
-- Added point multiplier. Activated after killing enemy **(WIP)**
+- Added point multiplier. Activated after killing enemy
 - Added music and sound effects
 - Added settings page for turning off sounds and rumble
 - Added xbox controller support
@@ -65,9 +65,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Coins
 
-## [0.1.2] - 2021-08-25
+## [1.1.1] - 2021-08-25
 ### Added
-- Added a slightly better start screen **(WIP)**
+- Added a slightly better start screen
 - Player can now kill enemies by matching the color
 - Added sound to game over screen
 ### Changed
@@ -77,9 +77,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Coin multiplier 
 
-## [0.1.1] - 2021-08-23
+## [1.0.1] - 2021-08-23
 ### Added
 - Background music
 
-## [0.1.0] - 2021-08-21
+## [1.0.0] - 2021-08-21
 - Game jam version 

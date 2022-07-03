@@ -9,8 +9,8 @@ onready var debuff_label: Label = $Debuff
 
 var is_combo_active: bool = false
 
-func _process(delta):
-	debuff_label.text = GameLogic.get_current_debuff()
+func _process(_delta):
+	debuff_label.text = Global.get_current_debuff()
 	$ComboBar.value = $ComboBar/ComboTimer.time_left
 
 func _ready() -> void:
