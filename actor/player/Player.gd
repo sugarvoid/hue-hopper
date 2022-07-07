@@ -51,7 +51,7 @@ onready var invic_timer: Timer = $InvicTimer
 onready var debuff_timer: Timer = $DebuffTimer
 
 
-var floating_score: PackedScene = preload("res://utils/floating_text/floating_text.tscn")
+var p_FloatingText: PackedScene = preload("res://interface/floating_text/floating_text.tscn")
 
 
 func _ready() -> void:
@@ -164,10 +164,10 @@ func rumble_controller(amount: float, duration: float):
 		Input.start_joy_vibration(0, amount, amount, duration)
 
 func display_point_text() -> void:
-	var score = floating_score.instance()
-	score.set_text(str(10), Color.green)
-	##score.position = $ScorePositon.position
-	add_child(score)
+	var floating_text = p_FloatingText.instance()
+	floating_text.setup(str(10), Color.green)
+	floating_text.position = $ScorePositon.global_position
+	owner.add_child(floating_text)
 
 
 func find_largest_dict_val(dict: Dictionary): 
@@ -189,7 +189,7 @@ func get_bottom_color() -> String:
 		"Yellow": yellow.global_position.y,
 	}
 	#TODO: Finish this floating text
-	#display_point_text()
+	display_point_text()
 	return find_largest_dict_val(dic)
 
 

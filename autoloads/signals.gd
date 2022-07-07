@@ -1,7 +1,6 @@
 extends Node
 
 # warning-ignore:unused_signal
-#signal player_health_changed(hearts)
 signal player_has_landed_on_ground(color)
 # warning-ignore:unused_signal
 signal player_has_landed_on_enemy()
