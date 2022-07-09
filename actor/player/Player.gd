@@ -2,6 +2,8 @@
 extends KinematicBody2D
 class_name Player
 
+
+
 """
 Player Data/Stats
 """
@@ -20,7 +22,7 @@ const white_out_degs: Array = [
 ]
 var GRAVITY: float = 600.0
 
-var _x
+var _x # For removing error for change scence funtion
 var bounce_force: float
 var rotation_speed: float
 var jump_force: float
@@ -124,7 +126,6 @@ func _physics_process(delta: float) -> void:
 				rotation_dir -= 1
 			else:
 				grey_guy.stop()
-				#animation_player.stop()
 		
 		if is_on_floor() and self.global_position.y >= 218: # Actully laned
 			rumble_controller(0.3, 0.2)
@@ -188,7 +189,7 @@ func get_bottom_color() -> String:
 		"Green": green.global_position.y,
 		"Yellow": yellow.global_position.y,
 	}
-	#TODO: Finish this floating text
+	#TODO: Move floating text to better fitting spot
 	display_point_text()
 	return find_largest_dict_val(dic)
 
@@ -211,7 +212,7 @@ func take_damage() -> void:
 		PlayerData.hearts -= 1
 	
 	if PlayerData.hearts <= 0:
-		get_tree().change_scene("res://interface/menu/GameOver.tscn")
+		_x = get_tree().change_scene("res://interface/menu/GameOver.tscn")
 
 	Signals.emit_signal("player_stat_changed")
 
