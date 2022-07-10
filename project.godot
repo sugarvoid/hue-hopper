@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "HUD",
 "language": "GDScript",
-"path": "res://hud/HUD.gd"
+"path": "res://interface/hud/HUD.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
