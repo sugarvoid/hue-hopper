@@ -8,6 +8,8 @@ const white: String = "ffffff"
 const GAME_VERSION = "1.4.0"
 const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
+
+
 const ITEMS: Dictionary = {
 	"coin" : 0
 }
