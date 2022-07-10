@@ -3,9 +3,6 @@ extends Node2D
 var next_spawn_time: float = 5.0
 var max_spawn_time: float = 10.0
 var min_spawn_time: float = 5.0
-
-
-
 var positions: Array
 
 var p_items: Array = [
@@ -15,21 +12,14 @@ var p_items: Array = [
 var p_PaintBucket = preload("res://items/PaintBucket.tscn")
 var p_Orb = preload("res://items/orbs/Orb.tscn")
 
-onready var pipes = get_tree().get_root().get_node("Game/World/Pipes")
-
 
 onready var timer_spike = $TimerSpike
 onready var timer_orb = $TimerOrb
 onready var view_rect := get_viewport_rect()
 
 
-func get_pipe_pos() -> void:
-	for pipe in pipes.get_children():
-		positions.push_back(pipe.global_position)
-
 func _ready() -> void:
 	Signals.connect("landed_on_wrong_color", self, "_spawn_paint")
-	get_pipe_pos()
 	randomize()
 	timer_spike.start(next_spawn_time)
 
@@ -47,20 +37,20 @@ func _determine_spawn_rate() -> void:
 			min_spawn_time = 2.0
 
 
-func _fire_all() -> void:
-	var s = get_tree().current_scene
-	
-	#TODO: Add a way for multiple spikes on higher diffity
-	var random_pipe = positions[randi() % positions.size()]
-	var paint_bucket = p_PaintBucket.instance()
-	paint_bucket.position = random_pipe
-	s.call_deferred("add_child", paint_bucket)
-	
-#	for pos in positions:
-#		var spike = p_Spike.instance()
-#		spike.position = pos
-#		s.call_deferred("add_child", spike)
-#		#s.add_child(spike)
+#func _fire_all() -> void:
+#	var s = get_tree().current_scene
+#
+#	#TODO: Add a way for multiple spikes on higher diffity
+#	var random_pipe = positions[randi() % positions.size()]
+#	var paint_bucket = p_PaintBucket.instance()
+#	paint_bucket.position = random_pipe
+#	s.call_deferred("add_child", paint_bucket)
+#
+##	for pos in positions:
+##		var spike = p_Spike.instance()
+##		spike.position = pos
+##		s.call_deferred("add_child", spike)
+##		#s.add_child(spike)
 
 
 func _on_TimerSpike_timeout():
@@ -83,7 +73,6 @@ func _spawn_paint():
 	var x_pos := rand_range(12, 188)
 	var paint = p_PaintBucket.instance()
 	paint.position = Vector2(x_pos, 0) 
-	print(paint.position)
 	get_tree().current_scene.add_child(paint)
 
 func _on_TimerGem_timeout():

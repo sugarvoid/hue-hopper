@@ -1,7 +1,6 @@
 extends "res://items/Item.gd"
 
 
-
 func _ready():
 	self.fall_speed = 190
 	self.item_id = Global.PICKUPS.PAINT

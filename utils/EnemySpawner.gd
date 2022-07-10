@@ -44,10 +44,8 @@ func _create_bat():
 	return bat
 
 func _on_Timer_timeout() -> void:
-	
 	var e_func = enemy_options[randi() % enemy_options.size()]
 	var enemy: Enemy = call(e_func)
-	
 	var sides = [0,1]
 	var rand_side:int = randi() % sides.size()
 	

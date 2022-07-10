@@ -1,29 +1,31 @@
 extends Node
 
-## Constants ##
-const HIGH_SCORE_FILE = "user://highscore.txt"
-
-"""
-SceenChanges
-"""
-
-func go_to_start_screen() -> void:
-	var _x = get_tree().change_scene("res://interface/menu/StartScreen.tscn")
-
+## Game Constants ##
+const HIGH_SCORE_FILE: String = "user://highscore.txt"
 const prillyBlue: String = "329cc3"
 const rubyRed: String = "c13354"
 const white: String = "ffffff"
-
-
-static func change_rect_color(rect: ColorRect, color: String) -> void:
-	rect.color = color
-
 const GAME_VERSION = "1.4.0"
 const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
 const ITEMS: Dictionary = {
 	"coin" : 0
 }
+
+
+"""
+SceenChanges
+"""
+func go_to_start_screen() -> void:
+	var _x = get_tree().change_scene("res://interface/menu/StartScreen.tscn")
+
+
+
+
+static func change_rect_color(rect: ColorRect, color: String) -> void:
+	rect.color = color
+
+
 
 onready var debuff_timer: Timer = Timer.new()
 
@@ -103,7 +105,6 @@ func create_high_score_file():
 		f.open(Global.HIGH_SCORE_FILE, File.WRITE)
 		f.store_var(0)
 		f.close()
-
 
 
 func get_current_debuff() -> String:

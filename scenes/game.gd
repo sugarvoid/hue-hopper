@@ -4,7 +4,6 @@ extends Node
 const MED_MIN_SCORE: int = 100
 const MED_MAX_SCORE: int = 199
 const HARD_MIN_SCORE: int = 200
-
 const NUMBER_OF_COLORS: int = 200
 
 
@@ -55,7 +54,6 @@ func _process(delta):
 
 func start_new_game():
 	player.init_player_data()
-	
 	_determine_game_difficulty()
 
 #TODO: Remove since background will not be color rect anymore
@@ -114,7 +112,6 @@ func _end_game() -> void:
 
 func _player_landed(player_color) -> void:
 	bounceNumber += 1
-	print('Bounce #' + str(bounceNumber) )
 	
 	$Cam2D.shake(13)
 	

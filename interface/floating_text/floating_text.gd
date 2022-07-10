@@ -27,7 +27,6 @@ func _ready():
 
 
 func _process(delta):
-	print(self.scale)
 	velecity += gravity * mass * delta
 	position += velecity * delta
 

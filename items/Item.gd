@@ -5,9 +5,7 @@ var item_id: int = -7
 
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 
-
-
-func _physics_process(delta) -> void:
+func _process(delta) -> void:
 	position.y += fall_speed * delta
 
 func _ready() -> void:
@@ -22,7 +20,6 @@ func _on_Item_body_entered(body: Node) -> void:
 		self.item_action()
 		call_deferred("disable_item_collision") 
 		queue_free()
-		
 
 # To prevent body enetered from triggering twice if coin is lower to ground
 func disable_item_collision() -> void:
