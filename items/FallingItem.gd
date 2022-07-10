@@ -1,9 +1,17 @@
 extends Area2D
+class_name FallingItem
 
 var fall_speed: float = 0
 var item_id: int = -7
+enum ItemTypes {
+	FLASK,
+	PAINT_BUCKET
+}
+var type: int
 
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
+
+
 
 func _process(delta) -> void:
 	position.y += fall_speed * delta
@@ -11,8 +19,15 @@ func _process(delta) -> void:
 func _ready() -> void:
 	pass
 
+func _set_sprite(item_type: int) -> void:
+	match item_type:
+		ItemTypes.FLASK:
+			animated_sprite.play("flask")
+		ItemTypes.PAINT_BUCKET:
+			animated_sprite.play("paint_whole")
+	
+
 func item_action() -> void:
-	#TODO: THIS IS ERROR COODE
 	assert(false, "Override the '_item_action()' function.")
 
 func _on_Item_body_entered(body: Node) -> void:

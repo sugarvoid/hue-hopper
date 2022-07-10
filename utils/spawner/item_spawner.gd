@@ -5,13 +5,9 @@ var max_spawn_time: float = 10.0
 var min_spawn_time: float = 5.0
 var positions: Array
 
-# var p_items: Array = [
-# 	preload("res://items/PaintBucket.tscn")
-# ]
 
-var p_PaintBucket = preload("res://items/PaintBucket.tscn")
-var p_Orb = preload("res://items/orbs/Orb.tscn")
-
+onready var p_PaintBucket = preload("res://items/PaintBucket.tscn")
+onready var p_Orb = preload("res://items/orbs/Orb.tscn")
 
 onready var timer_spike = $TimerSpike
 onready var timer_orb = $TimerOrb

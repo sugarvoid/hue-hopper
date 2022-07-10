@@ -1,4 +1,4 @@
-extends "res://items/Item.gd"
+extends "res://items/FallingItem.gd"
 class_name Orb
 
 

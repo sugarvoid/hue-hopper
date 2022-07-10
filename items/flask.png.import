@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/flask.png-85156cde79225411c87195391c0827ce.stex"
+path="res://.import/flask.png-c45774fd04897af97c22b2ba9a7a31ac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/flask.png"
-dest_files=[ "res://.import/flask.png-85156cde79225411c87195391c0827ce.stex" ]
+source_file="res://items/flask.png"
+dest_files=[ "res://.import/flask.png-c45774fd04897af97c22b2ba9a7a31ac.stex" ]
 
 [params]
 
