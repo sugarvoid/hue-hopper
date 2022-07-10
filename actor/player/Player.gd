@@ -150,7 +150,6 @@ func _physics_process(delta: float) -> void:
 
 func get_bottom_color_deg():
 	var rot_num = round($Ball.rotation)
-	print(rot_num)
 	if rot_num == -2 or rot_num == 5:
 		print('Red') 
 	elif rot_num == 0:
@@ -164,9 +163,9 @@ func rumble_controller(amount: float, duration: float):
 	if Global.is_rumble_enabled:
 		Input.start_joy_vibration(0, amount, amount, duration)
 
-func display_point_text() -> void:
+func display_point_text(value: int, color: Color) -> void:
 	var floating_text = p_FloatingText.instance()
-	floating_text.setup(str(10), Color.green)
+	floating_text.setup(str(value), color)
 	floating_text.position = $ScorePositon.global_position
 	owner.add_child(floating_text)
 
@@ -190,7 +189,6 @@ func get_bottom_color() -> String:
 		"Yellow": yellow.global_position.y,
 	}
 	#TODO: Move floating text to better fitting spot
-	display_point_text()
 	return find_largest_dict_val(dic)
 
 
@@ -207,7 +205,6 @@ func sort_points(a: Position2D, b: Position2D):
 func take_damage() -> void:
 	if invic_timer.is_stopped():
 		invic_timer.start()
-		print('hit a spike')
 		blink_animation_player.play("blink")
 		PlayerData.hearts -= 1
 	
@@ -244,7 +241,6 @@ func change_player_score(amount: int) -> void:
 		self._score = 0
 
 func increase_rotate_speed() -> void:
-	print('rot up')
 	self.rotation_speed = 15.5
 
 func _clear_debuff() -> void:
@@ -252,7 +248,6 @@ func _clear_debuff() -> void:
 	self.rotation_speed = DEFAULT_ROTATION_SPEED
 	$Ball/WhiteOut.rotation_degrees = 0
 	$Ball/WhiteOut.visible = false
-	print("reset")
 
 
 func _on_DebuffTimer_timeout():

@@ -17,9 +17,7 @@ func setup(text: String, color: Color) -> void:
 
 
 func _ready():
-	setup("99", Color.red)
 	if !is_set:
-		#TODO: add error
 		push_error("Point text was not set")
 		assert(false)
 	tween.interpolate_property(self, "scale", Vector2(1, 1), Vector2.ZERO, 2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)

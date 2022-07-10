@@ -26,4 +26,4 @@ func update_lights(color: String):
 
 
 func _on_AnimatedSprite_animation_finished():
-	print('done playing')
+	pass

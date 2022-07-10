@@ -75,7 +75,6 @@ func _create_color_pattern() -> void:
 	color_list.resize(NUMBER_OF_COLORS)
 	for i in NUMBER_OF_COLORS:
 		color_list[i] = _get_random_number()
-	print(color_list)
 
 func _determine_game_difficulty() -> void:
 	var score = Global.player_score
@@ -119,6 +118,7 @@ func _player_landed(player_color) -> void:
 	if self.current_color == player_color:
 		if Global.is_fx_enabled:
 			$SoundRight.play()
+		player.display_point_text(Global.CORRECT_POINTS, Color.whitesmoke)
 		Global.player_score += Global.CORRECT_POINTS
 	else:
 		match _current_difficulty:

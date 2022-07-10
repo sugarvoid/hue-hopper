@@ -24,5 +24,4 @@ func _on_Pause_timeout() -> void:
 
 
 func _on_AudioStreamPlayer_finished():
-	print('done')
 	Global.go_to_start_screen()
