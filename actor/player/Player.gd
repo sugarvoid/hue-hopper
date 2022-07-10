@@ -116,6 +116,7 @@ func _physics_process(delta: float) -> void:
 		if !is_on_floor():
 			rotation_dir = 0
 			if Input.is_action_just_pressed("slam"):
+				Global.raise_error("space bar was pressed")
 				self.GRAVITY = 9000
 			
 			if Input.is_action_pressed("rotate_right"):

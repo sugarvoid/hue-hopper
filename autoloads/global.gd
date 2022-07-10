@@ -10,9 +10,6 @@ const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
 
 
-const ITEMS: Dictionary = {
-	"coin" : 0
-}
 
 
 """
@@ -50,11 +47,10 @@ enum DEBUFFS {
 	WHITE_OUT,
 }
 
-enum PICKUPS {
-	PAINT,
-	COIN,
-	GEM,
-	ORB
+
+enum ITEMS {
+	FLASK,
+	PAINT_BUCKET
 }
 
 enum ENEMY_TYPE {
@@ -140,3 +136,7 @@ func is_left_mouse_click(input: InputEventMouseButton) -> bool:
 	return (input is InputEventMouseButton 
 	and input.button_index == BUTTON_LEFT 
 	and input.pressed)
+
+# Test coment for function
+func raise_error(msg: String) -> void:
+	assert(false, msg)

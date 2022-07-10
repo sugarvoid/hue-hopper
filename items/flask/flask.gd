@@ -1,5 +1,5 @@
 extends "res://items/FallingItem.gd"
-class_name Orb
+class_name Flask
 
 
 
@@ -19,7 +19,7 @@ func _set_sprite(o_id: int):
 		Global.DEBUFFS.ROTATION_UP:
 			animated_sprite.play("orb3")
 		_:
-			assert(false, "A vaild debuff was not selected")
+			Global.raise_error("A vaild debuff was not set!")
 		
 
 func _ready():

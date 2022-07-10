@@ -19,15 +19,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://items/FallingItem.gd"
 }, {
+"base": "Area2D",
+"class": "Flask",
+"language": "GDScript",
+"path": "res://items/flask/flask.gd"
+}, {
 "base": "Control",
 "class": "HUD",
 "language": "GDScript",
 "path": "res://hud/HUD.gd"
-}, {
-"base": "Area2D",
-"class": "Orb",
-"language": "GDScript",
-"path": "res://items/orbs/orb.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -37,8 +37,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Enemy": "",
 "FallingItem": "",
+"Flask": "",
 "HUD": "",
-"Orb": "",
 "Player": ""
 }
 
