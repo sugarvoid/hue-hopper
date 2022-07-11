@@ -2,6 +2,7 @@ extends Area2D
 class_name FallingItem
 
 var fall_speed: float = 0
+var rotation_speed: int
 var item_id: int
 
 var debuff_id: int
@@ -19,6 +20,7 @@ func setup(id: int) -> void:
 	
 
 func _process(delta) -> void:
+	self.rotation_degrees += rotation_speed
 	position.y += fall_speed * delta
 
 func _ready() -> void:
@@ -28,8 +30,10 @@ func _set_fall_speed() -> void:
 	match(self.item_id):
 		Global.ITEMS.PAINT_BUCKET:
 			self.fall_speed = 190
+			self.rotation_speed = 9
 		Global.ITEMS.FLASK:
 			self.fall_speed = 50
+			self.rotation_speed = 3
 
 func _set_sprite(item_type: int) -> void:
 	match item_type:
@@ -41,10 +45,10 @@ func _set_sprite(item_type: int) -> void:
 func item_action() -> void:
 	match item_id:
 		Global.ITEMS.FLASK:
-			Signals.emit_signal("apply_debuff", self.debuff_id)
+			Signals.emit_signal("apply_effect", self.debuff_id)
 		Global.ITEMS.PAINT_BUCKET:
 			SoundManager.play(Global.AUDIO_PATHS.glass)
-			Signals.emit_signal("apply_debuff", Global.DEBUFFS.WHITE_OUT)
+			Signals.emit_signal("apply_effect", Global.EFFECTS.WHITE_OUT)
 			self.fall_speed = 0
 			self.animated_sprite.play("paint_break")
 		

@@ -13,7 +13,7 @@ signal player_finished_easy()
 # warning-ignore:unused_signal
 signal player_finished_medium()
 # warning-ignore:unused_signal
-signal apply_debuff(debuff_id)
+signal apply_effect(debuff_id)
 # warning-ignore:unused_signal
 signal landed_on_wrong_color()
 # warning-ignore:unused_signal

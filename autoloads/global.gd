@@ -30,23 +30,18 @@ static func change_rect_color(rect: ColorRect, color: String) -> void:
 
 
 
-## Enums ##
-enum BUFFS {
-	HEALTH_UP,
-	REPLACE
-}
-
 enum DIFFICULTY {
 	EASY,
 	MEDIUM,
 	HARD
 }
 
-enum DEBUFFS {
-	ROTATION,
+enum EFFECTS {
+	ROTATION_DOWN,
 	BOUNCE_DOWN,
 	ROTATION_UP,
 	WHITE_OUT,
+	HEALTH_UP
 }
 
 
@@ -61,12 +56,12 @@ enum ENEMY_TYPE {
 	BAT
 }
 
-enum COLORS {
-	RED,
-	GREEN,
-	PURPLE,
-	YELLOW
-}
+# enum COLORS {
+# 	RED,
+# 	GREEN,
+# 	PURPLE,
+# 	YELLOW
+# }
 
 
 """
@@ -112,26 +107,26 @@ func get_current_debuff() -> String:
 
 # func _on_orb_pickup(debuff_id) -> void:
 # 	match debuff_id:
-# 		Global.DEBUFFS.ROTATION:
+# 		Global.EFFECTS.ROTATION:
 # 			_current_debuff = "SLOW DOWN"
 # 			PlayerData.rotation_speed = 2.0
-# 		Global.DEBUFFS.BOUNCE_DOWN:
+# 		Global.EFFECTS.BOUNCE_DOWN:
 # 			_current_debuff = "LOW BOUNCE"
 # 			PlayerData.bounce_force = 200
-# 		Global.DEBUFFS.ROTATION_UP:
+# 		Global.EFFECTS.ROTATION_UP:
 # 			_current_debuff = "ROTATION UP"
 # 		_:
 # 			pass
 	
 # 	debuff_timer.start(10)
 
-#func _remove_debuffs():
+#func _remove_EFFECTS():
 #	PlayerData.rotation_speed = PlayerData.DEFAULT_ROTATION_SPEED
 #	PlayerData.bounce_force = PlayerData.DEFAULT_BOUCE_FORCE
 
 #func _on_debuff_timer_timeout() -> void:
 #	_current_debuff = ""
-#	_remove_debuffs()
+#	_remove_EFFECTS()
 
 func is_left_mouse_click(input: InputEventMouseButton) -> bool:
 	return (input is InputEventMouseButton 

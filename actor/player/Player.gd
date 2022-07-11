@@ -55,17 +55,17 @@ onready var p_FloatingText: PackedScene = preload("res://interface/floating_text
 
 func _ready() -> void:
 	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
-	_x = Signals.connect("apply_debuff", self, "_apply_debuff")
+	_x = Signals.connect("apply_effect", self, "_apply_effect")
 	self.speed = 70.00
 	_clear_debuff()
 
-func _apply_debuff(debuff_id: int) -> void:
+func _apply_effect(debuff_id: int) -> void:
 	match(debuff_id):
-		Global.DEBUFFS.BOUNCE_DOWN:
+		Global.EFFECTS.BOUNCE_DOWN:
 			self.bounce_force -= 85 
-		Global.DEBUFFS.ROTATION_UP:
+		Global.EFFECTS.ROTATION_UP:
 			self.increase_rotate_speed()
-		Global.DEBUFFS.WHITE_OUT:
+		Global.EFFECTS.WHITE_OUT:
 			var rad_rot = white_out_degs[randi() % white_out_degs.size()]
 			whiteout_sprite.rotation_degrees = rad_rot
 			whiteout_sprite.visible = true
@@ -78,7 +78,7 @@ func init_player_data() -> void:
 	_score = 0
 
 func _white_out():
-	_apply_debuff(Global.DEBUFFS.WHITE_OUT)
+	_apply_effect(Global.EFFECTS.WHITE_OUT)
 
 func flip_sprite() -> void:
 	self.scale.x *= -1 

@@ -23,8 +23,6 @@ var combo_time = 5
 
 var bounceNumber = 0
 
-### var _curr_color: int = COLORS.GREEN
-
 var current_color: String = "Yellow"
 var _current_difficulty : int 
 var colors: Array = [
