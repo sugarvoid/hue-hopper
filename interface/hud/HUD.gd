@@ -2,7 +2,7 @@ extends Control
 
 class_name HUD
 
-var HeartIcon = preload("res://hud/HeartIcon.tscn")
+var HeartIcon = preload("res://interface/hud/HeartIcon.tscn")
 
 onready var heart_container: HBoxContainer = $LifeContainer
 onready var debuff_label: Label = $Debuff
@@ -61,10 +61,10 @@ func update_player_score(amount: int) -> void:
 	$ScoreLabel.set_text(str(amount))
 
 func update_hud() -> void:
-	$ScoreLabel.set_text(str(PlayerData.get_player_score()))
+	$ScoreLabel.set_text(str(Global.player_score))
 	##$CoinLabel.set_text(str(PlayerData.coins))
 	clear_hearts()
-	for _i in range(PlayerData.hearts):
+	for _i in range(Global.player_hearts):
 		heart_container.add_child(HeartIcon.instance())
 
 

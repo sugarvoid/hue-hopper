@@ -65,7 +65,6 @@ func _on_DamageArea_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		if self.type == Global.ENEMY_TYPE.BOX: 
 			if self.color == body.get_bottom_color().to_lower(): # Checks if player bottom matches enemy color
-				PlayerData.multiplier += 1
 				#TODO: needs fixing. position 
 				#$AnimationPlayer.play("Die")
 				_slide_down()

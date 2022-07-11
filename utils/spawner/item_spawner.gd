@@ -6,11 +6,10 @@ var min_spawn_time: float = 5.0
 var positions: Array
 
 
+onready var p_FallingItem = preload("res://items/FallingItem.tscn")
 onready var p_PaintBucket = preload("res://items/PaintBucket.tscn")
-onready var p_Orb = preload("res://items/orbs/Orb.tscn")
-
 onready var timer_spike = $TimerSpike
-onready var timer_orb = $TimerOrb
+onready var timer_flask = $TimerFlask
 onready var view_rect := get_viewport_rect()
 
 
@@ -67,21 +66,19 @@ func _spawn_paint():
 	# GET RANDOM GEM
 	# SPWAN GEM
 	var x_pos := rand_range(12, 188)
-	var paint = p_PaintBucket.instance()
-	paint.position = Vector2(x_pos, 0) 
-	get_tree().current_scene.add_child(paint)
+	var bucket = p_FallingItem.instance()
+	bucket.position = Vector2(x_pos, 0) 
+	bucket.setup(Global.ITEMS.PAINT_BUCKET)
+	get_tree().current_scene.add_child(bucket)
 
-func _on_TimerGem_timeout():
+func _on_TimerFlask_timeout():
 	# GET RANDOM GEM
 	# SPWAN GEM
 	var x_pos := rand_range(view_rect.position.x, view_rect.end.x)
-	var new_orb = p_Orb.instance()
-	new_orb.orb_id = _get_random_orb_id()
-	new_orb.position = Vector2(x_pos, position.y) 
-	get_tree().current_scene.add_child(new_orb)
+	var new_flask = p_FallingItem.instance()
+	new_flask.setup(Global.ITEMS.FLASK)
+	new_flask.position = Vector2(x_pos, position.y) 
+	get_tree().current_scene.add_child(new_flask)
 	# RESET TIMER
-	timer_orb.start(20)
+	timer_flask.start(20)
 
-func _get_random_orb_id() -> int:
-	var _ran: int = rand_range(0, 3)
-	return Global.DEBUFFS.BOUNCE_DOWN

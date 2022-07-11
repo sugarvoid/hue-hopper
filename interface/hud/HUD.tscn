@@ -1,19 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/NicoClean-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://interface/hud/HUD.gd" type="Script" id=2]
 [ext_resource path="res://images/characters.png" type="Texture" id=3]
-[ext_resource path="res://fonts/KRONIKA_.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://images/grey_panel.png" type="Texture" id=7]
-
 
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 42
-outline_color = Color( 0.380392, 0.372549, 0.372549, 1 )
-font_data = ExtResource( 6 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 3 )
@@ -35,10 +27,11 @@ margin_bottom = 16.037
 custom_constants/separation = -2
 
 [node name="ScoreLabel" type="Label" parent="."]
-margin_left = 168.0
-margin_top = -1.0
-margin_right = 194.0
-margin_bottom = 12.0
+margin_left = 169.0
+margin_top = 1.0
+margin_right = 202.0
+margin_bottom = 17.0
+rect_scale = Vector2( 0.8, 0.8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "000"
@@ -50,42 +43,6 @@ margin_top = 239.661
 margin_right = 50.3758
 margin_bottom = 253.661
 rect_scale = Vector2( 0.5, 0.5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="NinePatchRect" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0.619608 )
-margin_left = 50.5406
-margin_top = 39.2433
-margin_right = 164.54
-margin_bottom = 98.2433
-rect_scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 7 )
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Order" type="Label" parent="Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -58.8811
-margin_top = -27.3811
-margin_right = 85.1189
-margin_bottom = 31.6189
-rect_scale = Vector2( 0.8, 0.8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Yellow"
-align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

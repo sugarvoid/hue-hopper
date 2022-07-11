@@ -10,7 +10,11 @@ const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
 
 
-
+const AUDIO_PATHS: Dictionary = {
+	"correct" : "res://sounds/correct.wav",
+	"wrong" : "res://sounds/wrong.wav",
+	"glass" : "res://sounds/hard-glass-impact.wav",
+}
 
 """
 SceenChanges
@@ -25,8 +29,6 @@ static func change_rect_color(rect: ColorRect, color: String) -> void:
 	rect.color = color
 
 
-
-onready var debuff_timer: Timer = Timer.new()
 
 ## Enums ##
 enum BUFFS {
@@ -71,6 +73,9 @@ enum COLORS {
 Player Data
 """
 var player_score: int = 0 
+var player_hearts: int = 3
+
+
 
 func reset_player_stats() -> void:
 	player_score = 0
@@ -89,10 +94,6 @@ var current_color: int
 
 func _ready():
 	Global.create_high_score_file()
-	add_child(debuff_timer)
-	Signals.connect("on_orb_pickup", self, "_on_orb_pickup")
-	debuff_timer.connect("timeout", self, "_on_debuff_timer_timeout")
-	pass
 
 
 func create_high_score_file():
@@ -109,28 +110,28 @@ func get_current_debuff() -> String:
 	return "Debuff: " + self._current_debuff
 
 
-func _on_orb_pickup(debuff_id) -> void:
-	match debuff_id:
-		Global.DEBUFFS.ROTATION:
-			_current_debuff = "SLOW DOWN"
-			PlayerData.rotation_speed = 2.0
-		Global.DEBUFFS.BOUNCE_DOWN:
-			_current_debuff = "LOW BOUNCE"
-			PlayerData.bounce_force = 200
-		Global.DEBUFFS.ROTATION_UP:
-			_current_debuff = "ROTATION UP"
-		_:
-			pass
+# func _on_orb_pickup(debuff_id) -> void:
+# 	match debuff_id:
+# 		Global.DEBUFFS.ROTATION:
+# 			_current_debuff = "SLOW DOWN"
+# 			PlayerData.rotation_speed = 2.0
+# 		Global.DEBUFFS.BOUNCE_DOWN:
+# 			_current_debuff = "LOW BOUNCE"
+# 			PlayerData.bounce_force = 200
+# 		Global.DEBUFFS.ROTATION_UP:
+# 			_current_debuff = "ROTATION UP"
+# 		_:
+# 			pass
 	
-	debuff_timer.start(10)
+# 	debuff_timer.start(10)
 
-func _remove_debuffs():
-	PlayerData.rotation_speed = PlayerData.DEFAULT_ROTATION_SPEED
-	PlayerData.bounce_force = PlayerData.DEFAULT_BOUCE_FORCE
+#func _remove_debuffs():
+#	PlayerData.rotation_speed = PlayerData.DEFAULT_ROTATION_SPEED
+#	PlayerData.bounce_force = PlayerData.DEFAULT_BOUCE_FORCE
 
-func _on_debuff_timer_timeout() -> void:
-	_current_debuff = ""
-	_remove_debuffs()
+#func _on_debuff_timer_timeout() -> void:
+#	_current_debuff = ""
+#	_remove_debuffs()
 
 func is_left_mouse_click(input: InputEventMouseButton) -> bool:
 	return (input is InputEventMouseButton 

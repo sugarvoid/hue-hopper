@@ -41,7 +41,7 @@ func _ready():
 		LevelMusic.play()
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
 	Signals.connect("player_has_landed_on_ground", self, "_player_landed")
-	Signals.connect("player_touched_paint", self, "_play_spike_fx")
+	### Signals.connect("player_touched_paint", self, "_play_spike_fx")
 	
 
 
@@ -100,10 +100,6 @@ func _unhandled_input(event) -> void:
 func _get_new_color() -> void:
 	current_color = colors[randi() % colors.size()]
 
-func _play_spike_fx() -> void:
-	if Global.is_fx_enabled:
-		$SpikeContact.play()
-
 
 func _end_game() -> void:
 	pass
@@ -116,8 +112,7 @@ func _player_landed(player_color) -> void:
 	
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:
-		if Global.is_fx_enabled:
-			$SoundRight.play()
+		SoundManager.play(Global.AUDIO_PATHS.correct)
 		player.display_point_text(Global.CORRECT_POINTS, Color.whitesmoke)
 		Global.player_score += Global.CORRECT_POINTS
 	else:

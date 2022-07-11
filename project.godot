@@ -55,7 +55,7 @@ config/windows_native_icon="res://icon.ico"
 
 Signals="*res://autoloads/signals.gd"
 Global="*res://autoloads/global.gd"
-PlayerData="*res://autoloads/player_data.gd"
+SoundManager="*res://game/manager/sound_manager.gd"
 
 [display]
 

@@ -4,7 +4,7 @@ onready var audio_player: AudioStreamPlayer = get_node("AudioStreamPlayer")
 
 #TODO: make version label info come from autoload
 func _ready():
-	PlayerData.init_player_data()
+	#PlayerData.init_player_data()
 	$LblVersion.text = Global.GAME_VERSION
 
 func _unhandled_key_input(event):
@@ -27,7 +27,7 @@ func _on_BtnPlay_gui_input(event):
 	if _is_left_mouse_click(event):
 		if Global.is_fx_enabled:
 			audio_player.play()
-		var _x = get_tree().change_scene("res://scenes/Game.tscn")
+		var _x = get_tree().change_scene("res://game/Game.tscn")
 
 
 func _on_BtnQuit_gui_input(event):
@@ -37,4 +37,4 @@ func _on_BtnQuit_gui_input(event):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == 'start_game':
-		var _x = get_tree().change_scene("res://scenes/Game.tscn")
+		var _x = get_tree().change_scene("res://game/Game.tscn")

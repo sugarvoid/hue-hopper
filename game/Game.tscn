@@ -1,0 +1,92 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://object/ColoredSign.tscn" type="PackedScene" id=1]
+[ext_resource path="res://utils/spawner/ItemSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level/World.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/menu/PauseScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actor/player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/hud/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://utils/spawner/EnemySpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interface/hud/BreakableHeart.tscn" type="PackedScene" id=8]
+[ext_resource path="res://interface/hud/DebuffCounter.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game/game.gd" type="Script" id=10]
+[ext_resource path="res://images/background.png" type="Texture" id=11]
+[ext_resource path="res://sounds/Keep your dream alive! seamless.ogg" type="AudioStream" id=12]
+[ext_resource path="res://sounds/wrong.wav" type="AudioStream" id=13]
+[ext_resource path="res://sounds/hard-glass-impact.wav" type="AudioStream" id=14]
+[ext_resource path="res://scenes/cam_2d.gd" type="Script" id=16]
+[ext_resource path="res://interface/controls.png" type="Texture" id=17]
+
+[node name="Game" type="Node"]
+script = ExtResource( 10 )
+
+[node name="ItemSpawner" parent="." instance=ExtResource( 2 )]
+position = Vector2( 96.3258, -21.4057 )
+
+[node name="BackGround" type="Sprite" parent="."]
+texture = ExtResource( 11 )
+centered = false
+
+[node name="World" parent="." instance=ExtResource( 3 )]
+z_index = -4
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 134.382, 119.891 )
+z_index = 2
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 7 )]
+position = Vector2( 216, 217 )
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -5.0
+
+[node name="Cam2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+script = ExtResource( 16 )
+
+[node name="Timer" type="Timer" parent="Cam2D"]
+
+[node name="Tween" type="Tween" parent="Cam2D"]
+
+[node name="SoundWrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -6.0
+
+[node name="SpikeContact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -6.0
+
+[node name="PauseScreen" parent="." instance=ExtResource( 4 )]
+
+[node name="Hearts" type="Node2D" parent="."]
+visible = false
+position = Vector2( -0.329, -3.434 )
+
+[node name="Heart0" parent="Hearts" instance=ExtResource( 8 )]
+position = Vector2( 10, 45 )
+
+[node name="Heart1" parent="Hearts" instance=ExtResource( 8 )]
+position = Vector2( 25, 45 )
+
+[node name="Heart2" parent="Hearts" instance=ExtResource( 8 )]
+position = Vector2( 40, 45 )
+
+[node name="ColoredSign" parent="." instance=ExtResource( 1 )]
+position = Vector2( 97, 46 )
+
+[node name="DebuffCounter" parent="." instance=ExtResource( 9 )]
+position = Vector2( 132, 17 )
+scale = Vector2( 3, 3 )
+frame = 5
+
+[node name="Controls" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.431373 )
+position = Vector2( 108, 125 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 17 )
+
+[connection signal="timeout" from="Cam2D/Timer" to="Cam2D" method="_on_Timer_timeout"]
