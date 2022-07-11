@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [1.4.0] - 2022-04-16
+## [0.4.0] - 2022-04-16
 ### Added
 - Spike enemies and flying enemies
 - Background color changes with game difficulty
@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Spikes that fall when player lands on wrong color
 
 
-## [1.3.0] - 2022-01-11
+## [0.3.1] - 2022-01-11
 ### Added
 - Button that spawns spikes
 ### Changed
@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Player taking damage from enemies
 
-## [1.2.2] - 2021-11-24
+## [0.3.0] - 2021-11-24
 ### Added
 - Kitargo splash screen
 - Enemies now drop through ground when killed instead of just vanishing
@@ -34,17 +34,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The color of the command label now changes colors
 ### Changed
 - Tree image is now a white panel
-- Moved game from 1.3.1 to 0.3.1 since it is still not a full game. Having a full version seemed wrong and could be confusing. 
+- Moved game from 1.3.1 to 0.3.0 since it is still not a full game. Having a full version seemed wrong and could be confusing. 
 ### Fixed
 - Flash effect on the player plays when taking a hit or spike and enemy
 ### Removed
 - Gems are no longer the debuff items
 
-## [1.2.1] - 2021-11-17
+## [0.2.2] - 2021-11-17
 ### Changed
 - Replaced fonts on start menu and tree commands
 
-## [1.2.0] - 2021-11-02
+## [0.2.0] - 2021-11-02
 ### Added
 - Spikes that hurt on contact now fall mores time goes on
 - Added difficulty 
@@ -65,7 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Coins
 
-## [1.1.1] - 2021-08-25
+## [0.2.1] - 2021-08-25
 ### Added
 - Added a slightly better start screen
 - Player can now kill enemies by matching the color
@@ -77,9 +77,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Coin multiplier 
 
-## [1.0.1] - 2021-08-23
+## [0.1.1] - 2021-08-23
 ### Added
 - Background music
 
-## [1.0.0] - 2021-08-21
+## [0.1.0] - 2021-08-21
 - Game jam version 
