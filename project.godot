@@ -17,12 +17,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "FallingItem",
 "language": "GDScript",
-"path": "res://items/FallingItem.gd"
-}, {
-"base": "Area2D",
-"class": "Flask",
-"language": "GDScript",
-"path": "res://items/flask/flask.gd"
+"path": "res://item/FallingItem.gd"
 }, {
 "base": "Control",
 "class": "HUD",
@@ -37,7 +32,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Enemy": "",
 "FallingItem": "",
-"Flask": "",
 "HUD": "",
 "Player": ""
 }

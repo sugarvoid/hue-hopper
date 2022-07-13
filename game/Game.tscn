@@ -64,16 +64,15 @@ volume_db = -6.0
 
 [node name="Hearts" type="Node2D" parent="."]
 visible = false
-position = Vector2( -0.329, -3.434 )
 
 [node name="Heart0" parent="Hearts" instance=ExtResource( 8 )]
-position = Vector2( 10, 45 )
+position = Vector2( 10, 18 )
 
 [node name="Heart1" parent="Hearts" instance=ExtResource( 8 )]
-position = Vector2( 25, 45 )
+position = Vector2( 25, 18 )
 
 [node name="Heart2" parent="Hearts" instance=ExtResource( 8 )]
-position = Vector2( 40, 45 )
+position = Vector2( 40, 18 )
 
 [node name="ColoredSign" parent="." instance=ExtResource( 1 )]
 position = Vector2( 97, 46 )

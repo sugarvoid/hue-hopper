@@ -19,7 +19,6 @@ A game about rotating and bouncing.
 **Font:**
 - Kenney Fonts by [kenny](https://kenney.itch.io/)
 - Petita by Manfred Klein 
-- Wash Your Hand by Khurasan 
 - Kronika by Apostrophic Labs
 
 **Sounds:**

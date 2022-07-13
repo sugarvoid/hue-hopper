@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://images/hue-bal-newl-bor.png" type="Texture" id=1]
+[ext_resource path="res://images/hue-ball.png" type="Texture" id=1]
 [ext_resource path="res://actor/player/Player.gd" type="Script" id=2]
 [ext_resource path="res://images/new_guy-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://utils/white.shader" type="Shader" id=5]
