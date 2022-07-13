@@ -44,10 +44,12 @@ enum EFFECTS {
 	HEALTH_UP
 }
 
-
+#TODO: Rename to type first, color second
 enum ITEMS {
-	FLASK,
-	PAINT_BUCKET
+	PAINT_BUCKET,
+	BLUE_FLASK,
+	ORANGE_FLASK,
+	BROWN_FLASK
 }
 
 enum ENEMY_TYPE {

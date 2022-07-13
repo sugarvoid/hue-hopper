@@ -1,13 +1,13 @@
 extends Area2D
 class_name FallingItem
 
+var item_id: int
 var fall_speed: float = 0
 var rotation_speed: int
-var item_id: int
-
 var debuff_id: int
-
 var type: int
+var does_rotate: bool 
+
 
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 
@@ -20,8 +20,11 @@ func setup(id: int) -> void:
 	
 
 func _process(delta) -> void:
-	self.rotation_degrees += rotation_speed
 	position.y += fall_speed * delta
+	
+	if self.does_rotate:
+		self.rotation_degrees += rotation_speed
+	
 
 func _ready() -> void:
 	_set_sprite(self.item_id)
@@ -31,20 +34,20 @@ func _set_fall_speed() -> void:
 		Global.ITEMS.PAINT_BUCKET:
 			self.fall_speed = 190
 			self.rotation_speed = 9
-		Global.ITEMS.FLASK:
+		Global.ITEMS.ORANGE_FLASK:
 			self.fall_speed = 50
 			self.rotation_speed = 3
 
 func _set_sprite(item_type: int) -> void:
 	match item_type:
-		Global.ITEMS.FLASK:
-			animated_sprite.play("flask")
+		Global.ITEMS.ORANGE_FLASK:
+			animated_sprite.play("flask_orange")
 		Global.ITEMS.PAINT_BUCKET:
 			animated_sprite.play("paint_whole")
 
-func item_action() -> void:
-	match item_id:
-		Global.ITEMS.FLASK:
+func do_item_effect() -> void:
+	match self.type:
+		Global.ITEMS.ORANGE_FLASK:
 			Signals.emit_signal("apply_effect", self.debuff_id)
 		Global.ITEMS.PAINT_BUCKET:
 			SoundManager.play(Global.AUDIO_PATHS.glass)
@@ -55,7 +58,7 @@ func item_action() -> void:
 
 func _on_Item_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		self.item_action()
+		self.do_item_effect()
 		call_deferred("disable_item_collision") 
 		queue_free()
 
