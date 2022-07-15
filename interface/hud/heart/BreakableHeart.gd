@@ -8,9 +8,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$AnimationPlayer.play("pump")
 
 func fall_apart():
+	$AnimationPlayer.stop(true)
+	$Whole.visible = false
+	$LeftHalf.visible = true
+	$RightHalf.visible = true
 	$AnimationPlayer.play("break_heart")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

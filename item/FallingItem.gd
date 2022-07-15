@@ -15,7 +15,7 @@ func setup(id: int) -> void:
 	self.item_id = id
 	_set_fall_speed()
 	
-	if id == Global.ITEMS.FLASK:
+	if id == Global.ITEMS.ORANGE_FLASK:
 		debuff_id = _get_random_debuff_id()
 	
 

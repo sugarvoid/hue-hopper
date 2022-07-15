@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hue-ball.png-a11ca8d12e7f18d7fc6f6055848b035c.stex"
+path="res://.import/heart-Sheet.png-cd420d89c475b62d8f22bbe33ad73bc9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/hue-ball.png"
-dest_files=[ "res://.import/hue-ball.png-a11ca8d12e7f18d7fc6f6055848b035c.stex" ]
+source_file="res://interface/hud/heart/heart-Sheet.png"
+dest_files=[ "res://.import/heart-Sheet.png-cd420d89c475b62d8f22bbe33ad73bc9.stex" ]
 
 [params]
 

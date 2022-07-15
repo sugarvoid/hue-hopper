@@ -7,7 +7,7 @@
 [ext_resource path="res://actor/player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/hud/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://utils/spawner/EnemySpawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://interface/hud/BreakableHeart.tscn" type="PackedScene" id=8]
+[ext_resource path="res://interface/hud/heart/BreakableHeart.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interface/hud/DebuffCounter.tscn" type="PackedScene" id=9]
 [ext_resource path="res://game/game.gd" type="Script" id=10]
 [ext_resource path="res://images/background.png" type="Texture" id=11]
@@ -63,7 +63,6 @@ volume_db = -6.0
 [node name="PauseScreen" parent="." instance=ExtResource( 4 )]
 
 [node name="Hearts" type="Node2D" parent="."]
-visible = false
 
 [node name="Heart0" parent="Hearts" instance=ExtResource( 8 )]
 position = Vector2( 10, 18 )
