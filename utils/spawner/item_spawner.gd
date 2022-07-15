@@ -6,7 +6,7 @@ var min_spawn_time: float = 5.0
 var positions: Array
 
 
-onready var p_FallingItem = preload("res://items/FallingItem.tscn")
+onready var p_FallingItem = preload("res://item/FallingItem.tscn")
 onready var timer_flask = $TimerFlask
 onready var view_rect := get_viewport_rect()
 
@@ -43,6 +43,7 @@ func _on_TimerFlask_timeout():
 	# SPWAN GEM
 	var x_pos := rand_range(view_rect.position.x, view_rect.end.x)
 	var new_flask = p_FallingItem.instance()
+	#TODO: Add function to select random falsk 
 	new_flask.setup(Global.ITEMS.FLASK)
 	new_flask.position = Vector2(x_pos, position.y) 
 	get_tree().current_scene.add_child(new_flask)

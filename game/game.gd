@@ -15,6 +15,7 @@ onready var player: Player = get_node("Player")
 onready var combo_bar: TextureProgress = get_node("HUD/ComboBar")
 onready var HUD: HUD = get_node("HUD") 
 
+
 var rng :RandomNumberGenerator
 var color_list: Array = []
 var current_multiplier: int = 1
@@ -39,31 +40,22 @@ func _ready():
 		LevelMusic.play()
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
 	Signals.connect("player_has_landed_on_ground", self, "_player_landed")
-	### Signals.connect("player_touched_paint", self, "_play_spike_fx")
-	
 
 
 func _process(delta):
-	_determine_game_difficulty()
-	_handle_background_color()
-	$HUD.update_player_score(Global.player_score)
-	$DebuffCounter.frame = player.debuff_timer.time_left
+	if !Global.is_game_over:
+		_determine_game_difficulty()
+		$HUD.update_player_score(Global.player_score)
+		$DebuffCounter.frame = player.debuff_timer.time_left
+	else:
+		Global.go_to_gameover_screen()
 
 
 func start_new_game():
+	print('start?')
 	player.init_player_data()
 	_determine_game_difficulty()
 
-#TODO: Remove since background will not be color rect anymore
-func _handle_background_color() -> void:
-	match _current_difficulty:
-		Global.DIFFICULTY.MEDIUM:
-			#change light colors 
-			# TODO: make better
-			$HUD.change_score_color()
-		Global.DIFFICULTY.HARD:
-			#change light colors
-			pass 
 
 func _get_random_number() -> int:
 	rng.randomize()

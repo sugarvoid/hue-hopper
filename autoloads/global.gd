@@ -9,6 +9,9 @@ const GAME_VERSION = "1.4.0"
 const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
 
+var _x
+var is_game_over: bool 
+
 
 const AUDIO_PATHS: Dictionary = {
 	"correct" : "res://sounds/correct.wav",
@@ -20,7 +23,11 @@ const AUDIO_PATHS: Dictionary = {
 SceenChanges
 """
 func go_to_start_screen() -> void:
-	var _x = get_tree().change_scene("res://interface/menu/StartScreen.tscn")
+	_x = get_tree().change_scene("res://interface/menu/StartScreen.tscn")
+
+func go_to_gameover_screen() -> void:
+	_x = get_tree().change_scene("res://interface/menu/GameOver.tscn")
+
 
 
 
