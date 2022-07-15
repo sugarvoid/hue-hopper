@@ -2,7 +2,6 @@
 
 [ext_resource path="res://actor/enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://images/enmeies.png" type="Texture" id=2]
-[ext_resource path="res://images/spikehead.png" type="Texture" id=3]
 [ext_resource path="res://images/characters.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=24]
@@ -24,14 +23,6 @@ region = Rect2( 144, 0, 24, 24 )
 atlas = ExtResource( 2 )
 region = Rect2( 168, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 24, 24 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 2 )
-region = Rect2( 24, 0, 24, 24 )
-
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 24, 24 )
@@ -48,16 +39,27 @@ region = Rect2( 48, 0, 24, 24 )
 atlas = ExtResource( 2 )
 region = Rect2( 72, 0, 24, 24 )
 
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="StreamTexture" id=26]
+load_path = "res://.import/spikehead.png-16bcdf5af1d5666144fd6b810daf78cf.stex"
+
 [sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 3 )
+atlas = SubResource( 26 )
 region = Rect2( 0, 0, 15, 20 )
 
 [sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 3 )
+atlas = SubResource( 26 )
 region = Rect2( 15, 0, 15, 20 )
 
 [sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 3 )
+atlas = SubResource( 26 )
 region = Rect2( 30, 0, 15, 20 )
 
 [sub_resource type="AtlasTexture" id=14]
@@ -84,11 +86,6 @@ animations = [ {
 "name": "green",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 8 ), SubResource( 9 ) ],
-"loop": true,
-"name": "red",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "purple",
@@ -97,6 +94,11 @@ animations = [ {
 "frames": [ SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "yellow",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "red",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 22 ) ],
@@ -124,7 +126,7 @@ shape = SubResource( 24 )
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 25 )
 animation = "wings"
-frame = 0
+frame = 1
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
-position = Vector2( 0.5, 0.013135 )
+position = Vector2( 0.5, -1.98688 )

@@ -3,7 +3,6 @@ extends Node2D
 
 var current_high_score: int
 
-####onready var player_score = get_node("PlayerScore")
 
 func _ready():
 	current_high_score = load_high_score()
