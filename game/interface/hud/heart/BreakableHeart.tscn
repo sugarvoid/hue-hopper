@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://game/interface/hud/heart/heart-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://game/interface/hud/heart/BreakableHeart.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "break_heart"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LeftHalf:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -6, 14 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RightHalf:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 6, 14 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "pump"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Whole:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="BreakableHeart" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Whole" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="LeftHalf" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+hframes = 4
+frame = 3
+
+[node name="RightHalf" type="Sprite" parent="."]
+visible = false
+scale = Vector2( -1, 1 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/break_heart = SubResource( 1 )
+anims/pump = SubResource( 2 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

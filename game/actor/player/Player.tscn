@@ -1,0 +1,161 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://game/actor/player/hue-ball.png" type="Texture" id=1]
+[ext_resource path="res://game/actor/player/player.gd" type="Script" id=2]
+[ext_resource path="res://game/actor/player/new_guy-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://game/actor/player/player_hit.png" type="Texture" id=4]
+[ext_resource path="res://game/utils/white.shader" type="Shader" id=5]
+[ext_resource path="res://game/actor/player/white-out-ball.png" type="Texture" id=7]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 5 )
+shader_param/is_active = false
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 13.9278
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GreyGuy:material:shader_param/is_active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GreyGuy:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "blink"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("GreyGuy:material:shader_param/is_active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0479891, 0.0968124, 0.15629 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ true, false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GreyGuy:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SpriteHit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="Player" type="KinematicBody2D" groups=["player"]]
+scale = Vector2( 1.1, 1.1 )
+collision_layer = 5
+script = ExtResource( 2 )
+
+[node name="GreyGuy" type="AnimatedSprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 0, -2.251 )
+frames = SubResource( 4 )
+animation = "walking"
+
+[node name="SpriteHit" type="Sprite" parent="."]
+visible = false
+material = SubResource( 1 )
+position = Vector2( 0, -2.251 )
+texture = ExtResource( 4 )
+
+[node name="Ball" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Ball"]
+texture = ExtResource( 1 )
+
+[node name="WhiteOut" type="Sprite" parent="Ball"]
+visible = false
+texture = ExtResource( 7 )
+
+[node name="Purple" type="Position2D" parent="Ball"]
+position = Vector2( 0, -13.061 )
+
+[node name="Yellow" type="Position2D" parent="Ball"]
+position = Vector2( 0.094, 11.15 )
+
+[node name="Red" type="Position2D" parent="Ball"]
+position = Vector2( -12.1031, 0.0346444 )
+
+[node name="Green" type="Position2D" parent="Ball"]
+position = Vector2( 12.1227, -0.0814245 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 9 )
+anims/blink = SubResource( 7 )
+
+[node name="ScorePositon" type="Position2D" parent="."]
+position = Vector2( 0, -35.575 )
+
+[node name="InvicTimer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="DebuffTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="DebuffTimer" to="." method="_on_DebuffTimer_timeout"]

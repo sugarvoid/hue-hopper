@@ -58,16 +58,16 @@ text = "Kitargo"
 anims/RESET = SubResource( 2 )
 anims/rise_logo = SubResource( 1 )
 
-[node name="Timer_Start_Ani" type="Timer" parent="."]
+[node name="TimerStartAnim" type="Timer" parent="."]
 one_shot = true
 
-[node name="Timer_Pause" type="Timer" parent="."]
+[node name="TimerDelay" type="Timer" parent="."]
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="Timer_Start_Ani" to="." method="_on_StartAnimation_timeout"]
-[connection signal="timeout" from="Timer_Pause" to="." method="_on_Pause_timeout"]
+[connection signal="timeout" from="TimerStartAnim" to="." method="_on_TimerStartAnim_timeout"]
+[connection signal="timeout" from="TimerDelay" to="." method="_on_TimerDelay_timeout"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

@@ -1,6 +1,5 @@
 extends Node
 
-
 var players = 5
 var bus = "master"
 
@@ -17,15 +16,12 @@ func _ready():
 		p.connect("finished", self, "_on_stream_finished", [p])
 		p.bus = bus
 
-
 func _on_stream_finished(stream):
 	# When finished playing a stream, make the player available again.
 	available.append(stream)
 
-
 func play(sound_path):
 	queue.append(sound_path)
-
 
 func _process(_delta):
 	if Global.is_fx_enabled:
@@ -34,5 +30,3 @@ func _process(_delta):
 			available[0].stream = load(queue.pop_front())
 			available[0].play()
 			available.pop_front()
-
-

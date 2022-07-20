@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Keep your dream alive! seamless.ogg-46500935d9905a0d3c57ca3601523119.oggstr"
+
+[deps]
+
+source_file="res://game/sound/Keep your dream alive! seamless.ogg"
+dest_files=[ "res://.import/Keep your dream alive! seamless.ogg-46500935d9905a0d3c57ca3601523119.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

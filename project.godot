@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://actor/enemy/Enemy.gd"
+"path": "res://game/actor/enemy/enemy.gd"
 }, {
 "base": "Area2D",
 "class": "FallingItem",
 "language": "GDScript",
-"path": "res://item/FallingItem.gd"
+"path": "res://game/item/FallingItem.gd"
 }, {
 "base": "Control",
 "class": "HUD",
 "language": "GDScript",
-"path": "res://interface/hud/HUD.gd"
+"path": "res://game/interface/hud/HUD.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://actor/player/Player.gd"
+"path": "res://game/actor/player/player.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
@@ -47,8 +47,8 @@ config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
-Signals="*res://autoloads/signals.gd"
-Global="*res://autoloads/global.gd"
+Signals="*res://game/autoloads/signals.gd"
+Global="*res://game/autoloads/global.gd"
 SoundManager="*res://game/manager/sound_manager.gd"
 
 [display]
