@@ -4,7 +4,7 @@
 ![](https://github.com/sugarvoid/hue-hopper/blob/Current/docs/hue.gif)
 
 ## Description
-A game about rotating and bouncing. 
+A game about rotating and bouncing. First game I made so the code isn't as clean/structured as I'd like. Still a work in progress. 
 
 ## Controls 
 - **Move** [A] and [D]
@@ -17,7 +17,6 @@ A game about rotating and bouncing.
 - Pixel Platformer by [kenny](https://kenney.itch.io/)
 
 **Font:**
-- Kenney Fonts by [kenny](https://kenney.itch.io/)
 - Petita by Manfred Klein 
 - Kronika by Apostrophic Labs
 

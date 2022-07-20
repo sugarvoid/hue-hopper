@@ -14,12 +14,10 @@ enum EFFECTS {
 	HEALTH_UP
 }
 
-#TODO: Rename to type first, color second
 enum ITEMS {
 	PAINT_BUCKET,
-	BLUE_FLASK,
-	ORANGE_FLASK,
-	BROWN_FLASK
+	FLASK_BLUE,
+	FLASK_ORANGE,
 }
 
 enum ENEMY_TYPE {
@@ -28,7 +26,10 @@ enum ENEMY_TYPE {
 	BAT
 }
 
-## Game Constants ##
+
+"""
+Game Constants
+"""
 const HIGH_SCORE_FILE: String = "user://highscore.txt"
 const prillyBlue: String = "329cc3"
 const rubyRed: String = "c13354"
@@ -37,9 +38,13 @@ const GAME_VERSION = "1.4.0"
 const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
 const AUDIO_PATHS: Dictionary = {
-	"correct" : "res://sounds/correct.wav",
-	"wrong" : "res://sounds/wrong.wav",
-	"glass" : "res://sounds/hard-glass-impact.wav",
+	"correct" : "res://game/sound/correct.wav",
+	"wrong" : "res://game/sound/wrong.wav",
+	"glass" : "res://game/sound/hard-glass-impact.wav",
+}
+const SCENE_PATHS: Dictionary = {
+	"game_over" : "res://game/interface/menu/GameOver.tscn",
+	"start_screen" : "res://game/interface/menu/StartScreen.tscn",
 }
 
 var _x
@@ -49,10 +54,10 @@ var is_game_over: bool
 SceenChanges
 """
 func go_to_start_screen() -> void:
-	_x = get_tree().change_scene("res://interface/menu/StartScreen.tscn")
+	_x = get_tree().change_scene(self.SCENE_PATHS.start_screen)
 
 func go_to_gameover_screen() -> void:
-	_x = get_tree().change_scene("res://interface/menu/GameOver.tscn")
+	_x = get_tree().change_scene(self.SCENE_PATHS.game_over)
 
 static func change_rect_color(rect: ColorRect, color: String) -> void:
 	rect.color = color

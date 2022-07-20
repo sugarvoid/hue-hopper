@@ -49,7 +49,6 @@ onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
 onready var invic_timer: Timer = $InvicTimer
 onready var debuff_timer: Timer = $DebuffTimer
 
-
 onready var p_FloatingText: PackedScene = preload("res://game/interface/floating_text/floating_text.tscn")
 
 
@@ -203,7 +202,7 @@ func take_damage() -> void:
 		self.hearts -= 1
 	
 	if self.hearts <= 0:
-		_x = get_tree().change_scene("res://interface/menu/GameOver.tscn")
+		Global.go_to_gameover_screen()
 
 	Signals.emit_signal("player_stat_changed")
 

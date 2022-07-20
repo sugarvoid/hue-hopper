@@ -13,7 +13,7 @@ onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 func setup(id: int) -> void:
 	self.item_id = id
 	_set_fall_speed()
-	if id == Global.ITEMS.ORANGE_FLASK:
+	if id == Global.ITEMS.FLASK_ORANGE:
 		debuff_id = _get_random_debuff_id()
 
 func _process(delta) -> void:
@@ -29,20 +29,20 @@ func _set_fall_speed() -> void:
 		Global.ITEMS.PAINT_BUCKET:
 			self.fall_speed = 190
 			self.rotation_speed = 9
-		Global.ITEMS.ORANGE_FLASK:
+		Global.ITEMS.FLASK_ORANGE:
 			self.fall_speed = 50
 			self.rotation_speed = 3
 
 func _set_sprite(item_type: int) -> void:
 	match item_type:
-		Global.ITEMS.ORANGE_FLASK:
+		Global.ITEMS.FLASK_ORANGE:
 			animated_sprite.play("flask_orange")
 		Global.ITEMS.PAINT_BUCKET:
 			animated_sprite.play("paint_whole")
 
 func do_item_effect() -> void:
 	match self.type:
-		Global.ITEMS.ORANGE_FLASK:
+		Global.ITEMS.FLASK_ORANGE:
 			Signals.emit_signal("apply_effect", self.debuff_id)
 		Global.ITEMS.PAINT_BUCKET:
 			SoundManager.play(Global.AUDIO_PATHS.glass)
