@@ -6,7 +6,7 @@ onready var delay_timer: Timer = get_node("TimerDelay")
 onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 const MAIN_MENU_SCENE: String = "res://game/interface/menu/StartScreen.tscn"
-
+# test comment
 
 func _ready() -> void:
 	start_timer.start(0.5)
