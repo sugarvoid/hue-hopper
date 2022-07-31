@@ -17,23 +17,20 @@ A game about rotating and bouncing. This is the first "game" I've made so the co
 
 ### Art
 
-- Input Prompts Pixel 16× (1.0) - Created/distributed by Kenney (www.kenney.nl)
-- Pixel Platformer by [kenny](https://kenney.itch.io/)
+- "Input Prompts Pixel 16×" by [Kenney.nl](https://kenney.itch.io/)
+- "Pixel Platformer" by [Kenney.nl](https://kenney.itch.io/)
 
 ### Fonts
 
-- Petita - Manfred Klein 
-- Kronika - Apostrophic Labs
-- Kultro - Muchammad Wahono Sapto Adi Saputro
-- Petita - Manfred Klein
-- Wash Your Hand - Syaf Rizal (Khurasan)
-- Kronika - Apostrophic Labs
-- Want Coffee - Syaf Rizal (Khurasan)
+- "Kultro" by Muchammad Wahono Sapto Adi Saputro
+- "Petita" by Manfred Klein
+- "Wash Your Hand" by Syaf Rizal(Khurasan)
+- "Kronika" by Apostrophic Labs
+- "Want Coffee" by Syaf Rizal(Khurasan)
 
 ### Sounds
 
-- Coin Pick up - Retro_Coin_04 by Mattias "MATRIXXX" Lahoud [license](https://creativecommons.org/licenses/by/3.0/)
-- Correct Sound - COrrect Choice by Unadamlar [license](https://creativecommons.org/publicdomain/zero/1.0/)
-- Wrong Sound - old reactor by Leszek_Szary [license](https://creativecommons.org/publicdomain/zero/1.0/)
-- Keep Your Cream Alive by [Congusbongus](https://soundcloud.com/congus-bongus) [license](https://creativecommons.org/publicdomain/zero/1.0/)
-- Puzzle Pieces - [Ben Burnes](https://www.abstractionmusic.com/tallbeard.htm)
+- "Retro_Coin_04" by Mattias "MATRIXXX" Lahoud [is licensed under CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+- "Correct Choice" by Unadamlar [is licensed under CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- "Old Reactor" by Leszek_Szary [is licensed under license](https://creativecommons.org/publicdomain/zero/1.0/)
+- "Puzzle Pieces" by [Abstraction](http://www.abstractionmusic.com/)
