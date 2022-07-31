@@ -1,6 +1,8 @@
 extends Area2D
 class_name FallingItem
 
+signal on_glass_contact
+
 enum EFFECTS {
 	ROTATION_DOWN,
 	BOUNCE_DOWN,
@@ -9,6 +11,9 @@ enum EFFECTS {
 	HEALTH_UP
 }
 
+onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
+onready var glass_hit_sound: AudioStreamPlayer = get_node("GlassHitSound")
+
 var item_id: int
 var fall_speed: float = 0
 var rotation_speed: int
@@ -16,7 +21,7 @@ var debuff_id: int
 var type: int
 var does_rotate: bool 
 
-onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
+
 
 func setup(id: int) -> void:
 	self.item_id = id
@@ -53,7 +58,8 @@ func do_item_effect() -> void:
 		Global.ITEMS.FLASK_ORANGE:
 			Signals.emit_signal("apply_effect", self.debuff_id)
 		Global.ITEMS.PAINT_BUCKET:
-			SoundManager.play(Global.AUDIO_PATHS.glass)
+			emit_signal("on_glass_contact")
+			glass_hit_sound.play()
 			Signals.emit_signal("apply_effect", Global.EFFECTS.WHITE_OUT)
 			self.fall_speed = 0
 			self.animated_sprite.play("paint_break")
@@ -64,8 +70,8 @@ func _on_Item_body_entered(body: Node) -> void:
 		call_deferred("disable_item_collision") 
 		queue_free()
 
-# To prevent body enetered from triggering twice if coin is lower to ground
 func disable_item_collision() -> void:
+	# To prevent body enetered from triggering twice if coin is lower to ground
 	$CollisionShape2D.set_disabled(true)
 
 func _get_random_debuff_id() -> int:

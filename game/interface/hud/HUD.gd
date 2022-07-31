@@ -30,7 +30,7 @@ func start_combo_decrease(x) -> void:
 
 #func _update_color_label(new_color: String) -> void:
 #	var _color: Color
-#	#FIXME: Find better way to st color so i can add mix match color debuff. 
+#	#FIXME: Find better way to set color so i can add mix match color debuff. 
 #	#Maybe a dictionaty and when debuff is one get randon color. else get right color
 #
 #	match new_color:

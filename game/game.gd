@@ -12,6 +12,8 @@ const MED_MIN_SCORE: int = 100
 const MED_MAX_SCORE: int = 199
 const HARD_MIN_SCORE: int = 200
 const NUMBER_OF_COLORS: int = 200
+const CORRECT_POINT_VALUE: int = 5
+const WRONG_POINTS: int = -5
 
 onready var sound_manager: SoundManager = get_node("SoundManager")
 onready var LevelMusic = get_node("LevelMusic")
@@ -20,6 +22,7 @@ onready var player: Player = get_node("Player")
 onready var combo_bar: TextureProgress = get_node("HUD/ComboBar")
 onready var HUD: HUD = get_node("HUD") 
 
+var is_game_over: bool 
 var rng :RandomNumberGenerator
 var color_list: Array = []
 var current_multiplier: int = 1
@@ -36,20 +39,23 @@ var colors: Array = [
 ]
 
 func _ready():
+	print('1234')
 	rng = RandomNumberGenerator.new()
 	_create_color_pattern()
 	if Global.is_music_enabled: 
 		LevelMusic.play()
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
-	Signals.connect("player_has_landed_on_ground", self, "_player_landed")
+	player.connect("player_has_landed_on_ground", self, "_player_landed")
 
 func _process(delta):
-	if !Global.is_game_over:
+	if !self.is_game_over:
 		_determine_game_difficulty()
-		$HUD.update_player_score(Global.player_score)
 		$DebuffCounter.frame = player.debuff_timer.time_left
 	else:
 		Global.go_to_gameover_screen()
+
+func go_to_gameover_screen() -> void:
+	get_tree().change_scene(self.SCENE_PATHS.game_over)
 
 func start_new_game():
 	print('start?')
@@ -66,11 +72,11 @@ func _create_color_pattern() -> void:
 		color_list[i] = _get_random_number()
 
 func _determine_game_difficulty() -> void:
-	var score = Global.player_score
+	var player_score = player.get_score()
 	
-	if score >= MED_MIN_SCORE && score < MED_MAX_SCORE:
+	if player_score >= MED_MIN_SCORE && player_score < MED_MAX_SCORE:
 		_current_difficulty = DIFFICULTY.MEDIUM
-	elif score > MED_MAX_SCORE:
+	elif player_score > MED_MAX_SCORE:
 		_current_difficulty = DIFFICULTY.HARD
 	else:
 		_current_difficulty = DIFFICULTY.EASY
@@ -91,6 +97,9 @@ func _get_new_color() -> void:
 func _end_game() -> void:
 	pass
 
+func _update_HUD() -> void:
+	self.HUD.update_player_score(player.get_score())
+
 func _player_landed(player_color) -> void:
 	bounceNumber += 1
 	
@@ -99,8 +108,8 @@ func _player_landed(player_color) -> void:
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:
 		SoundManager.play(SoundManager.AUDIO_PATHS.correct)
-		player.display_point_text(Global.CORRECT_POINTS, Color.whitesmoke)
-		Global.player_score += Global.CORRECT_POINTS
+		player.display_point_text(CORRECT_POINT_VALUE, Color.whitesmoke)
+		player.add_to_score(CORRECT_POINT_VALUE)
 	else:
 		match _current_difficulty:
 			DIFFICULTY.EASY:
@@ -121,3 +130,4 @@ func _player_landed(player_color) -> void:
 	# SEND HUD NEW COLOR
 	$ColoredSign.update_lights(current_color)
 	Signals.emit_signal("color_changed", current_color)
+	_update_HUD()

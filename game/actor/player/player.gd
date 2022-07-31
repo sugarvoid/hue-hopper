@@ -2,7 +2,7 @@
 extends KinematicBody2D
 class_name Player
 
-
+signal player_has_landed_on_ground
 
 """
 Player Data/Stats
@@ -22,7 +22,7 @@ const white_out_degs: Array = [
 
 var GRAVITY: float = 600.0
 
-var _x # For removing error for change scence funtion
+var _x # For removing warning for change scence funtion
 var bounce_force: float
 var rotation_speed: float
 var jump_force: float
@@ -121,7 +121,7 @@ func _physics_process(delta: float) -> void:
 		
 		if is_on_floor() and self.global_position.y >= 218: # Actully laned
 			rumble_controller(0.3, 0.2)
-			Signals.emit_signal("player_has_landed_on_ground", get_bottom_color())
+			emit_signal("player_has_landed_on_ground", get_bottom_color())
 			
 			#########velocity.y = -self.bounce_force
 		elif is_on_floor(): # Landed on enemy
@@ -186,8 +186,8 @@ func get_bottom_color() -> String:
 	return find_largest_dict_val(dic)
 
 
-func change_score(amount: int):
-	self.score += amount
+func add_to_score(amount: int):
+	self._score += amount
 
 
 func sort_points(a: Position2D, b: Position2D):
@@ -220,7 +220,7 @@ func _on_Pulse_body_entered(body: Node) -> void:
 func _on_Timer_timeout() -> void:
 	has_game_started = true
 
-
+# Returns the int value of player's score
 func get_score() -> int:
 	return self._score
 

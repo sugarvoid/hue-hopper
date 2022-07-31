@@ -1,8 +1,17 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://game/item/FallingItem.gd" type="Script" id=1]
 [ext_resource path="res://game/item/flask.png" type="Texture" id=2]
 [ext_resource path="res://game/item/paint_temp.png" type="Texture" id=3]
+[ext_resource path="res://game/item/hard-glass-impact.wav" type="AudioStream" id=4]
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 18, 18 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=34]
 atlas = ExtResource( 3 )
@@ -28,21 +37,8 @@ region = Rect2( 128, 0, 32, 32 )
 atlas = ExtResource( 3 )
 region = Rect2( 160, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 18, 18 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 32, 32 )
-
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
-"loop": true,
-"name": "paint_break",
-"speed": 6.0
-}, {
 "frames": [ SubResource( 40 ) ],
 "loop": true,
 "name": "flask_orange",
@@ -52,6 +48,11 @@ animations = [ {
 "loop": true,
 "name": "paint_whole",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
+"loop": true,
+"name": "paint_break",
+"speed": 6.0
 } ]
 
 [sub_resource type="CircleShape2D" id=12]
@@ -73,6 +74,9 @@ shape = SubResource( 12 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( -1.49012e-07, 3.27618 )
 scale = Vector2( 0.5, 0.527618 )
+
+[node name="GlassHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="_on_Item_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
