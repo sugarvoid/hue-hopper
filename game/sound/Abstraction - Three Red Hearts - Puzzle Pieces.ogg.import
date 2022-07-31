@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Abstraction - Three Red Hearts - Puzzle Pieces.ogg-e0f0d07938447c7ddc943cad5f24df06.oggstr"
+
+[deps]
+
+source_file="res://game/sound/Abstraction - Three Red Hearts - Puzzle Pieces.ogg"
+dest_files=[ "res://.import/Abstraction - Three Red Hearts - Puzzle Pieces.ogg-e0f0d07938447c7ddc943cad5f24df06.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

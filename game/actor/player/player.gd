@@ -100,7 +100,6 @@ func _physics_process(delta: float) -> void:
 			_bounce()
 		
 		var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left") # 1 = right  -1 = left
-
 		velocity.x += x_input * ACCELERATION * delta
 		velocity.x = clamp(velocity.x, -speed, speed)
 		

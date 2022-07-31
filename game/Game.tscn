@@ -11,7 +11,7 @@
 [ext_resource path="res://game/interface/hud/DebuffCounter.tscn" type="PackedScene" id=9]
 [ext_resource path="res://game/game.gd" type="Script" id=10]
 [ext_resource path="res://game/images/background.png" type="Texture" id=11]
-[ext_resource path="res://game/sound/Keep your dream alive! seamless.ogg" type="AudioStream" id=12]
+[ext_resource path="res://game/sound/Abstraction - Three Red Hearts - Puzzle Pieces.ogg" type="AudioStream" id=12]
 [ext_resource path="res://game/sound/wrong.wav" type="AudioStream" id=13]
 [ext_resource path="res://game/sound/hard-glass-impact.wav" type="AudioStream" id=14]
 [ext_resource path="res://game/utils/cam_2d.gd" type="Script" id=16]
