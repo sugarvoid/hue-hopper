@@ -3,6 +3,7 @@ extends KinematicBody2D
 class_name Player
 
 signal player_has_landed_on_ground
+signal on_player_health_change
 
 """
 Player Data/Stats
@@ -35,6 +36,7 @@ var has_game_started: bool = false
 var velocity: Vector2 = Vector2.ZERO
 var is_whited_out: bool = false
 var colors: Array
+var hearts: int
 
 
 onready var purple: Position2D = $Ball/Purple
@@ -53,7 +55,7 @@ onready var p_FloatingText: PackedScene = preload("res://game/interface/floating
 
 
 func _ready() -> void:
-	Signals.emit_signal("player_stat_changed") #Sets the player hearts at start of game
+	emit_signal("player_stat_changed", self) #Sets the player hearts at start of game
 	_x = Signals.connect("apply_effect", self, "_apply_effect")
 	self.speed = 70.00
 	_clear_debuff()
@@ -72,7 +74,7 @@ func _apply_effect(debuff_id: int) -> void:
 	$DebuffTimer.start(10)
 
 func init_player_data() -> void:
-	Global.player_hearts = 3
+	hearts = 3
 	multiplier = 1
 	_score = 0
 
@@ -182,17 +184,13 @@ func get_bottom_color() -> String:
 		"Green": green.global_position.y,
 		"Yellow": yellow.global_position.y,
 	}
-	
 	return find_largest_dict_val(dic)
-
 
 func add_to_score(amount: int):
 	self._score += amount
 
-
 func sort_points(a: Position2D, b: Position2D):
 	return a.position.y == b.position.y
-
 
 func take_damage() -> void:
 	if invic_timer.is_stopped():
@@ -202,7 +200,8 @@ func take_damage() -> void:
 	
 	if self.hearts <= 0:
 		Global.go_to_gameover_screen()
-
+	
+	emit_signal("on_player_health_change")
 	Signals.emit_signal("player_stat_changed")
 
 

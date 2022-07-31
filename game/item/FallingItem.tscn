@@ -5,14 +5,6 @@
 [ext_resource path="res://game/item/paint_temp.png" type="Texture" id=3]
 [ext_resource path="res://game/item/hard-glass-impact.wav" type="AudioStream" id=4]
 
-[sub_resource type="AtlasTexture" id=40]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 18, 18 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 32, 32 )
-
 [sub_resource type="AtlasTexture" id=34]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 32, 32 )
@@ -37,22 +29,30 @@ region = Rect2( 128, 0, 32, 32 )
 atlas = ExtResource( 3 )
 region = Rect2( 160, 0, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 18, 18 )
+
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ SubResource( 40 ) ],
+"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
 "loop": true,
-"name": "flask_orange",
-"speed": 5.0
+"name": "paint_break",
+"speed": 6.0
 }, {
 "frames": [ SubResource( 33 ) ],
 "loop": true,
 "name": "paint_whole",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
+"frames": [ SubResource( 40 ) ],
 "loop": true,
-"name": "paint_break",
-"speed": 6.0
+"name": "flask_orange",
+"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=12]

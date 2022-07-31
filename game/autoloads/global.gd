@@ -1,6 +1,14 @@
 extends Node
 
 
+enum EFFECTS {
+	ROTATION_DOWN,
+	BOUNCE_DOWN,
+	ROTATION_UP,
+	WHITE_OUT,
+	HEALTH_UP
+}
+
 enum ITEMS {
 	PAINT_BUCKET,
 	FLASK_BLUE,
@@ -48,7 +56,7 @@ static func change_rect_color(rect: ColorRect, color: String) -> void:
 Player Data
 """
 
-var player_hearts: int = 3
+
 var _current_debuff: String
 var is_music_enabled: bool = true
 var is_fx_enabled: bool = true

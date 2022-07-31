@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://game/interface/sign/ColoredSign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/utils/spawner/ItemSpawner.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://game/actor/player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/interface/hud/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/utils/spawner/EnemySpawner.tscn" type="PackedScene" id=7]
-[ext_resource path="res://game/interface/hud/heart/BreakableHeart.tscn" type="PackedScene" id=8]
 [ext_resource path="res://game/interface/hud/DebuffCounter.tscn" type="PackedScene" id=9]
 [ext_resource path="res://game/game.gd" type="Script" id=10]
 [ext_resource path="res://game/images/background.png" type="Texture" id=11]
@@ -64,17 +63,6 @@ stream = ExtResource( 14 )
 volume_db = -6.0
 
 [node name="PauseScreen" parent="." instance=ExtResource( 4 )]
-
-[node name="Hearts" type="Node2D" parent="."]
-
-[node name="Heart0" parent="Hearts" instance=ExtResource( 8 )]
-position = Vector2( 8, 18 )
-
-[node name="Heart1" parent="Hearts" instance=ExtResource( 8 )]
-position = Vector2( 23, 18 )
-
-[node name="Heart2" parent="Hearts" instance=ExtResource( 8 )]
-position = Vector2( 38, 18 )
 
 [node name="ColoredSign" parent="." instance=ExtResource( 1 )]
 position = Vector2( 97, 46 )

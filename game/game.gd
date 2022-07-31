@@ -39,13 +39,14 @@ var colors: Array = [
 ]
 
 func _ready():
-	print('1234')
+	start_new_game()
 	rng = RandomNumberGenerator.new()
 	_create_color_pattern()
 	if Global.is_music_enabled: 
 		LevelMusic.play()
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
 	player.connect("player_has_landed_on_ground", self, "_player_landed")
+	player.connect("on_player_health_change", self, "_update_hud")
 
 func _process(delta):
 	if !self.is_game_over:
@@ -58,7 +59,6 @@ func go_to_gameover_screen() -> void:
 	get_tree().change_scene(self.SCENE_PATHS.game_over)
 
 func start_new_game():
-	print('start?')
 	player.init_player_data()
 	_determine_game_difficulty()
 
@@ -98,7 +98,9 @@ func _end_game() -> void:
 	pass
 
 func _update_HUD() -> void:
-	self.HUD.update_player_score(player.get_score())
+	self.HUD.update_hud(player)
+	if player.hearts <= 0:
+		go_to_gameover_screen()
 
 func _player_landed(player_color) -> void:
 	bounceNumber += 1
@@ -124,7 +126,7 @@ func _player_landed(player_color) -> void:
 		if Global.is_fx_enabled:
 			$SoundWrong.play()
 		
-	Signals.emit_signal("player_stat_changed")
+	emit_signal("player_stat_changed", self.player)
 	# GET NEW COLOR
 	_get_new_color()
 	# SEND HUD NEW COLOR

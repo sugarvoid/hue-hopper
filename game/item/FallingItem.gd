@@ -1,15 +1,7 @@
 extends Area2D
 class_name FallingItem
 
-signal on_glass_contact
-
-enum EFFECTS {
-	ROTATION_DOWN,
-	BOUNCE_DOWN,
-	ROTATION_UP,
-	WHITE_OUT,
-	HEALTH_UP
-}
+signal on_flask_contact
 
 onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 onready var glass_hit_sound: AudioStreamPlayer = get_node("GlassHitSound")
@@ -58,8 +50,8 @@ func do_item_effect() -> void:
 		Global.ITEMS.FLASK_ORANGE:
 			Signals.emit_signal("apply_effect", self.debuff_id)
 		Global.ITEMS.PAINT_BUCKET:
-			emit_signal("on_glass_contact")
 			glass_hit_sound.play()
+			emit_signal("on_flask_contact")
 			Signals.emit_signal("apply_effect", Global.EFFECTS.WHITE_OUT)
 			self.fall_speed = 0
 			self.animated_sprite.play("paint_break")

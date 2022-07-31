@@ -51,11 +51,10 @@ func change_score_color() -> void:
 func update_player_score(amount: int) -> void:
 	$ScoreLabel.set_text(str(amount))
 
-func update_hud() -> void:
-	$ScoreLabel.set_text(str(Global.player_score))
-	##$CoinLabel.set_text(str(PlayerData.coins))
+func update_hud(player: Player) -> void:
+	$ScoreLabel.set_text(str(player.get_score()))
 	clear_hearts()
-	for _i in range(Global.player_hearts):
+	for _i in range(player.hearts):
 		heart_container.add_child(HeartIcon.instance())
 
 func _on_ComboTimer_timeout() -> void:
