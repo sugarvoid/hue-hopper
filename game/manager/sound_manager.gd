@@ -1,5 +1,12 @@
 extends Node
 
+
+const AUDIO_PATHS: Dictionary = {
+	"correct" : "res://game/sound/correct.wav",
+	"wrong" : "res://game/sound/wrong.wav",
+	"glass" : "res://game/sound/hard-glass-impact.wav",
+}
+
 var players = 5
 var bus = "master"
 

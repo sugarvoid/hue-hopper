@@ -1,6 +1,14 @@
 extends Area2D
 class_name FallingItem
 
+enum EFFECTS {
+	ROTATION_DOWN,
+	BOUNCE_DOWN,
+	ROTATION_UP,
+	WHITE_OUT,
+	HEALTH_UP
+}
+
 var item_id: int
 var fall_speed: float = 0
 var rotation_speed: int

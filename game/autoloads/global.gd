@@ -1,18 +1,7 @@
 extends Node
 
-enum DIFFICULTY {
-	EASY,
-	MEDIUM,
-	HARD
-}
 
-enum EFFECTS {
-	ROTATION_DOWN,
-	BOUNCE_DOWN,
-	ROTATION_UP,
-	WHITE_OUT,
-	HEALTH_UP
-}
+
 
 enum ITEMS {
 	PAINT_BUCKET,
@@ -34,14 +23,10 @@ const HIGH_SCORE_FILE: String = "user://highscore.txt"
 const prillyBlue: String = "329cc3"
 const rubyRed: String = "c13354"
 const white: String = "ffffff"
-const GAME_VERSION = "1.4.0"
+const GAME_VERSION = "0.4.0"
 const CORRECT_POINTS: int = 5
 const WRONG_POINTS: int = 5
-const AUDIO_PATHS: Dictionary = {
-	"correct" : "res://game/sound/correct.wav",
-	"wrong" : "res://game/sound/wrong.wav",
-	"glass" : "res://game/sound/hard-glass-impact.wav",
-}
+
 const SCENE_PATHS: Dictionary = {
 	"game_over" : "res://game/interface/menu/GameOver.tscn",
 	"start_screen" : "res://game/interface/menu/StartScreen.tscn",

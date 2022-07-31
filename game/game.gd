@@ -1,11 +1,19 @@
 extends Node
 
+
+enum DIFFICULTY {
+	EASY,
+	MEDIUM,
+	HARD
+}
+
 #const EASY_MAX_SCORE: int = 100
 const MED_MIN_SCORE: int = 100
 const MED_MAX_SCORE: int = 199
 const HARD_MIN_SCORE: int = 200
 const NUMBER_OF_COLORS: int = 200
 
+onready var sound_manager: SoundManager = get_node("SoundManager")
 onready var LevelMusic = get_node("LevelMusic")
 onready var background = get_node("BackGround")
 onready var player: Player = get_node("Player")
@@ -61,11 +69,11 @@ func _determine_game_difficulty() -> void:
 	var score = Global.player_score
 	
 	if score >= MED_MIN_SCORE && score < MED_MAX_SCORE:
-		_current_difficulty = Global.DIFFICULTY.MEDIUM
+		_current_difficulty = DIFFICULTY.MEDIUM
 	elif score > MED_MAX_SCORE:
-		_current_difficulty = Global.DIFFICULTY.HARD
+		_current_difficulty = DIFFICULTY.HARD
 	else:
-		_current_difficulty = Global.DIFFICULTY.EASY
+		_current_difficulty = DIFFICULTY.EASY
 
 func _reset_multiplier() -> void:
 	self.current_multiplier = 1
@@ -90,17 +98,17 @@ func _player_landed(player_color) -> void:
 	
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:
-		SoundManager.play(Global.AUDIO_PATHS.correct)
+		SoundManager.play(SoundManager.AUDIO_PATHS.correct)
 		player.display_point_text(Global.CORRECT_POINTS, Color.whitesmoke)
 		Global.player_score += Global.CORRECT_POINTS
 	else:
 		match _current_difficulty:
-			Global.DIFFICULTY.EASY:
+			DIFFICULTY.EASY:
 				Signals.emit_signal("landed_on_wrong_color")
-			Global.DIFFICULTY.MEDIUM:
+			DIFFICULTY.MEDIUM:
 				Signals.emit_signal("landed_on_wrong_color")
 				Signals.emit_signal("landed_on_wrong_color")
-			Global.DIFFICULTY.HARD:
+			DIFFICULTY.HARD:
 				Signals.emit_signal("landed_on_wrong_color")
 				Signals.emit_signal("landed_on_wrong_color")
 				Signals.emit_signal("landed_on_wrong_color")
