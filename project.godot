@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/interface/hud/HUD.gd"
 }, {
+"base": "Node2D",
+"class": "ItemManager",
+"language": "GDScript",
+"path": "res://game/manager/item_manager.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "EnemyManager": "",
 "FallingItem": "",
 "HUD": "",
+"ItemManager": "",
 "Player": ""
 }
 

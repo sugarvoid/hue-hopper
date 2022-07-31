@@ -58,6 +58,7 @@ func do_item_effect() -> void:
 
 func _on_Item_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
+		
 		self.do_item_effect()
 		call_deferred("disable_item_collision") 
 		queue_free()

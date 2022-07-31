@@ -16,6 +16,7 @@ const CORRECT_POINT_VALUE: int = 5
 const WRONG_POINTS: int = -5
 
 onready var sound_manager: SoundManager = get_node("SoundManager")
+onready var iteam_manager: ItemManager = get_node("ItemManager")
 onready var LevelMusic = get_node("LevelMusic")
 onready var background = get_node("BackGround")
 onready var player: Player = get_node("Player")
@@ -115,18 +116,18 @@ func _player_landed(player_color) -> void:
 	else:
 		match _current_difficulty:
 			DIFFICULTY.EASY:
-				Signals.emit_signal("landed_on_wrong_color")
+				self.iteam_manager.spawn_paint($ItemContainer)
+				#Signals.emit_signal("landed_on_wrong_color")
 			DIFFICULTY.MEDIUM:
-				Signals.emit_signal("landed_on_wrong_color")
-				Signals.emit_signal("landed_on_wrong_color")
+				for x in 2:
+					self.iteam_manager.spawn_paint($ItemContainer)
 			DIFFICULTY.HARD:
-				Signals.emit_signal("landed_on_wrong_color")
-				Signals.emit_signal("landed_on_wrong_color")
-				Signals.emit_signal("landed_on_wrong_color")
+				for x in 3:
+					self.iteam_manager.spawn_paint($ItemContainer)
 		if Global.is_fx_enabled:
 			$SoundWrong.play()
 		
-	emit_signal("player_stat_changed", self.player)
+	##### emit_signal("player_stat_changed", self.player)
 	# GET NEW COLOR
 	_get_new_color()
 	# SEND HUD NEW COLOR

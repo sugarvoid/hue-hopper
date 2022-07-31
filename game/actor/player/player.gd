@@ -199,7 +199,8 @@ func take_damage() -> void:
 		self.hearts -= 1
 	
 	if self.hearts <= 0:
-		Global.go_to_gameover_screen()
+		pass
+		# maybe have signal here
 	
 	emit_signal("on_player_health_change")
 	Signals.emit_signal("player_stat_changed")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://game/interface/sign/ColoredSign.tscn" type="PackedScene" id=1]
-[ext_resource path="res://game/utils/spawner/ItemSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/manager/ItemManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/level/World.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/interface/menu/PauseScreen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/actor/player/Player.tscn" type="PackedScene" id=5]
@@ -22,7 +22,7 @@ script = ExtResource( 10 )
 
 [node name="SoundManager" parent="." instance=ExtResource( 15 )]
 
-[node name="ItemSpawner" parent="." instance=ExtResource( 2 )]
+[node name="ItemManager" parent="." instance=ExtResource( 2 )]
 position = Vector2( 96.3258, -21.4057 )
 
 [node name="BackGround" type="Sprite" parent="."]
@@ -77,5 +77,7 @@ modulate = Color( 1, 1, 1, 0.431373 )
 position = Vector2( 108, 125 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 17 )
+
+[node name="ItemContainer" type="Node2D" parent="."]
 
 [connection signal="timeout" from="Cam2D/Timer" to="Cam2D" method="_on_Timer_timeout"]

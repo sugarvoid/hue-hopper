@@ -1,3 +1,4 @@
+class_name ItemManager
 extends Node2D
 
 var next_spawn_time: float = 5.0
@@ -11,8 +12,9 @@ onready var timer_flask = $TimerFlask
 onready var view_rect := get_viewport_rect()
 
 
+
 func _ready() -> void:
-	Signals.connect("landed_on_wrong_color", self, "_spawn_paint")
+	Signals.connect("landed_on_wrong_color", self, "spawn_paint")
 	randomize()
 
 
@@ -29,14 +31,17 @@ func _determine_spawn_rate() -> void:
 			min_spawn_time = 1.0
 
 
-func _spawn_paint():
+func spawn_paint(container: Node2D):
+	print(container)
 	# GET RANDOM GEM
 	# SPWAN GEM
 	var x_pos := rand_range(12, 188)
 	var bucket = p_FallingItem.instance()
 	bucket.position = Vector2(x_pos, 0) 
 	bucket.setup(Global.ITEMS.PAINT_BUCKET)
-	get_tree().current_scene.add_child(bucket)
+	container.add_child(bucket)
+	#container.call_deferred("add child", bucket)
+	
 
 func _on_TimerFlask_timeout():
 	# GET RANDOM GEM
