@@ -2,6 +2,7 @@
 #### Version 0.4.0
 
 ![](https://github.com/sugarvoid/hue-hopper/blob/Current/docs/hue.gif)
+(Gif is from version 0.3.0)
 
 ## Description
 A game about rotating and bouncing. This is the first "game" I've made so the code isn't as clean/structured as I'd like. Still slowly working on refactoring as I learn better practices.
