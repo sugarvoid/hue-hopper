@@ -1,8 +1,6 @@
 extends Node
 
 
-
-
 enum ITEMS {
 	PAINT_BUCKET,
 	FLASK_BLUE,
@@ -24,8 +22,7 @@ const prillyBlue: String = "329cc3"
 const rubyRed: String = "c13354"
 const white: String = "ffffff"
 const GAME_VERSION = "0.4.0"
-const CORRECT_POINTS: int = 5
-const WRONG_POINTS: int = 5
+
 
 const SCENE_PATHS: Dictionary = {
 	"game_over" : "res://game/interface/menu/GameOver.tscn",
@@ -33,7 +30,7 @@ const SCENE_PATHS: Dictionary = {
 }
 
 var _x
-var is_game_over: bool 
+
 
 """
 SceenChanges
@@ -41,8 +38,7 @@ SceenChanges
 func go_to_start_screen() -> void:
 	_x = get_tree().change_scene(self.SCENE_PATHS.start_screen)
 
-func go_to_gameover_screen() -> void:
-	_x = get_tree().change_scene(self.SCENE_PATHS.game_over)
+
 
 static func change_rect_color(rect: ColorRect, color: String) -> void:
 	rect.color = color
@@ -51,7 +47,7 @@ static func change_rect_color(rect: ColorRect, color: String) -> void:
 """
 Player Data
 """
-var player_score: int = 0 
+
 var player_hearts: int = 3
 var _current_debuff: String
 var is_music_enabled: bool = true
@@ -62,8 +58,7 @@ var music_volume: float
 var fx_volume: float
 var current_color: int 
 
-func reset_player_stats() -> void:
-	player_score = 0
+
 
 func _ready():
 	Global.create_high_score_file()
