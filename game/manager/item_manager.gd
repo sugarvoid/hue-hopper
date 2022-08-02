@@ -30,6 +30,8 @@ func _determine_spawn_rate() -> void:
 			max_spawn_time = 6.0
 			min_spawn_time = 1.0
 
+func play_glass_break() -> void:
+	$AudioStreamPlayer.play()
 
 func spawn_paint(container: Node2D):
 	print(container)

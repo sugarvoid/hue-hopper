@@ -51,14 +51,13 @@ func do_item_effect() -> void:
 			Signals.emit_signal("apply_effect", self.debuff_id)
 		Global.ITEMS.PAINT_BUCKET:
 			glass_hit_sound.play()
-			emit_signal("on_flask_contact")
+			yield(glass_hit_sound, "finished")
 			Signals.emit_signal("apply_effect", Global.EFFECTS.WHITE_OUT)
 			self.fall_speed = 0
 			self.animated_sprite.play("paint_break")
 
 func _on_Item_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
-		
 		self.do_item_effect()
 		call_deferred("disable_item_collision") 
 		queue_free()
