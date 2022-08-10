@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
-[node name="LifeContainer" type="HBoxContainer" parent="."]
+[node name="HeartContainer" type="HBoxContainer" parent="."]
 margin_top = 16.037
 margin_right = 57.0
 margin_bottom = 16.037
@@ -37,7 +37,7 @@ custom_fonts/font = SubResource( 3 )
 text = "000"
 align = 2
 
-[node name="Debuff" type="Label" parent="."]
+[node name="DebuffLabel" type="Label" parent="."]
 margin_left = 10.3758
 margin_top = 239.661
 margin_right = 50.3758

@@ -67,13 +67,13 @@ func set_hearts(amount: int) -> void:
 func get_hearts() -> int:
 	return self._hearts
 
-func apply_debuff(debuff_id: int) -> void:
-	match(debuff_id):
-		Global.EFFECTS.BOUNCE_DOWN:
+func apply_debuff(item_id: int) -> void:
+	match(item_id):
+		Global.ITEMS.FLASK_ORANGE:
 			self.bounce_force -= 85 
-		Global.EFFECTS.ROTATION_UP:
+		Global.ITEMS.FLASK_BLUE:
 			self.increase_rotate_speed()
-		Global.EFFECTS.WHITE_OUT:
+		Global.ITEMS.PAINT_BUCKET:
 			var rad_rot = white_out_degs[randi() % white_out_degs.size()]
 			whiteout_sprite.rotation_degrees = rad_rot
 			whiteout_sprite.visible = true
@@ -202,7 +202,7 @@ func take_damage() -> void:
 		blink_animation_player.play("blink")
 		self._hearts -= 1
 	
-	if self.hearts <= 0:
+	if self._hearts <= 0:
 		pass
 		# maybe have signal here
 	

@@ -71,6 +71,8 @@ func _on_DamageArea_body_entered(body: Node) -> void:
 				#queue_free()
 			else:
 				body.take_damage()
+		else:
+			body.take_damage()
 
 
 

@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Static background
 - Falling paint buckets that block colors
 
+### Changed
+- Player loses heart when landing on wrong color
+
 ### Removed
 - Background that changes color
 
@@ -57,9 +60,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.0] - 2021-11-02
 ### Added
 - Spikes that hurt on contact now fall mores time goes on
-- Added difficulty 
+- Added difficulty
 - Added debuff gems
-- Background color changes with difficulty 
+- Background color changes with difficulty
 - Added debug
 - Added pause screen
 - Added point multiplier. Activated after killing enemy

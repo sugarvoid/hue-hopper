@@ -14,7 +14,6 @@ onready var view_rect := get_viewport_rect()
 
 
 func _ready() -> void:
-	Signals.connect("landed_on_wrong_color", self, "spawn_paint")
 	randomize()
 
 
@@ -34,7 +33,6 @@ func play_glass_break() -> void:
 	$AudioStreamPlayer.play()
 
 func spawn_paint(container: Node2D):
-	print(container)
 	# GET RANDOM GEM
 	# SPWAN GEM
 	var x_pos := rand_range(12, 188)

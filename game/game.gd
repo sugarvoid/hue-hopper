@@ -42,6 +42,7 @@ var colors: Array = [
 func _ready():
 	start_new_game()
 	rng = RandomNumberGenerator.new()
+	_update_HUD_hearts(player.get_hearts())
 	_create_color_pattern()
 	if Global.is_music_enabled: 
 		LevelMusic.play()
@@ -57,7 +58,7 @@ func _process(delta):
 		Global.go_to_gameover_screen()
 
 func go_to_gameover_screen() -> void:
-	get_tree().change_scene(self.SCENE_PATHS.game_over)
+	get_tree().change_scene(Global.SCENE_PATHS.game_over)
 
 func start_new_game():
 	player.init_player_data()
@@ -100,7 +101,7 @@ func _end_game() -> void:
 
 func _update_HUD_hearts(player_health) -> void:
 	player.set_hearts(player_health)
-	self.HUD.update_hud(player)
+	self.HUD.update_hearts(player.get_hearts())
 	if player.get_hearts() <= 0:
 		go_to_gameover_screen()
 

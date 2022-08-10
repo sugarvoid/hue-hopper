@@ -17,7 +17,6 @@ func _ready():
 
 func _unhandled_key_input(event):
 	if event.is_action_released("restart"):
-		Global.reset_player_stats()
 		Global.go_to_start_screen()
 
 func load_high_score():

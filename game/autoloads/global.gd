@@ -66,6 +66,7 @@ var music_volume: float
 var fx_volume: float
 var current_color: int 
 
+var player_score: int
 
 
 func _ready():
