@@ -56,8 +56,9 @@ func do_item_effect() -> void:
 			self.animated_sprite.play("paint_break")
 
 func _on_Item_body_entered(body: Node) -> void:
-	if body.is_in_group("player"):
-		self.do_item_effect()
+	if body.get_class() == "Player":
+		print('contact with player')
+		body.apply_debuff(self.debuff_id)
 		call_deferred("disable_item_collision") 
 		queue_free()
 

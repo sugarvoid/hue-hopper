@@ -24,7 +24,6 @@ const white_out_degs: Array = [
 
 var GRAVITY: float = 600.0
 
-var _x # For removing warning for change scence funtion
 var bounce_force: float
 var rotation_speed: float
 var jump_force: float
@@ -55,9 +54,10 @@ onready var debuff_timer: Timer = $DebuffTimer
 
 onready var p_FloatingText: PackedScene = preload("res://game/interface/floating_text/floating_text.tscn")
 
+func get_class() -> String:
+	return "Player"
 
 func _ready() -> void:
-	_x = Signals.connect("apply_effect", self, "_apply_effect")
 	self.speed = 70.00
 	_clear_debuff()
 
@@ -67,7 +67,7 @@ func set_hearts(amount: int) -> void:
 func get_hearts() -> int:
 	return self._hearts
 
-func _apply_effect(debuff_id: int) -> void:
+func apply_debuff(debuff_id: int) -> void:
 	match(debuff_id):
 		Global.EFFECTS.BOUNCE_DOWN:
 			self.bounce_force -= 85 
@@ -86,7 +86,7 @@ func init_player_data() -> void:
 	_score = 0
 
 func _white_out():
-	_apply_effect(Global.EFFECTS.WHITE_OUT)
+	apply_debuff(Global.EFFECTS.WHITE_OUT)
 
 func flip_sprite() -> void:
 	self.scale.x *= -1 
@@ -200,7 +200,7 @@ func take_damage() -> void:
 	if invic_timer.is_stopped():
 		invic_timer.start()
 		blink_animation_player.play("blink")
-		self.hearts -= 1
+		self._hearts -= 1
 	
 	if self.hearts <= 0:
 		pass

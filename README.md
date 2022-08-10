@@ -1,4 +1,6 @@
 # Hue Hopper
+
+[Trello Board](https://trello.com/b/aLnKhPKY/hue-hopper)
 #### Version 0.4.0
 
 ![](https://github.com/sugarvoid/hue-hopper/blob/Current/docs/hue.gif)

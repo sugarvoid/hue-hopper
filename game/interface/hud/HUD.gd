@@ -13,9 +13,6 @@ func _process(_delta):
 	
 	$ComboBar.value = $ComboBar/ComboTimer.time_left
 
-func _ready() -> void:
-	clear_hearts()
-	Signals.connect("player_stat_changed", self, "update_hud")
 
 func clear_hearts() -> void:
 	for heart in heart_container.get_children():

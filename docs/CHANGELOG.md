@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [0.5.0] - add date
+### Added
+- Player can slam down with the space bar
+- Static background
+- Falling paint buckets that block colors
+
+### Removed
+- Background that changes color
+
 ## [0.4.0] - 2022-04-16
 ### Added
 - Spike enemies and flying enemies
