@@ -6,7 +6,7 @@ var HeartIcon = preload("res://game/interface/hud/HeartIcon.tscn")
 
 onready var heart_container: HBoxContainer = get_node("HeartContainer")
 onready var debuff_label: Label = get_node("DebuffLabel")
-onready var combo_bar: ProgressBar = get_node("ComboBar")
+onready var combo_bar: TextureProgress = get_node("ComboBar")
 
 var is_combo_active: bool = false
 
