@@ -47,7 +47,7 @@ func _ready():
 		LevelMusic.play()
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
 	player.connect("player_has_landed_on_ground", self, "_player_landed")
-	player.connect("on_player_health_change", self, "_update_hud")
+	player.connect("on_player_health_changed", self, "_update_HUD_hearts")
 
 func _process(delta):
 	if !self.is_game_over:
@@ -98,12 +98,14 @@ func _get_new_color() -> void:
 func _end_game() -> void:
 	pass
 
-func _update_HUD() -> void:
+func _update_HUD_hearts(player_health) -> void:
+	player.set_hearts(player_health)
 	self.HUD.update_hud(player)
-	if player.hearts <= 0:
+	if player.get_hearts() <= 0:
 		go_to_gameover_screen()
 
 func _player_landed(player_color) -> void:
+	print(player_color)
 	bounceNumber += 1
 	
 	$Cam2D.shake(13)
@@ -132,5 +134,4 @@ func _player_landed(player_color) -> void:
 	_get_new_color()
 	# SEND HUD NEW COLOR
 	$ColoredSign.update_lights(current_color)
-	Signals.emit_signal("color_changed", current_color)
-	_update_HUD()
+	#Signals.emit_signal("color_changed", current_color)

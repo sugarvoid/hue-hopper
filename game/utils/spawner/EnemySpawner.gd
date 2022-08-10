@@ -12,8 +12,8 @@ const enemy_options : Array = [
 
 onready var timer = $Timer
 
-var next_spawn_time: float = 4.0
-var max_spawn_time: float = 6.0
+var next_spawn_time: float = 3.0
+var max_spawn_time: float = 5.0
 var min_spawn_time: float = 2.0
 
 func _ready() -> void:
@@ -21,6 +21,7 @@ func _ready() -> void:
 	timer.start(next_spawn_time)
 
 func _create_boxbody() -> Enemy:
+	print('making box')
 	var p_box = preload("res://game/actor/enemy/BoxBody.tscn")
 	var box = p_box.instance()
 	box.type = Global.ENEMY_TYPE.BOX 
@@ -29,13 +30,14 @@ func _create_boxbody() -> Enemy:
 	return box
 
 func _create_spikehead() -> Enemy:
+	print('making spike')
 	var p_spikehead = preload("res://game/actor/enemy/SpikeHead.tscn")
 	var spikehead = p_spikehead.instance()
 	spikehead.speed = 40
 	spikehead.type = Global.ENEMY_TYPE.SPIKE 
 	return spikehead
 
-func _create_bat():
+func _create_bat() -> Enemy:
 	var p_bat = preload("res://game/actor/enemy/Bat.tscn")
 	var bat = p_bat.instance()
 	bat.speed = 70
@@ -63,6 +65,7 @@ func _on_Timer_timeout() -> void:
 			enemy.position = BOTTON_RIGHT
 		
 	get_tree().current_scene.add_child(enemy)
+	print(enemy.global_position)
 	
 	max_spawn_time -= 0.15
 	next_spawn_time = rand_range(max_spawn_time, min_spawn_time)

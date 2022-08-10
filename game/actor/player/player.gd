@@ -1,9 +1,10 @@
-
-extends KinematicBody2D
 class_name Player
+extends KinematicBody2D
 
-signal player_has_landed_on_ground
-signal on_player_health_change
+
+signal player_has_landed_on_ground(c_color)
+signal on_player_health_changed
+signal player_has_landed_on_enemy()
 
 """
 Player Data/Stats
@@ -36,7 +37,8 @@ var has_game_started: bool = false
 var velocity: Vector2 = Vector2.ZERO
 var is_whited_out: bool = false
 var colors: Array
-var hearts: int
+var max_herts: int
+var _hearts: int
 
 
 onready var purple: Position2D = $Ball/Purple
@@ -55,10 +57,15 @@ onready var p_FloatingText: PackedScene = preload("res://game/interface/floating
 
 
 func _ready() -> void:
-	emit_signal("player_stat_changed", self) #Sets the player hearts at start of game
 	_x = Signals.connect("apply_effect", self, "_apply_effect")
 	self.speed = 70.00
 	_clear_debuff()
+
+func set_hearts(amount: int) -> void:
+	self._hearts = amount
+
+func get_hearts() -> int:
+	return self._hearts
 
 func _apply_effect(debuff_id: int) -> void:
 	match(debuff_id):
@@ -74,7 +81,7 @@ func _apply_effect(debuff_id: int) -> void:
 	$DebuffTimer.start(10)
 
 func init_player_data() -> void:
-	hearts = 3
+	set_hearts(3)
 	multiplier = 1
 	_score = 0
 
@@ -87,7 +94,6 @@ func flip_sprite() -> void:
 func _bounce() -> void:
 	self.GRAVITY = 600
 	velocity.y = -self.bounce_force
-	
 
 func _update_sprite(x_input: int) -> void:
 	if x_input > 0:
@@ -97,7 +103,6 @@ func _update_sprite(x_input: int) -> void:
 
 func _physics_process(delta: float) -> void:
 	if has_game_started:
-		
 		if self.velocity.y == 0:
 			_bounce()
 		
@@ -111,7 +116,6 @@ func _physics_process(delta: float) -> void:
 			rotation_dir = 0
 			if Input.is_action_just_pressed("slam"):
 				self.GRAVITY = 9000
-			
 			if Input.is_action_pressed("rotate_right"):
 				grey_guy.play("walking")
 				rotation_dir += 1
@@ -142,7 +146,7 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 
-func get_bottom_color_deg():
+func get_bottom_color_deg() -> void:
 	var rot_num = round(self.ball.rotation)
 	if rot_num == -2 or rot_num == 5:
 		print('Red') 
@@ -154,7 +158,7 @@ func get_bottom_color_deg():
 		print('Green')
 
 
-func rumble_controller(amount: float, duration: float):
+func rumble_controller(amount: float, duration: float) -> void:
 	if Global.is_rumble_enabled:
 		Input.start_joy_vibration(0, amount, amount, duration)
 
@@ -202,8 +206,7 @@ func take_damage() -> void:
 		pass
 		# maybe have signal here
 	
-	emit_signal("on_player_health_change")
-	Signals.emit_signal("player_stat_changed")
+	emit_signal("on_player_health_changed", self._hearts)
 
 
 func _on_AttackArea_body_entered(body: Node) -> void:
@@ -243,5 +246,5 @@ func _clear_debuff() -> void:
 	whiteout_sprite.visible = false
 
 
-func _on_DebuffTimer_timeout():
+func _on_DebuffTimer_timeout() -> void:
 	_clear_debuff()

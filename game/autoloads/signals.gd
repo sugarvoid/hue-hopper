@@ -1,7 +1,11 @@
 extends Node
 
-# warning-ignore:unused_signal
-signal player_has_landed_on_ground(color)
+
+##signal player_has_landed_on_ground(color)
+
+
+
+
 # warning-ignore:unused_signal
 signal player_has_landed_on_enemy()
 # warning-ignore:unused_signal

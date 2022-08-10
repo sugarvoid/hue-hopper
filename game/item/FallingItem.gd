@@ -14,7 +14,6 @@ var type: int
 var does_rotate: bool 
 
 
-
 func setup(id: int) -> void:
 	self.item_id = id
 	_set_fall_speed()
