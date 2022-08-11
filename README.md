@@ -1,10 +1,10 @@
 # Hue Hopper
+#### Version 0.5.0 [Change Log](https://github.com/sugarvoid/hue-hopper/blob/Current/docs/CHANGELOG.md)
 
-[Trello Board](https://trello.com/b/aLnKhPKY/hue-hopper)
-[Change Log](https://github.com/sugarvoid/hue-hopper/blob/Current/docs/CHANGELOG.md)
-#### Version 0.4.0
+#### [Trello Board](https://trello.com/b/aLnKhPKY/hue-hopper)
 
-![](https://github.com/sugarvoid/hue-hopper/blob/Current/docs/hue.gif)
+
+![](https://github.com/sugarvoid/hue-hopper/blob/Current/docs/hue.gif) \
 (Gif is from version 0.3.0)
 
 ## Description
