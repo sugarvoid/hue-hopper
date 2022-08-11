@@ -2,11 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-
-## [0.5.0] - 
+## [0.5.0] - 2022-08-11
 ### Added
 - Player can slam down with the space bar
 - Static background
@@ -14,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Player loses heart when landing on wrong color
+- Background music
+- Paint buckets are not regular debuff flasks
 
 ### Removed
 - Background that changes color
@@ -22,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Spike enemies and flying enemies
 - Background color changes with game difficulty
+- Paint Buckets that act as a debuff when landing on wrong color
 ### Changed
 - Rounded Hue Ball image
 ### Fixed
