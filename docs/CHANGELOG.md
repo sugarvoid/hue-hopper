@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Player can slam down with the space bar
 - Static background
-- Falling paint buckets that block colors
+- Debuff flasks
 
 ### Changed
 - Player loses heart when landing on wrong color
