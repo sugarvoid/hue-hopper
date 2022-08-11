@@ -29,7 +29,7 @@ const HIGH_SCORE_FILE: String = "user://highscore.txt"
 const prillyBlue: String = "329cc3"
 const rubyRed: String = "c13354"
 const white: String = "ffffff"
-const GAME_VERSION = "0.4.0"
+const GAME_VERSION = "0.5.0"
 
 
 const SCENE_PATHS: Dictionary = {

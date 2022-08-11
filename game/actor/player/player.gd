@@ -4,7 +4,8 @@ extends KinematicBody2D
 
 signal player_has_landed_on_ground(c_color)
 signal on_player_health_changed
-signal player_has_landed_on_enemy()
+signal player_has_landed_on_enemy
+signal on_falling_item_contact
 
 """
 Player Data/Stats
@@ -68,6 +69,7 @@ func get_hearts() -> int:
 	return self._hearts
 
 func apply_debuff(item_id: int) -> void:
+	emit_signal("on_falling_item_contact")
 	match(item_id):
 		Global.ITEMS.FLASK_ORANGE:
 			self.bounce_force -= 85 

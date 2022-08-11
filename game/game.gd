@@ -49,6 +49,7 @@ func _ready():
 	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
 	player.connect("player_has_landed_on_ground", self, "_player_landed")
 	player.connect("on_player_health_changed", self, "_update_HUD_hearts")
+	player.connect("on_falling_item_contact", self, "_play_falling_item_sound")
 
 func _process(delta):
 	if !self.is_game_over:
@@ -136,3 +137,6 @@ func _player_landed(player_color) -> void:
 	# SEND HUD NEW COLOR
 	$ColoredSign.update_lights(current_color)
 	#Signals.emit_signal("color_changed", current_color)
+
+func _play_falling_item_sound() -> void: 
+	$FallingItemBreak.play()

@@ -58,7 +58,7 @@ script = ExtResource( 16 )
 stream = ExtResource( 13 )
 volume_db = -6.0
 
-[node name="SpikeContact" type="AudioStreamPlayer" parent="."]
+[node name="FallingItemBreak" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 volume_db = -6.0
 
