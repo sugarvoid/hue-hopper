@@ -75,7 +75,7 @@ func apply_debuff(item_id: int) -> void:
 			self.bounce_force -= 85 
 		Global.ITEMS.FLASK_BLUE:
 			self.increase_rotate_speed()
-		Global.ITEMS.PAINT_BUCKET:
+		Global.ITEMS.FLASK_WHITE:
 			var rad_rot = white_out_degs[randi() % white_out_degs.size()]
 			whiteout_sprite.rotation_degrees = rad_rot
 			whiteout_sprite.visible = true

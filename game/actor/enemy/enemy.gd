@@ -44,14 +44,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		self.velocity.y = global_position.y
 		position.x += (speed * diriction) * delta
-		#position.y = 98
 	
 	if not is_facing_right:
 		flip_sprite()
 		is_facing_right = true
-	
-	
-
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
@@ -73,9 +69,3 @@ func _on_DamageArea_body_entered(body: Node) -> void:
 		else:
 			body.take_damage()
 
-
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	match anim_name:
-		"Die":
-			queue_free()

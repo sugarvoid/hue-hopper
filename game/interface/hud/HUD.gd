@@ -11,7 +11,6 @@ onready var combo_bar: TextureProgress = get_node("ComboBar")
 var is_combo_active: bool = false
 
 func _process(_delta):
-	
 	$ComboBar.value = $ComboBar/ComboTimer.time_left
 
 

@@ -1,12 +1,22 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://game/item/FallingItem.gd" type="Script" id=1]
 [ext_resource path="res://game/item/flask.png" type="Texture" id=2]
 [ext_resource path="res://game/item/paint_temp.png" type="Texture" id=3]
 [ext_resource path="res://game/item/hard-glass-impact.wav" type="AudioStream" id=4]
+[ext_resource path="res://game/item/flask_blue.png" type="Texture" id=5]
+[ext_resource path="res://game/item/flask_white.png" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 18, 18 )
 
 [sub_resource type="AtlasTexture" id=40]
 atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 18, 18 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 18, 18 )
 
 [sub_resource type="AtlasTexture" id=34]
@@ -39,9 +49,19 @@ region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
+"frames": [ SubResource( 41 ) ],
+"loop": true,
+"name": "flask_blue",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 40 ) ],
 "loop": true,
 "name": "flask_orange",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 42 ) ],
+"loop": true,
+"name": "flask_white",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
@@ -65,7 +85,7 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 11 )
-animation = "flask_orange"
+animation = "flask_white"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

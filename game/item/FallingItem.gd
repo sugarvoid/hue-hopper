@@ -10,16 +10,19 @@ var item_id: int # Used to apply debuffs
 var fall_speed: float = 0
 var rotation_speed: int
 var type: int
-var does_rotate: bool 
+var does_rotate: bool = true 
 
 func setup(id: int) -> void:
 	self.item_id = id
 
 	match(self.item_id):
-		Global.ITEMS.PAINT_BUCKET:
-			self.fall_speed = 190
-			self.rotation_speed = 9
+		Global.ITEMS.FLASK_BLUE:
+			self.fall_speed = 60
+			self.rotation_speed = 3
 		Global.ITEMS.FLASK_ORANGE:
+			self.fall_speed = 50
+			self.rotation_speed = 3
+		Global.ITEMS.FLASK_WHITE:
 			self.fall_speed = 50
 			self.rotation_speed = 3
 
@@ -35,19 +38,10 @@ func _set_sprite(item_type: int) -> void:
 	match item_type:
 		Global.ITEMS.FLASK_ORANGE:
 			animated_sprite.play("flask_orange")
-		Global.ITEMS.PAINT_BUCKET:
-			animated_sprite.play("paint_whole")
-
-# func do_item_effect() -> void:
-# 	match self.type:
-# 		Global.ITEMS.FLASK_ORANGE:
-# 			Signals.emit_signal("apply_effect", self.debuff_id)
-# 		Global.ITEMS.PAINT_BUCKET:
-# 			glass_hit_sound.play()
-# 			yield(glass_hit_sound, "finished")
-# 			Signals.emit_signal("apply_effect", Global.EFFECTS.WHITE_OUT)
-# 			self.fall_speed = 0
-# 			self.animated_sprite.play("paint_break")
+		Global.ITEMS.FLASK_BLUE:
+			animated_sprite.play("flask_blue")
+		Global.ITEMS.FLASK_WHITE:
+			animated_sprite.play("flask_white")
 
 func _on_Item_body_entered(body: Node) -> void:
 	if body.get_class() == "Player":

@@ -10,9 +10,9 @@ enum EFFECTS {
 }
 
 enum ITEMS {
-	PAINT_BUCKET,
 	FLASK_BLUE,
 	FLASK_ORANGE,
+	FLASK_WHITE,
 }
 
 enum ENEMY_TYPE {
@@ -70,6 +70,7 @@ var player_score: int
 
 
 func _ready():
+	randomize()
 	Global.create_high_score_file()
 
 func create_high_score_file():
@@ -91,3 +92,6 @@ func is_left_mouse_click(input: InputEventMouseButton) -> bool:
 
 func raise_error(msg: String) -> void:
 	assert(false, msg)
+	
+func choose(array):
+	return array[randi() % array.size()]

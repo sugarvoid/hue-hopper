@@ -104,10 +104,10 @@ func _update_HUD_hearts(player_health) -> void:
 	player.set_hearts(player_health)
 	self.HUD.update_hearts(player.get_hearts())
 	if player.get_hearts() <= 0:
+		Global.player_score = player.get_score()
 		go_to_gameover_screen()
 
 func _player_landed(player_color) -> void:
-	print(player_color)
 	bounceNumber += 1
 	
 	$Cam2D.shake(13)
@@ -118,25 +118,22 @@ func _player_landed(player_color) -> void:
 		player.display_point_text(CORRECT_POINT_VALUE, Color.whitesmoke)
 		player.add_to_score(CORRECT_POINT_VALUE)
 	else:
+		# TODO: Add some sort of difference 
 		match _current_difficulty:
 			DIFFICULTY.EASY:
-				self.iteam_manager.spawn_paint($ItemContainer)
-				#Signals.emit_signal("landed_on_wrong_color")
+				player.take_damage()
 			DIFFICULTY.MEDIUM:
-				for x in 2:
-					self.iteam_manager.spawn_paint($ItemContainer)
+				player.take_damage()
 			DIFFICULTY.HARD:
-				for x in 3:
-					self.iteam_manager.spawn_paint($ItemContainer)
+				player.take_damage()
 		if Global.is_fx_enabled:
 			$SoundWrong.play()
-		
-	##### emit_signal("player_stat_changed", self.player)
+
 	# GET NEW COLOR
 	_get_new_color()
 	# SEND HUD NEW COLOR
 	$ColoredSign.update_lights(current_color)
-	#Signals.emit_signal("color_changed", current_color)
+	self.HUD.update_score(player.get_score())
 
 func _play_falling_item_sound() -> void: 
 	$FallingItemBreak.play()
