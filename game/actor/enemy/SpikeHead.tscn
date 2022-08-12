@@ -9,13 +9,16 @@ extents = Vector2( 7, 9.5 )
 extents = Vector2( 4.5, 2.98687 )
 
 [node name="SpikeHead" instance=ExtResource( 1 )]
+type = 1
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 0, 0.5 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="." index="1"]
-frame = 1
+position = Vector2( 0, -6 )
+animation = "spike_head"
+frame = 6
 
 [node name="VisibilityNotifier2D" parent="." index="2"]
 position = Vector2( -2.38419e-07, 4 )

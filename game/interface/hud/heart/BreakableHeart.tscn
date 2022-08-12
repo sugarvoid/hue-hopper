@@ -48,7 +48,7 @@ tracks/0/keys = {
 }
 
 [node name="BreakableHeart" type="Node2D"]
-scale = Vector2( 1.2, 1.2 )
+scale = Vector2( 1.4, 1.4 )
 script = ExtResource( 2 )
 
 [node name="Whole" type="Sprite" parent="."]

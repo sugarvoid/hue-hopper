@@ -13,10 +13,12 @@ const MED_MAX_SCORE: int = 199
 const HARD_MIN_SCORE: int = 200
 const NUMBER_OF_COLORS: int = 200
 const CORRECT_POINT_VALUE: int = 5
-const WRONG_POINTS: int = -5
 
 onready var sound_manager: SoundManager = get_node("SoundManager")
 onready var iteam_manager: ItemManager = get_node("ItemManager")
+onready var enemy_manager: EnemyManager = get_node("EnemyManager")
+
+
 onready var LevelMusic = get_node("LevelMusic")
 onready var background = get_node("BackGround")
 onready var player: Player = get_node("Player")
@@ -46,10 +48,10 @@ func _ready():
 	_create_color_pattern()
 	if Global.is_music_enabled: 
 		LevelMusic.play()
-	Signals.emit_signal("color_changed", current_color) # Set color label to default player bottom
 	player.connect("player_has_landed_on_ground", self, "_player_landed")
 	player.connect("on_player_health_changed", self, "_update_HUD_hearts")
 	player.connect("on_falling_item_contact", self, "_play_falling_item_sound")
+	enemy_manager.connect("player_killed_enemy", self, "_player_killed_enemy")
 
 func _process(delta):
 	if !self.is_game_over:
@@ -116,7 +118,7 @@ func _player_landed(player_color) -> void:
 	if self.current_color == player_color:
 		SoundManager.play(SoundManager.AUDIO_PATHS.correct)
 		player.display_point_text(CORRECT_POINT_VALUE, Color.whitesmoke)
-		player.add_to_score(CORRECT_POINT_VALUE)
+		_add_to_player_score(CORRECT_POINT_VALUE)
 	else:
 		# TODO: Add some sort of difference 
 		match _current_difficulty:
@@ -133,7 +135,14 @@ func _player_landed(player_color) -> void:
 	_get_new_color()
 	# SEND HUD NEW COLOR
 	$ColoredSign.update_lights(current_color)
-	self.HUD.update_score(player.get_score())
+	###_update_hud()
 
 func _play_falling_item_sound() -> void: 
 	$FallingItemBreak.play()
+
+func _player_killed_enemy() -> void:
+	_add_to_player_score(20)
+
+func _add_to_player_score(amount: int) -> void:
+	self.player.add_to_score(amount)
+	self.HUD.update_score(player.get_score())

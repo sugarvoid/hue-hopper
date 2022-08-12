@@ -51,24 +51,22 @@ margin_left = 43.0
 margin_top = 33.0
 margin_right = -64.0
 margin_bottom = -149.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ChkBoxMusic" parent="ColorRect/VBoxContainer" instance=ExtResource( 2 )]
 margin_right = 95.0
+margin_bottom = 20.0
 label_text = "Music"
 
 [node name="ChkBoxFx" parent="ColorRect/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 26.0
+margin_top = 24.0
 margin_right = 95.0
-margin_bottom = 48.0
+margin_bottom = 44.0
 label_text = "Sound Fx"
 
 [node name="ChkBoxRumble" parent="ColorRect/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 52.0
+margin_top = 48.0
 margin_right = 95.0
-margin_bottom = 74.0
+margin_bottom = 68.0
 label_text = "Rumble"
 
 [node name="ButtonMainMenu" parent="ColorRect" instance=ExtResource( 3 )]

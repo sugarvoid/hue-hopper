@@ -7,6 +7,7 @@ signal on_player_health_changed
 signal player_has_landed_on_enemy
 signal on_falling_item_contact
 
+
 """
 Player Data/Stats
 """
@@ -134,7 +135,7 @@ func _physics_process(delta: float) -> void:
 			#########velocity.y = -self.bounce_force
 		elif is_on_floor(): # Landed on enemy
 			rumble_controller(0.6, 0.1)
-			Signals.emit_signal("player_has_landed_on_enemy")
+			emit_signal("player_has_landed_on_enemy")
 			
 			velocity.y = (-self.bounce_force + 100)
 		

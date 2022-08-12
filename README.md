@@ -21,15 +21,11 @@ A game about rotating and bouncing. This is the first "game" I've made so the co
 ### Art
 
 - "Input Prompts Pixel 16×" by [Kenney.nl](https://kenney.itch.io/)
-- "Pixel Platformer" by [Kenney.nl](https://kenney.itch.io/)
+- "Pixel Platformer"(With minor modifications by me) by [Kenney.nl](https://kenney.itch.io/)
 
 ### Fonts
 
-- "Kultro" by Muchammad Wahono Sapto Adi Saputro
-- "Petita" by Manfred Klein
-- "Wash Your Hand" by Syaf Rizal(Khurasan)
-- "Kronika" by Apostrophic Labs
-- "Want Coffee" by Syaf Rizal(Khurasan)
+- "Abaddon" by Nathan Scott [is licensed under CC0 3.0](https://creativecommons.org/licenses/by/3.0/)
 
 ### Sounds
 

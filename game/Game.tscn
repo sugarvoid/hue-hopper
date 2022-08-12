@@ -6,7 +6,7 @@
 [ext_resource path="res://game/interface/menu/PauseScreen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/actor/player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/interface/hud/HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://game/utils/spawner/EnemySpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/utils/spawner/EnemyManager.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game/interface/hud/DebuffCounter.tscn" type="PackedScene" id=9]
 [ext_resource path="res://game/game.gd" type="Script" id=10]
 [ext_resource path="res://game/images/background.png" type="Texture" id=11]
@@ -23,7 +23,8 @@ script = ExtResource( 10 )
 [node name="SoundManager" parent="." instance=ExtResource( 15 )]
 
 [node name="ItemManager" parent="." instance=ExtResource( 2 )]
-position = Vector2( 96.3258, -21.4057 )
+
+[node name="EnemyManager" parent="." instance=ExtResource( 7 )]
 
 [node name="BackGround" type="Sprite" parent="."]
 texture = ExtResource( 11 )
@@ -37,9 +38,6 @@ z_index = -4
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 134.382, 119.891 )
 z_index = 2
-
-[node name="EnemySpawner" parent="." instance=ExtResource( 7 )]
-position = Vector2( 216, 217 )
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )

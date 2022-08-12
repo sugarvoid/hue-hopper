@@ -46,12 +46,12 @@ rect_scale = Vector2( 0.4, 0.4 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="TextureRect2"]
-margin_left = 65.0625
+margin_left = 117.563
 margin_top = 168.35
-margin_right = 569.062
+margin_right = 621.563
 margin_bottom = 316.35
-rect_scale = Vector2( 0.7, 0.7 )
-custom_colors/font_color = Color( 0.996078, 0.905882, 0.0823529, 1 )
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.968627, 0.729412, 0.0156863, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Kitargo"
 

@@ -1,4 +1,11 @@
+class_name EnemyManager
 extends Node
+
+signal player_killed_enemy
+
+const p_box = preload("res://game/actor/enemy/BoxBody.tscn")
+const p_spikehead = preload("res://game/actor/enemy/SpikeHead.tscn")
+const p_bat = preload("res://game/actor/enemy/Bat.tscn")
 
 const BOTTON_RIGHT: Vector2 = Vector2(216, 217)
 const BOTTON_LEFT: Vector2 = Vector2(-13, 217)
@@ -10,7 +17,7 @@ const enemy_options : Array = [
 	"_create_bat",
 ]
 
-onready var timer = get_node("Timer")
+onready var timer = get_node("SpawnTimer")
 
 var next_spawn_time: float = 3.0
 var max_spawn_time: float = 5.0
@@ -20,8 +27,17 @@ func _ready() -> void:
 	randomize()
 	timer.start(next_spawn_time)
 
+func _connect_child_signals(child: Enemy) -> void:
+	child.connect("player_killed_me", self, "_on_player_killed_enemy")
+	connect(child.player_killed_enemy, self, "test_func")
+
+func test_func():
+	print("DING!!!!!!")
+
+func _on_player_killed_enemy() -> void:
+	emit_signal("player_killed_ememy")
+
 func _create_boxbody() -> Enemy:
-	var p_box = preload("res://game/actor/enemy/BoxBody.tscn")
 	var box = p_box.instance()
 	box.type = Global.ENEMY_TYPE.BOX 
 	box.speed = 30
@@ -29,14 +45,12 @@ func _create_boxbody() -> Enemy:
 	return box
 
 func _create_spikehead() -> Enemy:
-	var p_spikehead = preload("res://game/actor/enemy/SpikeHead.tscn")
 	var spikehead = p_spikehead.instance()
 	spikehead.speed = 40
 	spikehead.type = Global.ENEMY_TYPE.SPIKE 
 	return spikehead
 
 func _create_bat() -> Enemy:
-	var p_bat = preload("res://game/actor/enemy/Bat.tscn")
 	var bat = p_bat.instance()
 	bat.speed = 70
 	bat.type = Global.ENEMY_TYPE.BAT
@@ -62,7 +76,7 @@ func _on_Timer_timeout() -> void:
 		else:
 			enemy.position = BOTTON_RIGHT
 		
-	get_tree().current_scene.add_child(enemy)
+	add_child(enemy)
 	
 	max_spawn_time -= 0.15
 	next_spawn_time = rand_range(max_spawn_time, min_spawn_time)

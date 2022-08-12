@@ -31,7 +31,7 @@ func _on_TimerFlask_timeout() -> void:
 	var new_flask = p_FallingItem.instance()
 	new_flask.setup(Global.choose([Global.ITEMS.FLASK_ORANGE, Global.ITEMS.FLASK_BLUE, Global.ITEMS.FLASK_WHITE]))
 	new_flask.position = Vector2(x_pos, position.y) 
-	get_tree().current_scene.add_child(new_flask)
+	add_child(new_flask)
 	# RESET TIMER
 	next_spawn_time = rand_range(min_spawn_time, max_spawn_time)
 	timer_flask.start(next_spawn_time)

@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://game/sound/533034__evretro__8-bit-game-over-sound-tune.wav" type="AudioStream" id=1]
-[ext_resource path="res://game/interface/fonts/Kenney Pixel.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://game/interface/fonts/Abaddon Light.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://game/interface/menu/GameOver.gd" type="Script" id=3]
+[ext_resource path="res://game/interface/fonts/Abaddon Bold.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
-font_data = ExtResource( 2 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
@@ -24,20 +25,20 @@ margin_bottom = 252.561
 color = Color( 0.188235, 0.188235, 0.188235, 1 )
 
 [node name="StaticText" type="Label" parent="."]
-margin_left = 47.0
-margin_top = 61.0
-margin_right = 151.0
-margin_bottom = 85.0
+margin_left = 34.0
+margin_top = 54.0
+margin_right = 178.0
+margin_bottom = 90.0
 custom_colors/font_color = Color( 0.0470588, 0.823529, 0.996078, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Game Over"
 
 [node name="PlayerScore" type="Label" parent="."]
 anchor_top = -1.765
-margin_left = 65.0
-margin_top = 100.0
-margin_right = 130.0
-margin_bottom = 114.0
+margin_left = 64.0
+margin_top = 97.0
+margin_right = 129.0
+margin_bottom = 115.0
 custom_fonts/font = SubResource( 2 )
 text = "score"
 align = 1
@@ -54,13 +55,10 @@ align = 1
 
 [node name="HighScore" type="Label" parent="."]
 anchor_top = -1.765
-margin_left = 68.0
-margin_top = 119.0
-margin_right = 124.0
-margin_bottom = 133.0
+margin_left = 62.0
+margin_top = 121.0
+margin_right = 137.0
+margin_bottom = 139.0
 custom_fonts/font = SubResource( 2 )
 text = "[highscore]"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}

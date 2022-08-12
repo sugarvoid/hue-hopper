@@ -3,9 +3,22 @@
 [ext_resource path="res://game/actor/enemy/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/images/enmeies.png" type="Texture" id=2]
 [ext_resource path="res://game/images/characters.png" type="Texture" id=3]
+[ext_resource path="res://game/actor/enemy/bat_sheet.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=24]
-extents = Vector2( 11.0097, 8 )
+extents = Vector2( 11, 7.5 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 4 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 4 )
+region = Rect2( 48, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
@@ -43,20 +56,6 @@ region = Rect2( 0, 0, 24, 24 )
 atlas = ExtResource( 2 )
 region = Rect2( 24, 0, 24, 24 )
 
-[sub_resource type="StreamTexture" id=26]
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = SubResource( 26 )
-region = Rect2( 0, 0, 15, 20 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = SubResource( 26 )
-region = Rect2( 15, 0, 15, 20 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = SubResource( 26 )
-region = Rect2( 30, 0, 15, 20 )
-
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 3 )
 region = Rect2( 144, 48, 24, 24 )
@@ -75,6 +74,11 @@ region = Rect2( 72, 0, 24, 24 )
 
 [sub_resource type="SpriteFrames" id=25]
 animations = [ {
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
+"loop": true,
+"name": "bat",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "blue",
@@ -100,11 +104,6 @@ animations = [ {
 "name": "red",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 22 ) ],
-"loop": true,
-"name": "spike",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "wings",
@@ -120,16 +119,14 @@ animations = [ {
 collision_mask = 1
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 1.00968, 1 )
+position = Vector2( 0.99999, 0.5 )
 shape = SubResource( 24 )
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 25 )
-animation = "wings"
-frame = 0
 
 [node name="DamageArea" parent="." index="3"]
 collision_layer = 2
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
-position = Vector2( 0.5, -1.98688 )
+position = Vector2( 0.5, -0.99999 )

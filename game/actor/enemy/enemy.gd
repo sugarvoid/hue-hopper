@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 class_name Enemy
 
+
+signal player_killed_me
+
 onready var animated_sprite = $AnimatedSprite
 
 
@@ -62,6 +65,7 @@ func _on_DamageArea_body_entered(body: Node) -> void:
 			if self.color == body.get_bottom_color().to_lower(): # Checks if player bottom matches enemy color
 				#TODO: needs fixing. position 
 				#$AnimationPlayer.play("Die")
+				emit_signal("player_killed_me")
 				_slide_down()
 				#queue_free()
 			else:
