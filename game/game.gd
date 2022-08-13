@@ -22,6 +22,7 @@ onready var enemy_manager: EnemyManager = get_node("EnemyManager")
 onready var LevelMusic = get_node("LevelMusic")
 onready var background = get_node("BackGround")
 onready var player: Player = get_node("Player")
+onready var controls_sprite: Sprite = get_node("ControlsSprite")
 onready var combo_bar: TextureProgress = get_node("HUD/ComboBar")
 onready var HUD: HUD = get_node("HUD") 
 

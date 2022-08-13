@@ -14,10 +14,6 @@ extents = Vector2( 9.5, 6 )
 position = Vector2( 0.5, 0.58191 )
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite" parent="." index="1"]
-animation = "blue"
-frame = 0
-
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
 position = Vector2( 0.5, -16 )
 shape = SubResource( 2 )
