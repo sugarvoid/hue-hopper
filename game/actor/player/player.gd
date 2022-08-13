@@ -18,6 +18,8 @@ const ACCELERATION: float = 600.00
 const AIR_RES: float = 0.02
 const FRICTION: float = 0.15
 
+const p_Ghost: PackedScene = preload("res://game/actor/player/ghost_sprite/GhostSprite.tscn")
+
 const white_out_degs: Array = [
 	0,
 	90,
@@ -48,6 +50,7 @@ onready var green: Position2D = get_node("Ball/Green")
 onready var yellow: Position2D = get_node("Ball/Yellow")
 onready var timer: Timer = get_node("Timer")
 onready var ball: Node2D = get_node("Ball")
+onready var ball_sprite: Sprite = get_node("Ball/Sprite")
 onready var whiteout_sprite = get_node("Ball/WhiteOut")
 onready var grey_guy: AnimatedSprite = get_node("GreyGuy")
 onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
@@ -118,6 +121,7 @@ func _physics_process(delta: float) -> void:
 		if !is_on_floor():
 			rotation_dir = 0
 			if Input.is_action_just_pressed("slam"):
+				#spawn ghost
 				self.GRAVITY = 9000
 			if Input.is_action_pressed("rotate_right"):
 				grey_guy.play("walking")
