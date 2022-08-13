@@ -107,6 +107,8 @@ func _update_HUD_hearts(player_health) -> void:
 	player.set_hearts(player_health)
 	self.HUD.update_hearts(player.get_hearts())
 	if player.get_hearts() <= 0:
+		# TODO: wipe enemies 
+		# play a death animation 
 		Global.player_score = player.get_score()
 		go_to_gameover_screen()
 

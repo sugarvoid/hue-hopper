@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 
 signal player_has_landed_on_ground(c_color)
-signal on_player_health_changed
+signal on_player_health_changed()
 signal player_has_landed_on_enemy
 signal on_falling_item_contact
 
@@ -17,8 +17,6 @@ const DEFAULT_BOUCE_FORCE: float = 400.00
 const ACCELERATION: float = 600.00
 const AIR_RES: float = 0.02
 const FRICTION: float = 0.15
-
-const p_Ghost: PackedScene = preload("res://game/actor/player/ghost_sprite/GhostSprite.tscn")
 
 const white_out_degs: Array = [
 	0,
@@ -44,6 +42,7 @@ var max_herts: int
 var _hearts: int
 
 
+onready var dash: Dash = get_node("Dash")
 onready var purple: Position2D = $Ball/Purple
 onready var red: Position2D = get_node("Ball/Red")
 onready var green: Position2D = get_node("Ball/Green")
@@ -122,6 +121,7 @@ func _physics_process(delta: float) -> void:
 			rotation_dir = 0
 			if Input.is_action_just_pressed("slam"):
 				#spawn ghost
+				dash.start_dash(self, 0.15)
 				self.GRAVITY = 9000
 			if Input.is_action_pressed("rotate_right"):
 				grey_guy.play("walking")
