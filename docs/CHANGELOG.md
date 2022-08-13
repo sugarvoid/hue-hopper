@@ -6,7 +6,8 @@ All notable changes to this project will be documented in this file.
 - Changed all enemey sprites
 - Changed fonts to Abaddon
 ### Added
-- Added colored lights to floor of level
+- Added ghost effect to slam
+- Added colored lights to floor of level (working on)
 
 
 ## [0.5.0] - 2022-08-11
