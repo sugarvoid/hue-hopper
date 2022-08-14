@@ -30,6 +30,7 @@ func _on_TimerFlask_timeout() -> void:
 	var x_pos := rand_range(view_rect.position.x, view_rect.end.x)
 	var new_flask = p_FallingItem.instance()
 	new_flask.setup(Global.choose([Global.ITEMS.FLASK_ORANGE, Global.ITEMS.FLASK_BLUE, Global.ITEMS.FLASK_WHITE]))
+	# new_flask.setup(Global.ITEMS.FLASK_ORANGE)
 	new_flask.position = Vector2(x_pos, position.y) 
 	add_child(new_flask)
 	# RESET TIMER

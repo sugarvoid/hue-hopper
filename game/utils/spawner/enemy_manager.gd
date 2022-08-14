@@ -46,7 +46,7 @@ func _create_boxbody() -> Enemy:
 
 func _create_spikehead() -> Enemy:
 	var spikehead = p_spikehead.instance()
-	spikehead.speed = 40
+	spikehead.speed = 50
 	spikehead.type = Global.ENEMY_TYPE.SPIKE 
 	return spikehead
 
