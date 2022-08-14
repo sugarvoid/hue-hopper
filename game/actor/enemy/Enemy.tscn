@@ -104,8 +104,8 @@ animations = [ {
 }, {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
 "loop": true,
-"name": "spike_head",
-"speed": 5.0
+"name": "spike",
+"speed": 7.0
 }, {
 "frames": [ SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,

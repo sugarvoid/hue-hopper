@@ -44,7 +44,7 @@ func _create_boxbody() -> Enemy:
 	box.color = box.get_random_color()
 	return box
 
-func _create_spikehead() -> Enemy:
+func _create_spikehead():
 	var spikehead = p_spikehead.instance()
 	spikehead.speed = 50
 	spikehead.type = Global.ENEMY_TYPE.SPIKE 

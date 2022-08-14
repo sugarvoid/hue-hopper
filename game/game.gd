@@ -138,7 +138,20 @@ func _player_landed(player_color) -> void:
 	_get_new_color()
 	# SEND HUD NEW COLOR
 	$ColoredSign.update_lights(current_color)
+	## UPDATE BACKGROUND
+	_update_background(current_color)
 	###_update_hud()
+
+func _update_background(color: String) -> void:
+	match color:
+		"Yellow":
+			$BackGround.frame = 3
+		"Purple":
+			$BackGround.frame = 2
+		"Red":
+			$BackGround.frame = 0
+		"Green":
+			$BackGround.frame = 1
 
 func _play_falling_item_sound() -> void: 
 	$FallingItemBreak.play()
