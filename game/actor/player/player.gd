@@ -4,8 +4,8 @@ extends KinematicBody2D
 
 signal player_has_landed_on_ground(c_color)
 signal on_player_health_changed()
-signal player_has_landed_on_enemy
-signal on_falling_item_contact
+signal player_has_landed_on_enemy()
+signal on_falling_item_contact()
 
 
 const DEFAULT_ROTATION_SPEED: float = 5.3
@@ -16,7 +16,8 @@ const FRICTION: float = 0.15
 const STARTING_HEARTS: int = 10
 const p_FloatingText: PackedScene = preload("res://game/interface/floating_text/floating_text.tscn")
 const WHITEOUT_DEGREES: Array = [0, 90, 180]
-
+const NORMAL_BOUCE: float = 600.00
+const LOWER_BOUCE: float = 400.00 
 var GRAVITY: float = 600.0
 
 var bounce_force: float
@@ -34,9 +35,10 @@ var colors: Array
 var max_herts: int
 var _hearts: int
 var rotate_debuff: int
+var bottom_color: String
 
 onready var dash: Dash = get_node("Dash")
-onready var purple: Position2D = $Ball/Purple
+onready var purple: Position2D = get_node("Ball/Purple")
 onready var red: Position2D = get_node("Ball/Red")
 onready var green: Position2D = get_node("Ball/Green")
 onready var yellow: Position2D = get_node("Ball/Yellow")
@@ -46,7 +48,7 @@ onready var ball_sprite: Sprite = get_node("Ball/Sprite")
 onready var whiteout_sprite = get_node("Ball/WhiteOut")
 onready var grey_guy: AnimatedSprite = get_node("GreyGuy")
 onready var blink_animation_player: AnimationPlayer = $BlinkAnimationPlayer
-onready var invic_timer: Timer = $InvicTimer
+onready var invic_timer: Timer = get_node("InvicTimer")
 onready var debuff_timer: Timer = $DebuffTimer
 
 
@@ -54,7 +56,6 @@ func get_class() -> String:
 	return "Player"
 
 func _ready() -> void:
-	self.speed = 70.00
 	_clear_debuff()
 
 func set_hearts(amount: int) -> void:
@@ -88,7 +89,7 @@ func _white_out():
 func flip_sprite() -> void:
 	self.scale.x *= -1 
 
-func _bounce() -> void:
+func bounce() -> void:
 	self.GRAVITY = 600
 	velocity.y = -self.bounce_force
 
@@ -99,10 +100,11 @@ func _update_sprite(x_input: int) -> void:
 		grey_guy.set_flip_h(false)
 
 func _process(delta: float) -> void:
+	bottom_color = self.get_bottom_color()
 	
 	if has_game_started:
 		if self.velocity.y == 0:
-			_bounce()
+			bounce()
 		
 		var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left") # 1 = right  -1 = left
 		velocity.x += x_input * ACCELERATION * delta
@@ -127,7 +129,7 @@ func _process(delta: float) -> void:
 		
 		if is_on_floor() and self.global_position.y >= 218: # Actully laned
 			rumble_controller(0.3, 0.2)
-			emit_signal("player_has_landed_on_ground", get_bottom_color())
+			emit_signal("player_has_landed_on_ground", self.bottom_color)
 			
 		elif is_on_floor(): # Landed on enemy
 			rumble_controller(0.6, 0.1)
@@ -230,6 +232,7 @@ func _clear_debuff() -> void:
 	self.bounce_force = DEFAULT_BOUCE_FORCE
 	self.rotation_speed = DEFAULT_ROTATION_SPEED
 	self.rotate_debuff = 1
+	self.speed = 70
 	whiteout_sprite.rotation_degrees = 0
 	whiteout_sprite.visible = false
 

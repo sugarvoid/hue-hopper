@@ -6,7 +6,7 @@
 extents = Vector2( 11.5, 10.0819 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 11.75, 6 )
+extents = Vector2( 11.8434, 6 )
 
 [node name="BoxBody" instance=ExtResource( 1 )]
 
@@ -16,8 +16,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="." index="1"]
 animation = "green"
-frame = 1
 
 [node name="CollisionShape2D" parent="DamageArea" index="0"]
-position = Vector2( 0.75, -15 )
+position = Vector2( 0.398275, -15.4237 )
 shape = SubResource( 2 )

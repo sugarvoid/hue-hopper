@@ -7,7 +7,6 @@ enum DIFFICULTY {
 	HARD
 }
 
-#const EASY_MAX_SCORE: int = 100
 const MED_MIN_SCORE: int = 100
 const MED_MAX_SCORE: int = 199
 const HARD_MIN_SCORE: int = 200
@@ -20,7 +19,7 @@ onready var enemy_manager: EnemyManager = get_node("EnemyManager")
 
 
 onready var LevelMusic = get_node("LevelMusic")
-onready var background = get_node("BackGround")
+onready var background: Sprite = get_node("BackGround")
 onready var player: Player = get_node("Player")
 onready var controls_sprite: Sprite = get_node("ControlsSprite")
 onready var combo_bar: TextureProgress = get_node("HUD/ComboBar")

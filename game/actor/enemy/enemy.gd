@@ -15,7 +15,7 @@ var velocity: Vector2 = Vector2.ZERO
 var diriction: int = -1
 var is_facing_right: bool = true
 var speed: float
-var color: String
+var color: String = "green"
 var colors: Array = [
 	"red",
 	"purple",
@@ -63,7 +63,7 @@ func _on_DamageArea_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		if self.type == Global.ENEMY_TYPE.BOX: 
 			print(("landed on box body"))
-			if self.color == body.get_bottom_color().to_lower(): # Checks if player bottom matches enemy color
+			if self.color == body.bottom_color.to_lower(): # Checks if player bottom matches enemy color
 				#TODO: needs fixing. position 
 				#$AnimationPlayer.play("Die")
 				
@@ -75,4 +75,5 @@ func _on_DamageArea_body_entered(body: Node) -> void:
 				body.take_damage()
 		else:
 			body.take_damage()
+		body.bounce()
 
