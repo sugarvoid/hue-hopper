@@ -76,6 +76,15 @@ margin_bottom = 17.3036
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 4 )
 
+[node name="LblName" type="Label" parent="."]
+margin_left = 116.0
+margin_top = 230.0
+margin_right = 260.0
+margin_bottom = 248.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 4 )
+text = "A game by Sugarvoid"
+
 [node name="Label" type="Label" parent="."]
 margin_left = 19.0
 margin_top = 168.0

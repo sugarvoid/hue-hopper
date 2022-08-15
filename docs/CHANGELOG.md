@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Added ghost effect to slam
 - Added colored lights to floor of level (working on)
+### Removed
+- Removed kitargo splash screen 
 
 
 ## [0.5.0] - 2022-08-11

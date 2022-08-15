@@ -46,14 +46,14 @@ rect_scale = Vector2( 0.4, 0.4 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="TextureRect2"]
-margin_left = 85.0625
-margin_top = 183.35
-margin_right = 720.062
-margin_bottom = 350.35
-rect_scale = Vector2( 0.5, 0.5 )
+margin_left = 83.0
+margin_top = 186.0
+margin_right = 1175.0
+margin_bottom = 503.0
+rect_scale = Vector2( 0.3, 0.3 )
 custom_colors/font_color = Color( 0.968627, 0.729412, 0.0156863, 1 )
 custom_fonts/font = ExtResource( 3 )
-text = "SugarVoid"
+text = "Made with Godot"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
