@@ -3,7 +3,7 @@ extends Control
 func _ready() -> void:
 	set_visiblity(false) # Hides pause screen and all childen 
 
-func _process(_delta):
+func _process(_delta) -> void:
 	if $CanvasLayer/Background.visible:
 		$AnimationPlayer.play("blink")
 	else:

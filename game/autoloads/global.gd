@@ -1,14 +1,6 @@
 extends Node
 
 
-enum EFFECTS {
-	ROTATION_DOWN,
-	BOUNCE_DOWN,
-	ROTATION_UP,
-	WHITE_OUT,
-	HEALTH_UP
-}
-
 enum ITEMS {
 	FLASK_BLUE,
 	FLASK_ORANGE,
@@ -22,16 +14,11 @@ enum ENEMY_TYPE {
 }
 
 
-"""
-Game Constants
-"""
 const HIGH_SCORE_FILE: String = "user://highscore.txt"
 const prillyBlue: String = "329cc3"
 const rubyRed: String = "c13354"
 const white: String = "ffffff"
-const GAME_VERSION = "0.5.0"
-
-
+const GAME_VERSION = "0.5.1"
 const SCENE_PATHS: Dictionary = {
 	"game_over" : "res://game/interface/menu/GameOver.tscn",
 	"start_screen" : "res://game/interface/menu/StartScreen.tscn",
@@ -52,22 +39,13 @@ static func change_rect_color(rect: ColorRect, color: String) -> void:
 	rect.color = color
 
 
-"""
-Player Data
-"""
-
-
-var _current_debuff: String
 var is_music_enabled: bool = true
 var is_fx_enabled: bool = true
 var is_fullscreen_enabled: bool = false
 var is_rumble_enabled: bool = true
 var music_volume: float
 var fx_volume: float
-var current_color: int 
-
 var player_score: int
-
 
 func _ready():
 	randomize()

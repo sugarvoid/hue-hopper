@@ -98,7 +98,7 @@ func _update_sprite(x_input: int) -> void:
 	elif x_input < 0:
 		grey_guy.set_flip_h(false)
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	
 	if has_game_started:
 		if self.velocity.y == 0:

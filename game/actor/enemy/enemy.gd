@@ -5,14 +5,14 @@ class_name Enemy
 
 signal player_killed_me
 
-onready var animated_sprite = $AnimatedSprite
+onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 
 
 export(int, "Box", "Spike", "Bat" ) var type
 const GRAVITY: float = 700.0
-const UP = Vector2(0, -1)
+const UP: Vector2 = Vector2(0, -1)
 var velocity: Vector2 = Vector2.ZERO
-var diriction = -1
+var diriction: int = -1
 var is_facing_right: bool = true
 var speed: float
 var color: String

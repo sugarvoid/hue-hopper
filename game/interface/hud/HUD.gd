@@ -2,7 +2,7 @@ class_name HUD
 extends Control
 
 
-var HeartIcon = preload("res://game/interface/hud/HeartIcon.tscn")
+const HeartIcon: PackedScene = preload("res://game/interface/hud/HeartIcon.tscn")
 
 onready var heart_container: HBoxContainer = get_node("HeartContainer")
 onready var debuff_label: Label = get_node("DebuffLabel")
@@ -12,7 +12,6 @@ var is_combo_active: bool = false
 
 func _process(_delta):
 	$ComboBar.value = $ComboBar/ComboTimer.time_left
-
 
 func clear_hearts() -> void:
 	for heart in heart_container.get_children():

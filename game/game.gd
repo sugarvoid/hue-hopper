@@ -42,7 +42,7 @@ var colors: Array = [
 	"Green"
 ]
 
-func _ready():
+func _ready() -> void:
 	start_new_game()
 	rng = RandomNumberGenerator.new()
 	_update_HUD_hearts(player.get_hearts())
@@ -54,7 +54,7 @@ func _ready():
 	player.connect("on_falling_item_contact", self, "_play_falling_item_sound")
 	enemy_manager.connect("player_killed_enemy", self, "_player_killed_enemy")
 
-func _process(delta):
+func _process(delta) -> void:
 	if !self.is_game_over:
 		_determine_game_difficulty()
 		$DebuffCounter.frame = player.debuff_timer.time_left
