@@ -3,9 +3,9 @@ extends Node
 
 signal player_killed_enemy
 
-const p_box = preload("res://game/actor/enemy/BoxBody.tscn")
-const p_spikehead = preload("res://game/actor/enemy/SpikeHead.tscn")
-const p_bat = preload("res://game/actor/enemy/Bat.tscn")
+##const p_box = preload("res://game/actor/enemy/SoftHead.tscn")
+###const p_spikehead = preload("res://game/actor/enemy/SpikeHead.tscn")
+####const p_bat = preload("res://game/actor/enemy/Bat.tscn")
 
 const BOTTON_RIGHT: Vector2 = Vector2(216, 217)
 const BOTTON_LEFT: Vector2 = Vector2(-13, 217)
@@ -13,8 +13,8 @@ const TOP_RIGHT: Vector2 = Vector2(216, 180)
 const TOP_LEFT: Vector2 = Vector2(-25, 180)
 const enemy_options : Array = [
 	"_create_spikehead",
-	"_create_boxbody",
-	"_create_bat",
+	### "_create_boxbody",
+	### "_create_bat",
 ]
 
 onready var timer = get_node("SpawnTimer")

@@ -6,7 +6,7 @@
 [ext_resource path="res://game/interface/menu/PauseScreen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/actor/player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://game/interface/hud/HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://game/utils/spawner/EnemyManager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/manager/EnemyManager.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game/level/background-Sheet.png" type="Texture" id=8]
 [ext_resource path="res://game/interface/hud/DebuffCounter.tscn" type="PackedScene" id=9]
 [ext_resource path="res://game/game.gd" type="Script" id=10]
@@ -19,6 +19,8 @@
 
 [node name="Game" type="Node"]
 script = ExtResource( 10 )
+
+[node name="LevelTimer" type="Timer" parent="."]
 
 [node name="SoundManager" parent="." instance=ExtResource( 15 )]
 

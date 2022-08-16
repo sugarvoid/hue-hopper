@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "EnemyManager",
 "language": "GDScript",
-"path": "res://game/utils/spawner/enemy_manager.gd"
+"path": "res://game/manager/enemy_manager.gd"
 }, {
 "base": "Area2D",
 "class": "FallingItem",

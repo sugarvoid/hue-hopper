@@ -12,6 +12,9 @@ const MED_MAX_SCORE: int = 199
 const HARD_MIN_SCORE: int = 200
 const NUMBER_OF_COLORS: int = 200
 const CORRECT_POINT_VALUE: int = 5
+const EMENY_KILLED_POINTS: int = 20
+const CAM_SHAKE_AMOUNT: int = 13
+const LEVEL_LENGTH: float = 30.00
 
 onready var sound_manager: SoundManager = get_node("SoundManager")
 onready var iteam_manager: ItemManager = get_node("ItemManager")
@@ -19,11 +22,11 @@ onready var enemy_manager: EnemyManager = get_node("EnemyManager")
 
 
 onready var LevelMusic = get_node("LevelMusic")
-onready var background: Sprite = get_node("BackGround")
+onready var background_image: Sprite = get_node("BackGround")
 onready var player: Player = get_node("Player")
 onready var controls_sprite: Sprite = get_node("ControlsSprite")
 onready var combo_bar: TextureProgress = get_node("HUD/ComboBar")
-onready var HUD: HUD = get_node("HUD") 
+onready var hud: HUD = get_node("HUD") 
 
 var is_game_over: bool 
 var rng :RandomNumberGenerator
@@ -102,19 +105,19 @@ func _get_new_color() -> void:
 func _end_game() -> void:
 	pass
 
-func _update_HUD_hearts(player_health) -> void:
+func _update_HUD_hearts(player_health: int) -> void:
 	player.set_hearts(player_health)
-	self.HUD.update_hearts(player.get_hearts())
+	self.hud.update_hearts(player.get_hearts())
 	if player.get_hearts() <= 0:
 		# TODO: wipe enemies 
 		# play a death animation 
 		Global.player_score = player.get_score()
 		go_to_gameover_screen()
 
-func _player_landed(player_color) -> void:
+func _player_landed(player_color: String) -> void:
 	bounceNumber += 1
 	
-	$Cam2D.shake(13)
+	$Cam2D.shake(CAM_SHAKE_AMOUNT)
 	
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:
@@ -144,20 +147,20 @@ func _player_landed(player_color) -> void:
 func _update_background(color: String) -> void:
 	match color:
 		"Blue":
-			$BackGround.frame = 3
+			self.background_image.frame = 3
 		"Purple":
-			$BackGround.frame = 1
+			self.background_image.frame = 1
 		"Yellow":
-			$BackGround.frame = 0
+			self.background_image.frame = 0
 		"Orange":
-			$BackGround.frame = 2
+			self.background_image.frame = 2
 
 func _play_falling_item_sound() -> void: 
 	$FallingItemBreak.play()
 
 func _player_killed_enemy() -> void:
-	_add_to_player_score(20)
+	_add_to_player_score(EMENY_KILLED_POINTS)
 
 func _add_to_player_score(amount: int) -> void:
 	self.player.add_to_score(amount)
-	self.HUD.update_score(player.get_score())
+	self.hud.update_score(player.get_score())

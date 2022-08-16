@@ -40,7 +40,6 @@ func _physics_process(delta: float) -> void:
 	if self.type != Global.ENEMY_TYPE.BAT:
 		if velocity.y > GRAVITY:
 			velocity.y = GRAVITY
-			
 		velocity.y += GRAVITY * delta
 		velocity.x = speed * diriction
 		velocity = move_and_slide(velocity)
