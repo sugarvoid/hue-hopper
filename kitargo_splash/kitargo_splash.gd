@@ -8,11 +8,11 @@ onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 const MAIN_MENU_SCENE: String = "res://game/interface/menu/StartScreen.tscn"
 
 func _ready() -> void:
-	start_timer.start(0.5)
+	start_timer.start(0.3)
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "rise_logo":
-		pass#pause_timer.start(1.9)
+		pass
 
 func _on_AudioStreamPlayer_finished():
 	Global.go_to_start_screen()

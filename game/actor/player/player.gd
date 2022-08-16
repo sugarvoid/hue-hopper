@@ -38,10 +38,13 @@ var rotate_debuff: int
 var bottom_color: String
 
 onready var dash: Dash = get_node("Dash")
+
 onready var purple: Position2D = get_node("Ball/Purple")
-onready var red: Position2D = get_node("Ball/Red")
-onready var green: Position2D = get_node("Ball/Green")
+onready var blue: Position2D = get_node("Ball/Blue")
+onready var orange: Position2D = get_node("Ball/Orange")
 onready var yellow: Position2D = get_node("Ball/Yellow")
+
+
 onready var timer: Timer = get_node("Timer")
 onready var ball: Node2D = get_node("Ball")
 onready var ball_sprite: Sprite = get_node("Ball/Sprite")
@@ -94,9 +97,9 @@ func bounce() -> void:
 	velocity.y = -self.bounce_force
 
 func _update_sprite(x_input: int) -> void:
-	if x_input > 0:
+	if x_input < 0:
 		grey_guy.set_flip_h(true)
-	elif x_input < 0:
+	elif x_input > 0:
 		grey_guy.set_flip_h(false)
 
 func _process(delta: float) -> void:
@@ -180,8 +183,8 @@ func find_largest_dict_val(dict: Dictionary):
 func get_bottom_color() -> String:
 	var dic: Dictionary = {
 		"Purple": purple.global_position.y,
-		"Red": red.global_position.y,
-		"Green": green.global_position.y,
+		"Orange": orange.global_position.y,
+		"Blue": blue.global_position.y,
 		"Yellow": yellow.global_position.y,
 	}
 	return find_largest_dict_val(dic)

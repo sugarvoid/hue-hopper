@@ -32,13 +32,13 @@ var current_multiplier: int = 1
 var combo_fever: bool = false
 var combo_time = 5
 var bounceNumber = 0
-var current_color: String = "Yellow"
+var current_color: String = "Purple"
 var _current_difficulty : int 
 var colors: Array = [
-	"Red",
+	"Blue",
 	"Purple",
 	"Yellow",
-	"Green"
+	"Orange"
 ]
 
 func _ready() -> void:
@@ -143,14 +143,14 @@ func _player_landed(player_color) -> void:
 
 func _update_background(color: String) -> void:
 	match color:
-		"Yellow":
+		"Blue":
 			$BackGround.frame = 3
 		"Purple":
-			$BackGround.frame = 2
-		"Red":
-			$BackGround.frame = 0
-		"Green":
 			$BackGround.frame = 1
+		"Yellow":
+			$BackGround.frame = 0
+		"Orange":
+			$BackGround.frame = 2
 
 func _play_falling_item_sound() -> void: 
 	$FallingItemBreak.play()

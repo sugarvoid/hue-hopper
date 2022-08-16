@@ -7,6 +7,7 @@ const HeartIcon: PackedScene = preload("res://game/interface/hud/HeartIcon.tscn"
 onready var heart_container: HBoxContainer = get_node("HeartContainer")
 onready var debuff_label: Label = get_node("DebuffLabel")
 onready var combo_bar: TextureProgress = get_node("ComboBar")
+onready var health_bar: Sprite = get_node("HealthBar")
 
 var is_combo_active: bool = false
 
@@ -40,3 +41,6 @@ func update_debuff(debuff: String) -> void:
 
 func _on_ComboTimer_timeout() -> void:
 	is_combo_active = false
+	
+func _update_health_bar(amount: int) -> void:
+	health_bar.frame = amount - 1

@@ -72,7 +72,7 @@ scale = Vector2( 3, 3 )
 frame = 5
 
 [node name="ControlsSprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.470588 )
+modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 104, 141 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 17 )

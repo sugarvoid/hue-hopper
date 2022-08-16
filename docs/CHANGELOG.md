@@ -4,10 +4,13 @@ All notable changes to this project will be documented in this file.
 ## [x.x.x] - 2022
 ### Changed
 - Changed all enemey sprites
+- Changed back ground
 - Changed fonts to Abaddon
+- Changed color pallete 
+- Changed the player sprite
 ### Added
 - Added ghost effect to slam
-- Added colored lights to floor of level (working on)
+- Added colored lights to floor of level
 ### Removed
 - Removed kitargo splash screen 
 

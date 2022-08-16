@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://game/images/color_lights.png" type="Texture" id=1]
+[ext_resource path="res://game/images/new_lights.png" type="Texture" id=1]
 [ext_resource path="res://game/images/overlight.png" type="Texture" id=2]
 [ext_resource path="res://game/interface/sign/ColorLight.gd" type="Script" id=3]
 

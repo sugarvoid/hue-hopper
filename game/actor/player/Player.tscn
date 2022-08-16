@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://game/actor/player/hue-ball.png" type="Texture" id=1]
 [ext_resource path="res://game/actor/player/player.gd" type="Script" id=2]
-[ext_resource path="res://game/actor/player/new_guy-Sheet.png" type="Texture" id=3]
-[ext_resource path="res://game/actor/player/player_hit.png" type="Texture" id=4]
+[ext_resource path="res://game/actor/player/new_player_sprite.png" type="Texture" id=3]
 [ext_resource path="res://game/utils/white.shader" type="Shader" id=5]
 [ext_resource path="res://game/utils/Dash.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/actor/player/white-out-ball.png" type="Texture" id=7]
@@ -14,11 +13,11 @@ shader_param/is_active = false
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 24, 24 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
-region = Rect2( 24, 0, 24, 24 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -105,15 +104,17 @@ script = ExtResource( 2 )
 
 [node name="GreyGuy" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )
-position = Vector2( 0, -2.251 )
+position = Vector2( 0, -7.299 )
 frames = SubResource( 4 )
 animation = "walking"
 
 [node name="SpriteHit" type="Sprite" parent="."]
 visible = false
 material = SubResource( 1 )
-position = Vector2( 0, -2.251 )
-texture = ExtResource( 4 )
+position = Vector2( 0, -7.903 )
+texture = ExtResource( 3 )
+hframes = 3
+frame = 2
 
 [node name="Ball" type="Node2D" parent="."]
 
@@ -124,16 +125,16 @@ texture = ExtResource( 1 )
 visible = false
 texture = ExtResource( 7 )
 
-[node name="Purple" type="Position2D" parent="Ball"]
+[node name="Yellow" type="Position2D" parent="Ball"]
 position = Vector2( 0, -13.061 )
 
-[node name="Yellow" type="Position2D" parent="Ball"]
+[node name="Purple" type="Position2D" parent="Ball"]
 position = Vector2( 0.094, 11.15 )
 
-[node name="Red" type="Position2D" parent="Ball"]
+[node name="Blue" type="Position2D" parent="Ball"]
 position = Vector2( -12.1031, 0.0346444 )
 
-[node name="Green" type="Position2D" parent="Ball"]
+[node name="Orange" type="Position2D" parent="Ball"]
 position = Vector2( 12.1227, -0.0814245 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

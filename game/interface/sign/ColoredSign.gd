@@ -9,8 +9,8 @@ func update_lights(color: String):
 			$Colors/Yellow.turn_on()
 		"Purple":
 			$Colors/Purple.turn_on()
-		"Red":
-			$Colors/Red.turn_on()
-		"Green":
-			$Colors/Green.turn_on()
+		"Blue":
+			$Colors/Blue.turn_on()
+		"Orange":
+			$Colors/Orange.turn_on()
 
