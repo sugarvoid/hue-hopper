@@ -1,11 +1,13 @@
+#Enemy Manager: Make, set up, track, and delete enemies
+
 class_name EnemyManager
 extends Node
 
 signal player_killed_enemy
 
-##const p_box = preload("res://game/actor/enemy/SoftHead.tscn")
-###const p_spikehead = preload("res://game/actor/enemy/SpikeHead.tscn")
-####const p_bat = preload("res://game/actor/enemy/Bat.tscn")
+const p_SoftHead = preload("res://game/actor/enemy/SoftHead.tscn")
+const p_SpikeHead = preload("res://game/actor/enemy/SpikeHead.tscn")
+const p_Bat = preload("res://game/actor/enemy/Bat.tscn")
 
 const BOTTON_RIGHT: Vector2 = Vector2(216, 217)
 const BOTTON_LEFT: Vector2 = Vector2(-13, 217)
@@ -13,9 +15,12 @@ const TOP_RIGHT: Vector2 = Vector2(216, 180)
 const TOP_LEFT: Vector2 = Vector2(-25, 180)
 const enemy_options : Array = [
 	"_create_spikehead",
-	### "_create_boxbody",
-	### "_create_bat",
+	"_create_softhead",
+	"_create_bat",
 ]
+const SOFT_HEAD_SPEED: int = 50
+const SPIKE_HEAD_SPEED: int = 30
+const BAT_SPEED: int = 70
 
 onready var timer = get_node("SpawnTimer")
 
@@ -37,26 +42,27 @@ func test_func():
 func _on_player_killed_enemy() -> void:
 	emit_signal("player_killed_ememy")
 
-func _create_boxbody() -> Enemy:
-	var box = p_box.instance()
-	box.type = Global.ENEMY_TYPE.BOX 
-	box.speed = 30
-	box.color = box.get_random_color()
-	return box
+func _create_softhead() -> Enemy:
+	var soft_head = p_SoftHead.instance()
+	soft_head.type = Global.ENEMY_TYPE.BOX 
+	soft_head.speed = SOFT_HEAD_SPEED
+	soft_head.color = soft_head.get_random_color()
+	return soft_head
 
-func _create_spikehead():
-	var spikehead = p_spikehead.instance()
-	spikehead.speed = 50
-	spikehead.type = Global.ENEMY_TYPE.SPIKE 
-	return spikehead
+func _create_spikehead() -> Enemy:
+	var spike_head = p_SpikeHead.instance()
+	spike_head.speed = SPIKE_HEAD_SPEED
+	spike_head.type = Global.ENEMY_TYPE.SPIKE 
+	return spike_head
 
 func _create_bat() -> Enemy:
-	var bat = p_bat.instance()
-	bat.speed = 70
+	var bat = p_Bat.instance()
+	bat.speed = BAT_SPEED
 	bat.type = Global.ENEMY_TYPE.BAT
 	return bat
 
 func _on_Timer_timeout() -> void:
+	#TODO: rename varibles
 	var e_func = enemy_options[randi() % enemy_options.size()]
 	var enemy: Enemy = call(e_func)
 	var sides = [0,1]

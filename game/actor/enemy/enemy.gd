@@ -28,9 +28,9 @@ func get_random_color() -> String:
 
 func _ready() -> void:
 	randomize()
-	if self.type == Global.ENEMY_TYPE.BOX:
-		self.animated_sprite.play(self.color)
-	if diriction == 1:
+#	if self.type == Global.ENEMY_TYPE.BOX:
+#		self.animated_sprite.play(self.color)
+	if diriction != 1:
 		flip_sprite() 
 
 func flip_sprite() -> void:
