@@ -19,10 +19,6 @@ A game about rotating and bouncing. Originally, this was my entry for the [2021 
 
 ## Credits
 
-### Art
-- "Input Prompts Pixel 16×" by [Kenney.nl](https://kenney.itch.io/)
-- "Pixel Platformer"(with minor modifications by me) by [Kenney.nl](https://kenney.itch.io/)
-
 ### Fonts
 - "Abaddon" by Nathan Scott [is licensed under CC0 3.0](https://creativecommons.org/licenses/by/3.0/)
 
