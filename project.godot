@@ -63,12 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Hue Hopper"
-run/main_scene="res://kitargo_splash/kitargo_splash.tscn"
-boot_splash/show_image=false
-boot_splash/image="res://game/interface/menu/black-square.png"
-boot_splash/fullsize=false
-boot_splash/use_filter=false
-boot_splash/bg_color=Color( 0, 0, 0, 1 )
+run/main_scene="res://game/interface/menu/StartScreen.tscn"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
