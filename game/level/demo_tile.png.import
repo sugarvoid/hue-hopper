@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/color_lights.png-5e10f71e74995b086e014c7e169031c3.stex"
+path="res://.import/demo_tile.png-0aa75af5817f063bba660b36405b24c0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/images/color_lights.png"
-dest_files=[ "res://.import/color_lights.png-5e10f71e74995b086e014c7e169031c3.stex" ]
+source_file="res://game/level/demo_tile.png"
+dest_files=[ "res://.import/demo_tile.png-0aa75af5817f063bba660b36405b24c0.stex" ]
 
 [params]
 

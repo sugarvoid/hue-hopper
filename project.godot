@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Dash",
 "language": "GDScript",
-"path": "res://game/utils/dash.gd"
+"path": "res://game/actor/player/dash/dash.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Enemy",

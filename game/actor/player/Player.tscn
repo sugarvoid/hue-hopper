@@ -4,7 +4,7 @@
 [ext_resource path="res://game/actor/player/player.gd" type="Script" id=2]
 [ext_resource path="res://game/actor/player/new_player_sprite.png" type="Texture" id=3]
 [ext_resource path="res://game/utils/white.shader" type="Shader" id=5]
-[ext_resource path="res://game/utils/Dash.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game/actor/player/dash/Dash.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/actor/player/white-out-ball.png" type="Texture" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]

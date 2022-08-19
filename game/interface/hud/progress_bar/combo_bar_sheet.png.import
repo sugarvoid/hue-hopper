@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/color_signs.png-0bd0febf17f800c95c5d5260cc94e0f8.stex"
+path="res://.import/combo_bar_sheet.png-0af191b244dc0865782fc2bc1ef45126.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/color_signs.png"
-dest_files=[ "res://.import/color_signs.png-0bd0febf17f800c95c5d5260cc94e0f8.stex" ]
+source_file="res://game/interface/hud/progress_bar/combo_bar_sheet.png"
+dest_files=[ "res://.import/combo_bar_sheet.png-0af191b244dc0865782fc2bc1ef45126.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/new_lights.png-04207af7623f7d16f23eb1896b08f18e.stex"
+path="res://.import/debuff_counter.png-7651021334da1f017438d7ecfcf43364.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/images/new_lights.png"
-dest_files=[ "res://.import/new_lights.png-04207af7623f7d16f23eb1896b08f18e.stex" ]
+source_file="res://game/interface/hud/progress_bar/debuff_counter.png"
+dest_files=[ "res://.import/debuff_counter.png-7651021334da1f017438d7ecfcf43364.stex" ]
 
 [params]
 
