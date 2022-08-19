@@ -29,7 +29,6 @@
 - Removed button that spawned spikes
 - Removed spikes that fall when player lands on wrong color
 
-
 ## [0.3.1] - 2022-01-11
 - Added button that spawns spikes
 - Spikes now spawn when red button is pressed

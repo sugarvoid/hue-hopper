@@ -1,5 +1,5 @@
 # Hue Hopper
-#### Version 0.5.0 [Change Log](https://github.com/sugarvoid/hue-hopper/blob/Current/CHANGELOG.md)
+#### Version 0.5.1 [Change Log](https://github.com/sugarvoid/hue-hopper/blob/Current/CHANGELOG.md)
 
 #### [Trello Board](https://trello.com/b/aLnKhPKY/hue-hopper)
 
