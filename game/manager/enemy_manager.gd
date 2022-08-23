@@ -5,15 +5,15 @@ extends Node
 
 signal player_killed_enemy
 
-const p_SoftHead = preload("res://game/actor/enemy/SoftHead.tscn")
-const p_SpikeHead = preload("res://game/actor/enemy/SpikeHead.tscn")
-const p_Bat = preload("res://game/actor/enemy/Bat.tscn")
+var p_SoftHead = preload("res://game/actor/enemy/SoftHead.tscn")
+var p_SpikeHead = preload("res://game/actor/enemy/SpikeHead.tscn")
+var p_Bat = preload("res://game/actor/enemy/Bat.tscn")
 
 const BOTTON_RIGHT: Vector2 = Vector2(216, 217)
 const BOTTON_LEFT: Vector2 = Vector2(-13, 217)
 const TOP_RIGHT: Vector2 = Vector2(216, 180)
 const TOP_LEFT: Vector2 = Vector2(-25, 180)
-const enemy_options : Array = [
+const ENEMY_OPTIONS : Array = [
 	"_create_spikehead",
 	"_create_softhead",
 	"_create_bat",
@@ -61,9 +61,13 @@ func _create_bat() -> Enemy:
 	bat.type = Global.ENEMY_TYPE.BAT
 	return bat
 
+func remove_all_enemies() -> void:
+	pass
+	#TODO: Add container for all enenmy. Loop through and remove them 
+
 func _on_Timer_timeout() -> void:
 	#TODO: rename varibles
-	var e_func = enemy_options[randi() % enemy_options.size()]
+	var e_func = ENEMY_OPTIONS[randi() % ENEMY_OPTIONS.size()]
 	var enemy: Enemy = call(e_func)
 	var sides = [0,1]
 	var rand_side:int = randi() % sides.size()

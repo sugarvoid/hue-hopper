@@ -51,17 +51,20 @@ func _ready() -> void:
 	_create_color_pattern()
 	if Global.is_music_enabled: 
 		LevelMusic.play()
-	player.connect("player_has_landed_on_ground", self, "_player_landed")
-	player.connect("on_player_health_changed", self, "_update_HUD_hearts")
-	player.connect("on_falling_item_contact", self, "_play_falling_item_sound")
-	enemy_manager.connect("player_killed_enemy", self, "_player_killed_enemy")
+	
 
 func _process(delta) -> void:
 	if !self.is_game_over:
 		_determine_game_difficulty()
 		$DebuffCounter.frame = player.debuff_timer.time_left
 	else:
-		Global.go_to_gameover_screen()
+		go_to_gameover_screen()
+
+func _connect_signals() -> void:
+	player.connect("player_has_landed_on_ground", self, "_player_landed")
+	player.connect("on_player_health_changed", self, "_update_HUD_hearts")
+	player.connect("on_falling_item_contact", self, "_play_falling_item_sound")
+	enemy_manager.connect("player_killed_enemy", self, "_player_killed_enemy")
 
 func go_to_gameover_screen() -> void:
 	get_tree().change_scene(Global.SCENE_PATHS.game_over)
