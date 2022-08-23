@@ -3,7 +3,7 @@
 ## [x.x.x] - 2022
 - Simplified changelog
 - Changed all enemy sprites
-- Changed back ground
+- Changed background
 - Changed fonts to Abaddon
 - Changed color pallette 
 - Changed the player sprite
