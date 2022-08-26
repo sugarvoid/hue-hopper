@@ -14,12 +14,12 @@ const ACCELERATION: float = 600.00
 const AIR_RES: float = 0.02
 const FRICTION: float = 0.15
 const STARTING_HEARTS: int = 10
-const p_FloatingText: PackedScene = preload("res://game/interface/floating_text/floating_text.tscn")
 const WHITEOUT_DEGREES: Array = [0, 90, 180]
 const NORMAL_BOUCE: float = 600.00
 const LOWER_BOUCE: float = 400.00 
-var GRAVITY: float = 600.0
 
+var gravity: float = 600.0
+var p_FloatingText: PackedScene = preload("res://game/interface/floating_text/floating_text.tscn")
 var bounce_force: float
 var rotation_speed: float
 var jump_force: float
@@ -38,13 +38,10 @@ var rotate_debuff: int
 var bottom_color: String
 
 onready var dash: Dash = get_node("Dash")
-
 onready var purple: Position2D = get_node("Ball/Purple")
 onready var blue: Position2D = get_node("Ball/Blue")
 onready var orange: Position2D = get_node("Ball/Orange")
 onready var yellow: Position2D = get_node("Ball/Yellow")
-
-
 onready var timer: Timer = get_node("Timer")
 onready var ball: Node2D = get_node("Ball")
 onready var ball_sprite: Sprite = get_node("Ball/Sprite")
@@ -93,7 +90,7 @@ func flip_sprite() -> void:
 	self.scale.x *= -1 
 
 func bounce() -> void:
-	self.GRAVITY = 600
+	self.gravity = 600
 	velocity.y = -self.bounce_force
 
 func _update_sprite(x_input: int) -> void:
@@ -120,7 +117,7 @@ func _process(delta: float) -> void:
 			if Input.is_action_just_pressed("slam"):
 				#spawn ghost
 				dash.start_dash(self, 0.15)
-				self.GRAVITY = 9000
+				self.gravity = 9000
 			if Input.is_action_pressed("rotate_right"):
 				grey_guy.play("walking")
 				rotation_dir += 1 * rotate_debuff
@@ -142,10 +139,10 @@ func _process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, 0, FRICTION)
 		ball.rotation += rotation_dir * self.rotation_speed * delta
 	
-	if velocity.y > GRAVITY:
-		velocity.y = GRAVITY
+	if velocity.y > gravity:
+		velocity.y = gravity
 		
-	velocity.y += GRAVITY * delta
+	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 

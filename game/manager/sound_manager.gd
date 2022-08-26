@@ -4,6 +4,7 @@ extends Node
 const AUDIO_PATHS: Dictionary = {
 	"correct" : "res://game/sound/correct.wav",
 	"wrong" : "res://game/sound/wrong.wav",
+	"level_music": "res://game/sound/Abstraction - Three Red Hearts - Puzzle Pieces.ogg",
 }
 
 var players = 5

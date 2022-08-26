@@ -22,6 +22,14 @@ script = ExtResource( 10 )
 
 [node name="LevelTimer" type="Timer" parent="."]
 
+[node name="SoundWrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -6.0
+
+[node name="FallingItemBreak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -6.0
+
 [node name="SoundManager" parent="." instance=ExtResource( 15 )]
 
 [node name="ItemManager" parent="." instance=ExtResource( 2 )]
@@ -54,14 +62,6 @@ script = ExtResource( 16 )
 [node name="Timer" type="Timer" parent="Cam2D"]
 
 [node name="Tween" type="Tween" parent="Cam2D"]
-
-[node name="SoundWrong" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
-volume_db = -6.0
-
-[node name="FallingItemBreak" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
-volume_db = -6.0
 
 [node name="PauseScreen" parent="." instance=ExtResource( 4 )]
 

@@ -50,13 +50,14 @@ func _ready() -> void:
 	_update_HUD_hearts(player.get_hearts())
 	_create_color_pattern()
 	if Global.is_music_enabled: 
-		LevelMusic.play()
+		sound_manager.play(SoundManager.AUDIO_PATHS.level_music)
 	player.connect("player_has_landed_on_ground", self, "_player_landed")
 	player.connect("on_player_health_changed", self, "_update_HUD_hearts")
 	player.connect("on_falling_item_contact", self, "_play_falling_item_sound")
 	enemy_manager.connect("player_killed_enemy", self, "_player_killed_enemy")
 
 func _process(delta) -> void:
+	print(LevelMusic.volume_db)
 	if !self.is_game_over:
 		_determine_game_difficulty()
 		$DebuffCounter.frame = player.debuff_timer.time_left
@@ -121,7 +122,7 @@ func _player_landed(player_color: String) -> void:
 	
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:
-		SoundManager.play(SoundManager.AUDIO_PATHS.correct)
+		sound_manager.play(SoundManager.AUDIO_PATHS.correct)
 		player.display_point_text(CORRECT_POINT_VALUE, Color.whitesmoke)
 		_add_to_player_score(CORRECT_POINT_VALUE)
 	else:
@@ -134,7 +135,7 @@ func _player_landed(player_color: String) -> void:
 			DIFFICULTY.HARD:
 				player.take_damage()
 		if Global.is_fx_enabled:
-			$SoundWrong.play()
+			sound_manager.play(SoundManager.AUDIO_PATHS.wrong)
 
 	# GET NEW COLOR
 	_get_new_color()
