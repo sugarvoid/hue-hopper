@@ -46,14 +46,12 @@ var colors: Array = [
 
 func _ready() -> void:
 	start_new_game()
+	_connect_signals()
 	rng = RandomNumberGenerator.new()
 	_update_HUD_hearts(player.get_hearts())
 	_create_color_pattern()
 	if Global.is_music_enabled: 
 		sound_manager.play(SoundManager.AUDIO_PATHS.level_music)
-	player.connect("player_has_landed_on_ground", self, "_player_landed")
-	player.connect("on_player_health_changed", self, "_update_HUD_hearts")
-	player.connect("on_falling_item_contact", self, "_play_falling_item_sound")
 	enemy_manager.connect("player_killed_enemy", self, "_player_killed_enemy")
 	LevelMusic.play()
 	
