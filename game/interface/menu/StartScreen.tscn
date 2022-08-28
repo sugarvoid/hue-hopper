@@ -44,7 +44,7 @@ margin_left = 0.396851
 margin_top = 0.198425
 margin_right = 201.397
 margin_bottom = 251.198
-color = Color( 0.588235, 0.647059, 0.670588, 1 )
+color = Color( 0.752941, 0.796078, 0.862745, 1 )
 
 [node name="Title" type="Label" parent="Background"]
 margin_left = -48.068

@@ -58,7 +58,6 @@ func _ready() -> void:
 
 
 func _process(delta) -> void:
-	print(LevelMusic.volume_db)
 	if !self.is_game_over:
 		_determine_game_difficulty()
 		$DebuffCounter.frame = player.debuff_timer.time_left
@@ -103,6 +102,7 @@ func _reset_multiplier() -> void:
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("mute"):
+		#TODO: I think this is where the audio bug is happening
 		LevelMusic.playing = !LevelMusic.playing
 		Global.is_fx_enabled = !Global.is_fx_enabled
 		Global.is_music_enabled = !Global.is_music_enabled
