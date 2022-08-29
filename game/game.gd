@@ -15,6 +15,7 @@ const CORRECT_POINT_VALUE: int = 5
 const EMENY_KILLED_POINTS: int = 20
 const CAM_SHAKE_AMOUNT: int = 13
 const LEVEL_LENGTH: float = 30.00
+const LEVEL_MUSIC_VOLUME: int = -5
 
 onready var sound_manager: SoundManager = get_node("SoundManager")
 onready var iteam_manager: ItemManager = get_node("ItemManager")
@@ -51,9 +52,9 @@ func _ready() -> void:
 	_update_HUD_hearts(player.get_hearts())
 	_create_color_pattern()
 	if Global.is_music_enabled: 
-		sound_manager.play(SoundManager.AUDIO_PATHS.level_music)
+		LevelMusic.play()
 	enemy_manager.connect("player_killed_enemy", self, "_player_killed_enemy")
-	LevelMusic.play()
+	
 	
 
 
@@ -101,9 +102,9 @@ func _reset_multiplier() -> void:
 	self.combo_fever = false
 
 func _unhandled_input(event) -> void:
-	if event.is_action_pressed("mute"):
-		#TODO: I think this is where the audio bug is happening
-		LevelMusic.playing = !LevelMusic.playing
+	
+	if event.is_action_released("mute"):
+		LevelMusic.stream_paused = !LevelMusic.stream_paused
 		Global.is_fx_enabled = !Global.is_fx_enabled
 		Global.is_music_enabled = !Global.is_music_enabled
 
