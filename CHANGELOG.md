@@ -8,8 +8,11 @@
 - Changed color pallette 
 - Changed the player sprite
 - Added ghost effect to slam
+- Added heath bar
 - Added colored lights to floor of level
 - Removed kitargo splash screen 
+- Removed hearts
+- Removed screen shake
 
 ## [0.5.0] - 2022-08-11
 - Player can now slam down with the space bar
