@@ -53,10 +53,6 @@ func _ready() -> void:
 	_create_color_pattern()
 	if Global.is_music_enabled: 
 		LevelMusic.play()
-	enemy_manager.connect("player_killed_enemy", self, "_player_killed_enemy")
-	
-	
-
 
 func _process(delta) -> void:
 	if !self.is_game_over:
@@ -102,7 +98,6 @@ func _reset_multiplier() -> void:
 	self.combo_fever = false
 
 func _unhandled_input(event) -> void:
-	
 	if event.is_action_released("mute"):
 		LevelMusic.stream_paused = !LevelMusic.stream_paused
 		Global.is_fx_enabled = !Global.is_fx_enabled
@@ -116,7 +111,7 @@ func _end_game() -> void:
 
 func _update_HUD_hearts(player_health: int) -> void:
 	player.set_hearts(player_health)
-	self.hud.update_hearts(player.get_hearts())
+	self.hud.update_health_bar(player.get_hearts())
 	if player.get_hearts() <= 0:
 		# TODO: wipe enemies 
 		# play a death animation 
@@ -125,8 +120,6 @@ func _update_HUD_hearts(player_health: int) -> void:
 
 func _player_landed(player_color: String) -> void:
 	bounceNumber += 1
-	
-	$Cam2D.shake(CAM_SHAKE_AMOUNT)
 	
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:

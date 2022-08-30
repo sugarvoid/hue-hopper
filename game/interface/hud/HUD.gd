@@ -42,5 +42,5 @@ func update_debuff(debuff: String) -> void:
 func _on_ComboTimer_timeout() -> void:
 	is_combo_active = false
 	
-func _update_health_bar(amount: int) -> void:
+func update_health_bar(amount: int) -> void:
 	health_bar.frame = amount - 1

@@ -2,6 +2,7 @@ class_name ItemManager
 extends Node2D
 
 const p_FallingItem = preload("res://game/item/FallingItem.tscn")
+
 onready var timer_flask = $TimerFlask
 onready var view_rect := get_viewport_rect()
 

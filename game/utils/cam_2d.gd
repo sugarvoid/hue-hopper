@@ -11,9 +11,9 @@ func _ready():
 	set_process(false)
 
 
-func _process(delta):
-	offset = Vector2(rand_range(-shake_amount, shake_amount), rand_range(shake_amount, -shake_amount)) * delta + default_offset
-	pass
+#func _process(delta):
+#	offset = Vector2(rand_range(-shake_amount, shake_amount), rand_range(shake_amount, -shake_amount)) * delta + default_offset
+#	pass
 	
 func shake(new_shake, shake_time=0.3, shake_limit=100):
 	shake_amount += new_shake
