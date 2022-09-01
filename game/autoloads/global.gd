@@ -15,7 +15,7 @@ enum ENEMY_TYPE {
 
 
 const HIGH_SCORE_FILE: String = "user://highscore.txt"
-const GAME_VERSION = "0.5.1"
+const GAME_VERSION = "0.6.0"
 const SCENE_PATHS: Dictionary = {
 	"game_over" : "res://game/interface/menu/GameOver.tscn",
 	"start_screen" : "res://game/interface/menu/StartScreen.tscn",
