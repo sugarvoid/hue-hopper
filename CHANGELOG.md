@@ -1,6 +1,6 @@
 # Changelog
 
-## [x.x.x] - 2022
+## [0.6.0] - 2022-09-01
 - Simplified changelog
 - Changed all enemy sprites
 - Changed background
