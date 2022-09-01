@@ -5,7 +5,7 @@
 - Changed all enemy sprites
 - Changed background
 - Changed fonts to Abaddon
-- Changed color pallette 
+- Changed color palette 
 - Changed the player sprite
 - Added ghost effect to slam
 - Added heath bar
