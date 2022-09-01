@@ -1,7 +1,7 @@
 # Hue Hopper
-#### Version 0.5.1 [Change Log](https://github.com/sugarvoid/hue-hopper/blob/Current/CHANGELOG.md)
-
-#### [Trello Board](https://trello.com/b/aLnKhPKY/hue-hopper)
+#### Version 0.6.0
+[Change Log](https://github.com/sugarvoid/hue-hopper/blob/Current/CHANGELOG.md)\
+[Trello Board](https://trello.com/b/aLnKhPKY/hue-hopper)
 
 ## Description
 A game about rotating and bouncing. Originally, this was my entry for the [2021 Kenny Jam](https://sugarvoid.itch.io/huehopper-jam). Now, I'm working on making it a more fleshed out game. The object of the game is to rotate the character and land on the correct color(the one in the traffic light looking thing).  You can take out the enemies by matching there colors on contact. 
