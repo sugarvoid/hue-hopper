@@ -2,8 +2,6 @@
 
 [ext_resource path="res://game/interface/hud/progress_bar/debuff_counter.png" type="Texture" id=1]
 
-
-
 [node name="DebuffCounter" type="Sprite"]
 texture = ExtResource( 1 )
 hframes = 11

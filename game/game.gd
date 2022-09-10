@@ -28,6 +28,9 @@ onready var player: Player = get_node("Player")
 onready var controls_sprite: Sprite = get_node("ControlsSprite")
 onready var combo_bar: TextureProgress = get_node("HUD/ComboBar")
 onready var hud: HUD = get_node("HUD") 
+onready var debuff_counter: Sprite = get_node("DebuffCounter")
+onready var colored_sign: ColoredSign = get_node("ColoredSign")
+onready var falling_item_break_sound: AudioStreamPlayer = get_node("FallingItemBreak")
 
 var is_game_over: bool 
 var rng :RandomNumberGenerator
@@ -57,7 +60,7 @@ func _ready() -> void:
 func _process(delta) -> void:
 	if !self.is_game_over:
 		_determine_game_difficulty()
-		$DebuffCounter.frame = player.debuff_timer.time_left
+		debuff_counter.frame = player.debuff_timer.time_left
 	else:
 		go_to_gameover_screen()
 
@@ -112,15 +115,14 @@ func _end_game() -> void:
 func _update_HUD_hearts(player_health: int) -> void:
 	player.set_hearts(player_health)
 	self.hud.update_health_bar(player.get_hearts())
-	if player.get_hearts() <= 0:
-		# TODO: wipe enemies 
-		# play a death animation 
+	if player.get_hearts() <= 1:
+		self.enemy_manager.remove_all_enemies()
+		#TODO: Add play a death animation 
 		Global.player_score = player.get_score()
 		go_to_gameover_screen()
 
 func _player_landed(player_color: String) -> void:
 	bounceNumber += 1
-	
 	# COMPARE PLAYER BOTTON TO GAME'S COLOR
 	if self.current_color == player_color:
 		sound_manager.play(SoundManager.AUDIO_PATHS.correct)
@@ -137,14 +139,10 @@ func _player_landed(player_color: String) -> void:
 				player.take_damage()
 		if Global.is_fx_enabled:
 			sound_manager.play(SoundManager.AUDIO_PATHS.wrong)
-
-	# GET NEW COLOR
+	
 	_get_new_color()
-	# SEND HUD NEW COLOR
-	$ColoredSign.update_lights(current_color)
-	## UPDATE BACKGROUND
+	colored_sign.update_lights(current_color)
 	_update_background(current_color)
-	###_update_hud()
 
 func _update_background(color: String) -> void:
 	match color:
@@ -158,7 +156,7 @@ func _update_background(color: String) -> void:
 			self.background_image.frame = 2
 
 func _play_falling_item_sound() -> void: 
-	$FallingItemBreak.play()
+	falling_item_break_sound.play()
 
 func _player_killed_enemy() -> void:
 	_add_to_player_score(EMENY_KILLED_POINTS)

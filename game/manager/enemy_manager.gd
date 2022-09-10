@@ -62,31 +62,30 @@ func _create_bat() -> Enemy:
 	return bat
 
 func remove_all_enemies() -> void:
-	pass
-	#TODO: Add container for all enenmy. Loop through and remove them 
+	for child in self.get_children():
+		child.call_deferred("free")
 
 func _on_Timer_timeout() -> void:
-	#TODO: rename varibles
-	var e_func = ENEMY_OPTIONS[randi() % ENEMY_OPTIONS.size()]
-	var enemy: Enemy = call(e_func)
+	var ran_func = ENEMY_OPTIONS[randi() % ENEMY_OPTIONS.size()]
+	var new_enemy: Enemy = call(ran_func)
 	var sides = [0,1]
 	var rand_side:int = randi() % sides.size()
 	
 	if rand_side == 0:
-		enemy.diriction = 1
-		if enemy.type == Global.ENEMY_TYPE.BAT:
-			enemy.position = TOP_LEFT
+		new_enemy.diriction = 1
+		if new_enemy.type == Global.ENEMY_TYPE.BAT:
+			new_enemy.position = TOP_LEFT
 		else:
-			enemy.position = BOTTON_LEFT
+			new_enemy.position = BOTTON_LEFT
 		
 	if rand_side == 1:
-		enemy.diriction = -1
-		if enemy.type == Global.ENEMY_TYPE.BAT:
-			enemy.position = TOP_RIGHT
+		new_enemy.diriction = -1
+		if new_enemy.type == Global.ENEMY_TYPE.BAT:
+			new_enemy.position = TOP_RIGHT
 		else:
-			enemy.position = BOTTON_RIGHT
+			new_enemy.position = BOTTON_RIGHT
 		
-	add_child(enemy)
+	add_child(new_enemy)
 	
 	max_spawn_time -= 0.15
 	next_spawn_time = rand_range(max_spawn_time, min_spawn_time)

@@ -1,16 +1,25 @@
+class_name ColoredSign
 extends Node2D
 
+onready var lights: Node2D = get_node("Lights")
+onready var blue_light: Sprite = get_node("Lights/Blue")
+onready var yellow_light: Sprite = get_node("Lights/Yellow")
+onready var purple_light: Sprite = get_node("Lights/Purple")
+onready var orange_light: Sprite = get_node("Lights/Orange")
 
-func update_lights(color: String):
-	for light in $Colors.get_children():
-		light.turn_off()
+
+func update_lights(color: String) -> void:
+	_turn_off_all_lights()
 	match color:
 		"Yellow":
-			$Colors/Yellow.turn_on()
+			yellow_light.turn_on()
 		"Purple":
-			$Colors/Purple.turn_on()
+			purple_light.turn_on()
 		"Blue":
-			$Colors/Blue.turn_on()
+			blue_light.turn_on()
 		"Orange":
-			$Colors/Orange.turn_on()
+			orange_light.turn_on()
 
+func _turn_off_all_lights() -> void:
+	for light in lights.get_children():
+		light.turn_off()

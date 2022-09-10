@@ -79,11 +79,11 @@ custom_fonts/font = SubResource( 4 )
 [node name="LblName" type="Label" parent="."]
 margin_left = 116.0
 margin_top = 230.0
-margin_right = 260.0
+margin_right = 236.0
 margin_bottom = 248.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = SubResource( 4 )
-text = "A game by Dave D"
+text = "A game by Dave"
 
 [node name="Label" type="Label" parent="."]
 margin_left = 25.0
