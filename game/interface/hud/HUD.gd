@@ -44,3 +44,6 @@ func _on_ComboTimer_timeout() -> void:
 	
 func update_health_bar(amount: int) -> void:
 	health_bar.frame = amount - 1
+
+func set_high_score_label(score: int) -> void:
+	$HighScoreLabel.text = str("%03d" % score)

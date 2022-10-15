@@ -28,6 +28,24 @@ custom_fonts/font = SubResource( 3 )
 text = "000"
 align = 2
 
+[node name="HighScoreLabel" type="Label" parent="."]
+margin_left = 83.0
+margin_right = 116.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "000"
+align = 2
+
+[node name="HighScoreStatic" type="Label" parent="."]
+margin_left = 58.0
+margin_right = 91.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "HI"
+align = 2
+
 [node name="DebuffLabel" type="Label" parent="."]
 margin_left = 10.3758
 margin_top = 239.661
@@ -39,6 +57,7 @@ __meta__ = {
 }
 
 [node name="ComboBar" type="TextureProgress" parent="."]
+visible = false
 margin_left = 101.0
 margin_top = 3.0
 margin_right = 141.0

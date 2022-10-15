@@ -61,3 +61,14 @@ func raise_error(msg: String) -> void:
 	
 func choose(array):
 	return array[randi() % array.size()]
+	
+func get_high_score() -> int:
+	var highscore: int
+	var f = File.new()
+	if f.file_exists(Global.HIGH_SCORE_FILE):
+		f.open(Global.HIGH_SCORE_FILE, File.READ)
+		highscore = f.get_var()
+		f.close()
+		return highscore
+	else:
+		return 0

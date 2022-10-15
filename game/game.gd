@@ -25,7 +25,7 @@ onready var enemy_manager: EnemyManager = get_node("EnemyManager")
 onready var LevelMusic = get_node("LevelMusic")
 onready var background_image: Sprite = get_node("BackGround")
 onready var player: Player = get_node("Player")
-onready var controls_sprite: Sprite = get_node("ControlsSprite")
+onready var controls_sprite: Sprite = get_node("ControlsInfo")
 onready var combo_bar: TextureProgress = get_node("HUD/ComboBar")
 onready var hud: HUD = get_node("HUD") 
 onready var debuff_counter: Sprite = get_node("DebuffCounter")
@@ -53,7 +53,9 @@ func _ready() -> void:
 	_connect_signals()
 	rng = RandomNumberGenerator.new()
 	_update_HUD_hearts(player.get_hearts())
+	self.hud.set_high_score_label(Global.get_high_score())
 	_create_color_pattern()
+	$ControlsVisible.start(10)
 	if Global.is_music_enabled: 
 		LevelMusic.play()
 
@@ -164,3 +166,8 @@ func _player_killed_enemy() -> void:
 func _add_to_player_score(amount: int) -> void:
 	self.player.add_to_score(amount)
 	self.hud.update_score(player.get_score())
+
+
+func _on_ControlsVisible_timeout():
+	#TODO: Make fade out
+	self.remove_child(self.controls_sprite)

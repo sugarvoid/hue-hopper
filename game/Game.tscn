@@ -74,7 +74,7 @@ position = Vector2( 132, 17 )
 scale = Vector2( 3, 3 )
 frame = 5
 
-[node name="ControlsSprite" type="Sprite" parent="."]
+[node name="ControlsInfo" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.196078 )
 position = Vector2( 104, 141 )
 scale = Vector2( 1.5, 1.5 )
@@ -82,4 +82,8 @@ texture = ExtResource( 17 )
 
 [node name="ItemContainer" type="Node2D" parent="."]
 
+[node name="ControlsVisible" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="timeout" from="Cam2D/Timer" to="Cam2D" method="_on_Timer_timeout"]
+[connection signal="timeout" from="ControlsVisible" to="." method="_on_ControlsVisible_timeout"]
