@@ -1,14 +1,16 @@
 extends Node2D
 
 onready var audio_player: AudioStreamPlayer = get_node("AudioStreamPlayer")
+onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 func _ready():
 	$LblVersion.text = Global.GAME_VERSION
 
 func _unhandled_key_input(event) -> void:
 	if event.is_action_released("slam"):
-		#play sound
-		$AnimationPlayer.play("start_game")
+		if Global.is_fx_enabled:
+			audio_player.play()
+		animation_player.play("start_game")
 
 func _is_left_mouse_click(input: InputEventMouseButton) -> bool:
 	return (input is InputEventMouseButton 
