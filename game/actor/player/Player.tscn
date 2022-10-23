@@ -161,5 +161,10 @@ one_shot = true
 
 [node name="Dash" parent="." instance=ExtResource( 6 )]
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 18.306 )
+collision_mask = 6
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="DebuffTimer" to="." method="_on_DebuffTimer_timeout"]

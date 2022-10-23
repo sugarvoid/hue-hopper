@@ -99,11 +99,30 @@ func _update_sprite(x_input: int) -> void:
 	elif x_input > 0:
 		grey_guy.set_flip_h(false)
 
+func better_is_on_floor() -> bool:
+	var arr: Array =[]
+	if self.is_on_floor():
+		if arr.size() <= 4:
+			arr.append(true)
+	
+	return arr.has(true)
+		
+
+func _get_colliding_object():
+	var obj = $RayCast2D.get_collider()
+	if obj == null:
+		return
+	else:
+		print(obj)
+
 func _process(delta: float) -> void:
+	_get_colliding_object()
+	
+	
 	bottom_color = self.get_bottom_color()
 	
 	if has_game_started:
-		if self.velocity.y == 0:
+		if self.better_is_on_floor():
 			bounce()
 		
 		var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left") # 1 = right  -1 = left
@@ -112,7 +131,7 @@ func _process(delta: float) -> void:
 		
 		_update_sprite(x_input)
 		
-		if !is_on_floor():
+		if !better_is_on_floor():
 			rotation_dir = 0
 			if Input.is_action_just_pressed("slam"):
 				#spawn ghost
