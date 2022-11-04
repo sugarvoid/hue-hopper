@@ -39,7 +39,7 @@ func _ready() -> void:
 func flip_sprite() -> void:
 	self.scale.x *= -1 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if self.type != Global.ENEMY_TYPE.BAT:
 		if velocity.y > GRAVITY:
 			velocity.y = GRAVITY
