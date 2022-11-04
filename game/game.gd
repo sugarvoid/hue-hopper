@@ -49,44 +49,44 @@ var colors: Array = [
 ]
 
 func _ready() -> void:
-	start_new_game()
-	_connect_signals()
-	rng = RandomNumberGenerator.new()
-	_update_HUD_hearts(player.get_hearts())
+	self.start_new_game()
+	self._connect_signals()
+	self.rng = RandomNumberGenerator.new()
+	self._update_HUD_hearts(player.get_hearts())
 	self.hud.set_high_score_label(Global.get_high_score())
-	_create_color_pattern()
+	self._create_color_pattern()
 	$ControlsVisible.start(10)
 	if Global.is_music_enabled: 
 		LevelMusic.play()
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	if !self.is_game_over:
 		_determine_game_difficulty()
-		debuff_counter.frame = player.debuff_timer.time_left
+		debuff_counter.frame = int(player.debuff_timer.time_left)
 	else:
 		go_to_gameover_screen()
 
 func _connect_signals() -> void:
-	player.connect("player_has_landed_on_ground", self, "_player_landed")
-	player.connect("on_player_health_changed", self, "_update_HUD_hearts")
-	player.connect("on_falling_item_contact", self, "_play_falling_item_sound")
-	enemy_manager.connect("player_killed_enemy", self, "_player_killed_enemy")
+	self.player.connect("landed_on_ground", self, "_player_landed")
+	self.player.connect("on_player_health_changed", self, "_update_HUD_hearts")
+	self.player.connect("on_falling_item_contact", self, "_play_falling_item_sound")
+	self.enemy_manager.connect("player_killed_enemy", self, "_player_killed_enemy")
 
 func go_to_gameover_screen() -> void:
 	get_tree().change_scene(Global.SCENE_PATHS.game_over)
 
 func start_new_game():
-	player.init_player_data()
-	_determine_game_difficulty()
+	self.player.init_player_data()
+	self._determine_game_difficulty()
 
 func _get_random_number() -> int:
 	rng.randomize()
 	return rng.randi_range(0, 4)
 
 func _create_color_pattern() -> void:
-	color_list.resize(NUMBER_OF_COLORS)
+	self.color_list.resize(NUMBER_OF_COLORS)
 	for i in NUMBER_OF_COLORS:
-		color_list[i] = _get_random_number()
+		self.color_list[i] = _get_random_number()
 
 func _determine_game_difficulty() -> void:
 	var player_score = player.get_score()

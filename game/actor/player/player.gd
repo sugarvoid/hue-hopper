@@ -2,7 +2,7 @@ class_name Player
 extends KinematicBody2D
 
 
-signal player_has_landed_on_ground(c_color)
+signal landed_on_ground(c_color)
 signal on_player_health_changed()
 signal player_has_landed_on_enemy()
 signal on_falling_item_contact()
@@ -37,7 +37,7 @@ var _hearts: int
 var rotate_debuff: int
 var bottom_color: String
 
-onready var dash: Dash = get_node("Dash")
+onready var _dash: Dash = get_node("Dash")
 onready var purple: Position2D = get_node("Ball/Purple")
 onready var blue: Position2D = get_node("Ball/Blue")
 onready var orange: Position2D = get_node("Ball/Orange")
@@ -89,9 +89,10 @@ func _white_out():
 func flip_sprite() -> void:
 	self.scale.x *= -1 
 
-func bounce() -> void:
+func bounce(b_force) -> void:
 	self.gravity = 600
-	velocity.y = -self.bounce_force
+	velocity.y = -b_force
+	#velocity.y = -self.bounce_force
 
 func _update_sprite(x_input: int) -> void:
 	if x_input < 0:
@@ -104,26 +105,30 @@ func better_is_on_floor() -> bool:
 	if self.is_on_floor():
 		if arr.size() <= 4:
 			arr.append(true)
-	
 	return arr.has(true)
 		
 
-func _get_colliding_object():
+func _get_colliding_object() -> String:
 	var obj = $RayCast2D.get_collider()
 	if obj == null:
-		return
+		return "null"
 	else:
-		print(obj)
+		return(obj.get_class())
 
 func _process(delta: float) -> void:
-	_get_colliding_object()
-	
-	
 	bottom_color = self.get_bottom_color()
 	
 	if has_game_started:
 		if self.better_is_on_floor():
-			bounce()
+			match (_get_colliding_object()):
+				"TileMap":
+					rumble_controller(0.3, 0.2)
+					emit_signal("landed_on_ground", self.bottom_color)
+					bounce(400)
+				"Enemy":
+					rumble_controller(0.6, 0.1)
+					emit_signal("player_has_landed_on_enemy")
+					bounce(200)
 		
 		var x_input = Input.get_action_strength("move_right") - Input.get_action_strength("move_left") # 1 = right  -1 = left
 		velocity.x += x_input * ACCELERATION * delta
@@ -135,7 +140,7 @@ func _process(delta: float) -> void:
 			rotation_dir = 0
 			if Input.is_action_just_pressed("slam"):
 				#spawn ghost
-				dash.start_dash(self, 0.15)
+				self._dash.start_dash(self, 0.15)
 				self.gravity = 9000
 			if Input.is_action_pressed("rotate_right"):
 				grey_guy.play("walking")
@@ -146,14 +151,14 @@ func _process(delta: float) -> void:
 			else:
 				grey_guy.stop()
 		
-		if is_on_floor() and self.global_position.y >= 218: # Actully laned
-			rumble_controller(0.3, 0.2)
-			emit_signal("player_has_landed_on_ground", self.bottom_color)
+		# if is_on_floor() and self.global_position.y >= 218: # Actully laned
+		# 	rumble_controller(0.3, 0.2)
+		# 	emit_signal("landed_on_ground", self.bottom_color)
 			
-		elif is_on_floor(): # Landed on enemy
-			rumble_controller(0.6, 0.1)
-			emit_signal("player_has_landed_on_enemy")
-			velocity.y = (-self.bounce_force + 100)
+		# elif is_on_floor(): # Landed on enemy
+		# 	rumble_controller(0.6, 0.1)
+		# 	emit_signal("player_has_landed_on_enemy")
+		# 	velocity.y = (-self.bounce_force + 100)
 		
 		velocity.x = lerp(velocity.x, 0, FRICTION)
 		ball.rotation += rotation_dir * self.rotation_speed * delta

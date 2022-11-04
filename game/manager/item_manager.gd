@@ -3,7 +3,7 @@ extends Node2D
 
 const p_FallingItem = preload("res://game/item/FallingItem.tscn")
 
-onready var timer_flask = $TimerFlask
+onready var timer_flask = get_node("TimerFlask")
 onready var view_rect := get_viewport_rect()
 
 var next_spawn_time: float = 5.0
@@ -31,9 +31,10 @@ func _on_TimerFlask_timeout() -> void:
 	var x_pos := rand_range(view_rect.position.x, view_rect.end.x)
 	var new_flask = p_FallingItem.instance()
 	new_flask.setup(Global.choose([Global.ITEMS.FLASK_ORANGE, Global.ITEMS.FLASK_BLUE, Global.ITEMS.FLASK_WHITE]))
+	new_flask.setup(Global.choose([Global.ITEMS.FLASK_WHITE]))
 	new_flask.position = Vector2(x_pos, position.y) 
-	add_child(new_flask)
+	self.add_child(new_flask)
 	# RESET TIMER
-	next_spawn_time = rand_range(min_spawn_time, max_spawn_time)
-	timer_flask.start(next_spawn_time)
+	self.next_spawn_time = rand_range(min_spawn_time, max_spawn_time)
+	self.timer_flask.start(next_spawn_time)
 

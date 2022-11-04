@@ -23,6 +23,9 @@ var colors: Array = [
 	"green"
 ]
 
+func get_class() -> String:
+	return "Enemy"
+
 func get_random_color() -> String:
 	return colors[randi() % colors.size()]
 
@@ -74,5 +77,5 @@ func _on_DamageArea_body_entered(body: Node) -> void:
 				body.take_damage()
 		else:
 			body.take_damage()
-		body.bounce()
+		##### 11/4/22 body.bounce()
 
