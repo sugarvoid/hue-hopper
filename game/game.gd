@@ -170,4 +170,4 @@ func _add_to_player_score(amount: int) -> void:
 
 func _on_ControlsVisible_timeout():
 	#TODO: Make fade out
-	self.remove_child(self.controls_sprite)
+	self.controls_sprite.queue_free()

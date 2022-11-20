@@ -21,7 +21,7 @@ func clear_hearts() -> void:
 func reset_combo(time: int) -> void:
 	$ComboBar/ComboTimer.start(time)
 
-func start_combo_decrease(x) -> void:
+func start_combo_decrease(_x) -> void:
 	is_combo_active = true
 	$ComboBar/ComboTimer.start(3)
 
