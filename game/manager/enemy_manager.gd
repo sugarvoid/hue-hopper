@@ -20,7 +20,7 @@ const ENEMY_OPTIONS : Array = [
 ]
 const SOFT_HEAD_SPEED: int = 50
 const SPIKE_HEAD_SPEED: int = 30
-const BAT_SPEED: int = 70
+const BAT_SPEED: int = 80
 
 onready var timer = get_node("SpawnTimer")
 
@@ -36,8 +36,6 @@ func _connect_child_signals(child: Enemy) -> void:
 	child.connect("player_killed_me", self, "_on_player_killed_enemy")
 	connect(child.player_killed_enemy, self, "test_func")
 
-func test_func():
-	print("DING!!!!!!")
 
 func _on_player_killed_enemy() -> void:
 	emit_signal("player_killed_ememy")

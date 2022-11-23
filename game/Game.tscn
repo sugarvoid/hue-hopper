@@ -84,6 +84,7 @@ texture = ExtResource( 17 )
 
 [node name="ControlsVisible" type="Timer" parent="."]
 wait_time = 10.0
+one_shot = true
 
 [connection signal="timeout" from="Cam2D/Timer" to="Cam2D" method="_on_Timer_timeout"]
 [connection signal="timeout" from="ControlsVisible" to="." method="_on_ControlsVisible_timeout"]
